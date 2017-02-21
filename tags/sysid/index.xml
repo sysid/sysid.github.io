@@ -7,36 +7,64 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>All rights reserved - 2016</copyright>
-    <lastBuildDate>Wed, 13 Jul 2016 20:30:39 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 20 Feb 2017 07:23:42 +0100</lastBuildDate>
     <atom:link href="https://sysid.github.io/tags/sysid/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>sysid</title>
+      <title>LSTM versus MLP</title>
       <link>https://sysid.github.io/post/sysid/</link>
-      <pubDate>Wed, 13 Jul 2016 20:30:39 +0200</pubDate>
+      <pubDate>Mon, 20 Feb 2017 07:23:42 +0100</pubDate>
       
       <guid>https://sysid.github.io/post/sysid/</guid>
-      <description>&lt;p&gt;Hello from &lt;strong&gt;sysid&lt;/strong&gt; to tww&lt;/p&gt;
+      <description>
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# comment
-for i in range(x):
-    print(&amp;quot;Hallo&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Playing around with RNN and LSTM for time series modelling so far resulted in disappointment. Traditional MLPs seem to perform better.
+On the internet RNNs are often pitched for time-series data, so what am I doing wrong?&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# comment
-for i in range(x)
-    print(&amp;quot;Hallo&amp;quot;)
+&lt;p&gt;I decided to analyse performance of LSTM time-series forecasting systematically.&lt;/p&gt;
 
-def func():
-    pass
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;First I needed to find suitable experimental data with a time dependent feature set and which can be controlled in an experimental setup easily.&lt;/p&gt;
 
-&lt;pre&gt;
-&lt;code class=&#34;py&#34;&gt;
-# comment
-for i in range(x)
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;p&gt;Reading &lt;a href=&#34;http://simaaron.github.io/Estimating-rainfall-from-weather-radar-readings-using-recurrent-neural-networks/&#34;&gt;http://simaaron.github.io/Estimating-rainfall-from-weather-radar-readings-using-recurrent-neural-networks/&lt;/a&gt; was enlightening and helpful:&lt;/p&gt;
+
+&lt;h3 id=&#34;part-1-the-adding-problem&#34;&gt;Part 1: The Adding Problem&lt;/h3&gt;
+
+&lt;p&gt;The prediction of cumulative values from variable-length sequences of vectors with a ‘time’ component is highly reminiscent of the so-called
+&lt;em&gt;Adding Problem&lt;/em&gt;
+ in machine learning—a toy sequence regression task that is designed to demonstrate the power of recurrent neural networks (RNN) in learning long-term dependencies (see
+ &lt;a href=&#34;http://arxiv.org/abs/1504.00941&#34;&gt;Le et al.&lt;/a&gt;
+ , Sec. 4.1, for a recent example):&lt;/p&gt;
+
+&lt;!-- 
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/RNN_adding.png&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;h4&gt;RNN&lt;/h4&gt;
+        
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+ --&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/RNN_adding.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;&lt;br&gt;
+Braced with this data I started my experiments &lt;a href=&#34;../../nbs/adding.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Traditional MLP models seem to be better suited for this kind of sequence problem. They converge for sequence sizes &amp;gt; 50 and seem to have lower MSE.
+This leaves me wondering whether the prevalent opinion on the internet on RNNs and especially LSTMs for time series data modelling seems to be misguided.&lt;/p&gt;
 </description>
     </item>
     

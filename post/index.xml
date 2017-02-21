@@ -12,10 +12,10 @@
     
     <item>
       <title>LSTM versus MLP</title>
-      <link>https://sysid.github.io/post/adding-problem/</link>
+      <link>https://sysid.github.io/post/sysid/</link>
       <pubDate>Mon, 20 Feb 2017 07:23:42 +0100</pubDate>
       
-      <guid>https://sysid.github.io/post/adding-problem/</guid>
+      <guid>https://sysid.github.io/post/sysid/</guid>
       <description>
 
 &lt;p&gt;Playing around with RNN and LSTM for time series modelling so far resulted in disappointment. Traditional MLPs seem to perform better.
