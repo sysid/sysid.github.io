@@ -9,7 +9,6 @@
   <url>
     <loc>https://sysid.github.io/</loc>
     <lastmod>2017-02-20T07:23:42+01:00</lastmod>
-<<<<<<< HEAD
     <priority>0</priority>
   </url>
   
@@ -46,13 +45,6 @@
   <url>
     <loc>https://sysid.github.io/tags/</loc>
     <priority>0</priority>
-=======
-  </url>
-  
-  <url>
-    <loc>https://sysid.github.io/post/adding-problem/</loc>
-    <lastmod>2017-02-20T07:23:42+01:00</lastmod>
->>>>>>> a511214640422872a0c05464154f990708a595b6
   </url>
   
 </urlset>
