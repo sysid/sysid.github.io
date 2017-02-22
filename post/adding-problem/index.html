@@ -5,7 +5,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+<<<<<<< HEAD
   	<meta property="og:title" content=" LSTM versus MLP for timeseries &middot;  " />
+=======
+  	<meta property="og:title" content=" LSTM versus MLP &middot;  " />
+>>>>>>> a511214640422872a0c05464154f990708a595b6
   	<meta property="og:site_name" content="" />
   	<meta property="og:url" content="https://sysid.github.io/post/adding-problem/" />
 
@@ -26,7 +30,11 @@
     
 
   <title>
+<<<<<<< HEAD
      LSTM versus MLP for timeseries &middot;  
+=======
+     LSTM versus MLP &middot;  
+>>>>>>> a511214640422872a0c05464154f990708a595b6
   </title>
 
     <meta name="description" content="" />
@@ -51,7 +59,11 @@
       
       
     
+<<<<<<< HEAD
     <meta name="generator" content="Hugo 0.18.1" />
+=======
+    <meta name="generator" content="Hugo 0.16" />
+>>>>>>> a511214640422872a0c05464154f990708a595b6
 
     <link rel="canonical" href="https://sysid.github.io/post/adding-problem/" />
 
@@ -93,7 +105,11 @@
         
             
             <li class="nav-opened nav-current" role="presentation">
+<<<<<<< HEAD
             	<a href="https://sysid.github.io/post/adding-problem/">LSTM versus MLP for timeseries</a>
+=======
+            	<a href="https://sysid.github.io/post/adding-problem/">LSTM versus MLP</a>
+>>>>>>> a511214640422872a0c05464154f990708a595b6
             </li>
         
     </ul>
@@ -131,7 +147,11 @@
   <article class="post post">
 
     <header class="post-header">
+<<<<<<< HEAD
         <h1 class="post-title">LSTM versus MLP for timeseries</h1>
+=======
+        <h1 class="post-title">LSTM versus MLP</h1>
+>>>>>>> a511214640422872a0c05464154f990708a595b6
         <small></small>
 
         <section class="post-meta">
@@ -155,6 +175,7 @@
     <section class="post-content">
       
 
+<<<<<<< HEAD
 <p>Long Short Term Memory neural networks versus Multi Layer Perceptrons for time series:</p>
 
 <p>Playing around with RNN and LSTM for time series modelling so far resulted in disappointment. Traditional MLPs seem to perform better.
@@ -164,6 +185,18 @@ with MLP models, so I decided to analyse performance of LSTM time-series forecas
 <p>First I needed to decided on the experimental setup and I started with a dataset which migth not seem as the natural first choice for timeseries examples: The Adding Problem.</p>
 
 <p>My inspiration herefor was <a href="http://simaaron.github.io/Estimating-rainfall-from-weather-radar-readings-using-recurrent-neural-networks/">http://simaaron.github.io/Estimating-rainfall-from-weather-radar-readings-using-recurrent-neural-networks/</a>.</p>
+=======
+<p>Long Short Term Memory neural networks versus Multi Layer Perceptrons:</p>
+
+<p>Playing around with RNN and LSTM for time series modelling so far resulted in disappointment. Traditional MLPs seem to perform better.
+On the internet RNNs are often pitched for time-series data, so what am I doing wrong?</p>
+
+<p>I decided to analyse performance of LSTM time-series forecasting systematically.</p>
+
+<p>First I needed to find suitable experimental data with a time dependent feature set and which can be controlled in an experimental setup easily.</p>
+
+<p>Reading <a href="http://simaaron.github.io/Estimating-rainfall-from-weather-radar-readings-using-recurrent-neural-networks/">http://simaaron.github.io/Estimating-rainfall-from-weather-radar-readings-using-recurrent-neural-networks/</a> was enlightening and helpful:</p>
+>>>>>>> a511214640422872a0c05464154f990708a595b6
 
 <h3 id="part-1-the-adding-problem">Part 1: The Adding Problem</h3>
 
@@ -197,11 +230,19 @@ with MLP models, so I decided to analyse performance of LSTM time-series forecas
 
 
 <p><br>
+<<<<<<< HEAD
 Braced with this data I started my experiments to compare LSTM with MLP <a href="../../nbs/adding.html">here</a>.</p>
 
 <h3 id="conclusion">Conclusion</h3>
 
 <p>Traditional MLP models seem to yield better results for this kind of sequence problem. They converge for sequence sizes &gt; 50 and seem to have lower MSE.
+=======
+Braced with this data I started my experiments <a href="../../nbs/adding.html">here</a>.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Traditional MLP models seem to be better suited for this kind of sequence problem. They converge for sequence sizes &gt; 50 and seem to have lower MSE.
+>>>>>>> a511214640422872a0c05464154f990708a595b6
 This leaves me wondering whether the prevalent opinion on the internet on RNNs and especially LSTMs for time series data modelling seems to be misguided.</p>
 
     </section>
@@ -234,7 +275,11 @@ This leaves me wondering whether the prevalent opinion on the internet on RNNs a
     
 <section class="share">
   <h4>Share this post</h4>
+<<<<<<< HEAD
   <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=LSTM%20versus%20MLP%20for%20timeseries&amp;url=https%3a%2f%2fsysid.github.io%2fpost%2fadding-problem%2f"
+=======
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=LSTM%20versus%20MLP&amp;url=https%3a%2f%2fsysid.github.io%2fpost%2fadding-problem%2f"
+>>>>>>> a511214640422872a0c05464154f990708a595b6
       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
       <span class="hidden">Twitter</span>
   </a>
@@ -242,7 +287,11 @@ This leaves me wondering whether the prevalent opinion on the internet on RNNs a
       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
       <span class="hidden">Facebook</span>
   </a>
+<<<<<<< HEAD
   <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fsysid.github.io%2fpost%2fadding-problem%2f&amp;description=LSTM%20versus%20MLP%20for%20timeseries"
+=======
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fsysid.github.io%2fpost%2fadding-problem%2f&amp;description=LSTM%20versus%20MLP"
+>>>>>>> a511214640422872a0c05464154f990708a595b6
       onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
       <span class="hidden">Pinterest</span>
   </a>

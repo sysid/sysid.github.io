@@ -11,13 +11,18 @@
     <atom:link href="https://sysid.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+<<<<<<< HEAD
       <title>LSTM versus MLP for timeseries</title>
+=======
+      <title>LSTM versus MLP</title>
+>>>>>>> a511214640422872a0c05464154f990708a595b6
       <link>https://sysid.github.io/post/adding-problem/</link>
       <pubDate>Mon, 20 Feb 2017 07:23:42 +0100</pubDate>
       
       <guid>https://sysid.github.io/post/adding-problem/</guid>
       <description>
 
+<<<<<<< HEAD
 &lt;p&gt;Long Short Term Memory neural networks versus Multi Layer Perceptrons for time series:&lt;/p&gt;
 
 &lt;p&gt;Playing around with RNN and LSTM for time series modelling so far resulted in disappointment. Traditional MLPs seem to perform better.
@@ -27,6 +32,18 @@ with MLP models, so I decided to analyse performance of LSTM time-series forecas
 &lt;p&gt;First I needed to decided on the experimental setup and I started with a dataset which migth not seem as the natural first choice for timeseries examples: The Adding Problem.&lt;/p&gt;
 
 &lt;p&gt;My inspiration herefor was &lt;a href=&#34;http://simaaron.github.io/Estimating-rainfall-from-weather-radar-readings-using-recurrent-neural-networks/&#34;&gt;http://simaaron.github.io/Estimating-rainfall-from-weather-radar-readings-using-recurrent-neural-networks/&lt;/a&gt;.&lt;/p&gt;
+=======
+&lt;p&gt;Long Short Term Memory neural networks versus Multi Layer Perceptrons:&lt;/p&gt;
+
+&lt;p&gt;Playing around with RNN and LSTM for time series modelling so far resulted in disappointment. Traditional MLPs seem to perform better.
+On the internet RNNs are often pitched for time-series data, so what am I doing wrong?&lt;/p&gt;
+
+&lt;p&gt;I decided to analyse performance of LSTM time-series forecasting systematically.&lt;/p&gt;
+
+&lt;p&gt;First I needed to find suitable experimental data with a time dependent feature set and which can be controlled in an experimental setup easily.&lt;/p&gt;
+
+&lt;p&gt;Reading &lt;a href=&#34;http://simaaron.github.io/Estimating-rainfall-from-weather-radar-readings-using-recurrent-neural-networks/&#34;&gt;http://simaaron.github.io/Estimating-rainfall-from-weather-radar-readings-using-recurrent-neural-networks/&lt;/a&gt; was enlightening and helpful:&lt;/p&gt;
+>>>>>>> a511214640422872a0c05464154f990708a595b6
 
 &lt;h3 id=&#34;part-1-the-adding-problem&#34;&gt;Part 1: The Adding Problem&lt;/h3&gt;
 
@@ -60,11 +77,19 @@ with MLP models, so I decided to analyse performance of LSTM time-series forecas
 
 
 &lt;p&gt;&lt;br&gt;
+<<<<<<< HEAD
 Braced with this data I started my experiments to compare LSTM with MLP &lt;a href=&#34;../../nbs/adding.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
 
 &lt;p&gt;Traditional MLP models seem to yield better results for this kind of sequence problem. They converge for sequence sizes &amp;gt; 50 and seem to have lower MSE.
+=======
+Braced with this data I started my experiments &lt;a href=&#34;../../nbs/adding.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Traditional MLP models seem to be better suited for this kind of sequence problem. They converge for sequence sizes &amp;gt; 50 and seem to have lower MSE.
+>>>>>>> a511214640422872a0c05464154f990708a595b6
 This leaves me wondering whether the prevalent opinion on the internet on RNNs and especially LSTMs for time series data modelling seems to be misguided.&lt;/p&gt;
 </description>
     </item>

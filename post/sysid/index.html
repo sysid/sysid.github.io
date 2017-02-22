@@ -5,24 +5,28 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  	<meta property="og:title" content=" sysid &middot;  " />
+  	<meta property="og:title" content=" LSTM versus MLP &middot;  " />
   	<meta property="og:site_name" content="" />
   	<meta property="og:url" content="https://sysid.github.io/post/sysid/" />
 
     
   	<meta property="og:type" content="article" />
 
-    <meta property="og:article:published_time" content="2016-07-13T20:30:39&#43;02:00" />
+    <meta property="og:article:published_time" content="2017-02-20T07:23:42&#43;01:00" />
 
     
     <meta property="og:article:tag" content="sysid" />
     
-    <meta property="og:article:tag" content="general" />
+    <meta property="og:article:tag" content="ml" />
+    
+    <meta property="og:article:tag" content="machine learning" />
+    
+    <meta property="og:article:tag" content="deep learning" />
     
     
 
   <title>
-     sysid &middot;  
+     LSTM versus MLP &middot;  
   </title>
 
     <meta name="description" content="" />
@@ -89,7 +93,7 @@
         
             
             <li class="nav-opened nav-current" role="presentation">
-            	<a href="https://sysid.github.io/post/sysid/">sysid</a>
+            	<a href="https://sysid.github.io/post/sysid/">LSTM versus MLP</a>
             </li>
         
     </ul>
@@ -106,10 +110,8 @@
 
 
 
-  
-  <header class="main-header post-head" style="background-image: url(https://sysid.github.io/images/2014/Jul/titledotscale.png)">
-  
-  <nav class="main-nav overlay clearfix">
+<header class="main-header post-head no-cover">
+  <nav class="main-nav clearfix">
 
 
   
@@ -129,45 +131,77 @@
   <article class="post post">
 
     <header class="post-header">
-        <h1 class="post-title">sysid</h1>
+        <h1 class="post-title">LSTM versus MLP</h1>
         <small></small>
 
         <section class="post-meta">
         
-          <time class="post-date" datetime="2016-07-13T20:30:39&#43;02:00">
-            Jul 13, 2016
+          <time class="post-date" datetime="2017-02-20T07:23:42&#43;01:00">
+            Feb 20, 2017
           </time>
         
          
           <span class="post-tag small"><a href="https://sysid.github.io/tags/sysid/">#sysid</a></span>
          
-          <span class="post-tag small"><a href="https://sysid.github.io/tags/general/">#general</a></span>
+          <span class="post-tag small"><a href="https://sysid.github.io/tags/ml/">#ml</a></span>
+         
+          <span class="post-tag small"><a href="https://sysid.github.io/tags/machine-learning/">#machine learning</a></span>
+         
+          <span class="post-tag small"><a href="https://sysid.github.io/tags/deep-learning/">#deep learning</a></span>
          
         </section>
     </header>
 
     <section class="post-content">
-      <p>Hello from <strong>sysid</strong> to tww</p>
+      
 
-<pre><code class="language-python"># comment
-for i in range(x):
-    print(&quot;Hallo&quot;)
-</code></pre>
+<p>Playing around with RNN and LSTM for time series modelling so far resulted in disappointment. Traditional MLPs seem to perform better.
+On the internet RNNs are often pitched for time-series data, so what am I doing wrong?</p>
 
-<pre><code class="language-python"># comment
-for i in range(x)
-    print(&quot;Hallo&quot;)
+<p>I decided to analyse performance of LSTM time-series forecasting systematically.</p>
 
-def func():
-    pass
-</code></pre>
+<p>First I needed to find suitable experimental data with a time dependent feature set and which can be controlled in an experimental setup easily.</p>
 
-<pre>
-<code class="py">
-# comment
-for i in range(x)
-</code>
-</pre>
+<p>Reading <a href="http://simaaron.github.io/Estimating-rainfall-from-weather-radar-readings-using-recurrent-neural-networks/">http://simaaron.github.io/Estimating-rainfall-from-weather-radar-readings-using-recurrent-neural-networks/</a> was enlightening and helpful:</p>
+
+<h3 id="part-1-the-adding-problem">Part 1: The Adding Problem</h3>
+
+<p>The prediction of cumulative values from variable-length sequences of vectors with a ‘time’ component is highly reminiscent of the so-called
+<em>Adding Problem</em>
+ in machine learning—a toy sequence regression task that is designed to demonstrate the power of recurrent neural networks (RNN) in learning long-term dependencies (see
+ <a href="http://arxiv.org/abs/1504.00941">Le et al.</a>
+ , Sec. 4.1, for a recent example):</p>
+
+<!-- 
+<figure >
+    
+        <img src="https://sysid.github.io/images/RNN_adding.png" />
+    
+    
+    <figcaption>
+        <h4>RNN</h4>
+        
+    </figcaption>
+    
+</figure>
+ -->
+
+
+<figure >
+    
+        <img src="https://sysid.github.io/images/RNN_adding.png" />
+    
+    
+</figure>
+
+
+<p><br>
+Braced with this data I started my experiments <a href="../../nbs/adding.html">here</a>.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Traditional MLP models seem to be better suited for this kind of sequence problem. They converge for sequence sizes &gt; 50 and seem to have lower MSE.
+This leaves me wondering whether the prevalent opinion on the internet on RNNs and especially LSTMs for time series data modelling seems to be misguided.</p>
 
     </section>
 
@@ -199,7 +233,7 @@ for i in range(x)
     
 <section class="share">
   <h4>Share this post</h4>
-  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=sysid&amp;url=https%3a%2f%2fsysid.github.io%2fpost%2fsysid%2f"
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=LSTM%20versus%20MLP&amp;url=https%3a%2f%2fsysid.github.io%2fpost%2fsysid%2f"
       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
       <span class="hidden">Twitter</span>
   </a>
@@ -207,7 +241,7 @@ for i in range(x)
       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
       <span class="hidden">Facebook</span>
   </a>
-  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fsysid.github.io%2fpost%2fsysid%2f&amp;description=sysid"
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fsysid.github.io%2fpost%2fsysid%2f&amp;description=LSTM%20versus%20MLP"
       onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
       <span class="hidden">Pinterest</span>
   </a>
