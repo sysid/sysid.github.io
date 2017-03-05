@@ -5,14 +5,14 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  	<meta property="og:title" content=" LSTM versus MLP for timeseries &middot;  " />
+  	<meta property="og:title" content=" Facebook&#39;s Prophet forecasting library &middot;  " />
   	<meta property="og:site_name" content="" />
-  	<meta property="og:url" content="https://sysid.github.io/post/adding-problem/" />
+  	<meta property="og:url" content="https://sysid.github.io/post/be-a-prophet-for-airline-data/" />
 
     
   	<meta property="og:type" content="article" />
 
-    <meta property="og:article:published_time" content="2017-02-20T07:23:42&#43;01:00" />
+    <meta property="og:article:published_time" content="2017-03-05T17:16:36&#43;01:00" />
 
     
     <meta property="og:article:tag" content="sysid" />
@@ -26,7 +26,7 @@
     
 
   <title>
-     LSTM versus MLP for timeseries &middot;  
+     Facebook&#39;s Prophet forecasting library &middot;  
   </title>
 
     <meta name="description" content="" />
@@ -53,7 +53,7 @@
     
     <meta name="generator" content="Hugo 0.16" />
 
-    <link rel="canonical" href="https://sysid.github.io/post/adding-problem/" />
+    <link rel="canonical" href="https://sysid.github.io/post/be-a-prophet-for-airline-data/" />
 
     
     <script>
@@ -92,12 +92,12 @@
             </li>
         
             
-            <li class="nav-opened" role="presentation">
+            <li class="nav-opened nav-current" role="presentation">
             	<a href="https://sysid.github.io/post/be-a-prophet-for-airline-data/">Facebook&#39;s Prophet forecasting library</a>
             </li>
         
             
-            <li class="nav-opened nav-current" role="presentation">
+            <li class="nav-opened" role="presentation">
             	<a href="https://sysid.github.io/post/adding-problem/">LSTM versus MLP for timeseries</a>
             </li>
         
@@ -136,13 +136,13 @@
   <article class="post post">
 
     <header class="post-header">
-        <h1 class="post-title">LSTM versus MLP for timeseries</h1>
+        <h1 class="post-title">Facebook&#39;s Prophet forecasting library</h1>
         <small></small>
 
         <section class="post-meta">
         
-          <time class="post-date" datetime="2017-02-20T07:23:42&#43;01:00">
-            Feb 20, 2017
+          <time class="post-date" datetime="2017-03-05T17:16:36&#43;01:00">
+            Mar 5, 2017
           </time>
         
          
@@ -160,54 +160,73 @@
     <section class="post-content">
       
 
-<p>Long Short Term Memory neural networks versus Multi Layer Perceptrons for time series:</p>
+<h1 id="be-a-prophet-for-1960-s-airline-data">Be a prophet for 1960&rsquo;s airline data</h1>
 
-<p>Playing around with RNN and LSTM for time series modelling so far resulted in disappointment. Traditional MLPs seem to perform better.
-On the internet RNNs are often recommended for time-series data, but my results do not confirm this sentiment. Published examples on the internet normaly do not include a comparision
-with MLP models, so I decided to analyse performance of LSTM time-series forecasting versus MLP systematically.</p>
+<p>Facebook released a forecasting library for business timeseries, called <a href="https://facebookincubator.github.io/prophet/">Prophet</a>. It&rsquo;s designed
+to work similar to the phantastic <a href="phttp://scikit-learn.org/stable/">scikit-learn</a> library and is therefor easy to use.</p>
 
-<p>First I needed to decided on the experimental setup and I started with a dataset which migth not seem as the natural first choice for timeseries examples: The Adding Problem.</p>
+<p>In order to give an example of its usefulness and effectiveness I will apply it to the good old airline passenger dataset.</p>
 
-<p>My inspiration herefor was <a href="http://simaaron.github.io/Estimating-rainfall-from-weather-radar-readings-using-recurrent-neural-networks/">http://simaaron.github.io/Estimating-rainfall-from-weather-radar-readings-using-recurrent-neural-networks/</a>.</p>
+<p>The input to <strong>Prophet</strong> is always a dataframe with two columns: <strong><code>ds</code></strong> and <strong><code>y</code></strong>. The <strong><code>ds (datestamp)</code></strong> column must contain a date or datetime (either is fine). The <strong><code>y</code></strong> column must be numeric, and represents the measurement we wish to forecast.</p>
 
-<h3 id="part-1-the-adding-problem">Part 1: The Adding Problem</h3>
+<pre><code class="language-python">df = pd.read_csv(DATA_HOME_DIR+'/international-airline-passengers.csv',
+                 sep=';',
+                 names=['ds', 'y'],
+                 header=0,
+                 parse_dates=[0],
+                 nrows=144,
+                )
+</code></pre>
 
-<p>The prediction of cumulative values from variable-length sequences of vectors with a ‘time’ component is highly reminiscent of the so-called
-<em>Adding Problem</em>
- in machine learning—a toy sequence regression task that is designed to demonstrate the power of recurrent neural networks (RNN) in learning long-term dependencies (see
- <a href="http://arxiv.org/abs/1504.00941">Le et al.</a>
- , Sec. 4.1, for a recent example):</p>
+<p>Since the data seems to incorporate an exponential growth trend, we preprocess it by taking the <strong><code>log</code></strong> and use the linear
+trend fitting capabilities of <strong>Prophet</strong>.</p>
 
-<!-- 
+<pre><code class="language-python">df['y'] = np.log(df['y'])
+</code></pre>
+
+<p>We only have monthly data, so certainly there will be no weekly seasonality in the date. Forecasting must take this into account and choose the right frequency for the target dates.</p>
+
+<pre><code class="language-python">m = Prophet(weekly_seasonality=False)
+</code></pre>
+
+<p>Now we can simply call the <strong><code>fit</code></strong> method in order to fit the data.</p>
+
+<pre><code class="language-python">m.fit(df)
+</code></pre>
+
+<p>Predictions are then made on a dataframe with a column <strong><code>ds</code></strong> containing the dates for which a prediction is to be made. You can get a suitable dataframe that extends into the future a specified number of days using the helper method <strong><code>Prophet.make_future_dataframe</code></strong>. By default it will also include the dates from the history, so we will see the model fit as well.</p>
+
+<pre><code class="language-python">future = m.make_future_dataframe(periods=36, freq='M')
+</code></pre>
+
+<p>The <strong><code>predict</code></strong> method will assign each row in <strong><code>future</code></strong> a predicted value which it names yhat. If you pass in historical dates, it will provide an in-sample fit. The forecast object here is a new dataframe that includes a column yhat with the forecast, as well as columns for components and uncertainty intervals.</p>
+
+<pre><code class="language-python">forecast = m.predict(future)
+</code></pre>
+
+<p>The result is promising:
+
 <figure >
     
-        <img src="https://sysid.github.io/images/RNN_adding.png" />
+        <img src="https://sysid.github.io/images/airline_fit.png" />
     
-    
-    <figcaption>
-        <h4>RNN</h4>
-        
-    </figcaption>
     
 </figure>
- -->
+</p>
 
+<p>Prophet automatically gives you an overall trend analysis and decomposes the time series into its constituing compontents like yearly seasonality:
 
 <figure >
     
-        <img src="https://sysid.github.io/images/RNN_adding.png" />
+        <img src="https://sysid.github.io/images/airline_comp1.png" />
     
     
 </figure>
+</p>
 
+<p>Seeing a almost perfect linear trend confirms the original hypothesis of having a exponential growth trend. Having a peak in July for travel numbers, it seems that the holiday season in the western hemisphere is kicking in. However this is just an asumption since I have not been born at the time and don&rsquo;t know the holiday season arrangments of the time.</p>
 
-<p><br>
-Braced with this data I started my experiments to compare LSTM with MLP <a href="../../nbs/adding.html">here</a>.</p>
-
-<h3 id="conclusion">Conclusion</h3>
-
-<p>Traditional MLP models seem to yield better results for this kind of sequence problem. They converge for sequence sizes &gt; 50 and seem to have lower MSE.
-This leaves me wondering whether the prevalent opinion on the internet on RNNs and especially LSTMs for time series data modelling seems to be misguided.</p>
+<p>If you are interested in another helpful example, I refer to the excellent article of Arne: <a href="https://arnesund.com/2017/02/26/using-facebook-prophet-forecasting-library-to-predict-the-weather/">https://arnesund.com/2017/02/26/using-facebook-prophet-forecasting-library-to-predict-the-weather/</a></p>
 
     </section>
 
@@ -239,19 +258,19 @@ This leaves me wondering whether the prevalent opinion on the internet on RNNs a
     
 <section class="share">
   <h4>Share this post</h4>
-  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=LSTM%20versus%20MLP%20for%20timeseries&amp;url=https%3a%2f%2fsysid.github.io%2fpost%2fadding-problem%2f"
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Facebook%27s%20Prophet%20forecasting%20library&amp;url=https%3a%2f%2fsysid.github.io%2fpost%2fbe-a-prophet-for-airline-data%2f"
       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
       <span class="hidden">Twitter</span>
   </a>
-  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsysid.github.io%2fpost%2fadding-problem%2f"
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsysid.github.io%2fpost%2fbe-a-prophet-for-airline-data%2f"
       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
       <span class="hidden">Facebook</span>
   </a>
-  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fsysid.github.io%2fpost%2fadding-problem%2f&amp;description=LSTM%20versus%20MLP%20for%20timeseries"
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fsysid.github.io%2fpost%2fbe-a-prophet-for-airline-data%2f&amp;description=Facebook%27s%20Prophet%20forecasting%20library"
       onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
       <span class="hidden">Pinterest</span>
   </a>
-  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fsysid.github.io%2fpost%2fadding-problem%2f"
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fsysid.github.io%2fpost%2fbe-a-prophet-for-airline-data%2f"
      onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
       <span class="hidden">Google+</span>
   </a>
@@ -264,7 +283,7 @@ This leaves me wondering whether the prevalent opinion on the internet on RNNs a
 <div id="disqus_thread"></div>
 <script type="text/javascript">
   var disqus_shortname = 'sysid';
-  var disqus_url = 'https:\/\/sysid.github.io\/post\/adding-problem\/';
+  var disqus_url = 'https:\/\/sysid.github.io\/post\/be-a-prophet-for-airline-data\/';
   (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
