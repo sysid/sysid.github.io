@@ -2,12 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Machine Learning on </title>
-    <link>https://sysid.github.io/tags/machine-learning/</link>
+    <link>https://sysid.github.io/tags/machine-learning/index.xml</link>
     <description>Recent content in Machine Learning on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>All rights reserved - 2016</copyright>
-    <lastBuildDate>Sun, 05 Mar 2017 17:16:36 +0100</lastBuildDate>
     <atom:link href="https://sysid.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
