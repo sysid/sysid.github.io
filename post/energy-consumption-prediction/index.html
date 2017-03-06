@@ -5,14 +5,14 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  	<meta property="og:title" content=" Facebook&#39;s Prophet forecasting library &middot;  " />
+  	<meta property="og:title" content=" energy consumption prediction &middot;  " />
   	<meta property="og:site_name" content="" />
-  	<meta property="og:url" content="https://sysid.github.io/post/be-a-prophet-for-airline-data/" />
+  	<meta property="og:url" content="https://sysid.github.io/post/energy-consumption-prediction/" />
 
     
   	<meta property="og:type" content="article" />
 
-    <meta property="og:article:published_time" content="2017-03-05T17:16:36&#43;01:00" />
+    <meta property="og:article:published_time" content="2017-03-05T19:39:50&#43;01:00" />
 
     
     <meta property="og:article:tag" content="sysid" />
@@ -26,7 +26,7 @@
     
 
   <title>
-     Facebook&#39;s Prophet forecasting library &middot;  
+     energy consumption prediction &middot;  
   </title>
 
     <meta name="description" content="" />
@@ -53,7 +53,7 @@
     
     <meta name="generator" content="Hugo 0.18.1" />
 
-    <link rel="canonical" href="https://sysid.github.io/post/be-a-prophet-for-airline-data/" />
+    <link rel="canonical" href="https://sysid.github.io/post/energy-consumption-prediction/" />
 
     
     <script>
@@ -92,7 +92,7 @@
             </li>
         
             
-            <li class="nav-opened nav-current" role="presentation">
+            <li class="nav-opened" role="presentation">
             	<a href="https://sysid.github.io/post/be-a-prophet-for-airline-data/">Facebook&#39;s Prophet forecasting library</a>
             </li>
         
@@ -102,7 +102,7 @@
             </li>
         
             
-            <li class="nav-opened" role="presentation">
+            <li class="nav-opened nav-current" role="presentation">
             	<a href="https://sysid.github.io/post/energy-consumption-prediction/">energy consumption prediction</a>
             </li>
         
@@ -141,12 +141,12 @@
   <article class="post post">
 
     <header class="post-header">
-        <h1 class="post-title">Facebook&#39;s Prophet forecasting library</h1>
+        <h1 class="post-title">energy consumption prediction</h1>
         <small></small>
 
         <section class="post-meta">
         
-          <time class="post-date" datetime="2017-03-05T17:16:36&#43;01:00">
+          <time class="post-date" datetime="2017-03-05T19:39:50&#43;01:00">
             Mar 5, 2017
           </time>
         
@@ -165,75 +165,135 @@
     <section class="post-content">
       
 
-<h1 id="be-a-prophet-for-1960-s-airline-data">Be a prophet for 1960&rsquo;s airline data</h1>
+<h1 id="energy-consumption-prediction-with-recurrent-neural-networks">Energy Consumption Prediction with Recurrent Neural Networks</h1>
 
-<p>Facebook released a forecasting library for business timeseries, called <a href="https://facebookincubator.github.io/prophet/">Prophet</a>. It&rsquo;s designed
-to work similar to the phantastic <a href="phttp://scikit-learn.org/stable/">scikit-learn</a> library and is therefor easy to use.</p>
+<p>We look at 52 European energy markets and their power consumption patterns.</p>
 
-<p>In order to give an example of its usefulness and effectiveness I will apply it to the good old airline passenger dataset.</p>
+<p>The forecast technology will be based on recurrent neural networks.
+While there are many other, also simpler techniques (e.g. ARIMA, Facebook&rsquo;s Prophet, time-shifting) this is an attempt to harness machine learning capabilities to predict future consumption patterns.</p>
 
-<p>The input to <strong>Prophet</strong> is always a dataframe with two columns: <strong><code>ds</code></strong> and <strong><code>y</code></strong>. The <strong><code>ds (datestamp)</code></strong> column must contain a date or datetime (either is fine). The <strong><code>y</code></strong> column must be numeric, and represents the measurement we wish to forecast.</p>
+<p>The data consists of hourly values of country/region power consumption of 52 countries over the course from 1.1.2014 - 31.12.2018,
+which gives us 43000 data points per country. Of course the data consists only of
+real world data up to 2016 and then forcast data from a commercial data provider up until end of 2018.</p>
 
-<pre><code class="language-python">df = pd.read_csv(DATA_HOME_DIR+'/international-airline-passengers.csv',
-                 sep=';',
-                 names=['ds', 'y'],
-                 header=0,
-                 parse_dates=[0],
-                 nrows=144,
-                )
-</code></pre>
+<p>For our purposes we assume the entire time series as real data and try to predict time intervals with machine learning techniques.</p>
 
-<p>Since the data seems to incorporate an exponential growth trend, we preprocess it by taking the <strong><code>log</code></strong> and use the linear
-trend fitting capabilities of <strong>Prophet</strong>.</p>
+<h4 id="energy-consumption-germany">Energy Consumption Germany</h4>
 
-<pre><code class="language-python">df['y'] = np.log(df['y'])
-</code></pre>
+<p>
+<figure >
+    
+        <img src="https://sysid.github.io/images/consumption/consumption_DE.png" />
+    
+    
+</figure>
 
-<p>We only have monthly data, so certainly there will be no weekly seasonality in the date. Forecasting must take this into account and choose the right frequency for the target dates.</p>
+<br>
+The data is generally quite regular and periodic, so this seems to be an adequate use case for RNN prediction.</p>
 
-<pre><code class="language-python">m = Prophet(weekly_seasonality=False)
-</code></pre>
+<h2 id="the-problem">The Problem</h2>
 
-<p>Now we can simply call the <strong><code>fit</code></strong> method in order to fit the data.</p>
+<p>The problem we are facing is Multivariate time series regression.</p>
 
-<pre><code class="language-python">m.fit(df)
-</code></pre>
+<p>In order to run the code, we make sure that the data matrix is a numpy array of size
+<strong><code>T x N</code></strong> where <strong><code>T</code></strong> is the length of time series and <strong><code>N</code></strong> is the number of them.</p>
 
-<p>Predictions are then made on a dataframe with a column <strong><code>ds</code></strong> containing the dates for which a prediction is to be made. You can get a suitable dataframe that extends into the future a specified number of days using the helper method <strong><code>Prophet.make_future_dataframe</code></strong>. By default it will also include the dates from the history, so we will see the model fit as well.</p>
+<p>Technically, with RNNs we should pass the entire history of time series and RNNs should be able to capture
+the patterns over long period of time.</p>
 
-<pre><code class="language-python">future = m.make_future_dataframe(periods=36, freq='M')
-</code></pre>
+<p>Another approach is to break long sequences into smaller pieces. The size of window determines the longest
+patterns in time that can possibly be captured by RNN. You need to select the window size according to the
+expected length of temporal patterns.</p>
 
-<p>The <strong><code>predict</code></strong> method will assign each row in <strong><code>future</code></strong> a predicted value which it names yhat. If you pass in historical dates, it will provide an in-sample fit. The forecast object here is a new dataframe that includes a column yhat with the forecast, as well as columns for components and uncertainty intervals.</p>
+<p>For our analysis we set the period length at 80 datapoints which is equivalent to an 80hour time forecast.</p>
 
-<pre><code class="language-python">forecast = m.predict(future)
-</code></pre>
+<p>So the entire &lsquo;history&rsquo; for our RNN consists of 80 hours of energy consumption.</p>
 
-<p>The result is promising:
+<h2 id="setup">Setup</h2>
+
+<p>I tested three different models based on Gated Recurrent Units (GRU) as RNN units.</p>
+
+<p>The dataset, a <strong><code>43000x52</code></strong> matrix, was sequenced into a <strong><code>464x80x52</code></strong> tensor for training and a <strong><code>82x80x52</code></strong> tensor for testing.
+This gives us 82 potential time periods of 80 hours per market for testing.</p>
+
+<p>The <strong><code>464x80x52</code></strong> tensor is equivalent to 464 different timeseries per market, each of length 80.</p>
+
+<p>The model has been trained on the training set with <strong><code>100</code></strong> epochs and a <strong><code>batch_size of 64</code></strong>. Training took about 2 minutes per model on a NVIDIA GTX780.</p>
+
+<p>To test the accuracy I will here only present a visual comparision between the predicted curve and the real data. To this end a time sequence from the test set
+and a market has been chosen randomly and plotted.</p>
+
+<h2 id="results">Results</h2>
+
+<h3 id="model-1">Model 1</h3>
+
+<p>
+<figure >
+    
+        <img src="https://sysid.github.io/images/consumption/model1.png" />
+    
+    
+</figure>
+
 
 <figure >
     
-        <img src="https://sysid.github.io/images/airline_fit.png" />
+        <img src="https://sysid.github.io/images/consumption/model1_i10_m08.png" />
     
     
 </figure>
 </p>
 
-<p>Prophet automatically gives you an overall trend analysis and decomposes the time series into its constituing compontents like yearly seasonality:
+<h3 id="model-2">Model 2</h3>
+
+<p>
+<figure >
+    
+        <img src="https://sysid.github.io/images/consumption/model2.png" />
+    
+    
+</figure>
+
 
 <figure >
     
-        <img src="https://sysid.github.io/images/airline_comp1.png" />
+        <img src="https://sysid.github.io/images/consumption/model2_i27_m50.png" />
     
     
 </figure>
 </p>
 
-<p>Seeing a almost perfect linear trend confirms the original hypothesis of having a exponential growth trend.</p>
+<h3 id="model-3">Model 3</h3>
 
-<p>The steps in the yearly trend plot seem to be an artefact of fitting. Having a peak in July for travel numbers seem to indicate  the holiday season in the western hemisphere. However this is just an asumption since I have not been born then and are not familiar of the holiday season arrangments of the time.</p>
+<p>
+<figure >
+    
+        <img src="https://sysid.github.io/images/consumption/model3.png" />
+    
+    
+</figure>
 
-<p>If you are interested in another helpful example, I refer to the excellent article of Arne: <a href="https://arnesund.com/2017/02/26/using-facebook-prophet-forecasting-library-to-predict-the-weather/">https://arnesund.com/2017/02/26/using-facebook-prophet-forecasting-library-to-predict-the-weather/</a></p>
+
+<figure >
+    
+        <img src="https://sysid.github.io/images/consumption/model3_i46_m50.png" />
+    
+    
+</figure>
+</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>I did not bother to retransform the axis scales to the original units MW and Date because here I am only interested in a qualitative asssessment of
+forecast quality.</p>
+
+<p>Surprising for me was to see, that all three models more or less deliver similar good results in projecting the time dependency of the energy consumption.</p>
+
+<p>This is remarkable since there has been no hyperparamter tuning at all. The models were fit &lsquo;out of the box&rsquo;.</p>
+
+<p>Since this result has been achieved with very little work, using RNNs for this kind of time series prediction seems to be effective.</p>
+
+<p>Thanks for reading.</p>
 
     </section>
 
@@ -265,19 +325,19 @@ trend fitting capabilities of <strong>Prophet</strong>.</p>
     
 <section class="share">
   <h4>Share this post</h4>
-  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Facebook%27s%20Prophet%20forecasting%20library&amp;url=https%3a%2f%2fsysid.github.io%2fpost%2fbe-a-prophet-for-airline-data%2f"
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=energy%20consumption%20prediction&amp;url=https%3a%2f%2fsysid.github.io%2fpost%2fenergy-consumption-prediction%2f"
       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
       <span class="hidden">Twitter</span>
   </a>
-  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsysid.github.io%2fpost%2fbe-a-prophet-for-airline-data%2f"
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsysid.github.io%2fpost%2fenergy-consumption-prediction%2f"
       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
       <span class="hidden">Facebook</span>
   </a>
-  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fsysid.github.io%2fpost%2fbe-a-prophet-for-airline-data%2f&amp;description=Facebook%27s%20Prophet%20forecasting%20library"
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fsysid.github.io%2fpost%2fenergy-consumption-prediction%2f&amp;description=energy%20consumption%20prediction"
       onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
       <span class="hidden">Pinterest</span>
   </a>
-  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fsysid.github.io%2fpost%2fbe-a-prophet-for-airline-data%2f"
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fsysid.github.io%2fpost%2fenergy-consumption-prediction%2f"
      onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
       <span class="hidden">Google+</span>
   </a>
@@ -290,7 +350,7 @@ trend fitting capabilities of <strong>Prophet</strong>.</p>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
   var disqus_shortname = 'sysid';
-  var disqus_url = 'https:\/\/sysid.github.io\/post\/be-a-prophet-for-airline-data\/';
+  var disqus_url = 'https:\/\/sysid.github.io\/post\/energy-consumption-prediction\/';
   (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';

@@ -10,6 +10,146 @@
     <atom:link href="https://sysid.github.io/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>energy consumption prediction</title>
+      <link>https://sysid.github.io/post/energy-consumption-prediction/</link>
+      <pubDate>Sun, 05 Mar 2017 19:39:50 +0100</pubDate>
+      
+      <guid>https://sysid.github.io/post/energy-consumption-prediction/</guid>
+      <description>
+
+&lt;h1 id=&#34;energy-consumption-prediction-with-recurrent-neural-networks&#34;&gt;Energy Consumption Prediction with Recurrent Neural Networks&lt;/h1&gt;
+
+&lt;p&gt;We look at 52 European energy markets and their power consumption patterns.&lt;/p&gt;
+
+&lt;p&gt;The forecast technology will be based on recurrent neural networks.
+While there are many other, also simpler techniques (e.g. ARIMA, Facebook&amp;rsquo;s Prophet, time-shifting) this is an attempt to harness machine learning capabilities to predict future consumption patterns.&lt;/p&gt;
+
+&lt;p&gt;The data consists of hourly values of country/region power consumption of 52 countries over the course from 1.1.2014 - 31.12.2018,
+which gives us 43000 data points per country. Of course the data consists only of
+real world data up to 2016 and then forcast data from a commercial data provider up until end of 2018.&lt;/p&gt;
+
+&lt;p&gt;For our purposes we assume the entire time series as real data and try to predict time intervals with machine learning techniques.&lt;/p&gt;
+
+&lt;h4 id=&#34;energy-consumption-germany&#34;&gt;Energy Consumption Germany&lt;/h4&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/consumption/consumption_DE.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+&lt;br&gt;
+The data is generally quite regular and periodic, so this seems to be an adequate use case for RNN prediction.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;
+
+&lt;p&gt;The problem we are facing is Multivariate time series regression.&lt;/p&gt;
+
+&lt;p&gt;In order to run the code, we make sure that the data matrix is a numpy array of size
+&lt;strong&gt;&lt;code&gt;T x N&lt;/code&gt;&lt;/strong&gt; where &lt;strong&gt;&lt;code&gt;T&lt;/code&gt;&lt;/strong&gt; is the length of time series and &lt;strong&gt;&lt;code&gt;N&lt;/code&gt;&lt;/strong&gt; is the number of them.&lt;/p&gt;
+
+&lt;p&gt;Technically, with RNNs we should pass the entire history of time series and RNNs should be able to capture
+the patterns over long period of time.&lt;/p&gt;
+
+&lt;p&gt;Another approach is to break long sequences into smaller pieces. The size of window determines the longest
+patterns in time that can possibly be captured by RNN. You need to select the window size according to the
+expected length of temporal patterns.&lt;/p&gt;
+
+&lt;p&gt;For our analysis we set the period length at 80 datapoints which is equivalent to an 80hour time forecast.&lt;/p&gt;
+
+&lt;p&gt;So the entire &amp;lsquo;history&amp;rsquo; for our RNN consists of 80 hours of energy consumption.&lt;/p&gt;
+
+&lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
+
+&lt;p&gt;I tested three different models based on Gated Recurrent Units (GRU) as RNN units.&lt;/p&gt;
+
+&lt;p&gt;The dataset, a &lt;strong&gt;&lt;code&gt;43000x52&lt;/code&gt;&lt;/strong&gt; matrix, was sequenced into a &lt;strong&gt;&lt;code&gt;464x80x52&lt;/code&gt;&lt;/strong&gt; tensor for training and a &lt;strong&gt;&lt;code&gt;82x80x52&lt;/code&gt;&lt;/strong&gt; tensor for testing.
+This gives us 82 potential time periods of 80 hours per market for testing.&lt;/p&gt;
+
+&lt;p&gt;The &lt;strong&gt;&lt;code&gt;464x80x52&lt;/code&gt;&lt;/strong&gt; tensor is equivalent to 464 different timeseries per market, each of length 80.&lt;/p&gt;
+
+&lt;p&gt;The model has been trained on the training set with &lt;strong&gt;&lt;code&gt;100&lt;/code&gt;&lt;/strong&gt; epochs and a &lt;strong&gt;&lt;code&gt;batch_size of 64&lt;/code&gt;&lt;/strong&gt;. Training took about 2 minutes per model on a NVIDIA GTX780.&lt;/p&gt;
+
+&lt;p&gt;To test the accuracy I will here only present a visual comparision between the predicted curve and the real data. To this end a time sequence from the test set
+and a market has been chosen randomly and plotted.&lt;/p&gt;
+
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+
+&lt;h3 id=&#34;model-1&#34;&gt;Model 1&lt;/h3&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/consumption/model1.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/consumption/model1_i10_m08.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;h3 id=&#34;model-2&#34;&gt;Model 2&lt;/h3&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/consumption/model2.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/consumption/model2_i27_m50.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;h3 id=&#34;model-3&#34;&gt;Model 3&lt;/h3&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/consumption/model3.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/consumption/model3_i46_m50.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;I did not bother to retransform the axis scales to the original units MW and Date because here I am only interested in a qualitative asssessment of
+forecast quality.&lt;/p&gt;
+
+&lt;p&gt;Surprising for me was to see, that all three models more or less deliver similar good results in projecting the time dependency of the energy consumption.&lt;/p&gt;
+
+&lt;p&gt;This is remarkable since there has been no hyperparamter tuning at all. The models were fit &amp;lsquo;out of the box&amp;rsquo;.&lt;/p&gt;
+
+&lt;p&gt;Since this result has been achieved with very little work, using RNNs for this kind of time series prediction seems to be effective.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Facebook&#39;s Prophet forecasting library</title>
       <link>https://sysid.github.io/post/be-a-prophet-for-airline-data/</link>
       <pubDate>Sun, 05 Mar 2017 17:16:36 +0100</pubDate>
