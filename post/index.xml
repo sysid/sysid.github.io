@@ -7,8 +7,96 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>All rights reserved - 2016</copyright>
-    <lastBuildDate>Sun, 05 Mar 2017 19:39:50 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 07 Mar 2017 21:53:53 +0100</lastBuildDate>
     <atom:link href="https://sysid.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>energy consumption prediction with prophet</title>
+      <link>https://sysid.github.io/post/energy-consumption-prediction-with-prophet/</link>
+      <pubDate>Tue, 07 Mar 2017 21:53:53 +0100</pubDate>
+      
+      <guid>https://sysid.github.io/post/energy-consumption-prediction-with-prophet/</guid>
+      <description>
+
+&lt;h1 id=&#34;energy-consumption-prediction-with-facebook-s-prophet-library&#34;&gt;Energy Consumption Prediction with Facebook&amp;rsquo;s Prophet library&lt;/h1&gt;
+
+&lt;p&gt;I already introduced &lt;a href=&#34;https://facebookincubator.github.io/prophet/&#34;&gt;Prophet&lt;/a&gt; as a time-series prediction tool which has a
+exceptionally well designed user interface and is easy to use for simple cases while delivering impressive results
+(&lt;a href=&#34;https://sysid.github.io/post/be-a-prophet-for-airline-data/&#34;&gt;see airline use case&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Today I will use &lt;a href=&#34;https://facebookincubator.github.io/prophet/&#34;&gt;Prophet&lt;/a&gt; for predicting energy consumption in Germany based on real data. Recently I covered the &lt;a href=&#34;https://sysid.github.io/post/energy-consumption-prediction/&#34;&gt;same use
+case with Recurrent Neural Networks&lt;/a&gt; so this will serve as comparison of two different prediction approaches.&lt;/p&gt;
+
+&lt;h2 id=&#34;data&#34;&gt;Data&lt;/h2&gt;
+
+&lt;p&gt;Raw data is the hourly energy consumption of Germany from 2014 to end of 2016 and then further predicted up until 2018.
+This timeseries from 2014-2018 will then in total be used as basis for predition into 2019.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/consumptionProphet/consumptionProphet1.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;h2 id=&#34;model&#34;&gt;Model&lt;/h2&gt;
+
+&lt;p&gt;Again it is surprising how user friendly Facebook designed the library interface. You don&amp;rsquo;t really need to have any
+programming skills in order to use most of the framework out of the box:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;m = Prophet()
+m.fit(de)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;prediction&#34;&gt;Prediction&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;days = 365
+future = m.make_future_dataframe(periods=24*days, freq=&#39;H&#39;)
+forecast = m.predict(future)
+m.plot(forecast)
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/consumptionProphet/consumptionProphet2.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;You can see high variance in the forecast due to day and night differences of 40000 GW. It would be a straightforward exercise
+to narrow the variance by eliminating day-night differences and only look at averages or top figures.&lt;/p&gt;
+
+&lt;p&gt;When looking at the components of the intrapolated curve you can nicely identify the trends in energy consumption on weekends
+as well as during summer months and the christmas break. Also the overall decreasing trend in power consumption has been picked up correctly. The little peak in 2016 does not seem to be statically significant. However, this probably needs further investigation.&lt;/p&gt;
+
+&lt;p&gt;The nice thing is: Prophet gives you this decomposition &amp;lsquo;for free&amp;rsquo;.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/consumptionProphet/consumptionProphet3.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;Not only fits the model the real seasonal trends quite well, it extrapoloates them into the future as prediction. The quality of
+the prediction has not been assessed, but in this analysis I am only interested in picking up the time dependencies and trends over an extended period.&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Compared to to time series prediction with Recurrent Neuronal Networks the approach is much simpler and time effective. At least
+for this particular well behaved use case the results are good in both cases.&lt;/p&gt;
+
+&lt;p&gt;Certainly this paper is only a very rough qualitätive proof of concept, but it is promising enough to incorporate  &lt;a href=&#34;https://facebookincubator.github.io/prophet/&#34;&gt;Prophet&lt;/a&gt; into my toolbelt for time series forecasting.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>energy consumption prediction</title>
