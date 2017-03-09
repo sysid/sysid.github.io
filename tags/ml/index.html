@@ -41,7 +41,7 @@
         <link href="https://sysid.github.io/tags/ml/index.xml" rel="alternate" type="application/rss+xml" title="Ml &middot; " />
       
     
-    <meta name="generator" content="Hugo 0.16" />
+    <meta name="generator" content="Hugo 0.18.1" />
 
     <link rel="canonical" href="https://sysid.github.io/tags/ml/" />
 
@@ -83,22 +83,7 @@
         
             
             <li class="nav-opened" role="presentation">
-            	<a href="https://sysid.github.io/post/be-a-prophet-for-airline-data/">Facebook&#39;s Prophet forecasting library</a>
-            </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="https://sysid.github.io/post/adding-problem/">LSTM versus MLP for timeseries</a>
-            </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="https://sysid.github.io/post/energy-consumption-prediction/">energy consumption prediction</a>
-            </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="https://sysid.github.io/post/energy-consumption-prediction-with-prophet/">energy consumption prediction with prophet</a>
+            	<a href="https://sysid.github.io/machine-learning/">machine learning</a>
             </li>
         
     </ul>
@@ -149,12 +134,45 @@
 
 	
 	   
+<article class="post ">
+    <header class="post-header">
+        <h2 class="post-title"><a href="https://sysid.github.io/machine-learning/">machine learning</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Machine Learning Cheat Sheet General Explanations:  embeddings: a way to translate input into integers for neural network: shortcut for onehot followed by matrix product, if no embeddings input has to be one-hot-encoded KFold Cross Validation: The purpose of cross-validation is model checking, not model building. Once we have used cross-validation to select the better performing model, we train that model (whether it be the linear regression or the neural network) on all the data. <a class="read-more" href="https://sysid.github.io/machine-learning/">&raquo;</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        
+
+        
+        
+            TW
+        
+        on
+            
+                <a href="https://sysid.github.io/tags/sysid/">#sysid</a>,
+            
+                <a href="https://sysid.github.io/tags/ml/">#ml</a>,
+            
+                <a href="https://sysid.github.io/tags/machine-learning/">#machine learning</a>,
+            
+        
+        <time class="post-date" datetime="2017-03-09T06:44:55&#43;01:00">
+            9 Mar 2017
+        </time>
+    </footer>
+</article>
+
+	
+	   
 <article class="post post">
     <header class="post-header">
         <h2 class="post-title"><a href="https://sysid.github.io/post/energy-consumption-prediction-with-prophet/">energy consumption prediction with prophet</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Energy Consumption Prediction with Facebook&rsquo;s Prophet library I already introduced Prophet as a time-series prediction tool which has a exceptionally well designed user interface and is easy to use for simple cases while delivering impressive results (see airline use case). Today I will use Prophet for predicting energy consumption in Germany based on real data. Recently I covered the same use case with Recurrent Neural Networks so this will serve as comparison of two different prediction approaches. <a class="read-more" href="https://sysid.github.io/post/energy-consumption-prediction-with-prophet/">&raquo;</a></p>
+        <p>Energy Consumption Prediction with Facebook&rsquo;s Prophet library I already introduced Prophet as a time-series prediction tool which has a exceptionally well designed user interface and is easy to use for simple cases while delivering impressive results (see airline use case).
+Today I will use Prophet for predicting energy consumption in Germany based on real data. Recently I covered the same use case with Recurrent Neural Networks so this will serve as comparison of two different prediction approaches. <a class="read-more" href="https://sysid.github.io/post/energy-consumption-prediction-with-prophet/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
@@ -188,7 +206,9 @@
         <h2 class="post-title"><a href="https://sysid.github.io/post/energy-consumption-prediction/">energy consumption prediction</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Energy Consumption Prediction with Recurrent Neural Networks We look at 52 European energy markets and their power consumption patterns. The forecast technology will be based on recurrent neural networks. While there are many other, also simpler techniques (e.g. ARIMA, Facebook&rsquo;s Prophet, time-shifting) this is an attempt to harness machine learning capabilities to predict future consumption patterns. The data consists of hourly values of country/region power consumption of 52 countries over the course from 1.1.2014 - 31.12.2018, which gives us 43000 data points per country. <a class="read-more" href="https://sysid.github.io/post/energy-consumption-prediction/">&raquo;</a></p>
+        <p>Energy Consumption Prediction with Recurrent Neural Networks We look at 52 European energy markets and their power consumption patterns.
+The forecast technology will be based on recurrent neural networks. While there are many other, also simpler techniques (e.g. ARIMA, Facebook&rsquo;s Prophet, time-shifting) this is an attempt to harness machine learning capabilities to predict future consumption patterns.
+The data consists of hourly values of country/region power consumption of 52 countries over the course from 1. <a class="read-more" href="https://sysid.github.io/post/energy-consumption-prediction/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
@@ -222,7 +242,9 @@
         <h2 class="post-title"><a href="https://sysid.github.io/post/be-a-prophet-for-airline-data/">Facebook&#39;s Prophet forecasting library</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Be a prophet for 1960&rsquo;s airline data Facebook released a forecasting library for business timeseries, called Prophet. It&rsquo;s designed to work similar to the phantastic scikit-learn library and is therefor easy to use. In order to give an example of its usefulness and effectiveness I will apply it to the good old airline passenger dataset. The input to Prophet is always a dataframe with two columns: ds and y. The ds (datestamp) column must contain a date or datetime (either is fine). <a class="read-more" href="https://sysid.github.io/post/be-a-prophet-for-airline-data/">&raquo;</a></p>
+        <p>Be a prophet for 1960&rsquo;s airline data Facebook released a forecasting library for business timeseries, called Prophet. It&rsquo;s designed to work similar to the phantastic scikit-learn library and is therefor easy to use.
+In order to give an example of its usefulness and effectiveness I will apply it to the good old airline passenger dataset.
+The input to Prophet is always a dataframe with two columns: ds and y. The ds (datestamp) column must contain a date or datetime (either is fine). <a class="read-more" href="https://sysid.github.io/post/be-a-prophet-for-airline-data/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
@@ -256,7 +278,8 @@
         <h2 class="post-title"><a href="https://sysid.github.io/post/adding-problem/">LSTM versus MLP for timeseries</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Long Short Term Memory neural networks versus Multi Layer Perceptrons for time series: Playing around with RNN and LSTM for time series modelling so far resulted in disappointment. Traditional MLPs seem to perform better. On the internet RNNs are often recommended for time-series data, but my results do not confirm this sentiment. Published examples on the internet normaly do not include a comparision with MLP models, so I decided to analyse performance of LSTM time-series forecasting versus MLP systematically. <a class="read-more" href="https://sysid.github.io/post/adding-problem/">&raquo;</a></p>
+        <p>Long Short Term Memory neural networks versus Multi Layer Perceptrons for time series:
+Playing around with RNN and LSTM for time series modelling so far resulted in disappointment. Traditional MLPs seem to perform better. On the internet RNNs are often recommended for time-series data, but my results do not confirm this sentiment. Published examples on the internet normaly do not include a comparision with MLP models, so I decided to analyse performance of LSTM time-series forecasting versus MLP systematically. <a class="read-more" href="https://sysid.github.io/post/adding-problem/">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
