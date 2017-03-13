@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Computer Vision on </title>
+    <link>https://sysid.github.io/tags/computer-vision/index.xml</link>
+    <description>Recent content in Computer Vision on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>All rights reserved - 2016</copyright>
+    <atom:link href="https://sysid.github.io/tags/computer-vision/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>fishy affine transformation</title>
+      <link>https://sysid.github.io/post/fishy-affine-transformation/</link>
+      <pubDate>Mon, 13 Mar 2017 06:31:17 +0100</pubDate>
+      
+      <guid>https://sysid.github.io/post/fishy-affine-transformation/</guid>
+      <description>
+
+&lt;h1 id=&#34;fishy-affine-transformation&#34;&gt;Fishy Affine Transformation&lt;/h1&gt;
+
+&lt;p&gt;While working on the kaggle competition &lt;a href=&#34;https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring&#34;&gt;https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring&lt;/a&gt; I hit the point when I wanted
+to align fish based on an annotation at the fish&amp;rsquo;s head and tail, so that the fish is centered in the image, always in the same orientation
+and distracting picture information is minimized. This required:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;finding the fish (thanks Nathaniel Shimoni for annotating)&lt;/li&gt;
+&lt;li&gt;centering&lt;/li&gt;
+&lt;li&gt;rotatating&lt;/li&gt;
+&lt;li&gt;cropping&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Mathematically the challenge is to find the associated  Affine Transformation. After years of working in a managerial role my linear algebra skills are a bit rusty so I decided to
+invest the weekend.&lt;/p&gt;
+
+&lt;h3 id=&#34;affine-transformation&#34;&gt;Affine Transformation&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://mathworld.wolfram.com/AffineTransformation.html&#34;&gt;Wolfram&lt;/a&gt;: An affine transformation is any transformation that preserves collinearity (i.e., all points lying on a line initially still lie on a line after transformation) and ratios of distances (e.g., the midpoint of a line segment remains the midpoint after transformation).&lt;/p&gt;
+
+&lt;p&gt;I decided to use &lt;a href=&#34;http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_geometric_transformations/py_geometric_transformations.html#transformations&#34;&gt;CV2&lt;/a&gt; after hitting the wall with several other tools.
+It was not the most convenient choice, but eventually it got me there. CV2 uses (2x3) transformation matrices for affine transformations so I had to adjust my 2d vectors accordingly.&lt;/p&gt;
+
+&lt;p&gt;The reason: Homogeneous Coordinates.&lt;/p&gt;
+
+&lt;p&gt;To combine rotation and translation in one operation one extra dimension is needed more than the model requires.
+For planar things this is 3 components and for spatial things this is 4 components.
+The operators take 3 components and return 3 components requiring 3x3 matrices.&lt;/p&gt;
+
+&lt;p&gt;Using vector algebra with numpy requires some extra consideration but is possible. Basically a (2,) matrix represented the 2-dim vectors. Small letters
+denoted vector variables and caps matrices.&lt;/p&gt;
+
+&lt;h2 id=&#34;1-finding-the-fish&#34;&gt;1. Finding the Fish&lt;/h2&gt;
+
+&lt;p&gt;I used the annotations from labels produced by Nathaniel Shimoni and published on Kaggle (thanks for the great work!).&lt;/p&gt;
+
+&lt;p&gt;Using only fish with head and tail annotated, it was possible to get the vector representation of a fish as:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;p_heads = np.array((img_data[&#39;annotations&#39;][0][&#39;x&#39;], img_data[&#39;annotations&#39;][0][&#39;y&#39;]))
+p_tails = np.array((img_data[&#39;annotations&#39;][1][&#39;x&#39;], img_data[&#39;annotations&#39;][1][&#39;y&#39;]))
+p_middle = (p_heads + p_tails)/2
+v_fish = p_heads - p_tails
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;2-centering&#34;&gt;2. Centering&lt;/h2&gt;
+
+&lt;p&gt;Centering fish is a basic translation in the 2-dim space.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;    # translate to center of img
+    img_center = np.array([img_height/2, img_width/2])
+    t = img_center - p_middle  # translation vector
+    t = np.reshape(t, (2,1))  # generate the 2x3 affine transformation matrix
+    T = np.concatenate((np.identity(2), t), axis=1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The respective transformation matrix is:&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/fishy-affine-transformation-translation.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;h2 id=&#34;3-rotating&#34;&gt;3. Rotating&lt;/h2&gt;
+
+&lt;p&gt;First I needed to find the angle for rotation. I wanted to have the fish oriented parallel to the x-axis with the head always being on the right. The dot-product of two vectors provides the
+angle in between, so I had to &amp;lsquo;dot-product&amp;rsquo; my fish vector with the x-axis:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def unit_vector(vector):
+    &amp;quot;&amp;quot;&amp;quot; Returns the unit vector of the vector.&amp;quot;&amp;quot;&amp;quot;
+    return vector / np.linalg.norm(vector)
+
+def angle_between(v1, v2):
+    &amp;quot;&amp;quot;&amp;quot; Returns the angle in radians between vectors &#39;v1&#39; and &#39;v2&#39;::
+
+            &amp;gt;&amp;gt;&amp;gt; angle_between((1, 0, 0), (0, 1, 0))
+            1.5707963267948966
+            &amp;gt;&amp;gt;&amp;gt; angle_between((1, 0, 0), (1, 0, 0))
+            0.0
+            &amp;gt;&amp;gt;&amp;gt; angle_between((1, 0, 0), (-1, 0, 0))
+            3.141592653589793
+    &amp;quot;&amp;quot;&amp;quot;
+    v1_u = unit_vector(v1)
+    v2_u = unit_vector(v2)
+    return np.arccos(np.clip(np.dot(v1_u, v2_u), -1.0, 1.0))
+
+angle = np.rad2deg(angle_between((1, 0), v_fish))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Conveniently CV2 provides a function to find the necessary transformation matrix (cv2.getRotationMatrix2D).&lt;/p&gt;
+
+&lt;p&gt;A challenge was to find out, that the rotation angle returned always is between 0-180°, so the following conditional differentiation was necessary
+(rotation counter clockwise vs clockwise). It basically differentiates between the case that the head is above or below the tail:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;    # get the Affine transformation matrix
+    if p_heads[1] &amp;gt; p_tails[1]:  # head is above tail
+        M = cv2.getRotationMatrix2D((p_middle[0], p_middle[1]), angle, 1)
+    else:
+        M = cv2.getRotationMatrix2D((p_middle[0], p_middle[1]), -angle, 1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;putting-it-all-together&#34;&gt;Putting it all together&lt;/h2&gt;
+
+&lt;p&gt;Getting the resulting transformation from a translation and rotation mathematically translates to a matrix product and applying the resulting
+transformation matrix to the fish vector. To make the multiplication of a 2x3 tranlation matrix and a 2x3 rotation matrix possible the
+following steps were necesary (combination of two affine transformations):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;allocate A1, A2, R matrices, all 3x3 identity matrices (eyes)&lt;/li&gt;
+&lt;li&gt;replace the top part of A1 and A2 with the transformation matrices T and M&lt;/li&gt;
+&lt;li&gt;get the resulting transformation (matrix product)&lt;/li&gt;
+&lt;li&gt;return the first two rows of R&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So RR was my final transformation matrix.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;    # compinte affine transform: make them 3x3
+    # http://stackoverflow.com/questions/13557066/built-in-function-to-combine-affine-transforms-in-opencv
+    A1 = np.identity(3)
+    A2 = np.identity(3)
+    R = np.identity(3)
+    A1[:2] = T
+    A2[:2] = M
+    R = A1@A2
+    RR = R[:2]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Getting the transformed image is now straightforward:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;    dst = cv2.warpAffine(img, RR, (img_height, img_width))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The nice thing with this approach is that once you have got the final transformation matrix, all other points of interest can be transformed by this matrix,
+e.g. the head and tail annotations are transformed by the same matrix.&lt;/p&gt;
+
+&lt;h2 id=&#34;result&#34;&gt;Result&lt;/h2&gt;
+
+&lt;p&gt;The blue point marks the head and the red point the tail. You can see the fish positioned arbitrarily in the image.
+With the Affine Transformation the fish will be extracted and aligned.
+The result is being displayed in the left upper corner.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/fishy-affine-transformation-result.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;With this technique I was able to align my fish and feed it into my machine learning models.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading.&lt;/p&gt;
+
+&lt;h5 id=&#34;disclaimer&#34;&gt;Disclaimer&lt;/h5&gt;
+
+&lt;p&gt;I use &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;http://stackoverflow.com/&lt;/a&gt; a lot. Not every source is quoted properly.&lt;br /&gt;
+Other sources:&lt;br /&gt;
+&lt;a href=&#34;https://www.kaggle.com/qiubit/the-nature-conservancy-fisheries-monitoring/crop-fish&#34;&gt;https://www.kaggle.com/qiubit/the-nature-conservancy-fisheries-monitoring/crop-fish&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
