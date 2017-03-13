@@ -233,6 +233,7 @@ A simple MLP will never cause gradient explosion if your data is correctly prepr
 <li>for kaggle use clipping to avoid the logloss problem!!!</li>
 <li>convnet: any kind of data with consistent ordering, audio, consistent timeseries, ordered data</li>
 <li>instead of one-hot-encoding the labels(target) we can use a cool optimizer in keras: <strong><code>loss='sparse_categorical_crossentropy'</code></strong> takes an integer target (categorical_crossentropy takes one-hot-encoded target)</li>
+<li>When the dataset size is limited, it seems augmenting the training labels is just as important as augmenting the training data (i.e. image perturbation)</li>
 </ul>
 
 <h5 id="general-neural-networks">General Neural Networks</h5>
