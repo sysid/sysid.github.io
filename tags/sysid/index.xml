@@ -2,11 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sysid on </title>
-    <link>https://sysid.github.io/tags/sysid/index.xml</link>
+    <link>https://sysid.github.io/tags/sysid/</link>
     <description>Recent content in Sysid on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>All rights reserved - 2016</copyright>
+    <lastBuildDate>Mon, 13 Mar 2017 06:31:17 +0100</lastBuildDate>
     <atom:link href="https://sysid.github.io/tags/sysid/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -217,6 +218,9 @@ We don&amp;rsquo;t use the actual model instances we trained during cross-valida
 &lt;li&gt;one training cycle for the entire dataset is called epoch, epoch: number of times the algorithm sees the ENTIRE dataset&lt;/li&gt;
 &lt;li&gt;iteration: every time a batch is passed through the NN (forward + backward pass)&lt;/li&gt;
 &lt;li&gt;Latent factors = features of embeddings (used in Collaborative Filtering)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.learnopencv.com/bias-variance-tradeoff-in-machine-learning/&#34;&gt;Bias-Variance Tradeoff in Machine Learning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Softmax vs Sigmoid: All the softmax units in a layer are constrained to add up to 1, whereas sigmoid units don&amp;rsquo;t have this &amp;lsquo;lateral&amp;rsquo; constraint.
+If every example can be associated with multiple labels, you need to use a sigmoid output layer that learns to predict &amp;ldquo;yes&amp;rdquo; or &amp;ldquo;no&amp;rdquo; for each individual label. If the classes are disjoint, i.e. each example can only belong to one class, you should use a softmax output layer to incorporate this constraint.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h5 id=&#34;preprocessing&#34;&gt;Preprocessing&lt;/h5&gt;
@@ -265,6 +269,7 @@ A simple MLP will never cause gradient explosion if your data is correctly prepr
 &lt;li&gt;convnet: any kind of data with consistent ordering, audio, consistent timeseries, ordered data&lt;/li&gt;
 &lt;li&gt;instead of one-hot-encoding the labels(target) we can use a cool optimizer in keras: &lt;strong&gt;&lt;code&gt;loss=&#39;sparse_categorical_crossentropy&#39;&lt;/code&gt;&lt;/strong&gt; takes an integer target (categorical_crossentropy takes one-hot-encoded target)&lt;/li&gt;
 &lt;li&gt;When the dataset size is limited, it seems augmenting the training labels is just as important as augmenting the training data (i.e. image perturbation)&lt;/li&gt;
+&lt;li&gt;if you deep net is not working, then use less hidden layers, until it works (simplify)&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h5 id=&#34;general-neural-networks&#34;&gt;General Neural Networks&lt;/h5&gt;
@@ -461,6 +466,7 @@ Suppose you have a time series and you want to use its samples from 1, &amp;hell
 &lt;ul&gt;
 &lt;li&gt;numpy matrix: rows by col&lt;/li&gt;
 &lt;li&gt;images: col by rows&lt;/li&gt;
+&lt;li&gt;weight conversion from Theano to Tensorflow: &lt;a href=&#34;https://github.com/titu1994/Keras-Classification-Models/blob/master/weight_conversion_theano.py&#34;&gt;https://github.com/titu1994/Keras-Classification-Models/blob/master/weight_conversion_theano.py&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;other&#34;&gt;Other&lt;/h2&gt;
@@ -516,6 +522,31 @@ rnn_bidir1 = merge([rnn_fwd1, rnn_bwd1], mode=&#39;concat&#39;)
 predictions = TimeDistributed(Dense(output_class_size, activation=&#39;softmax&#39;))(rnn_bidir1) 
 
 model = Model(input=xin, output=predictions)
+
+### Multi Label Classification
+# Build a classifier optimized for maximizing f1_score (uses class_weights)
+
+clf = Sequential()
+
+clf.add(Dropout(0.3))
+clf.add(Dense(xt.shape[1], 1600, activation=&#39;relu&#39;))
+clf.add(Dropout(0.6))
+clf.add(Dense(1600, 1200, activation=&#39;relu&#39;))
+clf.add(Dropout(0.6))
+clf.add(Dense(1200, 800, activation=&#39;relu&#39;))
+clf.add(Dropout(0.6))
+clf.add(Dense(800, yt.shape[1], activation=&#39;sigmoid&#39;))
+
+clf.compile(optimizer=Adam(), loss=&#39;binary_crossentropy&#39;)
+
+clf.fit(xt, yt, batch_size=64, nb_epoch=300, validation_data=(xs, ys), class_weight=W, verbose=0)
+
+preds = clf.predict(xs)
+
+preds[preds&amp;gt;=0.5] = 1
+preds[preds&amp;lt;0.5] = 0
+
+print f1_score(ys, preds, average=&#39;macro&#39;)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;principal-component-analysis-unsupervised&#34;&gt;Principal Component Analysis (unsupervised)&lt;/h3&gt;

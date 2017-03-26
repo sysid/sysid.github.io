@@ -49,7 +49,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.18.1" />
+    <meta name="generator" content="Hugo 0.16" />
 
     <link rel="canonical" href="https://sysid.github.io/machine-learning/" />
 
@@ -92,6 +92,11 @@
             
             <li class="nav-opened nav-current" role="presentation">
             	<a href="https://sysid.github.io/machine-learning/">ML Cheat Sheet</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://sysid.github.io/lighthouse-examples/">lighthouse examples</a>
             </li>
         
     </ul>
@@ -146,6 +151,8 @@
         
         
         
+        
+        
       </nav>
 
 
@@ -186,6 +193,9 @@ We don&rsquo;t use the actual model instances we trained during cross-validation
 <li>one training cycle for the entire dataset is called epoch, epoch: number of times the algorithm sees the ENTIRE dataset</li>
 <li>iteration: every time a batch is passed through the NN (forward + backward pass)</li>
 <li>Latent factors = features of embeddings (used in Collaborative Filtering)</li>
+<li><a href="http://www.learnopencv.com/bias-variance-tradeoff-in-machine-learning/">Bias-Variance Tradeoff in Machine Learning</a></li>
+<li>Softmax vs Sigmoid: All the softmax units in a layer are constrained to add up to 1, whereas sigmoid units don&rsquo;t have this &lsquo;lateral&rsquo; constraint.
+If every example can be associated with multiple labels, you need to use a sigmoid output layer that learns to predict &ldquo;yes&rdquo; or &ldquo;no&rdquo; for each individual label. If the classes are disjoint, i.e. each example can only belong to one class, you should use a softmax output layer to incorporate this constraint.</li>
 </ul>
 
 <h5 id="preprocessing">Preprocessing</h5>
@@ -234,6 +244,7 @@ A simple MLP will never cause gradient explosion if your data is correctly prepr
 <li>convnet: any kind of data with consistent ordering, audio, consistent timeseries, ordered data</li>
 <li>instead of one-hot-encoding the labels(target) we can use a cool optimizer in keras: <strong><code>loss='sparse_categorical_crossentropy'</code></strong> takes an integer target (categorical_crossentropy takes one-hot-encoded target)</li>
 <li>When the dataset size is limited, it seems augmenting the training labels is just as important as augmenting the training data (i.e. image perturbation)</li>
+<li>if you deep net is not working, then use less hidden layers, until it works (simplify)</li>
 </ul>
 
 <h5 id="general-neural-networks">General Neural Networks</h5>
@@ -430,6 +441,7 @@ Suppose you have a time series and you want to use its samples from 1, &hellip;,
 <ul>
 <li>numpy matrix: rows by col</li>
 <li>images: col by rows</li>
+<li>weight conversion from Theano to Tensorflow: <a href="https://github.com/titu1994/Keras-Classification-Models/blob/master/weight_conversion_theano.py">https://github.com/titu1994/Keras-Classification-Models/blob/master/weight_conversion_theano.py</a></li>
 </ul>
 
 <h2 id="other">Other</h2>
@@ -485,6 +497,31 @@ rnn_bidir1 = merge([rnn_fwd1, rnn_bwd1], mode='concat')
 predictions = TimeDistributed(Dense(output_class_size, activation='softmax'))(rnn_bidir1) 
 
 model = Model(input=xin, output=predictions)
+
+### Multi Label Classification
+# Build a classifier optimized for maximizing f1_score (uses class_weights)
+
+clf = Sequential()
+
+clf.add(Dropout(0.3))
+clf.add(Dense(xt.shape[1], 1600, activation='relu'))
+clf.add(Dropout(0.6))
+clf.add(Dense(1600, 1200, activation='relu'))
+clf.add(Dropout(0.6))
+clf.add(Dense(1200, 800, activation='relu'))
+clf.add(Dropout(0.6))
+clf.add(Dense(800, yt.shape[1], activation='sigmoid'))
+
+clf.compile(optimizer=Adam(), loss='binary_crossentropy')
+
+clf.fit(xt, yt, batch_size=64, nb_epoch=300, validation_data=(xs, ys), class_weight=W, verbose=0)
+
+preds = clf.predict(xs)
+
+preds[preds&gt;=0.5] = 1
+preds[preds&lt;0.5] = 0
+
+print f1_score(ys, preds, average='macro')
 </code></pre>
 
 <h3 id="principal-component-analysis-unsupervised">Principal Component Analysis (unsupervised)</h3>
