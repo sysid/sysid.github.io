@@ -49,7 +49,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.16" />
+    <meta name="generator" content="Hugo 0.18.1" />
 
     <link rel="canonical" href="https://sysid.github.io/machine-learning/" />
 
@@ -292,6 +292,23 @@ Because normalization greatly reduces the ability of a small number of outlying 
 <li>to continue training: just call .fit one or several times and you will be able to continue to train the model. If you want to continue the training in another process, you just have to load the weights and call model.fit()</li>
 <li>fchollet: compiling a model does not modify its state. Weights after compilation are the same as before compilation.</li>
 <li>keras: compiling the model does does not hurt, however, changing trainable=true does not require it since the model does not change, only the metadata</li>
+<li>from NIPS 2016
+
+<figure >
+    
+        <img src="https://sysid.github.io/images/recipe-1.jpg" />
+    
+    
+</figure>
+
+
+<figure >
+    
+        <img src="https://sysid.github.io/images/recipe-2.jpg" />
+    
+    
+</figure>
+</li>
 </ul>
 
 <h5 id="transfer-learning">Transfer Learning</h5>
