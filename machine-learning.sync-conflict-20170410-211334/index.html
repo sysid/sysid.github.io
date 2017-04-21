@@ -7,7 +7,7 @@
 
   	<meta property="og:title" content=" ML Cheat Sheet &middot;  " />
   	<meta property="og:site_name" content="" />
-  	<meta property="og:url" content="https://sysid.github.io/machine-learning/" />
+  	<meta property="og:url" content="https://sysid.github.io/machine-learning.sync-conflict-20170410-211334/" />
 
     
   	<meta property="og:type" content="article" />
@@ -51,7 +51,7 @@
     
     <meta name="generator" content="Hugo 0.18.1" />
 
-    <link rel="canonical" href="https://sysid.github.io/machine-learning/" />
+    <link rel="canonical" href="https://sysid.github.io/machine-learning.sync-conflict-20170410-211334/" />
 
     
     <script>
@@ -90,7 +90,7 @@
             </li>
         
             
-            <li class="nav-opened nav-current" role="presentation">
+            <li class="nav-opened" role="presentation">
             	<a href="https://sysid.github.io/machine-learning/">ML Cheat Sheet</a>
             </li>
         
@@ -146,9 +146,6 @@
         
         
         
-        <li><a href="https://sysid.github.io/machine-learning/">ML Cheat Sheet</a></li>
-              
-        
         
         
         
@@ -181,16 +178,16 @@
 <h5 id="general-explanations">General Explanations:</h5>
 
 <ul>
-<li>embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices</li>
+<li>embeddings: a way to translate input into integers for neural network: shortcut for onehot followed by matrix product, if no embeddings input has to be one-hot-encoded</li>
 <li>KFold Cross Validation:
 The purpose of cross-validation is model checking, not model building.
 Once we have used cross-validation to select the better performing model, we train that model
 (whether it be the linear regression or the neural network) on all the data.
 We don&rsquo;t use the actual model instances we trained during cross-validation for our final predictive model.</li>
 <li>A dense layer in a multilayer perceptron (MLP) is a lot more feature intensive than a convolutional layer. People use convolutional nets with subsampling precisely because they get to aggressively prune the features they’re computing.</li>
-<li>in NNs rarely occur local minima due to vast parameter space (probability not to get better in ayn dimension is miniscule)</li>
+<li>in NNs rarely local minima due to vast parameter space (probability not to get better in ayn dimension is miniscule)</li>
 <li>the fast majority of space of a loss function in NN is all saddlepoints</li>
-<li>one training cycle for the entire dataset is called epoch, i.e. the algorithm sees the ENTIRE dataset</li>
+<li>one training cycle for the entire dataset is called epoch, epoch: number of times the algorithm sees the ENTIRE dataset</li>
 <li>iteration: every time a batch is passed through the NN (forward + backward pass)</li>
 <li>Latent factors = features of embeddings (used in Collaborative Filtering)</li>
 <li><a href="http://www.learnopencv.com/bias-variance-tradeoff-in-machine-learning/">Bias-Variance Tradeoff in Machine Learning</a></li>
@@ -292,21 +289,24 @@ Because normalization greatly reduces the ability of a small number of outlying 
 <li>to continue training: just call .fit one or several times and you will be able to continue to train the model. If you want to continue the training in another process, you just have to load the weights and call model.fit()</li>
 <li>fchollet: compiling a model does not modify its state. Weights after compilation are the same as before compilation.</li>
 <li>keras: compiling the model does does not hurt, however, changing trainable=true does not require it since the model does not change, only the metadata</li>
-<li>Sanity check: Overfit a tiny subset of data. try to train on a tiny portion (e.g. 20 examples) of your data and make sure you can achieve zero cost. Set regularization to zero, otherwise this can prevent from getting zero cost. Unless you pass this sanity check with a small dataset it is not worth proceeding to the full dataset. Note that it may happen that you can overfit very small dataset but still have an incorrect implementation. For instance, if your datapoints’ features are random due to some bug, then it will be possible to overfit your small training set but you will never notice any generalization when you fold it your full dataset ([source]<a href="http://cs231n.github.io/neural-networks-3/#gradcheck">http://cs231n.github.io/neural-networks-3/#gradcheck</a>)</li>
-<li>increasing the regularization strength should increase the los</li>
-<li>Look for correct loss at chance performance (Regularization strength zero). For example, for CIFAR-10 with a Softmax classifier initial loss should be 2.302, because we expect a diffuse probability of 0.1 for each class (since there are 10 classes), and Softmax loss is the negative log probability of the correct class so: -ln(0.1) = 2.302.</li>
-<li>Validation accuracy can remain flat while the loss gets worse as long as the scores don&rsquo;t cross the threshold where the predicted class changes.</li>
-<li>Don’t let the regularization overwhelm the data. Loss function is a sum of the data loss and the regularization loss (e.g. L2 penalty on weights). Regularization loss may overwhelm the data loss, in which case the gradients will be primarily coming from the regularization term (which usually has a much simpler gradient expression).</li>
-<li><a href="http://cs231n.github.io/neural-networks-3/#gradcheck">Traing curves</a>:
+<li><a href="http://www.erogol.com/important-nuances-train-deep-learning-models/">Important Nuances to Train Deep Learning Models</a><br />
+from NIPS 2016
 
 <figure >
     
-        <img src="https://sysid.github.io/images/ml_cheatsheet/learningrates.jpeg" />
+        <img src="https://sysid.github.io/images/recipe-1.jpg" />
     
     
 </figure>
 
-<br /></li>
+
+<figure >
+    
+        <img src="https://sysid.github.io/images/recipe-2.jpg" />
+    
+    
+</figure>
+</li>
 </ul>
 
 <h5 id="transfer-learning">Transfer Learning</h5>
@@ -341,13 +341,6 @@ Because normalization greatly reduces the ability of a small number of outlying 
 </ul></li>
 </ul>
 
-<h5 id="hyperparameters">Hyperparameters:</h5>
-
-<ul>
-<li>Hyperparameter ranges. Search for hyperparameters on log scale. learning_rate = 10 ** uniform(-6, 1). The same strategy should be used for the regularization strength. This is because learning rate and regularization strength have multiplicative effects on the training dynamics.</li>
-<li>Prefer random search to grid search.</li>
-</ul>
-
 <h2 id="architecture">Architecture</h2>
 
 <p>Rule of thumb: For a three layer network with n input and m output neurons, the hidden layer would have sqrt(n*m) neurons.</p>
@@ -358,12 +351,6 @@ Because normalization greatly reduces the ability of a small number of outlying 
 <li>0 - Only capable of representing linear separable functions or decisions.</li>
 <li>1 - Can approximate any function that contains a continuous mapping from one finite space to another.</li>
 <li>2 - Can represent an arbitrary decision boundary to arbitrary accuracy with rational activation functions and can approximate any smooth mapping to any accuracy.</li>
-</ul>
-
-<h3 id="ensembles-http-cs231n-github-io-neural-networks-3-gradcheck"><a href="http://cs231n.github.io/neural-networks-3/#gradcheck">Ensembles</a></h3>
-
-<ul>
-<li>Train multiple independent models, and at test time average their predictions. As the number of models in the ensemble increases, the performance typically monotonically improves (though with diminishing returns). The improvements are more dramatic with higher model variety in the ensemble.</li>
 </ul>
 
 <h2 id="cnns">CNNs</h2>
@@ -432,23 +419,6 @@ Suppose you have a time series and you want to use its samples from 1, &hellip;,
 <li>better than adagrad: rmsprop, it does not explode, just jump around, when it flattens out you should device learning rate by 10-100</li>
 <li>momentum + rmsprop = good idea -&gt; adam</li>
 <li>SGD is well understood and a great place to start. ADAM is fast and gives good results and I often use it in practice.</li>
-<li><a href="http://cs231n.github.io/neural-networks-3/#gradcheck">illustration</a> (Images credit: <a href="https://twitter.com/alecrad">Alec Radford</a>):
-
-<figure >
-    
-        <img src="https://sysid.github.io/images/ml_cheatsheet/opt2.gif" />
-    
-    
-</figure>
-
-
-<figure >
-    
-        <img src="https://sysid.github.io/images/ml_cheatsheet/opt1.gif" />
-    
-    
-</figure>
-</li>
 </ul>
 
 <h5 id="momentum-0-9">Momentum (0.9)</h5>
@@ -484,7 +454,8 @@ Suppose you have a time series and you want to use its samples from 1, &hellip;,
 <h2 id="gotchas">Gotchas:</h2>
 
 <ul>
-<li>numpy matrix: rows by col, images: col by rows</li>
+<li>numpy matrix: rows by col</li>
+<li>images: col by rows</li>
 <li>weight conversion from Theano to Tensorflow: <a href="https://github.com/titu1994/Keras-Classification-Models/blob/master/weight_conversion_theano.py">https://github.com/titu1994/Keras-Classification-Models/blob/master/weight_conversion_theano.py</a></li>
 </ul>
 
@@ -518,17 +489,7 @@ word2vec (Google) vs. glove</p>
 
 <h3 id="model-examples">Model Examples</h3>
 
-<pre><code class="language-python">### Keras 2.0 Merge
-# Custom Merge: https://stackoverflow.com/questions/43160181/keras-merge-layer-warning
-def euclid_dist(v):
-    return (v[0] - v[1])**2
-
-def out_shape(shapes):
-    return shapes[0]
-
-merged_vector = Lambda(euclid_dist, output_shape=out_shape)([l1, l2])
-
-# https://github.com/fchollet/keras/issues/2299
+<pre><code class="language-python"># https://github.com/fchollet/keras/issues/2299
 # http://web.cse.ohio-state.edu/~dwang/papers/Wang.tia08.pdf
 mix = Input(batch_shape=(sequences, timesteps, features))
 lstm = LSTM(features, return_sequences=True)(LSTM(features, return_sequences=True)(mix))
@@ -655,19 +616,19 @@ X_reduced.shape
     
 <section class="share">
   <h4>Share this page</h4>
-  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=ML%20Cheat%20Sheet&amp;url=https%3a%2f%2fsysid.github.io%2fmachine-learning%2f"
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=ML%20Cheat%20Sheet&amp;url=https%3a%2f%2fsysid.github.io%2fmachine-learning.sync-conflict-20170410-211334%2f"
       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
       <span class="hidden">Twitter</span>
   </a>
-  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsysid.github.io%2fmachine-learning%2f"
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsysid.github.io%2fmachine-learning.sync-conflict-20170410-211334%2f"
       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
       <span class="hidden">Facebook</span>
   </a>
-  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fsysid.github.io%2fmachine-learning%2f&amp;description=ML%20Cheat%20Sheet"
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fsysid.github.io%2fmachine-learning.sync-conflict-20170410-211334%2f&amp;description=ML%20Cheat%20Sheet"
       onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
       <span class="hidden">Pinterest</span>
   </a>
-  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fsysid.github.io%2fmachine-learning%2f"
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fsysid.github.io%2fmachine-learning.sync-conflict-20170410-211334%2f"
      onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
       <span class="hidden">Google+</span>
   </a>
