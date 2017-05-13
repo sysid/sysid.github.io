@@ -49,7 +49,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.18.1" />
+    <meta name="generator" content="Hugo 0.16" />
 
     <link rel="canonical" href="https://sysid.github.io/machine-learning/" />
 
@@ -196,6 +196,7 @@ We don&rsquo;t use the actual model instances we trained during cross-validation
 <li><a href="http://www.learnopencv.com/bias-variance-tradeoff-in-machine-learning/">Bias-Variance Tradeoff in Machine Learning</a></li>
 <li>Softmax vs Sigmoid: All the softmax units in a layer are constrained to add up to 1, whereas sigmoid units don&rsquo;t have this &lsquo;lateral&rsquo; constraint.
 If every example can be associated with multiple labels, you need to use a sigmoid output layer that learns to predict &ldquo;yes&rdquo; or &ldquo;no&rdquo; for each individual label. If the classes are disjoint, i.e. each example can only belong to one class, you should use a softmax output layer to incorporate this constraint.</li>
+<li>Do not forget to fine tune your network architecture and your learning rate. If you have more data, a complex network is preferable. According to one important deep learning theorem, the local minima are very close to the global minimum for very deep neural networks.</li>
 </ul>
 
 <h5 id="preprocessing">Preprocessing</h5>
@@ -283,6 +284,7 @@ A simple MLP will never cause gradient explosion if your data is correctly prepr
 <ul>
 <li>online learning (batch size=1): network update foreach training example -&gt; quick, but can be chaotic</li>
 <li>batch learning: save the errors across all training examples and update network at the end -&gt; more stable, typical batch size 10-100</li>
+<li>larger batch is always better. The rule of thumbs is to have the largest possible batch your GPU can handle. The bigger your gradients are, the more accurate and smooth they will be. If you have batch_size=1, you can still converge to an optimal value, but it will be way more chaotic (much higher variance but still unbiased). And it will be way slower!</li>
 <li>If network doesn’t fit, decrease the batch size, since most of the memory is usually consumed by the activations.</li>
 <li>start with a very small learning rate until the loss function is better then baseline chance</li>
 <li>Batchnorm: 10x or more improvements in training speed.
@@ -415,6 +417,43 @@ Suppose you have a time series and you want to use its samples from 1, &hellip;,
 
 <h3 id="lstm">LSTM</h3>
 
+<p>
+<figure >
+    
+        <img src="https://sysid.github.io/images/rnn.jpg" />
+    
+    
+</figure>
+
+<a href="http://stackoverflow.com/questions/43034960/many-to-one-and-many-to-many-lstm-examples-in-keras">stackoverflow</a></p>
+
+<p><strong>One-to-one:</strong> you might use a Dense layer as you are not processing sequences:</p>
+
+<pre><code>model.add(Dense(output_size, input_shape=input_shape))
+</code></pre>
+
+<p><strong>One-to-many:</strong> this option is not supported well as chaining models is not very easy in Keras so the following version is the easiest one:</p>
+
+<pre><code>model.add(RepeatVector(number_of_times, input_shape=input_shape))
+model.add(LSTM(output_size, return_sequences=True))
+</code></pre>
+
+<p><strong>Many-to-one:</strong> actually your code snippet is (allmost) example of this approach:</p>
+
+<pre><code>model = Sequential()
+model.add(LSTM(n, input_shape=(timesteps, data_dim)))
+</code></pre>
+
+<p><strong>Many-to-many:</strong> This is the easiest snippet when length of input and output matches the number of reccurent steps:</p>
+
+<pre><code>model = Sequential()
+model.add(LSTM(n, input_shape=(timesteps, data_dim), return_sequences=True))
+</code></pre>
+
+<p><strong>Many-to-many when number of steps differ from input/output length:</strong> this is freaky hard in Keras. There are no easy code snippets to code that.</p>
+
+<h4 id="tricks">Tricks</h4>
+
 <ul>
 <li>Within a batch, each sequence has its OWN states. Also each sequence is seen as independent from the other sequences in the batch. If your batch is Y, sequences Y[1] and Y[2] will never have something in common (whatever stateful=False or stateful=True).</li>
 <li>If the LSTM has the stateful mode, the states of the current batch will be propagated to the next batch (at index i). Batching sequences is only to speed up the computations on a GPU.</li>
@@ -424,6 +463,7 @@ Suppose you have a time series and you want to use its samples from 1, &hellip;,
 <li>The back propagation horizon is limited to the second dimension of the input sequence. i.e. if your data is of type (num_sequences, num_time_steps_per_seq, data_dim) then back prop is done over a time horizon of value num_time_steps_per_seq (<a href="https://github.com/fchollet/keras/issues/3669">https://github.com/fchollet/keras/issues/3669</a>)</li>
 <li>all a stateful RNN does is remember the last activation. So if you have a large input sequence and break it up in smaller sequences, the activation in the network is retained in the network after processing the first sequence and therefore affects the activations in the network when processing the second sequence.</li>
 <li>Keep all long term memory when modelling Time Series where you may have very long term memory and when you don&rsquo;t know exactly when to cut. No subsampling here.</li>
+<li>Recursive prediction of timesteps (multi-step) eventually uses values already predicted. This produces an accumulation of errors, which may grow very fast.</li>
 </ul>
 
 <h2 id="optimiziers">Optimiziers</h2>

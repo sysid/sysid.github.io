@@ -2,11 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sysid on </title>
-    <link>https://sysid.github.io/tags/sysid/index.xml</link>
+    <link>https://sysid.github.io/tags/sysid/</link>
     <description>Recent content in Sysid on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>All rights reserved - 2016</copyright>
+    <lastBuildDate>Mon, 13 Mar 2017 06:31:17 +0100</lastBuildDate>
     <atom:link href="https://sysid.github.io/tags/sysid/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -210,6 +211,7 @@ We don&amp;rsquo;t use the actual model instances we trained during cross-valida
 &lt;li&gt;&lt;a href=&#34;http://www.learnopencv.com/bias-variance-tradeoff-in-machine-learning/&#34;&gt;Bias-Variance Tradeoff in Machine Learning&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Softmax vs Sigmoid: All the softmax units in a layer are constrained to add up to 1, whereas sigmoid units don&amp;rsquo;t have this &amp;lsquo;lateral&amp;rsquo; constraint.
 If every example can be associated with multiple labels, you need to use a sigmoid output layer that learns to predict &amp;ldquo;yes&amp;rdquo; or &amp;ldquo;no&amp;rdquo; for each individual label. If the classes are disjoint, i.e. each example can only belong to one class, you should use a softmax output layer to incorporate this constraint.&lt;/li&gt;
+&lt;li&gt;Do not forget to fine tune your network architecture and your learning rate. If you have more data, a complex network is preferable. According to one important deep learning theorem, the local minima are very close to the global minimum for very deep neural networks.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h5 id=&#34;preprocessing&#34;&gt;Preprocessing&lt;/h5&gt;
@@ -297,6 +299,7 @@ A simple MLP will never cause gradient explosion if your data is correctly prepr
 &lt;ul&gt;
 &lt;li&gt;online learning (batch size=1): network update foreach training example -&amp;gt; quick, but can be chaotic&lt;/li&gt;
 &lt;li&gt;batch learning: save the errors across all training examples and update network at the end -&amp;gt; more stable, typical batch size 10-100&lt;/li&gt;
+&lt;li&gt;larger batch is always better. The rule of thumbs is to have the largest possible batch your GPU can handle. The bigger your gradients are, the more accurate and smooth they will be. If you have batch_size=1, you can still converge to an optimal value, but it will be way more chaotic (much higher variance but still unbiased). And it will be way slower!&lt;/li&gt;
 &lt;li&gt;If network doesn’t fit, decrease the batch size, since most of the memory is usually consumed by the activations.&lt;/li&gt;
 &lt;li&gt;start with a very small learning rate until the loss function is better then baseline chance&lt;/li&gt;
 &lt;li&gt;Batchnorm: 10x or more improvements in training speed.
@@ -429,6 +432,43 @@ Suppose you have a time series and you want to use its samples from 1, &amp;hell
 
 &lt;h3 id=&#34;lstm&#34;&gt;LSTM&lt;/h3&gt;
 
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/rnn.jpg&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+&lt;a href=&#34;http://stackoverflow.com/questions/43034960/many-to-one-and-many-to-many-lstm-examples-in-keras&#34;&gt;stackoverflow&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;One-to-one:&lt;/strong&gt; you might use a Dense layer as you are not processing sequences:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;model.add(Dense(output_size, input_shape=input_shape))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;One-to-many:&lt;/strong&gt; this option is not supported well as chaining models is not very easy in Keras so the following version is the easiest one:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;model.add(RepeatVector(number_of_times, input_shape=input_shape))
+model.add(LSTM(output_size, return_sequences=True))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Many-to-one:&lt;/strong&gt; actually your code snippet is (allmost) example of this approach:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;model = Sequential()
+model.add(LSTM(n, input_shape=(timesteps, data_dim)))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Many-to-many:&lt;/strong&gt; This is the easiest snippet when length of input and output matches the number of reccurent steps:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;model = Sequential()
+model.add(LSTM(n, input_shape=(timesteps, data_dim), return_sequences=True))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Many-to-many when number of steps differ from input/output length:&lt;/strong&gt; this is freaky hard in Keras. There are no easy code snippets to code that.&lt;/p&gt;
+
+&lt;h4 id=&#34;tricks&#34;&gt;Tricks&lt;/h4&gt;
+
 &lt;ul&gt;
 &lt;li&gt;Within a batch, each sequence has its OWN states. Also each sequence is seen as independent from the other sequences in the batch. If your batch is Y, sequences Y[1] and Y[2] will never have something in common (whatever stateful=False or stateful=True).&lt;/li&gt;
 &lt;li&gt;If the LSTM has the stateful mode, the states of the current batch will be propagated to the next batch (at index i). Batching sequences is only to speed up the computations on a GPU.&lt;/li&gt;
@@ -438,6 +478,7 @@ Suppose you have a time series and you want to use its samples from 1, &amp;hell
 &lt;li&gt;The back propagation horizon is limited to the second dimension of the input sequence. i.e. if your data is of type (num_sequences, num_time_steps_per_seq, data_dim) then back prop is done over a time horizon of value num_time_steps_per_seq (&lt;a href=&#34;https://github.com/fchollet/keras/issues/3669&#34;&gt;https://github.com/fchollet/keras/issues/3669&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;all a stateful RNN does is remember the last activation. So if you have a large input sequence and break it up in smaller sequences, the activation in the network is retained in the network after processing the first sequence and therefore affects the activations in the network when processing the second sequence.&lt;/li&gt;
 &lt;li&gt;Keep all long term memory when modelling Time Series where you may have very long term memory and when you don&amp;rsquo;t know exactly when to cut. No subsampling here.&lt;/li&gt;
+&lt;li&gt;Recursive prediction of timesteps (multi-step) eventually uses values already predicted. This produces an accumulation of errors, which may grow very fast.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;optimiziers&#34;&gt;Optimiziers&lt;/h2&gt;
