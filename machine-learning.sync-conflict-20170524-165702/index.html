@@ -7,7 +7,7 @@
 
   	<meta property="og:title" content=" ML Cheat Sheet &middot;  " />
   	<meta property="og:site_name" content="" />
-  	<meta property="og:url" content="https://sysid.github.io/machine-learning/" />
+  	<meta property="og:url" content="https://sysid.github.io/machine-learning.sync-conflict-20170524-165702/" />
 
     
   	<meta property="og:type" content="article" />
@@ -51,7 +51,7 @@
     
     <meta name="generator" content="Hugo 0.16" />
 
-    <link rel="canonical" href="https://sysid.github.io/machine-learning/" />
+    <link rel="canonical" href="https://sysid.github.io/machine-learning.sync-conflict-20170524-165702/" />
 
     
     <script>
@@ -90,7 +90,7 @@
             </li>
         
             
-            <li class="nav-opened nav-current" role="presentation">
+            <li class="nav-opened" role="presentation">
             	<a href="https://sysid.github.io/machine-learning/">ML Cheat Sheet</a>
             </li>
         
@@ -146,9 +146,6 @@
         
         
         
-        <li><a href="https://sysid.github.io/machine-learning/">ML Cheat Sheet</a></li>
-              
-        
         
         
         
@@ -177,6 +174,17 @@
 
 
 <h1 id="cheat-sheet">Cheat Sheet</h1>
+
+<h5 id="why-deep-learning-andrew-ng">Why deep learning (Andrew Ng)</h5>
+
+
+<figure >
+    
+        <img src="https://sysid.github.io/images/Why-Deep-Learning-1024x742.png" />
+    
+    
+</figure>
+
 
 <h5 id="general-explanations">General Explanations:</h5>
 
@@ -403,26 +411,19 @@ Because normalization greatly reduces the ability of a small number of outlying 
 
 <h2 id="rnns">RNNs</h2>
 
+<ul>
+<li>multiple outputs generated more stable and accurate model because we gave a hint what to work on</li>
+</ul>
+
 <h5 id="predict-multiple-steps">Predict multiple steps</h5>
 
 <ol>
 <li>&ldquo;Function to Function Regression&rdquo; which assumes that at the end of RNN, we are going to predict a curve. So use a multilayer perceptron at the end of RNN to predict multiple steps ahead.
 Suppose you have a time series and you want to use its samples from 1, &hellip;, t to predict the ones in t+1, &hellip;, T. You use an RNN to learn a D dimensional representation for the first part of time series and then use a (D x (T-t)) MLP to forecast the second half of the time series. In practice, you do these two steps in a supervised way; i.e., you learn representations that improve the quality of the forecast.</li>
-<li>tbd</li>
+<li>The second ideology is the idea of &ldquo;Sequence to Sequence Learning.&rdquo; I have seen an example of seq2seq code in Keras somewhere. Search for it and you will find some sample codes :)</li>
 </ol>
 
 <h3 id="lstm">LSTM</h3>
-
-<p>The first dimension in Keras is the batch dimension. It can be any size, as long as it is the same for inputs and targets.
-When dealing with LSTMs, the batch dimension is the number of sequences, not the length of the sequence.</p>
-
-<ul>
-<li>LSTMs in Keras are typically used on 3d data <strong><code>(batch dimension, timesteps, features)</code></strong>.</li>
-<li>LSTM without return_sequences will output <strong><code>(batch dimension, output features)</code></strong></li>
-<li>LSTM with return_sequences will output <strong><code>(batch dimension, timesteps, output features)</code></strong></li>
-</ul>
-
-<p>Basic timeseries data has an input shape (number of sequences, steps, features). Target is (number of sequences, steps, targets). Use an LSTM with return_sequences.</p>
 
 <p>
 <figure >
@@ -434,18 +435,18 @@ When dealing with LSTMs, the batch dimension is the number of sequences, not the
 
 <a href="http://stackoverflow.com/questions/43034960/many-to-one-and-many-to-many-lstm-examples-in-keras">stackoverflow</a></p>
 
-<p><strong>One-to-one:</strong> equivalent to MLP.</p>
+<p><strong>One-to-one:</strong> you might use a Dense layer as you are not processing sequences:</p>
 
 <pre><code>model.add(Dense(output_size, input_shape=input_shape))
 </code></pre>
 
-<p><strong>One-to-many:</strong> this option is not supported well, but this is a workaround:</p>
+<p><strong>One-to-many:</strong> this option is not supported well as chaining models is not very easy in Keras so the following version is the easiest one:</p>
 
 <pre><code>model.add(RepeatVector(number_of_times, input_shape=input_shape))
 model.add(LSTM(output_size, return_sequences=True))
 </code></pre>
 
-<p><strong>Many-to-one:</strong>:</p>
+<p><strong>Many-to-one:</strong> actually your code snippet is (allmost) example of this approach:</p>
 
 <pre><code>model = Sequential()
 model.add(LSTM(n, input_shape=(timesteps, data_dim)))
@@ -457,7 +458,7 @@ model.add(LSTM(n, input_shape=(timesteps, data_dim)))
 model.add(LSTM(n, input_shape=(timesteps, data_dim), return_sequences=True))
 </code></pre>
 
-<p><strong>Many-to-many when number of steps differ from input/output length:</strong> this is hard in Keras. I did not find any code snippets to code that.</p>
+<p><strong>Many-to-many when number of steps differ from input/output length:</strong> this is freaky hard in Keras. There are no easy code snippets to code that.</p>
 
 <h4 id="tricks">Tricks</h4>
 
@@ -702,19 +703,19 @@ X_reduced.shape
     
 <section class="share">
   <h4>Share this page</h4>
-  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=ML%20Cheat%20Sheet&amp;url=https%3a%2f%2fsysid.github.io%2fmachine-learning%2f"
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=ML%20Cheat%20Sheet&amp;url=https%3a%2f%2fsysid.github.io%2fmachine-learning.sync-conflict-20170524-165702%2f"
       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
       <span class="hidden">Twitter</span>
   </a>
-  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsysid.github.io%2fmachine-learning%2f"
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsysid.github.io%2fmachine-learning.sync-conflict-20170524-165702%2f"
       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
       <span class="hidden">Facebook</span>
   </a>
-  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fsysid.github.io%2fmachine-learning%2f&amp;description=ML%20Cheat%20Sheet"
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fsysid.github.io%2fmachine-learning.sync-conflict-20170524-165702%2f&amp;description=ML%20Cheat%20Sheet"
       onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
       <span class="hidden">Pinterest</span>
   </a>
-  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fsysid.github.io%2fmachine-learning%2f"
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fsysid.github.io%2fmachine-learning.sync-conflict-20170524-165702%2f"
      onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
       <span class="hidden">Google+</span>
   </a>
