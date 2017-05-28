@@ -7,8 +7,167 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>All rights reserved - 2016</copyright>
-    <lastBuildDate>Mon, 13 Mar 2017 06:31:17 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 28 May 2017 12:27:54 +0200</lastBuildDate>
     <atom:link href="https://sysid.github.io/tags/sysid/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>energy prediction lpz</title>
+      <link>https://sysid.github.io/post/energy-prediction-lpz/</link>
+      <pubDate>Sun, 28 May 2017 12:27:54 +0200</pubDate>
+      
+      <guid>https://sysid.github.io/post/energy-prediction-lpz/</guid>
+      <description>
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/prognose/plant_lpz.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;h1 id=&#34;energy-forecast-for-a-full-scale-vehicle-plant&#34;&gt;Energy Forecast for a full scale Vehicle Plant&lt;/h1&gt;
+
+&lt;p&gt;Energy forecasting is based on time series analysis.
+There are many techniques for analysing and forecasting time series, e.g. ARIMA, linear regression and deep learning.
+To tackle the challenge at hand a linear regression will be the benchmark model aganst which deep learning models will be tested. In particular a multi layer perceptron (MLP) and recurrent
+neural network (RNN), i.e.  Long-Short Time Memory (LSTM) model will be applied.&lt;/p&gt;
+
+&lt;h2 id=&#34;business-domain&#34;&gt;Business Domain&lt;/h2&gt;
+
+&lt;p&gt;Energy forecasting is a tricky challenge because many factors might influence the final energy demand of a complex system
+like a large manufacturing plant. Especially when the plant employs
+not only energy consumers but also energy producers like CHPs and wind farms or energy reservoirs like battery farms.
+Significant factors to take into account:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;production plan&lt;/li&gt;
+&lt;li&gt;CHP energy production&lt;/li&gt;
+&lt;li&gt;weather, i.e. temperature, wind&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;data-preparation&#34;&gt;Data Preparation&lt;/h2&gt;
+
+&lt;p&gt;In order to apply the described techniques the problem has to be framed as a supervised learning problem. The data at hand is an hourly measurment of energy consumption
+in 2015 as well as associated production plans and weather data. This results to a multivariate time series. The variable to forecast is energy consumption for the next 48 hours.&lt;/p&gt;
+
+&lt;p&gt;For application in an neural network with a &lt;strong&gt;&lt;code&gt;tanh&lt;/code&gt;&lt;/strong&gt; non-linearity the data need to be scaled to the interval [-1,1]. Furthermore we split it into a training set (80%) and a test set (20%).&lt;/p&gt;
+
+&lt;p&gt;For forecasting different tactics can be applied.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Linear&lt;/strong&gt; regression: the timesteps are taken as independent from the past an only dependent on the feature vector at time t=0.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MLP&lt;/strong&gt;: similar to linear regression with respect to feature preparation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LSTM&lt;/strong&gt;: the timesteps are dependent on their predecessors and therefor the see-behind window is a hyperparameter to be chosen for the model.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;For this analysis the LSTM model will have two variants with regards to the lookback window:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;the entire dataset will be taken as sequence length, i.e. the LSTM context will be build over the entire time series. In Keras this results in a statfull LSTM network with batch-size 1 (online learning)..&lt;/li&gt;
+&lt;li&gt;a lookback window of 14days will be taken. This allows for batch-size &amp;gt; 0 and a stateless LSTM network.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;For the non RNN models also information from previous timesteps can be encoded into the feature vector by just putting the values of past timesteps as additional features into the feature vector.
+Here we also use the information of the last 14 days to be consistent within our model choices.&lt;/p&gt;
+
+&lt;p&gt;For all models the following parameters/features have been selected:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;actual energy consumption&lt;/li&gt;
+&lt;li&gt;air temperature&lt;/li&gt;
+&lt;li&gt;wind speed&lt;/li&gt;
+&lt;li&gt;wind direction&lt;/li&gt;
+&lt;li&gt;production plan&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This results in a feature vector for the linear models of dimension 1872:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;lookback: 14days*24h*5features&lt;/li&gt;
+&lt;li&gt;lookforward: 2days*24h*4features (5th parameter is the energy and is the label in our models to be forecasted)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;timestamp-challenges&#34;&gt;Timestamp Challenges&lt;/h4&gt;
+
+&lt;p&gt;Keeping the timestamps correct after all the data transformations is a special challenge which requires careful handling. The following diagram illustrates the topic. Left you can see the resulting dataset for a lookback window of 14days whereas on the right for a lookback window of 1hour. In order to compare results, the inverse date transformations have to take this into account.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/prognose/temporal_adjustment.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;h2 id=&#34;model&#34;&gt;Model&lt;/h2&gt;
+
+&lt;p&gt;We predict the entire 48 hours with one prediction in order to avoid instabilities introduced by step-by-step forecasting and then using the forecast as feature for the next forecast.&lt;/p&gt;
+
+&lt;p&gt;For the linear regression the venerable &lt;a href=&#34;http://scikit-learn.org/stable/&#34;&gt;scikit-learn&lt;/a&gt; library is used.
+For all the deep-learning &lt;a href=&#34;https://keras.io/&#34;&gt;KERAS&lt;/a&gt; and &lt;a href=&#34;https://www.tensorflow.org/&#34;&gt;TENSORFLOW&lt;/a&gt; are the tools of choice.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/prognose/models.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;The MLP model has got 1.4 Mio parameters, so its capacity is much higher then the LSTM.
+This gives already a first hint towards further optimization of model setup.&lt;/p&gt;
+
+&lt;h2 id=&#34;result&#34;&gt;Result&lt;/h2&gt;
+
+&lt;p&gt;Quality of forecast is measured as MSE (mean squared error). All plots show an arbitrary point in time of the test set with 14days
+in the past and 2 days forecast. Every model is compared to the naive linear regression (red line).&lt;/p&gt;
+
+&lt;h3 id=&#34;ltsm&#34;&gt;LTSM&lt;/h3&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/prognose/rnn.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;The LTSM model overall shows an MSE of 0.025 on the test set.&lt;/p&gt;
+
+&lt;p&gt;The red box shows an outlier in the linear regression.
+It seems like the linear model did not pick up a significant feature like production plan properly.
+The LSTM did a better job here.&lt;/p&gt;
+
+&lt;h3 id=&#34;mlp&#34;&gt;MLP&lt;/h3&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/prognose/mlp.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;The MLP model overall shows an MSE of 0.063 on the test set.&lt;/p&gt;
+
+&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Although both deep learning approaches can predict the shape of the time series, the LSTM model exhibits an higher accuracy.
+Since the model capacity is much lower this was a surprising outcome.&lt;/p&gt;
+
+&lt;p&gt;However both deep learning approaches struggle to match the quality of a simple linear regression forecast.
+Due to time contraints no hyperparameter or model tuning has taken place. There are many areas for potential improvement
+which could not be explored in this experiment.&lt;/p&gt;
+
+&lt;p&gt;If you have similar experiences or interests, I would be happy to have a discussion. Thanks for reading.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>fishy affine transformation</title>
