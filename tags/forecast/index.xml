@@ -2,12 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Forecast on </title>
-    <link>https://sysid.github.io/tags/forecast/</link>
+    <link>https://sysid.github.io/tags/forecast/index.xml</link>
     <description>Recent content in Forecast on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>All rights reserved - 2016</copyright>
-    <lastBuildDate>Sun, 28 May 2017 12:27:54 +0200</lastBuildDate>
     <atom:link href="https://sysid.github.io/tags/forecast/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -52,7 +51,7 @@ Significant factors to take into account:&lt;/p&gt;
 &lt;p&gt;In order to apply the described techniques the problem has to be framed as a supervised learning problem. The data at hand is an hourly measurment of energy consumption
 in 2015 as well as associated production plans and weather data. This results to a multivariate time series. The variable to forecast is energy consumption for the next 48 hours.&lt;/p&gt;
 
-&lt;p&gt;For application in an neural network with a &lt;strong&gt;&lt;code&gt;tanh&lt;/code&gt;&lt;/strong&gt; non-linearity the data need to be scaled to the interval [-1,1]. Furthermore we split it into a training set (80%) and a test set (20%).&lt;/p&gt;
+&lt;p&gt;For application in a LSTM neural network with &lt;strong&gt;&lt;code&gt;tanh&lt;/code&gt;&lt;/strong&gt; non-linearity the data need to be scaled to the interval [-1,1]. Furthermore we split it into a training set (80%) and a test set (20%).&lt;/p&gt;
 
 &lt;p&gt;For forecasting different tactics can be applied.&lt;/p&gt;
 
@@ -75,7 +74,7 @@ Here we also use the information of the last 14 days to be consistent within our
 &lt;p&gt;For all models the following parameters/features have been selected:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;actual energy consumption&lt;/li&gt;
+&lt;li&gt;energy consumption&lt;/li&gt;
 &lt;li&gt;air temperature&lt;/li&gt;
 &lt;li&gt;wind speed&lt;/li&gt;
 &lt;li&gt;wind direction&lt;/li&gt;
@@ -158,14 +157,16 @@ The LSTM did a better job here.&lt;/p&gt;
 
 &lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
 
-&lt;p&gt;Although both deep learning approaches can predict the shape of the time series, the LSTM model exhibits an higher accuracy.
-Since the model capacity is much lower this was a surprising outcome.&lt;/p&gt;
+&lt;p&gt;Although both deep learning approaches can predict the shape of the time series well, the LSTM model exhibits higher accuracy.
+Since the model capacity is much lower, this was a surprising outcome.&lt;/p&gt;
 
-&lt;p&gt;However both deep learning approaches struggle to match the quality of a simple linear regression forecast.
-Due to time contraints no hyperparameter or model tuning has taken place. There are many areas for potential improvement
-which could not be explored in this experiment.&lt;/p&gt;
+&lt;p&gt;However both deep learning approaches seem struggle to match the quality of a simple linear regression forecast.
+Due to time contraints no hyperparameter or model tuning has taken place. There are many areas for potential improvements, e.g.
+- detailed feature preparation, especially production plans
+- exploration of more neural network configurations (number of layers, number of timesteps, number of neurons, &amp;hellip;)
+- hyperparameter tuning (regularization, learning rates, optimiziers, &amp;hellip;)&lt;/p&gt;
 
-&lt;p&gt;If you have similar experiences or interests, I would be happy to have a discussion. Thanks for reading.&lt;/p&gt;
+&lt;p&gt;Thanks for reading.&lt;/p&gt;
 </description>
     </item>
     

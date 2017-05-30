@@ -49,7 +49,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.16" />
+    <meta name="generator" content="Hugo 0.18.1" />
 
     <link rel="canonical" href="https://sysid.github.io/post/energy-prediction-lpz/" />
 
@@ -190,7 +190,7 @@ Significant factors to take into account:</p>
 <p>In order to apply the described techniques the problem has to be framed as a supervised learning problem. The data at hand is an hourly measurment of energy consumption
 in 2015 as well as associated production plans and weather data. This results to a multivariate time series. The variable to forecast is energy consumption for the next 48 hours.</p>
 
-<p>For application in an neural network with a <strong><code>tanh</code></strong> non-linearity the data need to be scaled to the interval [-1,1]. Furthermore we split it into a training set (80%) and a test set (20%).</p>
+<p>For application in a LSTM neural network with <strong><code>tanh</code></strong> non-linearity the data need to be scaled to the interval [-1,1]. Furthermore we split it into a training set (80%) and a test set (20%).</p>
 
 <p>For forecasting different tactics can be applied.</p>
 
@@ -213,7 +213,7 @@ Here we also use the information of the last 14 days to be consistent within our
 <p>For all models the following parameters/features have been selected:</p>
 
 <ol>
-<li>actual energy consumption</li>
+<li>energy consumption</li>
 <li>air temperature</li>
 <li>wind speed</li>
 <li>wind direction</li>
@@ -296,14 +296,16 @@ The LSTM did a better job here.</p>
 
 <h3 id="conclusion">Conclusion</h3>
 
-<p>Although both deep learning approaches can predict the shape of the time series, the LSTM model exhibits an higher accuracy.
-Since the model capacity is much lower this was a surprising outcome.</p>
+<p>Although both deep learning approaches can predict the shape of the time series well, the LSTM model exhibits higher accuracy.
+Since the model capacity is much lower, this was a surprising outcome.</p>
 
-<p>However both deep learning approaches struggle to match the quality of a simple linear regression forecast.
-Due to time contraints no hyperparameter or model tuning has taken place. There are many areas for potential improvement
-which could not be explored in this experiment.</p>
+<p>However both deep learning approaches seem struggle to match the quality of a simple linear regression forecast.
+Due to time contraints no hyperparameter or model tuning has taken place. There are many areas for potential improvements, e.g.
+- detailed feature preparation, especially production plans
+- exploration of more neural network configurations (number of layers, number of timesteps, number of neurons, &hellip;)
+- hyperparameter tuning (regularization, learning rates, optimiziers, &hellip;)</p>
 
-<p>If you have similar experiences or interests, I would be happy to have a discussion. Thanks for reading.</p>
+<p>Thanks for reading.</p>
 
     </section>
 
