@@ -179,7 +179,55 @@ Due to time contraints no hyperparameter or model tuning has taken place. There 
       <guid>https://sysid.github.io/linklist/</guid>
       <description>
 
-&lt;h3 id=&#34;lstm-rnn&#34;&gt;LSTM/RNN&lt;/h3&gt;
+&lt;h5 id=&#34;lp-linear-programming&#34;&gt;LP/Linear Programming&lt;/h5&gt;
+
+&lt;h5 id=&#34;lstm-rnn&#34;&gt;LSTM/RNN&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://colah.github.io/posts/2015-08-Understanding-LSTMs/&#34;&gt;Colah&amp;rsquo;s Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://karpathy.github.io/2015/05/21/rnn-effectiveness/&#34;&gt;Unreasonable Effectiveness of Recurrent Neural Networks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://philipperemy.github.io/keras-stateful-lstm/&#34;&gt;Statefull LSTM in Keras&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Vict0rSch/deep_learning/blob/master/recurrent.md&#34;&gt;Batch, Time and Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/pdf/1506.00019v4.pdf&#34;&gt;A Critical Review of Recurrent Neural Networks for Sequence Learning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/pdf/1603.06995v4.pdf&#34;&gt;Multi-Scale Convolutional Neural Networks for Time Series Classification&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.jakob-aungiers.com/articles/a/LSTM-Neural-Network-for-Time-Series-Prediction&#34;&gt;Stock Market Prediction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@TalPerry/deep-learning-the-stock-market-df853d139e02&#34;&gt;Stock Market Embedding and Prediction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;ftp://ftp.idsia.ch/pub/juergen/icann2001predict.pdf&#34;&gt;Limitations vs Time-Window Approaches&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.elen.ucl.ac.be/Proceedings/esann/esannpdf/es2015-56.pdf&#34;&gt;Long Short Term Memory Networks for Anomaly Detection in Time Series&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;nlp&#34;&gt;NLP&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.kaggle.com/c/quora-question-pairs/discussion/30340#170434&#34;&gt;A beginner&amp;rsquo;s guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.aclweb.org/aclwiki/index.php?title=Paraphrase_Identification_(State_of_the_art)&#34;&gt;Paraphrase Identification (State of the art)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;python&#34;&gt;Python&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://pbpython.com/effective-matplotlib.html&#34;&gt;Matplotlib Primer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;timeseries&#34;&gt;TimeSeries&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://facebookincubator.github.io/prophet/static/prophet_paper_20170113.pdf&#34;&gt;Facebook Prophet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.koziolek.de/docs/Goldschmidt2014-IEEE-CLOUD-preprint.pdf&#34;&gt;Databases&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.analyticsvidhya.com/blog/2016/02/time-series-forecasting-codes-python/&#34;&gt;Guide for TS Forecast&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>linklist</title>
+      <link>https://sysid.github.io/linklist.sync-conflict-20170604-093906/</link>
+      <pubDate>Sun, 26 Mar 2017 09:51:42 +0200</pubDate>
+      
+      <guid>https://sysid.github.io/linklist.sync-conflict-20170604-093906/</guid>
+      <description>
+
+&lt;h5 id=&#34;lstm-rnn&#34;&gt;LSTM/RNN&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://colah.github.io/posts/2015-08-Understanding-LSTMs/&#34;&gt;Colah&amp;rsquo;s Blog&lt;/a&gt;&lt;/li&gt;
@@ -191,20 +239,20 @@ Due to time contraints no hyperparameter or model tuning has taken place. There 
 &lt;li&gt;&lt;a href=&#34;http://www.jakob-aungiers.com/articles/a/LSTM-Neural-Network-for-Time-Series-Prediction&#34;&gt;Stock Market Prediction&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;nlp&#34;&gt;NLP&lt;/h3&gt;
+&lt;h5 id=&#34;nlp&#34;&gt;NLP&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.kaggle.com/c/quora-question-pairs/discussion/30340#170434&#34;&gt;A beginner&amp;rsquo;s guide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.aclweb.org/aclwiki/index.php?title=Paraphrase_Identification_(State_of_the_art)&#34;&gt;Paraphrase Identification (State of the art)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt;
+&lt;h5 id=&#34;python&#34;&gt;Python&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://pbpython.com/effective-matplotlib.html&#34;&gt;Matplotlib Primer&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;timeseries&#34;&gt;TimeSeries&lt;/h3&gt;
+&lt;h5 id=&#34;timeseries&#34;&gt;TimeSeries&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://facebookincubator.github.io/prophet/static/prophet_paper_20170113.pdf&#34;&gt;Facebook Prophet&lt;/a&gt;&lt;/li&gt;
