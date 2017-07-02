@@ -181,6 +181,16 @@ Due to time contraints no hyperparameter or model tuning has taken place. There 
 
 &lt;h5 id=&#34;lp-linear-programming&#34;&gt;LP/Linear Programming&lt;/h5&gt;
 
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://benalexkeen.com/linear-programming-with-python-and-pulp-part-1/&#34;&gt;Intro&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;keras&#34;&gt;Keras&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/fchollet/keras-resources&#34;&gt;fchollet&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h5 id=&#34;lstm-rnn&#34;&gt;LSTM/RNN&lt;/h5&gt;
 
 &lt;ul&gt;
@@ -196,17 +206,18 @@ Due to time contraints no hyperparameter or model tuning has taken place. There 
 &lt;li&gt;&lt;a href=&#34;https://www.elen.ucl.ac.be/Proceedings/esann/esannpdf/es2015-56.pdf&#34;&gt;Long Short Term Memory Networks for Anomaly Detection in Time Series&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h5 id=&#34;ml-curated-list-and-cheat-sheets&#34;&gt;ML Curated List and Cheat Sheets&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://unsupervisedmethods.com/over-150-of-the-best-machine-learning-nlp-and-python-tutorials-ive-found-ffce2939bd78&#34;&gt;150 of the best&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://unsupervisedmethods.com/cheat-sheet-of-machine-learning-and-python-and-math-cheat-sheets-a4afe4e791b6&#34;&gt;Collection of Cheat Sheets&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h5 id=&#34;nlp&#34;&gt;NLP&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.kaggle.com/c/quora-question-pairs/discussion/30340#170434&#34;&gt;A beginner&amp;rsquo;s guide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.aclweb.org/aclwiki/index.php?title=Paraphrase_Identification_(State_of_the_art)&#34;&gt;Paraphrase Identification (State of the art)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;python&#34;&gt;Python&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://pbpython.com/effective-matplotlib.html&#34;&gt;Matplotlib Primer&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h5 id=&#34;timeseries&#34;&gt;TimeSeries&lt;/h5&gt;
@@ -215,6 +226,18 @@ Due to time contraints no hyperparameter or model tuning has taken place. There 
 &lt;li&gt;&lt;a href=&#34;https://facebookincubator.github.io/prophet/static/prophet_paper_20170113.pdf&#34;&gt;Facebook Prophet&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://www.koziolek.de/docs/Goldschmidt2014-IEEE-CLOUD-preprint.pdf&#34;&gt;Databases&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.analyticsvidhya.com/blog/2016/02/time-series-forecasting-codes-python/&#34;&gt;Guide for TS Forecast&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;software-development&#34;&gt;Software Development&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://jrsinclair.com/articles/2017/faster-better-cheaper-art-of-making-software/&#34;&gt;Faster, Better, Cheaper&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;visualization&#34;&gt;Visualization&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://pbpython.com/effective-matplotlib.html&#34;&gt;Matplotlib Primer&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
