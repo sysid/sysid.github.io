@@ -39,7 +39,7 @@ built on the shoulders of titans. Plays along with tmux.&lt;/p&gt;
 
 &lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
 
-&lt;p&gt;Clone the configuration to a directory of your choice.&lt;/p&gt;
+&lt;p&gt;You need docker. Clone the configuration to a directory of your choice.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;cd &amp;lt;your dir&amp;gt;; git clone https://github.com/sysid/vim.git
 
