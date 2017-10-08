@@ -161,6 +161,15 @@
     <section class="post-content">
       
 
+
+<figure >
+    
+        <img src="https://sysid.github.io/images/oVim300.png" />
+    
+    
+</figure>
+
+
 <h1 id="ovimionated">oVimionated</h1>
 
 <p>VIM can be a complex matter. Afficionados spend aeons in tuning and debugging bespoke environments, promising that
@@ -177,22 +186,22 @@ built on the shoulders of titans. Plays along with tmux.</p>
 
 <h2 id="tl-dr">TL;DR</h2>
 
-<pre><code class="language-shell">oVim &lt;file&gt;
+<pre><code class="language-shell"># open file in current terminal window
+oVim &lt;file&gt;
+
+# open file in new tmux window
+oVim-tmux &lt;file&gt;
 </code></pre>
 
 <h2 id="installation">Installation</h2>
 
 <p>You need docker. Clone the configuration to a directory of your choice.</p>
 
-<pre><code>cd &lt;your dir&gt;; git clone https://github.com/sysid/vim.git
+<pre><code>cd &lt;your dir&gt;; git clone https://github.com/sysid/oVim.git
 
-function oVim () {
-    path=&quot;$(pwd)/$1&quot;
-    docker run -ti --rm \
-        -v &lt;your dir&gt;/vim:/ext/ \
-        -v $HOME:/home/developer/workspace \
-        sysid/twvim_full ${path#$HOME/}
-}
+# put this line in your .profile or .bashrc
+source &lt;your dir&gt;/oVim/oVim.sh
+
 </code></pre>
 
 <h2 id="basics">Basics</h2>
@@ -234,7 +243,7 @@ zr, zm, zR, zM
 <h2 id="tmux-integration">Tmux integration</h2>
 
 <p>Most of your regular vi-moves work except for navigate from vim back to tmux. Since vim is running in a docker container
-you have to &ldquo;break out&rdquo; of docker. Key-codes cannot be sent back to tmux.</p>
+you have to &ldquo;break out&rdquo; of docker with a special key mapping. Key-codes cannot be sent from a vim running in a container back to tmux.</p>
 
 <pre><code>navigate from vim to your last tmux pane:
 &lt;prefix&gt;tab

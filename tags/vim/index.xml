@@ -17,6 +17,15 @@
       <guid>https://sysid.github.io/post/oVimionated/</guid>
       <description>
 
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://sysid.github.io/images/oVim300.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
 &lt;h1 id=&#34;ovimionated&#34;&gt;oVimionated&lt;/h1&gt;
 
 &lt;p&gt;VIM can be a complex matter. Afficionados spend aeons in tuning and debugging bespoke environments, promising that
@@ -33,22 +42,22 @@ built on the shoulders of titans. Plays along with tmux.&lt;/p&gt;
 
 &lt;h2 id=&#34;tl-dr&#34;&gt;TL;DR&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;oVim &amp;lt;file&amp;gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;# open file in current terminal window
+oVim &amp;lt;file&amp;gt;
+
+# open file in new tmux window
+oVim-tmux &amp;lt;file&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
 
 &lt;p&gt;You need docker. Clone the configuration to a directory of your choice.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;cd &amp;lt;your dir&amp;gt;; git clone https://github.com/sysid/vim.git
+&lt;pre&gt;&lt;code&gt;cd &amp;lt;your dir&amp;gt;; git clone https://github.com/sysid/oVim.git
 
-function oVim () {
-    path=&amp;quot;$(pwd)/$1&amp;quot;
-    docker run -ti --rm \
-        -v &amp;lt;your dir&amp;gt;/vim:/ext/ \
-        -v $HOME:/home/developer/workspace \
-        sysid/twvim_full ${path#$HOME/}
-}
+# put this line in your .profile or .bashrc
+source &amp;lt;your dir&amp;gt;/oVim/oVim.sh
+
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;basics&#34;&gt;Basics&lt;/h2&gt;
@@ -90,7 +99,7 @@ zr, zm, zR, zM
 &lt;h2 id=&#34;tmux-integration&#34;&gt;Tmux integration&lt;/h2&gt;
 
 &lt;p&gt;Most of your regular vi-moves work except for navigate from vim back to tmux. Since vim is running in a docker container
-you have to &amp;ldquo;break out&amp;rdquo; of docker. Key-codes cannot be sent back to tmux.&lt;/p&gt;
+you have to &amp;ldquo;break out&amp;rdquo; of docker with a special key mapping. Key-codes cannot be sent from a vim running in a container back to tmux.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;navigate from vim to your last tmux pane:
 &amp;lt;prefix&amp;gt;tab
