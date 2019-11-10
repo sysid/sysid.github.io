@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[13],{72:function(n,t,e){"use strict";e.r(t),t.default={title:"Munggoggo: A modern message based async agent framework",tags:["python","async","agent","RabbitMQ"],spoiler:"An asyncio based multi agent platform written in Python and based on RabbitMQ.",getContent:function(){return e.e(8).then(e.bind(null,66))}}}}]);
+//# sourceMappingURL=13.a432f905.chunk.js.map
