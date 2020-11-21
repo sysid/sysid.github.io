@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-templates-tags-js","path":"/tags/society/","result":{"data":{"allMdx":{"totalCount":1,"edges":[{"node":{"fields":{"slug":"/deepfake/"},"frontmatter":{"title":"String Puppets"}}}]}},"pageContext":{"tag":"society"}}}
+{"componentChunkName":"component---src-templates-tags-js","path":"/tags/society/","result":{"data":{"allMdx":{"totalCount":1,"edges":[{"node":{"fields":{"slug":"/deepfake/"},"frontmatter":{"title":"String Puppets"}}}]}},"pageContext":{"tag":"society"}},"staticQueryHashes":[]}
