@@ -5,7 +5,7 @@
   <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="shortcut icon" href="images/favicon.png" />
+<link rel="shortcut icon" href="/images/favicon.png" />
 <title>Maximal Overlap of Rectangles | sysid blog</title>
 <meta name="title" content="Maximal Overlap of Rectangles" />
 <meta name="description" content="Find the maximal complete overlap of a set of rectangles" />
@@ -210,6 +210,25 @@
 
 </style>
 
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-alpha.1/es5/tex-mml-chtml.js"></script>
+
+
+
+<script>
+    MathJaxDone = new Promise((resolve, reject) => {
+        window.MathJax = {
+            tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+            startup: {
+                pageReady() {
+                    return MathJax.startup.defaultPageReady().then(resolve);
+                }
+            }
+        }
+    });
+</script>
 
 </head>
 

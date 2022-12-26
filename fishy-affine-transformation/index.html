@@ -5,7 +5,7 @@
   <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="shortcut icon" href="images/favicon.png" />
+<link rel="shortcut icon" href="/images/favicon.png" />
 <title>Fishy Affine Transformation | sysid blog</title>
 <meta name="title" content="Fishy Affine Transformation" />
 <meta name="description" content="Fishy Affine Transformation While working on the kaggle competition https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring I hit the point when I wanted to align fish based on an annotation at the fish&rsquo;s head and tail, so that the fish is centered in the image, always in the same orientation and distracting picture information is minimized. This required:
@@ -214,6 +214,25 @@ finding the fish (thanks Nathaniel Shimoni for annotating) centering rotatating 
 
 </style>
 
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-alpha.1/es5/tex-mml-chtml.js"></script>
+
+
+
+<script>
+    MathJaxDone = new Promise((resolve, reject) => {
+        window.MathJax = {
+            tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+            startup: {
+                pageReady() {
+                    return MathJax.startup.defaultPageReady().then(resolve);
+                }
+            }
+        }
+    });
+</script>
 
 </head>
 
