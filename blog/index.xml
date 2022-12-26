@@ -21,11 +21,14 @@ Blog Requirements readability, no noise professional math support, i.e. Latex re
     <item>
       <title>vimania-uri</title>
       <link>/vimania-uri/</link>
-      <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 19 Dec 2022 00:00:00 +0000</pubDate>
       
       <guid>/vimania-uri/</guid>
-      <description>Like to double-click links in order to &amp;ldquo;open&amp;rdquo; them? Here is the keyboard-based VIM version.
-vimania-uri Key Features Open arbitrary URIs in text files, html, docx, pptx, jpg, png, mp3, &amp;hellip; Save URI seamless in bookmark manager twbm for seamless CLI management Handles almost any kind of URI Paste URLs with human-friendly description Why? One magic power of an OS UI is the capability of opening most URIs by just double-clicking them.</description>
+      <description>Double-click open. But for VIM.
+Key Features Open URIs, html, docx, pptx, jpg, png, mp3, &amp;hellip; Handle almost any URI Paste URLs with human-friendly description vimania-uri
+Why? One magic power of OS UI is the capability of opening URIs by just double-clicking. As a CLI worker using the mouse does not cut it, unfortunately.
+Markdown To deal with markdown a plugin is helpful, e.g. plasticboy&amp;rsquo;s plugin.
+It allows to create new files by adding a link [topic](topic) and then jump to it by typing ge while the cursor is on the link.</description>
     </item>
     
     <item>

@@ -16,8 +16,8 @@
 <meta property="og:description" content="Use arbitrary URI&#39;s like double-clicking them in your OS, but with VIM." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/vimania-uri/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2022-09-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-09-01T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+<meta property="article:published_time" content="2022-12-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-12-19T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
 
 
 
@@ -30,9 +30,9 @@
 
 
 <meta itemprop="name" content="vimania-uri">
-<meta itemprop="description" content="Use arbitrary URI&#39;s like double-clicking them in your OS, but with VIM."><meta itemprop="datePublished" content="2022-09-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-09-01T00:00:00+00:00" />
-<meta itemprop="wordCount" content="396"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="description" content="Use arbitrary URI&#39;s like double-clicking them in your OS, but with VIM."><meta itemprop="datePublished" content="2022-12-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-12-19T00:00:00+00:00" />
+<meta itemprop="wordCount" content="301"><meta itemprop="image" content="images/share.png"/>
 <meta itemprop="keywords" content="python,work,vim," />
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
@@ -229,50 +229,51 @@
 <h1>vimania-uri</h1>
 <p>
   <i>
-    <time datetime='2022-09-01' pubdate>
-      01 Sep, 2022
+    <time datetime='2022-12-19' pubdate>
+      19 Dec, 2022
     </time>
   </i>
 </p>
 
 <content>
   <blockquote>
-<p>Like to double-click links in order to &ldquo;open&rdquo; them? Here is the keyboard-based VIM version.</p>
+<p>Double-click open. But for VIM.</p>
 </blockquote>
-<h4 id="vimania-uri"><a href="https://github.com/sysid/vimania-uri">vimania-uri</a></h4>
-<h2 id="key-features">Key Features</h2>
+<h1 id="key-features">Key Features</h1>
 <ol>
-<li>Open arbitrary URIs in text files, html, docx, pptx, jpg, png, mp3, &hellip;</li>
-<li>Save URI seamless in bookmark manager <a href="https://github.com/sysid/twbm">twbm</a> for seamless CLI management</li>
-<li>Handles almost any kind of URI</li>
+<li>Open URIs, html, docx, pptx, jpg, png, mp3, &hellip;</li>
+<li>Handle almost any URI</li>
 <li>Paste URLs with human-friendly description</li>
 </ol>
+<p><figure class="center"><img src="vimania-uri-demo.png" width="100%"/>
+</figure>
+
+<a href="https://github.com/sysid/vimania-uri">vimania-uri</a></p>
 <h2 id="why">Why?</h2>
-<p>One magic power of an OS UI is the capability of opening most URIs by just double-clicking them.
+<p>One magic power of OS UI is the capability of opening URIs by just double-clicking.
 As a CLI worker using the mouse does not cut it, unfortunately.</p>
-<h3 id="markdown">Markdown</h3>
-<p>Certainly I use Markdown a lot and after a few burns I settled with <a href="https://github.com/plasticboy/vim-markdown">plasticboy&rsquo;s plugin</a>.
-It allows me to create new files by just adding a link <code>[topic](topic)</code> and then jump to it by typing <code>ge</code> while the cursor is on the link.
-This opens the markdwown file and I am ready to go. Very convenient, even no need for the <code>.md</code>-suffix in the link
-specification.</p>
-<p>Hmmm, one <strong>has</strong> to leave the suffix out in order to work. Ok, just a little thing to remember, right? No problem.</p>
-<h3 id="uri-handling">URI Handling</h3>
-<p>I used vim&rsquo;s builtin <em>netrw</em> to open files via the <code>gx</code>-mapping. Again, add a link <code>[topic](file.ext)</code>
+<h4 id="markdown">Markdown</h4>
+<p>To deal with markdown a plugin is helpful, e.g. <a href="https://github.com/plasticboy/vim-markdown">plasticboy&rsquo;s plugin</a>.</p>
+<p>It allows to create new files by adding a link <code>[topic](topic)</code> and then jump to it by typing <code>ge</code> while the cursor is on the link.</p>
+<p>Very convenient, but specific syntax: No <code>.md</code>-suffix in the link specification.</p>
+<h4 id="uri-handling">URI Handling</h4>
+<p>Vim&rsquo;s builtin <em>netrw</em> opens files via the <code>gx</code>-mapping. Add link <code>[topic](file.ext)</code>
 and <em>netrw</em> uses the OS&rsquo;s native <code>open</code> command to handle the file link. This means it can handle URLs, file paths, Microsoft
 Office Documents, etc&hellip;</p>
-<p>A true productivity booster which mimics the behavior of just double-clicking a file in a GUI
-file-manager. Only, this time one <strong>must not</strong> miss the the suffix in the filename.</p>
-<p>There should be only ONE way to do things.</p>
+<p>A productivity booster which mimics the behavior of just double-clicking a file in a GUI
+file-manager. Only this time the suffix must not be missed in the filename.</p>
+<p>There should be only <strong>ONE way</strong> to do things.</p>
 <h3 id="all-in-one">All in One</h3>
-<p>I am only aware of one plugin which tries to be feature complete: <a href="https://github.com/chmp/mdnav">mdnav</a>.
-Unfortunattely this project is not maintained any more, so I forked it and started to integrate it with
-a CLI bookmark manager.</p>
-<h2 id="how-">How ?</h2>
-<h3 id="simple-user-interface">Simple user interface</h3>
+<p>I am aware of only one plugin which tries to be feature complete: <a href="https://github.com/chmp/mdnav">mdnav</a>.</p>
+<p>Unfortunattely this project is not maintained any more.</p>
+<hr>
+<h2 id="vimania-uri"><a href="https://github.com/sysid/vimania-uri">vimania-uri</a></h2>
+<h4 id="simple-user-interface">Simple user interface</h4>
 <p>Position cursor anywhere on URI and just say <code>go</code>.</p>
 <pre><code>go (open URL, directories, files, ...)
 </code></pre>
 <!-- raw HTML omitted -->
+<p>Paste human-readable links:</p>
 <pre><code>&lt;leader&gt;vl (paste link)
 </code></pre>
 <h3 id="optional-bookmark-manager-integration">Optional: Bookmark Manager Integration</h3>
@@ -283,9 +284,11 @@ a CLI bookmark manager.</p>
 <pre><code>dd (delete URI containing line from markdown and DB)
 </code></pre>
 <h2 id="summary">Summary</h2>
-<p>This plugin hanles all URI use-cases in VIM text files transparently as you would expect it from your OS UI. No need to
-memorize several key shortcuts or commands. An additional benefit is the bookmark manager integration, which allow to
-open your URIs from the command line. A true productivity booster.</p>
+<p>This plugin handles URI use-cases in VIM text files as you would expect it from your OS UI.</p>
+<p>No need to memorize different key shortcuts or commands.</p>
+<p>An additional benefit is the bookmark manager integration, which allows to
+open and manage URIs from the command line.</p>
+<hr>
 
 </content>
 <p>
