@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/images/favicon.png" />
+<title>Reboot | sysid blog</title>
+<meta name="title" content="Reboot" />
+<meta name="description" content="From hugo to gatsby and back." />
+<meta name="keywords" content="learning,productivity," />
+
+
+<meta property="og:title" content="Reboot" />
+<meta property="og:description" content="From hugo to gatsby and back." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/reboot/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2022-12-26T08:25:13+01:00" />
+<meta property="article:modified_time" content="2022-12-26T08:25:13+01:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="Reboot"/>
+<meta name="twitter:description" content="From hugo to gatsby and back."/>
+
+
+
+<meta itemprop="name" content="Reboot">
+<meta itemprop="description" content="From hugo to gatsby and back."><meta itemprop="datePublished" content="2022-12-26T08:25:13+01:00" />
+<meta itemprop="dateModified" content="2022-12-26T08:25:13+01:00" />
+<meta itemprop="wordCount" content="337"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="learning,productivity," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Reboot</h1>
+<p>
+  <i>
+    <time datetime='2022-12-26' pubdate>
+      26 Dec, 2022
+    </time>
+  </i>
+</p>
+
+<content>
+  <figure class="center"><img src="./success.jpg" width="100%"/>
+</figure>
+
+<blockquote>
+<p>Success is not always a straight line.</p>
+</blockquote>
+<h2 id="blog-requirements">Blog Requirements</h2>
+<ul>
+<li>readability, no noise</li>
+<li>professional math support, i.e. Latex rendering</li>
+<li>swift build times</li>
+<li>robust technology</li>
+</ul>
+<h2 id="switch-to-gatsby">Switch to Gatsby</h2>
+<p>End of 2018 I switched from Hugo to Gatsby because why not. Gatsby was the new-kid-on-the-block and it is based on React and
+GraphQL, which I wanted to learn anyway. At the time I could tick above boxes, especially because my blog was
+tiny and I was dealing with React in other projects.</p>
+<h3 id="evolution">Evolution</h3>
+<p>The blog got bigger and I changed focus from React to backend. This resulted in:</p>
+<ol>
+<li>Context switch to deal with Gatsby internals required increasing effort</li>
+<li>Build times became very long</li>
+</ol>
+<p>Overall the feeling grew, that the techstack, despite being very capable, being overkill for a simple
+blog and effort vs. benefit got out of balance.</p>
+<h2 id="switch-back-to-hugo">Switch back to Hugo</h2>
+<p>Due to initial experience with Hugo, the learning curve was virtually non existent.</p>
+<p>However, migrating the pages took more than expected.
+I do have some math-heavy pages and on Gatsby I was using <a href="https://katex.org/">Katex</a> whereas on Hugo I decided to go for <a href="https://www.mathjax.org/">Mathjax</a>.</p>
+<h4 id="why-mathjax">Why Mathjax</h4>
+<ul>
+<li>higher flexibility: MathML, Latex</li>
+<li>new version 4alhpa with many improvements</li>
+</ul>
+<p>Mathjax Setup for 4 alpha:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#b06;font-weight:bold">script</span> <span style="color:#369">src</span>=<span style="color:#d20;background-color:#fff0f0">&#34;https://polyfill.io/v3/polyfill.min.js?features=es6&#34;</span>&gt;&lt;/<span style="color:#b06;font-weight:bold">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#b06;font-weight:bold">script</span> <span style="color:#369">id</span>=<span style="color:#d20;background-color:#fff0f0">&#34;MathJax-script&#34;</span> <span style="color:#369">async</span> <span style="color:#369">src</span>=<span style="color:#d20;background-color:#fff0f0">&#34;https://cdn.jsdelivr.net/npm/mathjax@4.0.0-alpha.1/es5/tex-mml-chtml.js&#34;</span>&gt;&lt;/<span style="color:#b06;font-weight:bold">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888">&lt;!-- this part configures it --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#b06;font-weight:bold">script</span>&gt;
+</span></span><span style="display:flex;"><span>    MathJaxDone = <span style="color:#080;font-weight:bold">new</span> <span style="color:#038">Promise</span>((resolve, reject) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#038">window</span>.MathJax = {
+</span></span><span style="display:flex;"><span>            tex: {inlineMath: [[<span style="color:#d20;background-color:#fff0f0">&#39;$&#39;</span>, <span style="color:#d20;background-color:#fff0f0">&#39;$&#39;</span>], [<span style="color:#d20;background-color:#fff0f0">&#39;\\(&#39;</span>, <span style="color:#d20;background-color:#fff0f0">&#39;\\)&#39;</span>]]},
+</span></span><span style="display:flex;"><span>            startup: {
+</span></span><span style="display:flex;"><span>                pageReady() {
+</span></span><span style="display:flex;"><span>                    <span style="color:#080;font-weight:bold">return</span> MathJax.startup.defaultPageReady().then(resolve);
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#b06;font-weight:bold">script</span>&gt;
+</span></span></code></pre></div><p>Unfortunately the Latex markup did have subtle incompatibilities and required manual work despite the fact,
+that most of the adjustments could be automated by regexp substitutions.</p>
+<h2 id="result">Result</h2>
+<ol>
+<li>Hugo&rsquo;s templating concpets are more accessible for me with less indirection and &lsquo;magic&rsquo;. GraphQL might
+be a good thing for API developmemnt but definitely not for simple Blog sites.</li>
+<li>Build times went down by more than a factor of 20! The generated artefacts of Gatsby might be more sophisticated
+(e.g. partial loading, etc) but this does not matter here.</li>
+<li>Overal structure is simpler and the <a href="https://github.com/janraasch/hugo-bearblog">bearblog theme</a> is crisp and clear.</li>
+</ol>
+<hr>
+
+</content>
+<p>
+  
+  <a href="/blog/learning/">#learning</a>
+  
+  <a href="/blog/productivity/">#productivity</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>
