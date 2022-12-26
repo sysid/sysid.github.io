@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>async on sysid blog</title>
+    <link>/blog/async/</link>
+    <description>Recent content in async on sysid blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2022, sysid.</copyright>
+    <lastBuildDate>Wed, 27 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="/blog/async/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Server Sent Events</title>
+      <link>/server-sent-events/</link>
+      <pubDate>Wed, 27 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/server-sent-events/</guid>
+      <description>If you are looking for realtime features in WEB applciations you often end with Websockets.
+Just to be complete I also mention &amp;lsquo;Long/Short polling&amp;rsquo; as a client-side pull option. I regard it as mere workaround to a realtime communication implementation.
+As always, requirements are key: If you need bi-directional realtime features with high volume and low latency, Websocket is your choice. If you need to deliver realtime information to many clients, but you can live with the HTTP Request/Response model to trigger actions, Server Sent Events (SSE) are a powerful contender.</description>
+    </item>
+    
+    <item>
+      <title>Munggoggo: A modern message based async agent framework</title>
+      <link>/munggoggo-a-modern-message-based-async-agent-framework/</link>
+      <pubDate>Sat, 02 Nov 2019 22:12:03 +0000</pubDate>
+      
+      <guid>/munggoggo-a-modern-message-based-async-agent-framework/</guid>
+      <description>An asyncio based agent platform written in Python and based on RabbitMQ.
+Agents are isolated processes which can host multiple parallel running behaviours implementing business logic and can be deployed as independent kubernetes pods. Access to the agent mesh is via REST/HTTP, websocket and jsonrpc.
+A few lines of code implement a fully fledged agent with a simple behaviour: sending and receiving ping messages to/from other agents.
+from mode import Worker from behaviour import Behaviour from core import Core class Agent(Core): class PingBehav(Behaviour): async def setup(self): self.</description>
+    </item>
+    
+  </channel>
+</rss>

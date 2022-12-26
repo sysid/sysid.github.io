@@ -1,0 +1,230 @@
+---
+title: "Linear Programming for Dummies 3"
+date: "2020-04-13"
+description: "Mixed Integer Programming. The Logic Foundation."
+tags: ["optimization"]
+---
+
+import styles from './index.module.css'
+
+<div className={styles.Document}>
+
+This is a primer on Mixed Integer Programming.
+It builds on [Part2](../mip_for_dummies)
+
+It is based on personal learning experience and focuses on application rather than theory.
+For a rigorous approach please refer to a textbook.
+
+## Connect decision variable with boolean variable
+From [Part2](../mip_for_dummies) it is known that the fundamental technique to link continuous decision variables with
+indicator/boolean variables is via Big-M/Small-m constraints.
+
+They implement the following logical statement:
+$$
+\delta = 1 \Leftrightarrow x \gt 0 \tag{0}
+$$
+
+To allow for more complex boolean logic in MIP models this fundamental relationship needs to be generalized:
+
+## Indicator for inequality
+One of the simplest logical question that can be asked in mathematical programming is whether a given
+choice of the decision variables satisfies a constraint. More precisely, *when* is the following constraint
+satisfied?
+$$
+f(x_1, ... , x_n) \le b\\
+\Leftrightarrow\\
+\sum_j a_jx_j \le b
+$$
+
+Let $M, m$ be an upper and lower bound:
+$$
+\sum_j a_jx_j -b \le M\\
+\sum_j a_jx_j -b \ge m\\
+$$
+
+#### <a name='le' /> Indicator for $\le$
+$$
+\bold{\delta = 1 \Leftrightarrow \sum_j a_jx_j \le b} \tag{1}
+$$
+
+##### Linearization
+$$
+\tag{1a} \Rightarrow: \ \sum_j a_jx_j +M\delta \le M + b
+$$
+
+$$
+\tag{1b} \Leftarrow: \ \sum_j a_jx_j - (m -\epsilon)\delta \ge b + \epsilon
+$$
+
+If $a_j, x_j \in N$ we can set $\epsilon = 1$.
+
+#### <a name='ge' /> Indicator for $\ge$
+$$
+\bold{\delta = 1 \Leftrightarrow \sum_j a_jx_j \ge b} \tag{2}
+$$
+
+##### Linearization
+$$
+\tag{2a} \Rightarrow: \ \sum_j a_jx_j + m\delta \ge m + b
+$$
+$$
+\tag{2b} \Leftarrow: \ \sum_j a_jx_j - (M + \epsilon)\delta \le b - \epsilon
+$$
+
+## <a name='eq' /> Indicator for equality
+#### Indicator for $=$
+$$
+\bold{\delta = 1 \rightarrow \sum_j a_jx_j = b} \tag{3a}
+$$
+
+##### Resulting constraints
+Use $\delta=1$ to indicate that the $\le$ and $\ge$ cases hold simultaneously.
+This is done by stating both the constraints (1a) and (2a) together.
+$$
+\tag{1a} \sum_j a_jx_j + M\delta \le M + b
+$$
+$$
+\tag{2a} \sum_j a_jx_j + m\delta \ge m + b
+$$
+
+#### Indicator for $\ne$
+$$
+\bold{\delta = 0 \implies \sum_j a_jx_j \ne b} \tag{3b}
+$$
+
+If indicator $\delta=0$ we want to force *either* $\le$ or $\ge$ to be broken.
+This can be done be introducing $\delta^{'}$ and $\delta^{''}$ in order to link
+equation 1b and 2b accordingly.
+
+
+##### Resulting constraints
+$$
+\tag{1b} \sum_j a_jx_j - (m -\epsilon)\delta^{'} \ge b + \epsilon
+$$
+$$
+\tag{2b} \sum_j a_jx_j - (M + \epsilon)\delta^{''} \le b - \epsilon
+$$
+
+$$
+\delta^{'} + \delta^{''} - \delta \le 1 \tag{3c}
+$$
+
+(3c) enforces that one of the inequality constraints will be broken if $\delta=0$.
+
+
+## Logic Primer
+Boolean operations are the building blocks for modelling logic in MIP models. Here are some important
+relationships.
+
+A proposition is a statement proposing an idea that can be true or false.
+
+Converse of a logical statement/proposition:
+$$
+p \rightarrow q \equiv \lnot q \rightarrow \lnot p \\
+$$
+
+#### Logical Operators (Connectives)
+$$
+\lor \ \text{inclusive or}\\
+\land \ \text{logical and}\\
+\lnot \ \text{logical not}\\
+\rightarrow \ \text{implies}\\
+\Leftrightarrow \ \text{if and only if}\\
+$$
+
+#### Example
+Proposition P: 'I will miss the bus'
+Proposition Q: 'I will be late'
+$P \rightarrow Q$ stands for the proposition: If I miss the bus I will be late.
+
+##  Boolean Logic with LP
+The trick is to express boolean expressions with LP inequalities.
+Let $X_i$  stand for the proposition $\delta_i = 1$, where $\delta$ is an indicator variable.
+
+### Mapping propositions to (0,1) constraints
+The following propositions and constraints are equivalent:
+
+$$
+X_1 \lor X_2 \Leftrightarrow \delta_1 + \delta_2 \ge 1 \\
+X_1 \cdot X_2 \Leftrightarrow \delta_1 = 1, \delta_2 = 1 \\
+\lnot X_1 \Leftrightarrow \delta_1 = 0, 1- \delta_1 = 1 \\
+X_1 \rightarrow X_2 \Leftrightarrow \delta_1 - \delta_2 \le 0 \\
+X_1 \Leftrightarrow X_2 \Leftrightarrow \delta_1 - \delta_2 = 0 \\
+$$
+
+### Linearize polynomial boolean relationship
+A product term such as $\delta_1\delta_2$ can be linearized:
+
+1. Replace $\delta_1\delta_2$ with $\delta_3$
+1. Impose logical condition:
+$$\delta_3 \Leftrightarrow \delta_1 \land \delta_2$$
+with constraints:
+$$
+-\delta_1 + \delta_3 \le 0\\
+-\delta_2 + \delta_3 \le 0\\
+\delta_1 + \delta_2 - \delta_3 \le 1
+$$
+
+### Linearize polynomial mixed relationship
+A product such as $x\delta$ can be linearized. Here $x$ is a continuous decision variable and $\delta \in {0,1}$.
+
+1. Replace $x\delta$ with $y \in \mathbb{R}$
+1. Impose $\delta=1 \Leftrightarrow y=x$
+with constraints:
+$$
+y - M\delta \le 0\\
+-x+y \le 0\\
+x - y \le M(1-\delta)\\
+$$
+M is an upper bound for x and hence also y.
+
+## Disjunctive Constraints
+Let's have a set of constraints $R_s, s \in [0,..,S]$, where every constraint $R_s$ has the form:
+$$
+\sum_i a_ix_i \le b \ \text{ or }\ge, =
+$$
+
+Disjunction: Only a subset of all constraints needs to hold.
+$$
+R_1 \lor .. \lor R_N
+$$
+
+$R_s$ is the proposition: 'The constraints in subset $s$ are satisfied':
+
+Now introduce an indicator variable $\delta_i$ to indicate whether $R_i$ is satisfied.
+Equivalent to the proposition is imposing the logical condition:
+$$
+\delta_i = 1 \rightarrow R_i\\
+$$
+
+This proposition translates into the known set of constraints:
+
+1. [[1]](#le) for $\le$
+1. [[2]](#ge) for $\ge$
+1. [[3]](#eq) for =
+
+Additionally the disjunction needs to be enforced by the following constraint:
+$$
+\delta_0 +..+ \delta_S \ge 1
+$$
+
+#### Generalization
+At least $k$ of $(R_0,..,R_s)$ must be satisfied:
+$$
+\delta_0 +..+ \delta_S \ge k
+$$
+At most $k$ of $(R_0,..,R_s)$ must be satisfied:
+$$
+\delta_0 +..+ \delta_S \le k
+$$
+
+## Summary
+Disjunctions of constraints involve **$\lor$** and necessitate IP models.
+**$\land$** simply involves constraints holding simultaneously.
+
+In this sense, $\land$ corresponds to LP, whereas $\lor$ to IP.
+
+This was a lot of math. Now the foundations are laid.
+
+
+</div>

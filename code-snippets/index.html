@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="images/favicon.png" />
+<title>Code Snippets | sysid blog</title>
+<meta name="title" content="Code Snippets" />
+<meta name="description" content="Snippets are still a thing: snipsync" />
+<meta name="keywords" content="python,work,productivity," />
+
+
+<meta property="og:title" content="Code Snippets" />
+<meta property="og:description" content="Snippets are still a thing: snipsync" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/code-snippets/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2021-03-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-03-20T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="Code Snippets"/>
+<meta name="twitter:description" content="Snippets are still a thing: snipsync"/>
+
+
+
+<meta itemprop="name" content="Code Snippets">
+<meta itemprop="description" content="Snippets are still a thing: snipsync"><meta itemprop="datePublished" content="2021-03-20T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-03-20T00:00:00+00:00" />
+<meta itemprop="wordCount" content="348"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="python,work,productivity," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Code Snippets</h1>
+<p>
+  <i>
+    <time datetime='2021-03-20' pubdate>
+      20 Mar, 2021
+    </time>
+  </i>
+</p>
+
+<content>
+  <figure class="center"><img src="evelyn-clement-TjvEfjXIb_s-unsplash.jpg" width="100%"/>
+</figure>
+
+<blockquote>
+<p>Using code snippets cross platform in VIM and JetBrains IDE without having to maintain them twice!</p>
+</blockquote>
+<p>As developer we are always striving to improve our (work)flow.</p>
+<p>This includes especially tooling, of course.</p>
+<p>Here omes taste, capability, technology and craze come together in an unholy mélange of preferences. Your
+idea of Nirvana surely will be different from mine.</p>
+<p>I am using two IDEs:</p>
+<ol>
+<li>vim</li>
+<li><a href="https://www.jetbrains.com/pycharm/">JetBrains PyCharm</a></li>
+</ol>
+<p>A challenge while coding is to remember correct syntax, so IDEs provide helpers like code completion, linters
+and yes, still code snippets (call me old-fashioned).</p>
+<p><a href="https://github.com/SirVer/ultisnips">Ultisnips</a> (vim) and <a href="https://www.jetbrains.com/help/idea/using-live-templates.html">Live-Templates</a> (PyCharm) come into play.
+Now my brain is not suited to remember syntax specific boilerplate or idioms for the variety of
+languages I have to deal with. So I am a fan of code snippets.</p>
+<p>However, snippets are managed IDE specific, i.e. there is a boundary to cross which usually results in maintaining
+multiple sources of snippets, e.g. Ultisnips, Live-Templates, Github Gists, &hellip;</p>
+<p>This is not DRY, and sure as hell the code snippet I am looking for is ALWAYS in the other tool.</p>
+<p>A universal snippet repository used by the different IDEs would be nice, but I am not aware of the existence of such a thing.</p>
+<p>To solve this challenge for me, I decided to maintain all my snippets in Ultisnips as single point of truth.</p>
+<p>To use them in JetBrains IDE involves translating from one domain specific language (Ultisnips) to another
+(Live-Templates).</p>
+<p>So I wrote a <a href="https://pypi.org/project/snipsync">little helper</a> for it.</p>
+<p>Making it 100% bullet-proof is beyond my willingness to spend effort.
+There is a number of edge cases, where a simple transformation is impossible.
+But to transform standard Ultisnips snippets with
+<em>Placeholders</em> and <em>Mirrors</em> to Live-Templates with matching variable substitution is not too complicated.</p>
+<p>It allows to create a Live-Template file (<em>user.xml</em>) with all the Ultisnips snippets you want to use in JetBrains. In my
+case I am translating my <em>shell</em>, <em>python</em>, <em>sql</em> snippets from Ultisnips to PyCharm.</p>
+<h2 id="summary">Summary</h2>
+<p>Using snippets does make sense for me. Having snippets available in my most important dev-tools without maintaining
+them twice brings back sanity.</p>
+
+</content>
+<p>
+  
+  <a href="/blog/python/">#python</a>
+  
+  <a href="/blog/work/">#work</a>
+  
+  <a href="/blog/productivity/">#productivity</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

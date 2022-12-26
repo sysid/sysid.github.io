@@ -1,0 +1,43 @@
+---
+title: "Installing CBC on MacOS"
+date: "2020-06-24"
+description: "Installing CBC on Ubuntu is trivial..."
+tags: ["python", "optimization"]
+---
+
+#### Update May 2022: Using the coinbrew approach as documented [here](https://github.com/coin-or/Cbc#using-coinbrew) works now out of the box.
+
+Today I needed to install [CBC](https://github.com/coin-or/Cbc) on MacOS and it was not a walk in the park, unfortunately.
+
+Yes, there is a *brew* package which makes installation trivial. However, this only installs a single-threaded version
+of CBC. Not good!
+
+One of the greatest selling points of CBC is multithreading. This makes CBC a contender for serious optimization
+tasks in MIP programming.
+
+### TLDR
+I will save you all the searching and try-and-error and give you the recipe straight:
+
+### Use [`coinbrew`](https://coin-or.github.io/coinbrew/) to build CBC yourself
+```bash
+# Get Build Environment
+wget https://raw.githubusercontent.com/coin-or/coinbrew/master/coinbrew
+chmod 755 coinbrew
+
+# Build CBC
+./coinbrew fetch Cbc
+./coinbrew build Cbc --prefix /path/to/cbc --test --enable-cbc-parallel
+./coinbrew install Cbc
+```
+
+Note the `--enable-cbc-parallel` flag. If you forget it you will end up with another singe-threaded version.
+
+Now you are settled. Just make sure that CBC is in your path and you set the library paths accordingly:
+```bash
+export PATH=$PATH:/path/to/cbc/bin
+export LD_LIBRARY_PATH=/path/to/cbc/lib
+export DYLD_LIBRARY_PATH=/path/to/cbc/lib
+```
+
+### Summary
+Not too difficult when you know what to do. But documentation is sparse so hopefully this article will save you time.

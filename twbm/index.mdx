@@ -1,0 +1,104 @@
+---
+title: "twbm"
+date: "2021-07-24"
+description: "My productivity booster Nr.2: bookmark management on the command line."
+tags: ["productivity", "python"]
+---
+
+![bookmark](bm.png)
+
+> Bookmarks are a major pillar of any knowledge-management strategy. 
+
+Bookmarks are the foundation of the World Wide Web and personal bookmark management should be regarded as a solved problem
+these days, right?
+
+Truth is, I used to struggle a lot with bookmarks.
+
+My requirements:
+- I want to own my bookmarks. They reflect a carefully curated list of knowledge and expertise which I have honed over
+  years. I maintain this list and keep it up-to-date. I do not want them to live in any walled garden or cloud service.
+- I want them to be platform agnostic.
+- I need them to be at my fingertip wherever I am currently working, no matter where, on what device...
+- I need them searchable with respect to various categories and keywords. Searchability is the whole point of
+  knowledge management, so this one is very important.
+
+Well, there are myriads of bookmark managers out there, so just pick one, right?
+
+However, bookmark managers tend to either suck you into a walled garden, or are not cross-platform or are blocked
+by some old-fashioned IT department for "security reasons".
+
+So I tried a lot of the existing solutions in order to have well maintained and synchronized bookmarks on all my devices.
+
+Nothing worked for me, so eventually I wrote **[twbm](https://github.com/sysid/twbm)**.
+
+**[twbm](https://github.com/sysid/twbm)** is heavily inspired by [buku](https://github.com/jarun/buku).
+
+It allows managing bookmarks on the command line in a sqlite database via Github.
+Since I am living at the command line, opening a URL just by hitting a key is beautiful.
+
+Over the time I found little griefs with buku so eventually I decided to fix things for me.
+
+First things first: [buku](https://github.com/jarun/buku) is great, it has a big community, and it is battle tested. 
+I am grateful to [jarun](https://github.com/jarun) for providing and maintaining this useful tool.
+
+However, I wanted a few things added or changed.
+
+## My wishlist
+- better full-text search
+- check tags for consistency when adding new bookmark
+- alphabetical ordering of `deep` search results
+- no tools like bukuserver, only CLI
+- support piping of search results to downstream consumers
+- find old/obsolete bookmarks
+
+The UI is a matter of taste, but sometimes I struggled with [buku](https://github.com/jarun/buku)'s parameter resolution and syntax.
+
+## Implementation
+This is an extension of the idea of [buku](https://github.com/jarun/buku) built on top of a few state-of-the python libraries
+for maintainability, enriched by the features I was missing. 
+
+The result **[twbm](https://github.com/sysid/twbm)** is still 100% buku compatible.
+Switching back and forth between **[twbm](https://github.com/sysid/twbm)** and buku is easily possible:
+
+```bash
+# upgrade existing buku database to twbm: 
+twbm-upgrade-db.sh buku.db twbm.db
+
+# downgrade twbm database back to buku:
+twbm-downgrade-db.sh twbm.db buku.db
+```
+
+These commands are non-destructive, so no data will be lost.
+
+The solution provides decent full text search based on sqlite's [FTS5](https://www.sqlite.org/fts5.html).
+
+### Search Examples
+```bash
+# FTS examples (https://www.sqlite.org/fts5.htm)
+twbm search 'security "single-page"'
+twbm search '"https://securit" *'
+twbm search '^security'
+twbm search 'postgres OR sqlite'
+twbm search 'security NOT keycloak'
+
+# FTS combined with tag filtering
+twbm search -t tag1,tag2 -n notag1 <searchquery>
+
+# Match exact taglist
+twbm search -e tag1,tag2
+
+# Search -> select interactively -> pipe bookmark ids downstream for processing, e.g. adding tag 'x'
+twbm search xxxxx | twbm update -t x
+
+# Search by any tag and sort by bookmark age ascending
+twbm search -T tag1,tag2 -O
+```
+
+# Summary
+I arrived at a point now where I truly regard bookmark management as solved for me. 
+
+- All tasks can be accomplished via command line and search is decent.
+- Synchronization and versioning via git.
+- No limitations via weird policies of IT departments.
+
+Again, thanks [buku](https://github.com/jarun/buku) for the inspiration.

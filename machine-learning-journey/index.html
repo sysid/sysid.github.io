@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="images/favicon.png" />
+<title>Machine Learning Journey | sysid blog</title>
+<meta name="title" content="Machine Learning Journey" />
+<meta name="description" content="Cheat Sheet General Explanations: embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices KFold Cross Validation: The purpose of cross-validation is model checking, not model building. Once we have used cross-validation to select the better performing model, we train that model (whether it be the linear regression or the neural network) on all the data." />
+<meta name="keywords" content="python,learning," />
+
+
+<meta property="og:title" content="Machine Learning Journey" />
+<meta property="og:description" content="Cheat Sheet General Explanations: embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices KFold Cross Validation: The purpose of cross-validation is model checking, not model building. Once we have used cross-validation to select the better performing model, we train that model (whether it be the linear regression or the neural network) on all the data." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/machine-learning-journey/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2017-01-23T22:12:03+00:00" />
+<meta property="article:modified_time" content="2017-01-23T22:12:03+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="Machine Learning Journey"/>
+<meta name="twitter:description" content="Cheat Sheet General Explanations: embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices KFold Cross Validation: The purpose of cross-validation is model checking, not model building. Once we have used cross-validation to select the better performing model, we train that model (whether it be the linear regression or the neural network) on all the data."/>
+
+
+
+<meta itemprop="name" content="Machine Learning Journey">
+<meta itemprop="description" content="Cheat Sheet General Explanations: embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices KFold Cross Validation: The purpose of cross-validation is model checking, not model building. Once we have used cross-validation to select the better performing model, we train that model (whether it be the linear regression or the neural network) on all the data."><meta itemprop="datePublished" content="2017-01-23T22:12:03+00:00" />
+<meta itemprop="dateModified" content="2017-01-23T22:12:03+00:00" />
+<meta itemprop="wordCount" content="4521"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="python,learning," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Machine Learning Journey</h1>
+<p>
+  <i>
+    <time datetime='2017-01-23' pubdate>
+      23 Jan, 2017
+    </time>
+  </i>
+</p>
+
+<content>
+  <h1 id="cheat-sheet">Cheat Sheet</h1>
+<h5 id="general-explanations">General Explanations:</h5>
+<ul>
+<li>embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices</li>
+<li>KFold Cross Validation:
+The purpose of cross-validation is model checking, not model building.
+Once we have used cross-validation to select the better performing model, we train that model
+(whether it be the linear regression or the neural network) on all the data.
+We don&rsquo;t use the actual model instances we trained during cross-validation for our final predictive model.</li>
+<li>A dense layer in a multilayer perceptron (MLP) is a lot more feature intensive than a convolutional layer. People use convolutional nets with subsampling precisely because they get to aggressively prune the features they’re computing.</li>
+<li>in NNs rarely occur local minima due to vast parameter space (probability not to get better in ayn dimension is miniscule)</li>
+<li>the fast majority of space of a loss function in NN is all saddlepoints</li>
+<li>one training cycle for the entire dataset is called epoch, i.e. the algorithm sees the ENTIRE dataset</li>
+<li>iteration: every time a batch is passed through the NN (forward + backward pass)</li>
+<li>Latent factors = features of embeddings (used in Collaborative Filtering)</li>
+<li><a href="http://www.learnopencv.com/bias-variance-tradeoff-in-machine-learning/">Bias-Variance Tradeoff in Machine Learning</a></li>
+<li>Softmax vs Sigmoid: All the softmax units in a layer are constrained to add up to 1, whereas sigmoid units don&rsquo;t have this &rsquo;lateral&rsquo; constraint.
+If every example can be associated with multiple labels, you need to use a sigmoid output layer that learns to predict &ldquo;yes&rdquo; or &ldquo;no&rdquo; for each individual label. If the classes are disjoint, i.e. each example can only belong to one class, you should use a softmax output layer to incorporate this constraint.</li>
+<li>Do not forget to fine tune your network architecture and your learning rate. If you have more data, a complex network is preferable. According to one important deep learning theorem, the local minima are very close to the global minimum for very deep neural networks.</li>
+</ul>
+<h5 id="preprocessing">Preprocessing</h5>
+<ul>
+<li>pre-process your data by making sure each dimension has 0 mean and unit variance. This should always be the case with data your are feeding to a NN, unless you have strong, well-understood reasons not to do it.
+A simple MLP will never cause gradient explosion if your data is correctly preprocessed.</li>
+<li>Centering sparse data would destroy the sparseness structure in the data, and thus rarely is a sensible thing to do.</li>
+<li>However, it can make sense to scale sparse inputs, especially if features are on different scales.</li>
+<li>MaxAbsScaler and maxabs_scale were specifically designed for scaling sparse data, and are the recommended way to go</li>
+</ul>
+<h5 id="underfittingoverfitting">Underfitting/Overfitting</h5>
+<ul>
+<li>Underfitting: This describes a model that lacks the complexity to accurately capture the complexity inherent in the problem you&rsquo;re trying to solve. We can recognize this when our training error is much lower than our validation error</li>
+<li>Overfitting: This describes a model that is using too many parameters and has been trained too long. Specifically, it has learned how to match your exact training images to classes, but has become so specific that it is unable to generalize to similar images. This is easily recognizable when your training set accuracy is much higher than your validation.</li>
+<li>when you start overfitting you know, that your model is complex enough to handle your data</li>
+<li>Your main focus for fighting overfitting should be the entropic capacity of your model &ndash;how much information your model is allowed to store. A model that can store a lot of information has the potential to be more accurate by leveraging more features, but it is also more at risk to start storing irrelevant features. Meanwhile, a model that can only store a few features will have to focus on the most significant features found in the data, and these are more likely to be truly relevant and to generalize better.</li>
+<li>Dropout also helps reduce overfitting, by preventing a layer from seeing twice the exact same pattern, thus acting in a way analoguous to data augmentation (you could say that both dropout and data augmentation tend to disrupt random correlations occuring in your data).</li>
+</ul>
+<p><strong>Recipe:</strong></p>
+<ol>
+<li>Add more data</li>
+<li>Use data augmentation</li>
+<li>Use architectures that generalize well</li>
+<li>Add regularization</li>
+<li>Reduce architecture complexity.</li>
+</ol>
+<h2 id="recommendation-and-tricks">Recommendation and Tricks</h2>
+<h5 id="general">General</h5>
+<ul>
+<li>be aware of the curse of dimensionality</li>
+<li>less parameter tend to generalize better</li>
+<li>there is no inherent problem with using an SVM (or other regularised model such as ridge regression, LARS, Lasso, elastic net etc.) on a problem with only 120 observations but thousands of attributes, provided the regularisation parameters are tuned properly.</li>
+<li>Rule of thumb: number of parameters &gt; number of examples = trouble</li>
+<li>different input/pic sizes: final Dense layer does not work, all others don&rsquo;t care of the input size, so to create the conv-features, you can use any size</li>
+<li>make the first Keras layer a batchNorm layer, it does normalization for you and allows for higher learning rates</li>
+<li>regularization you cannot do on a sample, to understand how much regularization is necessary you need the entire dataset</li>
+<li>for kaggle use clipping to avoid the logloss problem!!!</li>
+<li>convnet: any kind of data with consistent ordering, audio, consistent timeseries, ordered data</li>
+<li>instead of one-hot-encoding the labels(target) we can use a cool optimizer in keras: <strong><code>loss='sparse_categorical_crossentropy'</code></strong> takes an integer target (categorical_crossentropy takes one-hot-encoded target)</li>
+<li>When the dataset size is limited, it seems augmenting the training labels is just as important as augmenting the training data (i.e. image perturbation)</li>
+<li>if you deep net is not working, then use less hidden layers, until it works (simplify)</li>
+</ul>
+<h5 id="general-neural-networks">General Neural Networks</h5>
+<ul>
+<li>Unless you want to know which are the informative attributes, it is usually better to skip feature selection step and just use regularization to avoid over-fitting the data.</li>
+<li>We no longer need to extract features when using deep learning methods as we are performing automatic feature learning. A great benefit of the approach.</li>
+<li>functional model in keras allows adding metadata on later layers, e.g. image size after the conv-layers so that dense layers have this information to work with</li>
+</ul>
+<h5 id="dropout">Dropout</h5>
+<ul>
+<li>Today dropout starts in early layers with .1/.2 &hellip; .5 for the connected layers</li>
+<li>Dropout eliminates information just like random forests (randomly selected new models)</li>
+</ul>
+<h5 id="data-augmentation">Data Augmentation</h5>
+<ul>
+<li>no augmentation for validation sets</li>
+<li>vertical flippings? do you see cats on their head?</li>
+<li>use channel augmentation</li>
+</ul>
+<h5 id="pseudo-labeling-semi-supervised-learning">Pseudo Labeling, Semi-Supervised Learning</h5>
+<ul>
+<li>One remarkably simple approach to utilizing unlabelled data is known as psuedo-labeling. Suppose we have a model that has been trained on labelled data, and the model produces reasonably well validation metrics. We can simply use this model then to make predictions on all of our unlabelled data, and then use those predictions as labels themselves. This works because while we know that our predictions are not the true labels, we have reason to suspect that they are fairly accurate. Thus, if we now train on our labelled and psuedo-labeled data we can build a more powerful model by utilizing the information in the previously unlabelled data to better learn the general structure.</li>
+<li>One parameter to be mindful of in psuedo-labeling is the proportion of true labels and psuedo-labels in each batch. We want our psuedo-labels to enhance our understanding of the general structure by extending our existing knowledge of it. If we allow our batches to consist entirely of psuedo-labeled inputs, then our batch is no longer a valid representation of the true structure. The general rule of thumb is to have 1/4-1/3 of your batches be psuedo-labeled.</li>
+<li>Pseudo-Labeling: ca. 30% in a batch</li>
+</ul>
+<h5 id="training">Training</h5>
+<ul>
+<li>online learning (batch size=1): network update foreach training example -&gt; quick, but can be chaotic</li>
+<li>batch learning: save the errors across all training examples and update network at the end -&gt; more stable, typical batch size 10-100</li>
+<li>larger batch is always better. The rule of thumbs is to have the largest possible batch your GPU can handle. The bigger your gradients are, the more accurate and smooth they will be. If you have batch_size=1, you can still converge to an optimal value, but it will be way more chaotic (much higher variance but still unbiased). And it will be way slower!</li>
+<li>If network doesn’t fit, decrease the batch size, since most of the memory is usually consumed by the activations.</li>
+<li>start with a very small learning rate until the loss function is better then baseline chance</li>
+<li>Batchnorm: 10x or more improvements in training speed.
+Because normalization greatly reduces the ability of a small number of outlying inputs to over-influence the training, it also tends to reduce overfitting.</li>
+<li>Having Batch Norm added, can allow us to increase the Learning Rate, since BN will allow our activations to make sure it doesn&rsquo;t go really high or really low.</li>
+<li>use RMSprop, much faster than SGD</li>
+<li>to continue training: just call .fit one or several times and you will be able to continue to train the model. If you want to continue the training in another process, you just have to load the weights and call model.fit()</li>
+<li>fchollet: compiling a model does not modify its state. Weights after compilation are the same as before compilation.</li>
+<li>keras: compiling the model does does not hurt, however, changing trainable=true does not require it since the model does not change, only the metadata</li>
+<li>Sanity check: Overfit a tiny subset of data. try to train on a tiny portion (e.g. 20 examples) of your data and make sure you can achieve zero cost. Set regularization to zero, otherwise this can prevent from getting zero cost. Unless you pass this sanity check with a small dataset it is not worth proceeding to the full dataset. Note that it may happen that you can overfit very small dataset but still have an incorrect implementation. For instance, if your datapoints’ features are random due to some bug, then it will be possible to overfit your small training set but you will never notice any generalization when you fold it your full dataset ([source]http://cs231n.github.io/neural-networks-3/#gradcheck)</li>
+<li>increasing the regularization strength should increase the los</li>
+<li>Look for correct loss at chance performance (Regularization strength zero). For example, for CIFAR-10 with a Softmax classifier initial loss should be 2.302, because we expect a diffuse probability of 0.1 for each class (since there are 10 classes), and Softmax loss is the negative log probability of the correct class so: -ln(0.1) = 2.302.</li>
+<li>Validation accuracy can remain flat while the loss gets worse as long as the scores don&rsquo;t cross the threshold where the predicted class changes.</li>
+<li>Don’t let the regularization overwhelm the data. Loss function is a sum of the data loss and the regularization loss (e.g. L2 penalty on weights). Regularization loss may overwhelm the data loss, in which case the gradients will be primarily coming from the regularization term (which usually has a much simpler gradient expression).</li>
+<li><a href="http://cs231n.github.io/neural-networks-3/#gradcheck">Traing curves</a>:
+<figure class="center"><img src="learningrates.jpeg" width="100%"/>
+</figure>
+</li>
+</ul>
+<h5 id="transfer-learning">Transfer Learning</h5>
+<ul>
+<li>Fully connected network localizes the interesting part in transfer learning to your specific problem domain</li>
+<li>start with the weights at the trained level, don&rsquo;t randomize!</li>
+</ul>
+<h5 id="data-leakagemetadata">Data Leakage/Metadata</h5>
+<ul>
+<li>often the main data already encorporates the added metadata, so it does not improve (e.g. pic size of fisherboats in fishing competition: 8 boats the net already learned about from the pics)</li>
+<li>metadata often is not worth the effort</li>
+</ul>
+<h5 id="batchnorm-batch-normalization">Batchnorm, Batch Normalization</h5>
+<ul>
+<li>It normalizes each layer</li>
+<li>can be used to just normalize data at the input layer.</li>
+<li>There are some additional steps that Batch Norm offers to make it work with SGD(the activations):
+<ul>
+<li>Adds 2 more trainable parameters to each layer.
+<ul>
+<li>One for multiplying the activations and set an arbitrary Standard Deviation.</li>
+<li>The other for adding all the activations and set an arbitrary Mean.</li>
+<li>BN (Batch Norm) doesn&rsquo;t change all the weights, but only those two parameters with the activations. This makes it more stable in practice.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="hyperparameters">Hyperparameters:</h5>
+<ul>
+<li>Hyperparameter ranges. Search for hyperparameters on log scale. learning_rate = 10 ** uniform(-6, 1). The same strategy should be used for the regularization strength. This is because learning rate and regularization strength have multiplicative effects on the training dynamics.</li>
+<li>Prefer random search to grid search.</li>
+</ul>
+<h2 id="architecture">Architecture</h2>
+<p>Rule of thumb: For a three layer network with n input and m output neurons, the hidden layer would have sqrt(n*m) neurons.</p>
+<h3 id="number-of-hidden-layers">number of hidden layers</h3>
+<ul>
+<li>0 - Only capable of representing linear separable functions or decisions.</li>
+<li>1 - Can approximate any function that contains a continuous mapping from one finite space to another.</li>
+<li>2 - Can represent an arbitrary decision boundary to arbitrary accuracy with rational activation functions and can approximate any smooth mapping to any accuracy.</li>
+</ul>
+<h3 id="ensembleshttpcs231ngithubioneural-networks-3gradcheck"><a href="http://cs231n.github.io/neural-networks-3/#gradcheck">Ensembles</a></h3>
+<ul>
+<li>Train multiple independent models, and at test time average their predictions. As the number of models in the ensemble increases, the performance typically monotonically improves (though with diminishing returns). The improvements are more dramatic with higher model variety in the ensemble.</li>
+</ul>
+<h2 id="cnns">CNNs</h2>
+<ul>
+<li>network will not learn duplicate filters because this is not OPTIMAL</li>
+<li>A typical 2D convolution applied to an RGB image would have a filter shape of (3, filter_height, filter_width), so it combines information from all channels into a 2D output.</li>
+<li>If you wanted to process each color separately (and equally), you would use a 3D convolution with filter shape (1, filter_height, filter_width).</li>
+<li>conv-layers are compute intensive, dense layers are memory intensive</li>
+<li>1D convolution is useful for data with local structure in one dimension, like audio or other time series.</li>
+<li>Note that sometimes the parameter sharing assumption may not make sense. This is especially the case when the input images to a ConvNet have some specific centered structure, where we should expect, for example, that completely different features should be learned on one side of the image than another.  One practical example is when the input are faces that have been centered in the image.  You might expect that different eye-specific or hair-specific features could (and should) be learned in different spatial locations.</li>
+<li>In that case it is common to relax the parameter sharing scheme, and instead simply call the layer a Locally-Connected Layer.</li>
+</ul>
+<h5 id="systematic-analysis-of-cnn-parameters">Systematic analysis of CNN parameters:</h5>
+<p><a href="https://arxiv.org/pdf/1606.02228.pdf">https://arxiv.org/pdf/1606.02228.pdf</a></p>
+<ul>
+<li>use ELU non-linearity without batchnorm or ReLU with it.</li>
+<li>apply a learned colorspace transformation of RGB.</li>
+<li>use the linear learning rate decay policy.</li>
+<li>use a sum of the average and max pooling layers.</li>
+<li>use mini-batch size around 128 or 256. If this is too big for your GPU, decrease the learning rate proportionally to the batch size.</li>
+<li>use fully-connected layers as convolutional and average the predictions for the final decision.</li>
+<li>when investing in increasing training set size, check if a plateau has not been reach.</li>
+<li>cleanliness of the data is more important then the size.</li>
+<li>if you cannot increase the input image size, reduce the stride in the consequent layers, it has roughly the same effect.</li>
+<li>if your network has a complex and highly optimized architecture, like e.g.  GoogLeNet, be careful with modifications.</li>
+<li>maxpooling helps with translation invariance, helps find larger features, helpfull for any kind of convnets</li>
+<li>maxpooling: you only care about the most &lsquo;dogginess&rsquo; of the picture, not the rest - better for pics where target is only small part of pic</li>
+<li>averagepooling: you care about more of the entire picture not only the extremes - better for pics with one filling motive</li>
+<li>Resnet has good regularization characteristics, authors do not include Dropout</li>
+</ul>
+<h2 id="rnns">RNNs</h2>
+<h5 id="predict-multiple-steps">Predict multiple steps</h5>
+<ol>
+<li>&ldquo;Function to Function Regression&rdquo; which assumes that at the end of RNN, we are going to predict a curve. So use a multilayer perceptron at the end of RNN to predict multiple steps ahead.
+Suppose you have a time series and you want to use its samples from 1, &hellip;, t to predict the ones in t+1, &hellip;, T. You use an RNN to learn a D dimensional representation for the first part of time series and then use a (D x (T-t)) MLP to forecast the second half of the time series. In practice, you do these two steps in a supervised way; i.e., you learn representations that improve the quality of the forecast.</li>
+<li>tbd</li>
+</ol>
+<h3 id="lstm">LSTM</h3>
+<p>The first dimension in Keras is the batch dimension. It can be any size, as long as it is the same for inputs and targets.
+When dealing with LSTMs, the batch dimension is the number of sequences, not the length of the sequence.</p>
+<ul>
+<li>LSTMs in Keras are typically used on 3d data <strong><code>(batch dimension, timesteps, features)</code></strong>.</li>
+<li>LSTM without return_sequences will output <strong><code>(batch dimension, output features)</code></strong></li>
+<li>LSTM with return_sequences will output <strong><code>(batch dimension, timesteps, output features)</code></strong></li>
+</ul>
+<p>Basic timeseries data has an input shape (number of sequences, steps, features). Target is (number of sequences, steps, targets). Use an LSTM with return_sequences.</p>
+<p><a href="http://stackoverflow.com/questions/43034960/many-to-one-and-many-to-many-lstm-examples-in-keras">stackoverflow</a></p>
+<p><strong>One-to-one:</strong> equivalent to MLP.</p>
+<pre><code>model.add(Dense(output_size, input_shape=input_shape))
+</code></pre>
+<p><strong>One-to-many:</strong> this option is not supported well, but this is a workaround:</p>
+<pre><code>model.add(RepeatVector(number_of_times, input_shape=input_shape))
+model.add(LSTM(output_size, return_sequences=True))
+</code></pre>
+<p><strong>Many-to-one:</strong>:</p>
+<pre><code>model = Sequential()
+model.add(LSTM(n, input_shape=(timesteps, data_dim)))
+</code></pre>
+<p><strong>Many-to-many:</strong> This is the easiest snippet when length of input and output matches the number of reccurent steps:</p>
+<pre><code>model = Sequential()
+model.add(LSTM(n, input_shape=(timesteps, data_dim), return_sequences=True))
+</code></pre>
+<p><strong>Many-to-many when number of steps differ from input/output length:</strong> this is hard in Keras. I did not find any code snippets to code that.</p>
+<h4 id="tricks">Tricks</h4>
+<ul>
+<li>Within a batch, each sequence has its OWN states. Also each sequence is seen as independent from the other sequences in the batch. If your batch is Y, sequences Y[1] and Y[2] will never have something in common (whatever stateful=False or stateful=True).</li>
+<li>If the LSTM has the stateful mode, the states of the current batch will be propagated to the next batch (at index i). Batching sequences is only to speed up the computations on a GPU.</li>
+<li>3 weight matrices: input, recurring, output</li>
+<li>fchollet: seq_len 100 seems large fora LSTM, Try 32</li>
+<li>if there is one step lag between the actual time series, this is the most seen &ldquo;trap&rdquo; if you do time series prediction, in which the NN will always mimic previous input of time series. The function learned is only an one-step lag identity (mimic) prediction (trivial identity function).</li>
+<li>The back propagation horizon is limited to the second dimension of the input sequence. i.e. if your data is of type (num_sequences, num_time_steps_per_seq, data_dim) then back prop is done over a time horizon of value num_time_steps_per_seq (<a href="https://github.com/fchollet/keras/issues/3669">https://github.com/fchollet/keras/issues/3669</a>)</li>
+<li>all a stateful RNN does is remember the last activation. So if you have a large input sequence and break it up in smaller sequences, the activation in the network is retained in the network after processing the first sequence and therefore affects the activations in the network when processing the second sequence.</li>
+<li>Keep all long term memory when modelling Time Series where you may have very long term memory and when you don&rsquo;t know exactly when to cut. No subsampling here.</li>
+<li>Recursive prediction of timesteps (multi-step) eventually uses values already predicted. This produces an accumulation of errors, which may grow very fast.</li>
+</ul>
+<h2 id="optimiziers">Optimiziers</h2>
+<ul>
+<li>better than adagrad: rmsprop, it does not explode, just jump around, when it flattens out you should device learning rate by 10-100</li>
+<li>momentum + rmsprop = good idea -&gt; adam</li>
+<li>SGD is well understood and a great place to start. ADAM is fast and gives good results and I often use it in practice.</li>
+<li><a href="http://cs231n.github.io/neural-networks-3/#gradcheck">illustration</a> (Images credit: <a href="https://twitter.com/alecrad">Alec Radford</a>):
+<figure class="center"><img src="opt2.gif" width="100%"/>
+</figure>
+
+<figure class="center"><img src="opt1.gif" width="100%"/>
+</figure>
+</li>
+</ul>
+<h5 id="momentum-09">Momentum (0.9)</h5>
+<p>For NN&rsquo;s,the hypersurface defined by our loss function often includes saddle points. These are areas where the gradient of the loss function often becomes very small in one or more axes, but there is no minima present. When the gradient is very small, this necessarily slows the gradient descent process down; this is of course what we desire when approaching a minima, but is detrimental otherwise. Momentum is intended to help speed the optimisation process through cases like this, to avoid getting stuck in these &ldquo;shallow valleys&rdquo;.</p>
+<p>Momentum works by adding a new term to the update function, in addition to the gradient term. The added term can be thought of as the average of the previous gradients. Thus if the previous gradients were zig zagging through a saddle point, their average will be along the valley of the saddle point. Therefore, when we update our weights, we first move opposite the gradient. Then, we also move in the direction of the average of our last few gradients. This allows us to mitigate zig-zagging through valleys by forcing us along the average direction we&rsquo;re zig-zagging towards.</p>
+<h5 id="adagrad">Adagrad</h5>
+<p>Adagrad is a technique that adjusts the learning rate for each individual parameter, based on the previous gradients for that parameter. Essentially, the idea is that if previous gradients were large, the new learning rate will be small, and vice versa.</p>
+<p>The implementation looks at the gradients that were previously calculated for a parameter, then squares all of these gradients (which ignores the sign and only considers the magnitude), adds all of the squares together, and then takes the square root (otherwise known as the l2-norm). For the next epoch, the learning rate for this parameter is the overall learning rate divided by the l2-norm of prior updates. Therefore, if the l2-norm is large, the learning rate will be small; if it is small, the learning rate will be large.</p>
+<p>Conceptually, this is a good idea. We know that typically, we want to our step sizes to be small when approaching minima. When they&rsquo;re too large, we run the risk of bouncing out of minima. However there is no way for us to easily tell when we&rsquo;re in a possible minima or not, so it&rsquo;s difficult to recognize this situation and adjust accordingly. Adagrad attempts to do this by operating under the assumption that the larger the distance a parameter has traveled through optimization, the more likely it is to be near a minima; therefore, as the parameter covers larger distances, let&rsquo;s decrease that parameter&rsquo;s learning rate to make it more sensitive. That is the purpose of scaling the learning rate by the inverse of the l2-norm of that parameter&rsquo;s prior gradients.</p>
+<p>The one downfall to this assumption is that we may not actually have reached a minima by the time the learning rate is scaled appropriately. The l2-norm is always increasing, thus the learning rate is always decreasing. Because of this the training will reach a point where a given parameter can only ever be updated by a tiny amount, effectively meaning that parameter can no longer learn any further. This may or may not occur at an optimal range of values for that parameter.</p>
+<p>Additionally, when updating millions of parameters, it becomes expensive to keep track of every gradient calculated in training, and then calculating the norm.</p>
+<h5 id="rmsprop">RMSProp</h5>
+<p>very similar to Adagrad, with the aim of resolving Adagrad’s primary limitation. Adagrad will continually shrink the learning rate for a given parameter (effectively stopping training on that parameter eventually). RMSProp however is able to shrink or increase the learning rate.</p>
+<p>RMSProp will divide the overall learning rate by the square root of the sum of squares of the previous update gradients for a given parameter (as is done in Adagrad). The difference is that RMSProp doesn’t weight all of the previous update gradients equally, it uses an exponentially weighted moving average of the previous update gradients. This means that older values contribute less than newer values. This allows it to jump around the optimum without getting further and further away.</p>
+<p>Further, it allows us to account for changes in the hypersurface as we travel down the gradient, and adjust learning rate accordingly. If our parameter is stuck in a shallow plain, we&rsquo;d expect it&rsquo;s recent gradients to be small, and therefore RMSProp increases our learning rate to push through it. Likewise, when we quickly descend a steep valley, RMSProp lowers the learning rate to avoid popping out of the minima.</p>
+<h5 id="adam">Adam</h5>
+<p>Adam (Adaptive Moment Estimation) combines the benefits of momentum with the benefits of RMSProp. Momentum is looking at the moving average of the gradient, and continues to adjust a parameter in that direction. RMSProp looks at the weighted moving average of the square of the gradients; this is essentially the recent variance in the parameter, and RMSProp shrinks the learning rate proportionally. Adam does both of these things - it multiplies the learning rate by the momentum, but also divides by a factor related to the variance.</p>
+<h2 id="gotchas">Gotchas:</h2>
+<ul>
+<li>numpy matrix: rows by col, images: col by rows</li>
+<li>weight conversion from Theano to Tensorflow: <a href="https://github.com/titu1994/Keras-Classification-Models/blob/master/weight_conversion_theano.py">https://github.com/titu1994/Keras-Classification-Models/blob/master/weight_conversion_theano.py</a></li>
+</ul>
+<h2 id="other">Other</h2>
+<h3 id="problem-frameing">Problem Frameing</h3>
+<h5 id="time-series">Time Series</h5>
+<ul>
+<li>LSTM not suited for <a href="https://machinelearningmastery.com/suitability-long-short-term-memory-networks-time-series-forecasting/">AR problems</a></li>
+<li>MQTT realt time data: <a href="http://stackoverflow.com/questions/40652453/using-keras-for-real-time-training-and-predicting">http://stackoverflow.com/questions/40652453/using-keras-for-real-time-training-and-predicting</a></li>
+<li>Apple stock: <a href="https://medium.com/machine-learning-world/neural-networks-for-algorithmic-trading-1-2-correct-time-series-forecasting-backtesting-9776bfd9e589">https://medium.com/machine-learning-world/neural-networks-for-algorithmic-trading-1-2-correct-time-series-forecasting-backtesting-9776bfd9e589</a></li>
+</ul>
+<h5 id="sentiment-analysis">Sentiment Analysis</h5>
+<p>LTSM: input sequence -&gt; classification</p>
+<h5 id="anomaly-detection">Anomaly Detection</h5>
+<p>nietsche: come with a sequence and let it predict an hour into the future and look when it falls outside</p>
+<h5 id="nlp">NLP:</h5>
+<p>it is ordered data -&gt; 1D convolution
+each word of our 5000 categories is converted in a vector of 32elements
+model learns the 32 floats to be semantically significant
+embeddings can be passed, not entire models (pretrained word embeddings)
+word2vec (Google) vs. glove</p>
+<h3 id="model-examples">Model Examples</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#888">### Keras 2.0 Merge</span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># Custom Merge: https://stackoverflow.com/questions/43160181/keras-merge-layer-warning</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">euclid_dist</span>(v):
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> (v[<span style="color:#00d;font-weight:bold">0</span>] - v[<span style="color:#00d;font-weight:bold">1</span>])**<span style="color:#00d;font-weight:bold">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">out_shape</span>(shapes):
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> shapes[<span style="color:#00d;font-weight:bold">0</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>merged_vector = Lambda(euclid_dist, output_shape=out_shape)([l1, l2])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># https://github.com/fchollet/keras/issues/2299</span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># http://web.cse.ohio-state.edu/~dwang/papers/Wang.tia08.pdf</span>
+</span></span><span style="display:flex;"><span>mix = Input(batch_shape=(sequences, timesteps, features))
+</span></span><span style="display:flex;"><span>lstm = LSTM(features, return_sequences=<span style="color:#080;font-weight:bold">True</span>)(LSTM(features, return_sequences=<span style="color:#080;font-weight:bold">True</span>)(mix))
+</span></span><span style="display:flex;"><span>tdd1 = TimeDistributed(Dense(features, activation=<span style="color:#d20;background-color:#fff0f0">&#39;sigmoid&#39;</span>))(lstm)
+</span></span><span style="display:flex;"><span>tdd2 = TimeDistributed(Dense(features, activation=<span style="color:#d20;background-color:#fff0f0">&#39;sigmoid&#39;</span>))(lstm)
+</span></span><span style="display:flex;"><span>voice = Lambda(function=<span style="color:#080;font-weight:bold">lambda</span> x: mask(x[<span style="color:#00d;font-weight:bold">0</span>], x[<span style="color:#00d;font-weight:bold">1</span>], x[<span style="color:#00d;font-weight:bold">2</span>]))(merge([tdd1, tdd2, mix], mode=<span style="color:#d20;background-color:#fff0f0">&#39;concat&#39;</span>))
+</span></span><span style="display:flex;"><span>background = Lambda(function=<span style="color:#080;font-weight:bold">lambda</span> x: mask(x[<span style="color:#00d;font-weight:bold">0</span>], x[<span style="color:#00d;font-weight:bold">1</span>], x[<span style="color:#00d;font-weight:bold">2</span>]))(merge([tdd2, tdd1, mix], mode=<span style="color:#d20;background-color:#fff0f0">&#39;concat&#39;</span>))
+</span></span><span style="display:flex;"><span>model = Model(<span style="color:#038">input</span>=[mix], output=[voice, background])
+</span></span><span style="display:flex;"><span>model.compile(loss=<span style="color:#d20;background-color:#fff0f0">&#39;mse&#39;</span>, optimizer=<span style="color:#d20;background-color:#fff0f0">&#39;rmsprop&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888">### Bidirectional RNN</span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># https://github.com/fchollet/keras/issues/2838</span>
+</span></span><span style="display:flex;"><span>xin = Input(batch_shape=(batch_size, seq_size), dtype=<span style="color:#d20;background-color:#fff0f0">&#39;int32&#39;</span>)
+</span></span><span style="display:flex;"><span>xemb = Embedding(embedding_size, mask_zero=<span style="color:#080;font-weight:bold">True</span>)(xin)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>rnn_fwd1 = LSTM(rnn_size, return_sequence=<span style="color:#080;font-weight:bold">True</span>)(xemb)
+</span></span><span style="display:flex;"><span>rnn_bwd1 = LSTM(rnn_size, return_sequence=<span style="color:#080;font-weight:bold">True</span>, go_backwards=<span style="color:#080;font-weight:bold">True</span>)(xemb)
+</span></span><span style="display:flex;"><span>rnn_bidir1 = merge([rnn_fwd1, rnn_bwd1], mode=<span style="color:#d20;background-color:#fff0f0">&#39;concat&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>predictions = TimeDistributed(Dense(output_class_size, activation=<span style="color:#d20;background-color:#fff0f0">&#39;softmax&#39;</span>))(rnn_bidir1) 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model = Model(<span style="color:#038">input</span>=xin, output=predictions)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888">### Multi Label Classification</span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># Build a classifier optimized for maximizing f1_score (uses class_weights)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>clf = Sequential()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>clf.add(Dropout(<span style="color:#00d;font-weight:bold">0.3</span>))
+</span></span><span style="display:flex;"><span>clf.add(Dense(xt.shape[<span style="color:#00d;font-weight:bold">1</span>], <span style="color:#00d;font-weight:bold">1600</span>, activation=<span style="color:#d20;background-color:#fff0f0">&#39;relu&#39;</span>))
+</span></span><span style="display:flex;"><span>clf.add(Dropout(<span style="color:#00d;font-weight:bold">0.6</span>))
+</span></span><span style="display:flex;"><span>clf.add(Dense(<span style="color:#00d;font-weight:bold">1600</span>, <span style="color:#00d;font-weight:bold">1200</span>, activation=<span style="color:#d20;background-color:#fff0f0">&#39;relu&#39;</span>))
+</span></span><span style="display:flex;"><span>clf.add(Dropout(<span style="color:#00d;font-weight:bold">0.6</span>))
+</span></span><span style="display:flex;"><span>clf.add(Dense(<span style="color:#00d;font-weight:bold">1200</span>, <span style="color:#00d;font-weight:bold">800</span>, activation=<span style="color:#d20;background-color:#fff0f0">&#39;relu&#39;</span>))
+</span></span><span style="display:flex;"><span>clf.add(Dropout(<span style="color:#00d;font-weight:bold">0.6</span>))
+</span></span><span style="display:flex;"><span>clf.add(Dense(<span style="color:#00d;font-weight:bold">800</span>, yt.shape[<span style="color:#00d;font-weight:bold">1</span>], activation=<span style="color:#d20;background-color:#fff0f0">&#39;sigmoid&#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>clf.compile(optimizer=Adam(), loss=<span style="color:#d20;background-color:#fff0f0">&#39;binary_crossentropy&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>clf.fit(xt, yt, batch_size=<span style="color:#00d;font-weight:bold">64</span>, nb_epoch=<span style="color:#00d;font-weight:bold">300</span>, validation_data=(xs, ys), class_weight=W, verbose=<span style="color:#00d;font-weight:bold">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>preds = clf.predict(xs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>preds[preds&gt;=<span style="color:#00d;font-weight:bold">0.5</span>] = <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>preds[preds&lt;<span style="color:#00d;font-weight:bold">0.5</span>] = <span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#038">print</span> f1_score(ys, preds, average=<span style="color:#d20;background-color:#fff0f0">&#39;macro&#39;</span>)
+</span></span></code></pre></div><h3 id="principal-component-analysis-unsupervised">Principal Component Analysis (unsupervised)</h3>
+<ul>
+<li>selects the successive components that explain the maximum variance in the signal.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    pca = decomposition.PCA()
+</span></span><span style="display:flex;"><span>    pca.fit(X)
+</span></span><span style="display:flex;"><span>    <span style="color:#038">print</span>(pca.explained_variance_)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#888"># As we can see, only the 2 first components are useful</span>
+</span></span><span style="display:flex;"><span>    pca.n_components = <span style="color:#00d;font-weight:bold">2</span>
+</span></span><span style="display:flex;"><span>    X_reduced = pca.fit_transform(X)
+</span></span><span style="display:flex;"><span>    X_reduced.shape
+</span></span></code></pre></div><ul>
+<li>In layman terms PCA helps to compress data and ICA helps to separate data.</li>
+<li>PCA minimizes the covariance of the data; on the other hand ICA minimizes higher-order statistics such as fourth-order cummulant (or kurtosis), thus minimizing the mutual information of the output.</li>
+<li>Specifically, PCA yields orthogonal vectors of high energy contents in terms of the variance of the signals, whereas</li>
+<li>ICA identifies independent components for non-Gaussian signals.</li>
+<li>In PCA the basis you want to find is the one that best explains the variability of your data. The first vector of the PCA basis is the one that best explains the variability of your data (the principal direction) the second vector is the 2nd best explanation and must be orthogonal to the first one, etc.</li>
+<li>In ICA the basis you want to find is the one in which each vector is an independent component of your data, you can think of your data as a mix of signals and then the ICA basis will have a vector for each independent signal.</li>
+<li>ICA will recover an orthogonal basis set of vectors</li>
+</ul>
+<h1 id="sources">Sources</h1>
+<p><a href="http://www.faqs.org/faqs/ai-faq/neural-nets/part2/section-10.html">http://www.faqs.org/faqs/ai-faq/neural-nets/part2/section-10.html</a>
+<a href="http://www.faqs.org/faqs/ai-faq/neural-nets/part2/section-16.html">http://www.faqs.org/faqs/ai-faq/neural-nets/part2/section-16.html</a>
+<a href="http://course.fast.ai/">http://course.fast.ai/</a>
+<a href="http://stats.stackexchange.com/questions/164876/tradeoff-batch-size-vs-number-of-iterations-to-train-a-neural-network">http://stats.stackexchange.com/questions/164876/tradeoff-batch-size-vs-number-of-iterations-to-train-a-neural-network</a></p>
+<p>many more, which I do not remember&hellip;</p>
+
+</content>
+<p>
+  
+  <a href="/blog/python/">#python</a>
+  
+  <a href="/blog/learning/">#learning</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

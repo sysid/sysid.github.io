@@ -1,0 +1,103 @@
+---
+title: "String Puppets"
+date: "2020-06-01"
+description: "Deep fakes are changing perception and reality."
+tags: ["python", "machine learning", "society"]
+---
+import mona1 from "./mona1.mp4"
+
+![augsburger puppenkiste](puppenkiste.png)
+
+I am a fan of the [Augsburger Puppenkiste](http://www.augsburger-puppenkiste.de/). Puppets
+are brought to live by pulling strings. If you ever get to Augsburg, do not miss to see a show!
+
+Today a came across an excellent article [^1], which creepily reminded me of these happy String Puppets.
+
+I decided to hit two birds with one stone: Learn something about the current state of 
+[Deep Fakes](https://en.wikipedia.org/wiki/Deepfake) and try out Google's [Colab](https://colab.research.google.com/) environment.
+
+## TLDR
+Take a **static picture** of a person and bring it to life with a **driver video** which you generate. The video **drives**
+the static picture, i.e. it *pulls the strings* of the puppet (picture).
+
+Here are my results with taking innocent Mona Lisa as input and driving her expressions with my grimaces:
+
+<video controls autoplay loop>
+<source src={mona1} type="video/mp4" />
+</video>
+
+
+## Technology
+### Deep Fake
+My experiment is a very simple one, it only involves couple of seconds of face expression. No sound, no surrounding.
+
+But it can be much more involved:
+
+`video: https://youtu.be/u-0cQ-grXBQ`
+
+Other missing pieces like sound, background, etc. are around the corner:
+
+- [Voice Cloning](https://github.com/CorentinJ/Real-Time-Voice-Cloning)[^2]
+- [Microsft Teams Backgrounds](https://www.cnet.com/how-to/microsoft-teams-backgrounds-heres-how-customize-yours/)
+- ...
+
+It is still early days and composing various elements convincingly
+into a comprehensive deception requires skills, time and resources. But the barriers are vanishing by the day.
+
+### Colab
+Google's [Colab](https://colab.research.google.com/) is generous offer for technology **consumption**. It democratizes machine learning 
+and provides everybody access to sophisticated machine learning technology.  
+
+However, I struggled to **create** a notebook efficiently with the speed I am used to.
+
+Iteration cycles are slow because of waiting times and latency. Everything is run in the browser and via
+the Internet. A local Jupyter notebook is much more responsive. But even development speed with a local notebook pales against
+the cylce times you can achieve with a professional Python [IDE](https://www.jetbrains.com/pycharm/) and direct access to the command line.
+
+Granted, setting up GPU powered machine learning is a chore! 
+
+However, pulling through it
+provides understanding of the capabilities and the limitations of your infrastructure. Knowing your
+constraints is a feature of a professional. Sooner or later you will hit a wall and then good
+luck trying to break through with a *care-free* but opaque package like Colab. 
+
+The time to set up a bespoke environment is measured in days. The speed gain you will experience in your
+daily work with a bespoke environment will quickly overcompensate.
+ 
+
+## Society
+Pictures are common knowledge to be easy to forge, but now video and
+sound is following suit. *Deep Fake* has become a commodity.
+
+It opens new dimensions for phishing attacks:  
+- Was it really your boss calling you?
+- A video from your husband in a compromising situation? 
+
+The balance has shifted irrevocably. It is already much more expensive
+to correct lies and allegations than to produce them credibly.
+
+People cannot digest these changes quick enough and adapt behaviour. 
+
+We tend to believe what we see with our
+own eyes. We are trustful creatures. We do not accept the fact that everything which reaches our eyeballs via electronic
+media might be compromised.
+
+
+## Summary
+This experiment cost me a couple of hours. Imagine a player with dedicated motivation and substantial means to produce
+fake news based on these technologies. 
+
+**Could you spot it?**
+
+CGI generated movies from Hollywood used to be prohibitively expensive to only be
+available to the best funded operators, a.k.a. states. To manipulate the world into the Irak war took state
+department resources and an army of intelligence services. 
+
+Today, everybody can fabricate *facts*.  
+You cannot trust anything you see on an electronic device! Anybody could pull the strings.
+
+It runs against our nature. This makes it hard.
+
+
+[^1]: [Create Deepfakes in 5 Minutes with First Order Model Method](https://rubikscode.net/2020/05/25/create-deepfakes-in-5-minutes-with-first-order-model-method/)
+[^2]: [You can now speak using someone else’s voice with Deep Learning](https://towardsdatascience.com/you-can-now-speak-using-someone-elses-voice-with-deep-learning-8be24368fa2b)

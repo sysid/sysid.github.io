@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>puzzle on sysid blog</title>
+    <link>/blog/puzzle/</link>
+    <description>Recent content in puzzle on sysid blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2022, sysid.</copyright>
+    <lastBuildDate>Sun, 17 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="/blog/puzzle/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Polyominos, Tetris</title>
+      <link>/polyominos-tetris/</link>
+      <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/polyominos-tetris/</guid>
+      <description>Problem Fill a rectangle with polyominos.
+What is a Polyomino?
+A plane geometric figure formed by joining one or more equal squares edge to edge. It is a polyform whose cells are squares. It may be regarded as a finite subset of the regular square tiling.
+Model Since this puzzle is just another form of tiling challenge we can reuse concepts and ideas from Mondriaan Puzzle, Another Boring Lockdown Day and Patient Scheduling.</description>
+    </item>
+    
+    <item>
+      <title>Square Tiling</title>
+      <link>/square-tiling/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/square-tiling/</guid>
+      <description>Given an inventory of square tiles, what is the maximum square space we can fill with them?
+The picture above consists of the following set of tiles:
+length 1 2 3 count 4 3 2 8 out of the 9 given tiles can be used to form the resulting (5x5) square. One (3x3) tile cannot be used. With the given set this is the larges square area we can fill.</description>
+    </item>
+    
+    <item>
+      <title>Mondriaan Puzzle</title>
+      <link>/mondriaan-puzzle/</link>
+      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/mondriaan-puzzle/</guid>
+      <description>Partition an \(n \times n\) square into multiple non-congruent integer-sided rectangles. The rectangles must be non-congruent and the side length must be an integer number. Find the least possible length difference between the largest and smallest used rectangle, i.e. make the rectangles as similar as possible. Every rectangle can only be used once. There is related work covering multiple aspects of the problem and its solution. Here we focus on a Mixed Integer Programming approach.</description>
+    </item>
+    
+    <item>
+      <title>Sudoku</title>
+      <link>/sudoku/</link>
+      <pubDate>Sun, 26 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/sudoku/</guid>
+      <description>Wikipedia
+a logic-based, combinatorial number-placement puzzle.
+Fill a 9×9 grid with digits so that each column, each row, and each of the nine 3×3 subgrids that compose the grid contain all of the digits from 1 to 9.
+The puzzle setter provides a partially completed grid, which for a well-posed puzzle has a single solution.
+Challenges Understand the problem (easy) Design the index sets (medium) Translate the model into Pyomo (easy) Tooling Pyomo as LP modelling language Optimizer: CBC Python Model Indexing Schema Variables $$ y^m_{i,j;k} = \begin{cases} 1, \ \text{ when cell \((i,j;k)\) contains number \(m\) }\\ 0, \ \text{ else }\\ \end{cases} $$</description>
+    </item>
+    
+  </channel>
+</rss>

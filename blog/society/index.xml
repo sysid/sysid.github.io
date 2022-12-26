@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>society on sysid blog</title>
+    <link>/blog/society/</link>
+    <description>Recent content in society on sysid blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2022, sysid.</copyright>
+    <lastBuildDate>Mon, 01 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="/blog/society/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>String Puppets</title>
+      <link>/string-puppets/</link>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/string-puppets/</guid>
+      <description>import mona1 from &amp;ldquo;./mona1.mp4&amp;rdquo;
+I am a fan of the Augsburger Puppenkiste. Puppets are brought to live by pulling strings. If you ever get to Augsburg, do not miss to see a show!
+Today a came across an excellent article 1, which creepily reminded me of these happy String Puppets.
+I decided to hit two birds with one stone: Learn something about the current state of Deep Fakes and try out Google&amp;rsquo;s Colab environment.</description>
+    </item>
+    
+  </channel>
+</rss>

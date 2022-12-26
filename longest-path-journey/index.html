@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="images/favicon.png" />
+<title>Longest Path Journey | sysid blog</title>
+<meta name="title" content="Longest Path Journey" />
+<meta name="description" content="Find the longest path in a network." />
+<meta name="keywords" content="python,optimization,pyomo," />
+
+
+<meta property="og:title" content="Longest Path Journey" />
+<meta property="og:description" content="Find the longest path in a network." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/longest-path-journey/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-04-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-04-25T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="Longest Path Journey"/>
+<meta name="twitter:description" content="Find the longest path in a network."/>
+
+
+
+<meta itemprop="name" content="Longest Path Journey">
+<meta itemprop="description" content="Find the longest path in a network."><meta itemprop="datePublished" content="2020-04-25T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-04-25T00:00:00+00:00" />
+<meta itemprop="wordCount" content="445"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="python,optimization,pyomo," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Longest Path Journey</h1>
+<p>
+  <i>
+    <time datetime='2020-04-25' pubdate>
+      25 Apr, 2020
+    </time>
+  </i>
+</p>
+
+<content>
+  <figure class="center"><img src="graph.png" width="100%"/>
+</figure>
+
+<p>Normally you would be searching for the shortest path from A to B. At least this is what navigation systems
+do. But here we want to look at the opposite problem:</p>
+<h3 id="what-is-the-longest-possible-path-to-get-from-a-to-b">What is the longest possible path to get from A to B?</h3>
+<p><a href="https://en.wikipedia.org/wiki/Longest_path_problem">Wikipedia</a></p>
+<blockquote>
+<p>The longest path problem is the problem of finding a simple path of maximum length in a given graph.
+In contrast to the shortest path problem, which can be solved in polynomial time in graphs without
+negative-weight cycles, the longest path problem is NP-hard.</p>
+</blockquote>
+<p>We are looking for a <em>simple path</em>, i.e. every node must only be visited (maximal) once. This sounds familiar to the
+Traveling Salesman Problem. Indeed, the problem can be modelled in a similar form <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>:</p>
+<h1 id="problem-formulation">Problem Formulation</h1>
+<p>$$
+\max \sum_{(i,j)\in A} d_{i,j}x_{i,j}\\
+$$
+Network routing often gets modelled as a flow optimization problem. Hence, the typical flow balance constraints
+apply.</p>
+<p>Node Flow Balance: flow in equals flow out of node:
+$$
+\sum_{j|(j,i) \in A} x_{j,i} + b_i = \sum_{j|(i,j) \in A} x_{i,j}, \ \forall i \\
+$$</p>
+<p>Outflow of each node must only go to one arc/edge:
+$$
+\sum_{j|(i,j) \in A} x_{i,j} \le 1 \ \forall i| i \ne \text{sink} \\
+\sum_{j|(i,j) \in A} x_{i,j} = 0, \ i = \text{sink} \\
+$$</p>
+<p>Sub-tour elimination constraints are well-known from the Traveling Salesman Problem:
+<a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem#Miller-Tucker-Zemlin_formulation">Miller-Tucker-Zemlin formulation</a>.
+$$
+t_j \ge t_i + 1 + (n-1)(x_{i,j}-1) \ \forall i,j| i\ne \text{source}, j\ne \text{sink}\\
+t_i \ge 0\\
+$$</p>
+<p>Integrity constraint:
+$$
+x_{i,j} \in {0,1}\\
+$$</p>
+<p>As input parameter we specify start and end node of our path:
+$$
+b_{i} =
+\begin{cases}
+1, \ \text{if i is start/source node}\\
+-1, \ \text{if i is end/sink node}\\
+0, \ \text{ else }\\
+\end{cases}
+$$</p>
+<h1 id="tooling">Tooling</h1>
+<ul>
+<li><a href="http://www.pyomo.org/">Pyomo</a> as LP modelling language</li>
+<li>Optimizer: <a href="https://projects.coin-or.org/Cbc">CBC</a></li>
+<li><a href="https://networkx.github.io/">NetworkX</a></li>
+<li>Python</li>
+</ul>
+<h1 id="result">Result</h1>
+<p>The sum of all edges in our network is 5.7660.</p>
+<p>Walking from node 5 to node 0 will give us a workout of distance 2.97652.
+<figure class="center"><img src="result_59.png" width="100%"/>
+</figure>
+</p>
+<p>Starting at 7 we can even cover a bigger distance: 3.17453.
+<figure class="center"><img src="result_70.png" width="100%"/>
+</figure>
+</p>
+<p>For a network this size the optimizer has no difficulty to find the solution in a split-second. However, this is not
+true for larger real world problems.</p>
+<h1 id="summary">Summary</h1>
+<p>Understanding how to extend a well known TSP Mixed Integer problem formulation to the Longest Path problem provides
+insights into Linear Programming. Applying <a href="https://networkx.github.io/">NetworkX</a> to handle network
+topology and visualization added another joyful aspect to this endeavor. Graphs made easy for everybody.</p>
+<p>Special thanks to <a href="https://yetanothermathprogrammingconsultant.blogspot.com">Yet Another Math Programming Consultant</a>,
+whose blog is an inspiration for everybody who fancies Mathematical Programming.</p>
+<p>If you are interested in the Pyomo model or the Python code contact me via <a href="mailto:sysid@gmx.de">mail</a>.</p>
+<!-- raw HTML omitted -->
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Inspired by: <a href="https://yetanothermathprogrammingconsultant.blogspot.com/2020/02/longest-path-problem.html">Yet Another Math Programming Consultant</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</content>
+<p>
+  
+  <a href="/blog/python/">#python</a>
+  
+  <a href="/blog/optimization/">#optimization</a>
+  
+  <a href="/blog/pyomo/">#pyomo</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

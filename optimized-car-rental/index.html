@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="images/favicon.png" />
+<title>Optimized Car Rental | sysid blog</title>
+<meta name="title" content="Optimized Car Rental" />
+<meta name="description" content="Maximizing profit with Python and Pyomo!" />
+<meta name="keywords" content="python,optimization,pyomo," />
+
+
+<meta property="og:title" content="Optimized Car Rental" />
+<meta property="og:description" content="Maximizing profit with Python and Pyomo!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/optimized-car-rental/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-04-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-04-11T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="Optimized Car Rental"/>
+<meta name="twitter:description" content="Maximizing profit with Python and Pyomo!"/>
+
+
+
+<meta itemprop="name" content="Optimized Car Rental">
+<meta itemprop="description" content="Maximizing profit with Python and Pyomo!"><meta itemprop="datePublished" content="2020-04-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-04-11T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1386"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="python,optimization,pyomo," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Optimized Car Rental</h1>
+<p>
+  <i>
+    <time datetime='2020-04-11' pubdate>
+      11 Apr, 2020
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>Modelling a car rental company with medium complexity or how to make 120k € per week.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>If you need a primer on Linear Programming: <a href="../lp_for_dummies">Linear Programming for Dummies 1</a></p>
+<h3 id="tools-employed">Tools employed:</h3>
+<ul>
+<li>Linear programming</li>
+<li>Python</li>
+<li><a href="http://www.pyomo.org/">Pyomo</a> as LP modelling language</li>
+<li>Optimizer: <a href="https://projects.coin-or.org/Cbc">CBC</a></li>
+</ul>
+<h3 id="company-model">Company model</h3>
+<p>Let&rsquo;s assume a car rental company with 4 locations and business hours from Monday to Saturday.</p>
+<p>The rental car demand estimate is:</p>
+<figure class="center"><img src="demand.png" width="100%"/>
+</figure>
+
+<p>Cars can be rented for 1, 2 or 3 days and can be returned to either the depot from which rented or another depot at the start of the next morning.
+A 3-day rental on Friday means that the car has to be returned on Tuesday morning because Sunday is closed.</p>
+<p>Maintenance cost per car is 15€ per week.</p>
+<h3 id="kpis">KPIs</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Duration</th>
+<th style="text-align:center">proportion</th>
+<th style="text-align:center">marginal cost</th>
+<th style="text-align:center">rental cost return same depot</th>
+<th style="text-align:center">rental cost return another depot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1-day</td>
+<td style="text-align:center">55%</td>
+<td style="text-align:center">20€</td>
+<td style="text-align:center">50</td>
+<td style="text-align:center">70</td>
+</tr>
+<tr>
+<td style="text-align:center">2-day</td>
+<td style="text-align:center">20%</td>
+<td style="text-align:center">25€</td>
+<td style="text-align:center">70</td>
+<td style="text-align:center">100</td>
+</tr>
+<tr>
+<td style="text-align:center">3-day</td>
+<td style="text-align:center">25%</td>
+<td style="text-align:center">30€</td>
+<td style="text-align:center">120</td>
+<td style="text-align:center">150</td>
+</tr>
+</tbody>
+</table>
+<p>In order to cover for weak weekend business there is a 20% discount for 1-day rentals on Saturday (return by Monday morning).</p>
+<p>Estimates of percentages of cars hired from one depot and returned to a given depot independent of day:</p>
+<figure class="center"><img src="returns.png" width="100%"/>
+</figure>
+
+<p>It is possible to transfer undamaged cars from one depot to another depot, however
+cars cannot be rented out during the day in which they are transferred.</p>
+<p>Transfer cost per car between depots:</p>
+<figure class="center"><img src="transfer_cost.png" width="100%"/>
+</figure>
+
+<h3 id="repair-centers">Repair centers:</h3>
+<p>There is a 10% damage rate with returned cars. Per incident we charge 100€ flat to the customer. Damaged
+cars need to be repaired in one of the two repair centers. Transfer to/from takes on day as does the repair itself.</p>
+<ol>
+<li>Manchester, 12 cars per day</li>
+<li>Birmingham, 20 cars per day</li>
+</ol>
+<p>Example:<br>
+If a damaged car is returned to Glasgow it has to be transferred to Manchester, be repaired and eventually
+transferred back. After 3 days the car is ready for rental again.</p>
+<h3 id="the-following-assumptions-hold">The following assumptions hold:</h3>
+<ol>
+<li>Cars are returned in time in the morning, so they are ready for rental the same day</li>
+<li>Transferred cars also arrive in time for rental the same day</li>
+<li>Repaired cars can be rented out at repair centers without transfer</li>
+<li>Steady state solution is required, i.e. the same expected number of cars will be located at the same depot on the
+same day of the week</li>
+</ol>
+<h3 id="optimization-target">Optimization Target:</h3>
+<ol>
+<li>How much money can be make?</li>
+<li>How many cars should the company deploy to maximize profits?</li>
+<li>Where should the cars be located at the start of each day?</li>
+</ol>
+<h2 id="mathematical-formulation">Mathematical Formulation</h2>
+<p>Integrality of cars can be neglected, since we are dealing with big enough numbers, so no MIP is necessary.</p>
+<h3 id="indices">Indices:</h3>
+<p>\(i,j\): Depots<br>
+\(t\): Monday-Saturday, circular/steady state problem: \(t_1=Mon \implies t_{-1}=Sat\)<br>
+\(k \in {1,2,3}\): days rented</p>
+<h3 id="parameters">Parameters</h3>
+<p>\(D_{it}\): demand at i on day t<br>
+\(P_{ij}\): proportion of cars rented at i to be returned to j<br>
+\(C_{ij}\): cost of transfer<br>
+\(Q_k\): proportion of cars hired for k days<br>
+\(R_i\): repair capacity of i<br>
+\(c_k\): rent price same return<br>
+\(d_k\): rent price different return<br>
+\(c^s\): rent same return Sat<br>
+\(d^s\): rent different return Sat<br>
+\(m_k\): marginal cost of k day hire \(\forall i, t\)<br>
+\(o\): opportunity cost of owning a car</p>
+<h3 id="variables">Variables</h3>
+<p>\(n\): total number owned cars<br>
+\(u_{it}\): number undamaged cars at i at beginning of t<br>
+\(u^e_{it}\): number undamaged cars left at i at end of t<br>
+\(v_{it}\): number damaged cars at i at beginning of t<br>
+\(v^e_{it}\): number damaged cars left at i at end of t<br>
+\(x_{it}\): number rented-out cars at i at beginning of t<br>
+\(y_{ijt}\): number of undamaged cars at i at beginning of to to be transferred to j<br>
+\(z_{ijt}\): number of damaged cars at i at beginning of to to be transferred to j<br>
+\(r_{it}\): number of damaged cars to be repaired at i</p>
+<h3 id="constraints">Constraints</h3>
+<p>Total number of undamaged cars into i on t:<br>
+$$
+\sum_{jk} 0.9P_{ji}Q_kx_{jt-k} + \sum_j y_{jit-1} + r_{it-1} + u^e_{it-1} = u_{it}
+$$</p>
+<p>Total number of damaged cars into i on t:<br>
+$$
+\sum_{jk} 0.1P_{ji}Q_kx_{jt-k} + \sum_j z_{jit-1} + v^e_{it-1} = v_{it}
+$$</p>
+<p>Total number of undamaged cars out of depot i on t:<br>
+$$
+x_{it} + \sum_j y_{ijt} + u^e_{it} = u_{it}
+$$</p>
+<p>Total number of damaged cars out of depot i on t:<br>
+$$
+r_{it-1} + \sum_j z_{ijt} + v^e_{it} = v_{it}
+$$</p>
+<p>Repair capacity at depot i on day t:
+$$
+r_{it} \le R_i\\
+$$</p>
+<p>Demand at depot i on day t:
+$$
+x_{it} \le D_{it}\\
+$$</p>
+<h4 id="total-number-of-cars-in-circulation">total number of cars in circulation</h4>
+<p>Total number of cars at beginning of Wednesday: outstanding cars + returned/grounded cars:</p>
+<ol>
+<li>number hired out on Monday for 3 days,</li>
+<li>plus those on Tuesday for 2 or 3 days,</li>
+<li>plus all damaged and undamaged cars in depots at the beginning of Wednesday.</li>
+</ol>
+<p>$$
+\sum_i (0.25x_{i1} + (0.25+0.2)x_{i2} + u_{i3} + v_{i3}) = n, \forall i
+$$</p>
+<h3 id="objective">Objective</h3>
+<p>10€ has been added to the profit on each rented car to reflect the surcharge of 100€ charged on the 10% of cars that are returned damaged.</p>
+<p>$$
+\sum_{itk,t\ne6} P_{ii}Q_k(c_k -m_k + 10)x_{it}\\
++ \sum_{ijtk,t\ne6} P_{ij}Q_k(d_k -m_k + 10)x_{it}\\
++ \sum_{i6} P_{ii}Q_1(c^s -m_1 + 10)x_{it}\\
++ \sum_{ij6} P_{ij}Q_1(d^s -m_1 + 10)x_{it}\\
++ \sum_{i6k} P_{ii}Q_k(c_k -m_k + 10)x_{it}\\
++ \sum_{i6k} P_{ij}Q_k(d_k -m_k + 10)x_{it}\\
+- \sum_{ijt} C_{ij}y_{ijt}\\
+- \sum_{ijt} C_{ij}z_{ijt}\\
+- 15n\\
+$$</p>
+<h2 id="solution">Solution</h2>
+<p>The model has been implemented using <a href="http://www.pyomo.org/">Pyomo</a> as modelling language. It combines the
+effectiveness of specialized modelling languages like <a href="https://www.gams.com/">GAMS</a> or <a href="https://en.wikipedia.org/wiki/AMPL">AMPL</a>
+with the capabilities of a general programming language which is especially
+strong in data science. This results in a powerful solution tooling by combining strengths of various
+engineering and mathematical disciplines.</p>
+<h3 id="constraints-1">Constraints</h3>
+<p>Constraints are modelled as &lsquo;rules&rsquo; in <a href="http://www.pyomo.org/">Pyomo</a>:
+$$
+\sum_{jk} 0.9P_{ji}Q_kx_{jt-k} + \sum_j y_{jit-1} + r_{it-1} + u^e_{it-1} = u_{it}
+$$</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#888"># Total number of undamaged cars into i on t</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">u_in_c</span>(model, d, i):
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> model.u[d, i] == \
+</span></span><span style="display:flex;"><span>           <span style="color:#038">sum</span>(
+</span></span><span style="display:flex;"><span>               <span style="color:#00d;font-weight:bold">0.9</span> * model.return_dist[j, i] * model.rental_dist[k] * model.x[(d - k + <span style="color:#00d;font-weight:bold">6</span>) % <span style="color:#00d;font-weight:bold">6</span>, j]
+</span></span><span style="display:flex;"><span>               <span style="color:#080;font-weight:bold">for</span> j <span style="color:#080">in</span> model.L <span style="color:#080;font-weight:bold">for</span> k <span style="color:#080">in</span> model.R
+</span></span><span style="display:flex;"><span>           ) + \
+</span></span><span style="display:flex;"><span>           <span style="color:#038">sum</span>(model.y[(d - <span style="color:#00d;font-weight:bold">1</span> + <span style="color:#00d;font-weight:bold">6</span>) % <span style="color:#00d;font-weight:bold">6</span>, j, i] <span style="color:#080;font-weight:bold">for</span> j <span style="color:#080">in</span> model.L) + \
+</span></span><span style="display:flex;"><span>           model.r[(d - <span style="color:#00d;font-weight:bold">1</span> + <span style="color:#00d;font-weight:bold">6</span>) % <span style="color:#00d;font-weight:bold">6</span>, i] + \
+</span></span><span style="display:flex;"><span>           model.ue[(d - <span style="color:#00d;font-weight:bold">1</span> + <span style="color:#00d;font-weight:bold">6</span>) % <span style="color:#00d;font-weight:bold">6</span>, i]
+</span></span></code></pre></div><h3 id="objective-function">Objective Function</h3>
+<p>The objective function looks like:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">obj_profit</span>(model):
+</span></span><span style="display:flex;"><span>    rental_profit = <span style="color:#038">sum</span>(
+</span></span><span style="display:flex;"><span>        model.return_dist[i, j] *
+</span></span><span style="display:flex;"><span>        model.rental_dist[k] *
+</span></span><span style="display:flex;"><span>        (model.rental_cost[k, i, j] - model.marginal_cost[k] + <span style="color:#00d;font-weight:bold">10</span>) * model.x[d, i]
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080">in</span> model.L <span style="color:#080;font-weight:bold">for</span> j <span style="color:#080">in</span> model.L <span style="color:#080;font-weight:bold">for</span> d <span style="color:#080">in</span> model.H <span style="color:#080;font-weight:bold">for</span> k <span style="color:#080">in</span> model.R
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    transfer_cost_undamged = <span style="color:#038">sum</span>(
+</span></span><span style="display:flex;"><span>        model.cost_transfer[i, j] * model.y[d, i, j]
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080">in</span> model.L <span style="color:#080;font-weight:bold">for</span> j <span style="color:#080">in</span> model.L <span style="color:#080;font-weight:bold">for</span> d <span style="color:#080">in</span> model.H
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    transfer_cost_damged = <span style="color:#038">sum</span>(
+</span></span><span style="display:flex;"><span>        model.cost_transfer[i, j] * model.z[d, i, j]
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080">in</span> model.L <span style="color:#080;font-weight:bold">for</span> j <span style="color:#080">in</span> model.L <span style="color:#080;font-weight:bold">for</span> d <span style="color:#080">in</span> model.H
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    opp_cost = <span style="color:#00d;font-weight:bold">15</span> * model.n
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> rental_profit - transfer_cost_damged - transfer_cost_undamged - opp_cost
+</span></span></code></pre></div><h3 id="make-the-model-stationary">Make the model stationary</h3>
+<p>To allow for a cyclical model (steady state) it is necessary to find a proper indexing schema for <a href="http://www.pyomo.org/">Pyomo</a>.</p>
+<p>Monday corresponds to &lsquo;1&rsquo;, Saturday to &lsquo;0&rsquo;. This schema allows to use the modulo operator in order to index
+the business days in a closed cycle withouth having to worry about negative indices (see above formulas).</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>d = <span style="color:#00d;font-weight:bold">1</span>  <span style="color:#888"># Monday</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># day before Monday (1) == Saturday (0)</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">assert</span> (d - <span style="color:#00d;font-weight:bold">1</span> + <span style="color:#00d;font-weight:bold">6</span>) % <span style="color:#00d;font-weight:bold">6</span> == <span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># two days before Monday (1) == Friday (5)</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">assert</span> (d - <span style="color:#00d;font-weight:bold">2</span> + <span style="color:#00d;font-weight:bold">6</span>) % <span style="color:#00d;font-weight:bold">6</span> == <span style="color:#00d;font-weight:bold">5</span>
+</span></span></code></pre></div><h3 id="results">Results</h3>
+<h4 id="total-number-of-cars">Total number of cars:</h4>
+<p>The optimal number of cars is: 617. This translates to a profit of 121.160€ per week. Not bad!</p>
+<h4 id="number-of-undamaged-cars-at-beginning-of-day-at-respective-depot">Number of undamaged cars at beginning of day at respective depot</h4>
+<figure class="center"><img src="undamaged.png"/>
+</figure>
+
+<h4 id="number-of-damaged-cars-at-beginning-of-day-at-respective-depot">Number of damaged cars at beginning of day at respective depot</h4>
+<figure class="center"><img src="damaged.png"/>
+</figure>
+
+<h4 id="transfer-of-damaged-cars-to-repair-centers">Transfer of damaged cars to repair centers</h4>
+<p>Transfers are happening from Glasgow to Manchester (z_GM), from Glasgow to Birmingham and from Plymouth to
+Birmingham (z_PB).</p>
+<figure class="center"><img src="transfer_damaged.png" width="100%"/>
+</figure>
+
+<p>The repair center are running at full capacity every day and are limiting profitability.</p>
+<p>No undamaged cars are transferred between depots in the optimal solution. This is an efficient solution!</p>
+<h2 id="summary">Summary</h2>
+<p>Deploying a general purpose programming language together with a tightly integrated modelling language (<a href="http://www.pyomo.org/">Pyomo</a>)
+allows for an elegant solution in order to solve this classical Operations Research problem. It certainly asks
+for more. Stay tuned.</p>
+<p>If you are interested in the Pyomo model or the Python code contact me via <a href="mailto:sysid@gmx.de">mail</a>.</p>
+<!-- raw HTML omitted -->
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Inspired by: Model Building in Mathematical Programming by H.Paul Williams&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</content>
+<p>
+  
+  <a href="/blog/python/">#python</a>
+  
+  <a href="/blog/optimization/">#optimization</a>
+  
+  <a href="/blog/pyomo/">#pyomo</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

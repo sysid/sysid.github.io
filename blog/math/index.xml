@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>math on sysid blog</title>
+    <link>/blog/math/</link>
+    <description>Recent content in math on sysid blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2022, sysid.</copyright>
+    <lastBuildDate>Sat, 28 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="/blog/math/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BMW I4 and linear dynamic Truchet tilings</title>
+      <link>/bmw-i4-and-linear-dynamic-truchet-tilings/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/bmw-i4-and-linear-dynamic-truchet-tilings/</guid>
+      <description>Isn&amp;rsquo;t this BMW I4 a beauty? The perfect motivation to start a journey into a little optimization problem:
+How to manipulate traditional Truchet tiles so that the resulting tiling resembles the Ultimate Driving Machine?
+Truchet tiles are a well known niche in math because they form a foundation for a lot of interesting questions. The basic theory: You have four simple tiles:
+Since every tile is 50% black and 50% white a resulting tiling can only resemble a grey area if viewed from afar.</description>
+    </item>
+    
+    <item>
+      <title>Energy Forecast for a full-scale Vehicle Plant</title>
+      <link>/energy-forecast-for-a-full-scale-vehicle-plant/</link>
+      <pubDate>Sun, 28 May 2017 22:12:03 +0000</pubDate>
+      
+      <guid>/energy-forecast-for-a-full-scale-vehicle-plant/</guid>
+      <description>Energy Forecast for a full scale Vehicle Plant Energy forecasting is based on time series analysis. There are many techniques for analysing and forecasting time series, e.g. ARIMA, linear regression and deep learning. To tackle the challenge at hand a linear regression will be the benchmark model aganst which deep learning models will be tested. In particular a multi layer perceptron (MLP) and recurrent neural network (RNN), i.e. Long-Short Time Memory (LSTM) model will be applied.</description>
+    </item>
+    
+    <item>
+      <title>Fishy Affine Transformation</title>
+      <link>/fishy-affine-transformation/</link>
+      <pubDate>Mon, 13 Mar 2017 22:12:03 +0000</pubDate>
+      
+      <guid>/fishy-affine-transformation/</guid>
+      <description>Fishy Affine Transformation While working on the kaggle competition https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring I hit the point when I wanted to align fish based on an annotation at the fish&amp;rsquo;s head and tail, so that the fish is centered in the image, always in the same orientation and distracting picture information is minimized. This required:
+finding the fish (thanks Nathaniel Shimoni for annotating) centering rotatating cropping Mathematically the challenge is to find the associated Affine Transformation.</description>
+    </item>
+    
+  </channel>
+</rss>

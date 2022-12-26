@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="images/favicon.png" />
+<title>Server Sent Events | sysid blog</title>
+<meta name="title" content="Server Sent Events" />
+<meta name="description" content="Are Server Sent Events the smarter way to do realtime web?" />
+<meta name="keywords" content="python,async," />
+
+
+<meta property="og:title" content="Server Sent Events" />
+<meta property="og:description" content="Are Server Sent Events the smarter way to do realtime web?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/server-sent-events/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-05-27T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-05-27T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="Server Sent Events"/>
+<meta name="twitter:description" content="Are Server Sent Events the smarter way to do realtime web?"/>
+
+
+
+<meta itemprop="name" content="Server Sent Events">
+<meta itemprop="description" content="Are Server Sent Events the smarter way to do realtime web?"><meta itemprop="datePublished" content="2020-05-27T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-05-27T00:00:00+00:00" />
+<meta itemprop="wordCount" content="681"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="python,async," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Server Sent Events</h1>
+<p>
+  <i>
+    <time datetime='2020-05-27' pubdate>
+      27 May, 2020
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>If you are looking for <em>realtime</em> features in WEB applciations
+you often end with <a href="https://en.wikipedia.org/wiki/WebSocket">Websockets</a>.</p>
+<p>Just to be complete I also mention &lsquo;Long/Short polling&rsquo; as a client-side pull option. I
+regard it as mere workaround to a <em>realtime</em> communication implementation.</p>
+<h4 id="as-always-requirements-are-key">As always, requirements are key:</h4>
+<ul>
+<li>If you need bi-directional realtime features with high volume and low latency, <a href="https://en.wikipedia.org/wiki/WebSocket">Websocket</a> is your choice.</li>
+<li>If you need to deliver <em>realtime</em> information
+to many clients, but you can live with the HTTP Request/Response model to trigger actions, <a href="https://en.wikipedia.org/wiki/Server-sent_events">Server Sent Events (SSE)</a> are a
+powerful contender.</li>
+</ul>
+<blockquote>
+<p>SSE is a mechanism that allows the server to asynchronously push the data to the client once the client-server connection is established.
+The client <em>subscribes</em> to the server data via an <a href="https://www.w3.org/TR/eventsource/">Event Source</a>.</p>
+</blockquote>
+<h2 id="what-is-sse">What is SSE?</h2>
+<p>Server sent events are a part of the HTML standard, not HTTP<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.
+They define a protocol that is invisible to the HTTP layer, and does not  disrupt any of the lower layers.</p>
+<p>At it’s core, SSE is just a <code>Content-Type</code> header that informs the client that the response will be delivered in pieces.
+It also alerts the browser that it should expose each piece to the code as it arrives,
+and not wait for the full request, much like WebSocket’s frames<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
+<p>On the browser this is implemented with the easy-to-use <code>EventSource</code> interface in client side code:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">var</span> source = <span style="color:#080;font-weight:bold">new</span> EventSource(<span style="color:#d20;background-color:#fff0f0">&#39;updates.cgi&#39;</span>);
+</span></span><span style="display:flex;"><span>source.onmessage = <span style="color:#080;font-weight:bold">function</span> (event) {
+</span></span><span style="display:flex;"><span>  alert(event.data);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="why-sse">Why SSE?</h2>
+<ol>
+<li>SSE is based on HTTP, so it has a natural fit with HTTP/2. This establishes
+an efficient transport layer based on multiplexed streams, out of the box. The client only needs one connection to get
+various data feeds (no magic limit of 6!).</li>
+<li>The client and server are informed when the connection drops, there is no special protocol needed.</li>
+<li>Reliability: Maintaining an unique Id with messages the server can see that the client missed a number of messages and send the backlog of missed messages on reconnect.</li>
+<li>Proxy issues are much easier to handle than with Websockets, after all you are talking plain HTTP.</li>
+<li>Load Balancing also just works as with regular HTTP sessions. Nothing special. Load Balancing of websockets
+can become very complicated and you have to roll your own solution.</li>
+<li>SSL: Tick in the box.</li>
+</ol>
+<p>Features like small messages size and persistent open connections from client to server are nowadays provided by
+HTTP/2 via header compression and de-duplication.</p>
+<p>WebSocket is basically a different protocol for delivering data<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>.
+It is cannot be multiplexed over HTTP/2 connections (it doesn’t really run on top of HTTP at all).
+Implementing custom multiplexing both on the server and the client is complicated.</p>
+<p>Don&rsquo;t do it!</p>
+<h2 id="make-it-work">Make it work</h2>
+<p>Server Side code is not complicated to implement. One pitfall to look out for:<br>
+Proxy servers are known sometimes to drop HTTP connections after a short timeout.
+To protect against that, you can include a comment line (one starting with a ‘:’ character) every 15 seconds or so.</p>
+<p>This is taken care of for you when using <a href="https://www.starlette.io/responses/#sseresponseeventsourceresponse">Starlette</a>:</p>
+<h2 id="python-implementation">Python Implementation</h2>
+<p>Using <a href="https://www.starlette.io/responses/#sseresponseeventsourceresponse">Starlette</a> as a modern high performance Python
+webserver you can use just use the Response type: <a href="https://github.com/sysid/sse-starlette">EventSourceResponse</a>.</p>
+<p>It implements the <a href="https://en.wikipedia.org/wiki/Server-sent_events">SSE protocol</a> for Starlette and takes care of the
+proxy thing:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">asyncio</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">uvicorn</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">starlette.applications</span> <span style="color:#080;font-weight:bold">import</span> Starlette
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">starlette.routing</span> <span style="color:#080;font-weight:bold">import</span> Route
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">sse_starlette.sse</span> <span style="color:#080;font-weight:bold">import</span> EventSourceResponse
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">async</span> <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">numbers</span>(minimum, maximum):
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080">in</span> <span style="color:#038">range</span>(minimum, maximum + <span style="color:#00d;font-weight:bold">1</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">await</span> asyncio.sleep(<span style="color:#00d;font-weight:bold">0.9</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">yield</span> <span style="color:#038">dict</span>(data=i)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">async</span> <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">sse</span>(request):
+</span></span><span style="display:flex;"><span>    generator = numbers(<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">5</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> EventSourceResponse(generator)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>routes = [
+</span></span><span style="display:flex;"><span>    Route(<span style="color:#d20;background-color:#fff0f0">&#34;/&#34;</span>, endpoint=sse)
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app = Starlette(debug=<span style="color:#080;font-weight:bold">True</span>, routes=routes)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">if</span> __name__ == <span style="color:#d20;background-color:#fff0f0">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    uvicorn.run(app, host=<span style="color:#d20;background-color:#fff0f0">&#34;0.0.0.0&#34;</span>, port=<span style="color:#00d;font-weight:bold">8000</span>, log_level=<span style="color:#d20;background-color:#fff0f0">&#39;info&#39;</span>)
+</span></span></code></pre></div><p>All you have to do, is to implement a generator which provides the data to be streamed.</p>
+<h2 id="summary">Summary</h2>
+<p>With Websocket you need to take care of a lot of problems that are already solved in plain HTTP.</p>
+<p>If you just need to stream <em>realtime</em> data to many clients via an uncontrolled network, a.k.a. Internet, SSE are
+your friend. It simplifies your life and is around for long enough to be proven and tested.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events">HTML</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://medium.com/axiomzenteam/websockets-http-2-and-sse-5c24ae4d9d96">WebSockets, HTTP/2, and SSE</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://www.smashingmagazine.com/2018/02/sse-websockets-data-flow-http2/">Using SSE Instead Of WebSockets For Unidirectional Data Flow Over HTTP/2</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</content>
+<p>
+  
+  <a href="/blog/python/">#python</a>
+  
+  <a href="/blog/async/">#async</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

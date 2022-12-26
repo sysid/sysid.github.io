@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="images/favicon.png" />
+<title>Job Shop Scheduling Problem | sysid blog</title>
+<meta name="title" content="Job Shop Scheduling Problem" />
+<meta name="description" content="Scheduling jobs requiring several time-dependent machining steps" />
+<meta name="keywords" content="python,optimization,work,pyomo,scheduling," />
+
+
+<meta property="og:title" content="Job Shop Scheduling Problem" />
+<meta property="og:description" content="Scheduling jobs requiring several time-dependent machining steps" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/job-shop-scheduling-problem/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-08-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-02T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="Job Shop Scheduling Problem"/>
+<meta name="twitter:description" content="Scheduling jobs requiring several time-dependent machining steps"/>
+
+
+
+<meta itemprop="name" content="Job Shop Scheduling Problem">
+<meta itemprop="description" content="Scheduling jobs requiring several time-dependent machining steps"><meta itemprop="datePublished" content="2020-08-02T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-08-02T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1149"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="python,optimization,work,pyomo,scheduling," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Job Shop Scheduling Problem</h1>
+<p>
+  <i>
+    <time datetime='2020-08-02' pubdate>
+      02 Aug, 2020
+    </time>
+  </i>
+</p>
+
+<content>
+  <blockquote>
+<p>The Job Shop Scheduling Problem (JSSP) is an NP-hard problem. <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+</blockquote>
+<p>The JSSP is defined by a set of jobs that must be executed by
+a set of machines in a specific order for each job. Each job has a defined execution time for each machine and
+a defined processing order of machines. Also, each job must use each machine only once.
+The machines can only execute a job at a time and once started, the machine cannot be interrupted until the completion of the assigned job.</p>
+<p>The objective is to minimize the makespan, i.e. the maximum completion time among all jobs.</p>
+<p>The JSSP is NP-hard for any fixed n ≥ 3 and also for any fixed m ≥ 3.</p>
+<p>For instance, suppose we have 3 machines and 3 jobs. The processing order for each job is as follows
+(the processing time of each job in each machine is between parenthesis):</p>
+<ul>
+<li>Job 1: 𝑚3 (2) → 𝑚1 (1) → 𝑚2 (2)</li>
+<li>Job 2: 𝑚2 (1) → 𝑚3 (2) → 𝑚1 (2)</li>
+<li>Job 3: 𝑚3 (1) → 𝑚2 (2) → 𝑚1 (1)</li>
+</ul>
+<p>Bellow there are (at least) two feasible schedules <sup id="fnref1:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>:</p>
+<figure class="center"><img src="machine_scheduling2.png" width="100%"/>
+</figure>
+
+<p>The first schedule shows a naive solution: jobs are processed in a sequence and machines stay idle quite
+often. The second solution is an optimal one, where jobs execute in parallel. This solution is not unique.</p>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>All jobs 𝑗 must be executed following the sequence of machines given by \(O^j\),</li>
+<li>Each machine can process only one job at a time,</li>
+<li>Once a machine starts a job, it must be completed without interruptions.</li>
+<li>every job can onlye run once per machine</li>
+</ul>
+<h3 id="solution-alternatives-4">Solution Alternatives <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></h3>
+<h4 id="discrete-time-using-time-slots">Discrete time using time slots.</h4>
+<p>This leads to binary variables:
+$$
+x_{j,m,t} =
+\begin{cases} 1 &amp; \text{if job \(j\) executes on machine \(m\) at time \(t\)}\\
+0 &amp; \text{otherwise}
+\end{cases}
+$$</p>
+<h4 id="continuous-time-with-binary-variables">Continuous time with binary variables</h4>
+<p>Using binary variable indicating if job  \(j\) is executed before job  \(k\) (on the same machine)</p>
+<h2 id="model">Model</h2>
+<p>Here I applied a classic MIP formulation from A.S. Manne <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>.</p>
+<h3 id="sets-and-parameters">Sets and Parameters</h3>
+<p>$$
+\begin{aligned}
+J = {1,..,N_0}: &amp; \text{set of jobs}\\
+M = {1,..,M_0}: &amp; \text{set of machines}\\
+R = {1,..,M_0}: &amp; \text{number of steps per task}\\
+o_r^j: &amp; \text{machine which processes the \(r\)-th operation of job \(j\)}\\
+O^j = (o_1^j,..,o_{M_0}^j): &amp; \text{processing order of job j}\\
+\mathit{proctime}_{m,j} \in N^+: &amp; \text{processing time of job \(j\) in machine \(m\)}\\
+\end{aligned}
+$$</p>
+<p>To find a planning horizon T we just schedule each job after another:
+$$
+T = \sum_j proctime_j
+$$
+T is used as a big-M constant, so we would like it to be as tight as possible.</p>
+<h3 id="variables">Variables</h3>
+<p>$$
+\begin{aligned}
+makespan \ : &amp; \ \text{total process time}\\
+start_{m,j} \ : &amp; \ \text{start time of \(j\) on machine \(m\)}\\
+y_{mjk} = &amp;
+\begin{cases}
+1, \ \text{ if job j precedes job k on machine m, \(j \ne k\) }\\
+0, \ \text{ else }\\
+\end{cases}\\
+\end{aligned}
+$$</p>
+<h3 id="objective">Objective</h3>
+<p>$$
+\begin{aligned}
+\min&gt; &amp; \mathit{makespan} \\
+\end{aligned}
+$$</p>
+<h3 id="constraints-1">Constraints</h3>
+<h4 id="precedence-constraint">Precedence Constraint</h4>
+<p>The first set of constraints are the precedence constraints, that ensure that a job on a
+machine only starts after the processing of the previous machine concluded.
+$$
+\begin{aligned}
+start_{o_r^j,j} \ge start_{o_{r-1}^j, j} + proctime_{o_{r-q}^j, j} \ \ &amp; \forall r \in {2,..,m}, j \in J\\
+\end{aligned}
+$$</p>
+<h4 id="no-overlapp-constraints">No-Overlapp Constraints</h4>
+<p>If the problem was a single machine scheduling problem, the no-overlap constraints would look like:</p>
+<p>$$
+start_{m,j} \ge start_{m,k} + proctime_{m,k} \ \text{ or } \ start_{m,k} \ge start_{m,j} + proctime_{m,j}\\
+$$</p>
+<p>Logical OR can be expressed by Big-M formulation:
+$$
+start_{m,j} \ge start_{m,k} + proctime_{m,k} - M y_{m,j,k} \\
+start_{m,k} \ge start_{m,j} + proctime_{m,j} - M (1-y_{m,j,k}) \\
+$$</p>
+<p>I.e. job  \(j\) executes before or after job \(k\), but not in parallel.</p>
+<p>This set of disjunctive constraints ensures that only one job is processing at a given time in a given machine. The
+𝑀 constant must be large enough to ensure the correctness of these constraints. A valid (but weak)
+estimate for this value can be the summation of all processing times. For larger models
+tighter bounds need to be determined via heuristics.</p>
+<p>$$
+\begin{aligned}
+start_{m,j} \ge start_{m,k} + proctime_{m,k} - M y_{m,j,k} \ \ &amp; \forall j,k \in J, j \ne k, m\in M\\
+start_{m,k} \ge start_{m,j} + proctime_{m,j} - M (1-y_{m,j,k}) \ \ &amp; \forall j,k \in J, j \ne k, m\in M\\
+\end{aligned}
+$$</p>
+<h4 id="makespan-and-domain-constraints">Makespan and Domain Constraints</h4>
+<p>The final set of constrains ensure
+that the makespan value is computed correctly and the last constraints indicate variable domains.
+$$
+makespan \ge start_{o_{M_0}^j, j} + proctime_{o_{M_0}^j, j} \ \ \forall j \in J\\
+start_{i,j} \ge 0\\
+y_{m,j,k} \in {0,1}\\
+makespan \ge 0\\
+$$</p>
+<h4 id="altogether">Altogether</h4>
+<p>$$
+\begin{aligned}
+start_{o_r^j,j} \ge start_{o_{r-1}^j, j} + proctime_{o_{r-q}^j, j} \ \ &amp; \forall r \in {2,..,m}, j \in J\\
+start_{m,j} \ge start_{m,k} + proctime_{m,k} - M y_{m,j,k} \ \ &amp; \forall j,k \in J, j \ne k, m\in M\\
+start_{m,k} \ge start_{m,j} + proctime_{m,j} - M (1-y_{m,j,k}) \ \ &amp; \forall j,k \in J, j \ne k, m\in M\\
+makespan \ge start_{o_{M_0}^j, j} + proctime_{o_{M_0}^j, j} \ \ &amp; \forall j \in J\\
+start_{i,j} \ge 0\\
+y_{m,j,k} \in {0,1}\\
+makespan \ge 0\\
+\end{aligned}
+$$</p>
+<h1 id="implementation">Implementation</h1>
+<p>Using <a href="http://www.pyomo.org/">Pyomo</a> as modelling framework results in the following Python code for the constraints:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">start_order_c</span>(model, j, s):
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> s == <span style="color:#00d;font-weight:bold">1</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> Constraint.Skip
+</span></span><span style="display:flex;"><span>    o = model.machine_steps[j, s]
+</span></span><span style="display:flex;"><span>    o_1 = model.machine_steps[j, s - <span style="color:#00d;font-weight:bold">1</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> model.start[o, j] &gt;= model.start[o_1, j] + model.proctime[o_1, j]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model.start_order_c = Constraint(model.J, model.R, rule=start_order_c)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">start_either_c</span>(model, m, j, k):
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> j == k:
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> Constraint.Skip
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> model.start[m, j] &gt;= model.start[m, k] + model.proctime[m, k] - M * model.y[m, j, k]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model.start_either_c = Constraint(model.M, model.J, model.J, rule=start_either_c)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">start_or_c</span>(model, m, j, k):
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> j == k:
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> Constraint.Skip
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> model.start[m, k] &gt;= model.start[m, j] + model.proctime[m, j] - M * (<span style="color:#00d;font-weight:bold">1</span> - model.y[m, j, k])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model.start_or_c = Constraint(model.M, model.J, model.J, rule=start_or_c)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">makespan_c</span>(model, j):
+</span></span><span style="display:flex;"><span>    o = model.machine_steps[j, M_0]
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> model.makespan &gt;= model.start[o, j] + model.proctime[o, j]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model.makespan_c = Constraint(model.J, rule=makespan_c)
+</span></span></code></pre></div><h1 id="results">Results</h1>
+<p>The model solves very quickly with 4 machines and 10 jobs.</p>
+<p>Number of constraints : 760<br>
+Number of variables : 441<br>
+Duration: 00:00:06</p>
+<p>Optimal scheduling will reduce the total production time from 74 (naive approach) to 21, a 72% improvement.</p>
+<figure class="center"><img src="result.png" width="100%"/>
+</figure>
+
+<p>Zero implies there are no job running on the machine at this time.</p>
+<p>Increasing the number of jobs to 15 already resulted in an optimality gap of 7% after 30min calculation. Not very promising.</p>
+<p>The no-overlap constraints for a continuous-time model do not scale well. Even small models take a long time to
+solve. Others <sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> found similar results. One immediate angle of improvement would be to exploit symmetry in the
+non-overlap constraint and only compare jobs with \(j &lt; k\) instead of \(i \ne k\).</p>
+<p>Searching for alternative MIP formulations altogether is a task for another day, however.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://buildmedia.readthedocs.org/media/pdf/python-mip/latest/python-mip.pdf">https://buildmedia.readthedocs.org/media/pdf/python-mip/latest/python-mip.pdf</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="http://yetanothermathprogrammingconsultant.blogspot.com/2019/06/machine-scheduling.html">http://yetanothermathprogrammingconsultant.blogspot.com/2019/06/machine-scheduling.html</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>A.S. Manne. On the job-shop scheduling problem. Operations Research, 8(2):219–223, 1960.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="http://yetanothermathprogrammingconsultant.blogspot.com/2020/05/a-scheduling-problem.html">http://yetanothermathprogrammingconsultant.blogspot.com/2020/05/a-scheduling-problem.html</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</content>
+<p>
+  
+  <a href="/blog/python/">#python</a>
+  
+  <a href="/blog/optimization/">#optimization</a>
+  
+  <a href="/blog/work/">#work</a>
+  
+  <a href="/blog/pyomo/">#pyomo</a>
+  
+  <a href="/blog/scheduling/">#scheduling</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>productivity on sysid blog</title>
+    <link>/blog/productivity/</link>
+    <description>Recent content in productivity on sysid blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2022, sysid.</copyright>
+    <lastBuildDate>Sat, 24 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="/blog/productivity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>twbm</title>
+      <link>/twbm/</link>
+      <pubDate>Sat, 24 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/twbm/</guid>
+      <description>Bookmarks are a major pillar of any knowledge-management strategy.
+Bookmarks are the foundation of the World Wide Web and personal bookmark management should be regarded as a solved problem these days, right?
+Truth is, I used to struggle a lot with bookmarks.
+My requirements:
+I want to own my bookmarks. They reflect a carefully curated list of knowledge and expertise which I have honed over years. I maintain this list and keep it up-to-date.</description>
+    </item>
+    
+    <item>
+      <title>Code Snippets</title>
+      <link>/code-snippets/</link>
+      <pubDate>Sat, 20 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/code-snippets/</guid>
+      <description>Using code snippets cross platform in VIM and JetBrains IDE without having to maintain them twice!
+As developer we are always striving to improve our (work)flow.
+This includes especially tooling, of course.
+Here omes taste, capability, technology and craze come together in an unholy mélange of preferences. Your idea of Nirvana surely will be different from mine.
+I am using two IDEs:
+vim JetBrains PyCharm A challenge while coding is to remember correct syntax, so IDEs provide helpers like code completion, linters and yes, still code snippets (call me old-fashioned).</description>
+    </item>
+    
+  </channel>
+</rss>

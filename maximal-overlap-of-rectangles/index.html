@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="images/favicon.png" />
+<title>Maximal Overlap of Rectangles | sysid blog</title>
+<meta name="title" content="Maximal Overlap of Rectangles" />
+<meta name="description" content="Find the maximal complete overlap of a set of rectangles" />
+<meta name="keywords" content="python,optimization,pyomo," />
+
+
+<meta property="og:title" content="Maximal Overlap of Rectangles" />
+<meta property="og:description" content="Find the maximal complete overlap of a set of rectangles" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/maximal-overlap-of-rectangles/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2021-02-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-02-07T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="Maximal Overlap of Rectangles"/>
+<meta name="twitter:description" content="Find the maximal complete overlap of a set of rectangles"/>
+
+
+
+<meta itemprop="name" content="Maximal Overlap of Rectangles">
+<meta itemprop="description" content="Find the maximal complete overlap of a set of rectangles"><meta itemprop="datePublished" content="2021-02-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-02-07T00:00:00+00:00" />
+<meta itemprop="wordCount" content="570"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="python,optimization,pyomo," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Maximal Overlap of Rectangles</h1>
+<p>
+  <i>
+    <time datetime='2021-02-07' pubdate>
+      07 Feb, 2021
+    </time>
+  </i>
+</p>
+
+<content>
+  <figure class="center"><img src="start_pic.png" width="100%"/>
+</figure>
+
+<blockquote>
+<p>Find the maximal overlap of rectangles so, that every selected rectangle covers the full width of the overlap area.</p>
+</blockquote>
+<p>A selected rectangle can be larger than the overlap area, but not smaller.</p>
+<h3 id="problem-parameters">Problem Parameters:</h3>
+<ul>
+<li>a set of rectangles aligned on the x-axis</li>
+<li>rectanges can have different heigt</li>
+<li>rectangles show arbitrary overlap</li>
+</ul>
+<h2 id="model">Model</h2>
+<h3 id="parameters">Parameters</h3>
+<p>$$
+i \in [1..N],\ \text{ index: N rectangles }\\
+s_i \in R^+,\ \text{ start of rectangle \(i\) }\\
+e_i \in R^+,\ \text{ end of rectangle \(i\) }\\
+h_i \in R^+,\ \text{ height of rectangle \(i\) }\\
+M \in R^+,\ \text{ Big-M constant, upper limit for x }\\
+$$</p>
+<h3 id="variables">Variables</h3>
+<p>$$
+\delta_{i} =
+\begin{cases}
+1, \ \text{ rectangle \(i\) is selected for the overlap }\\
+0, \ \text{ else }\\
+\end{cases}\\
+x_s: \text{ start point of overlap area on x-axis }\\
+x_e: \text{ end point of overlap area on x-axis }\\
+x: \text{ width of the overlap area }\\
+$$</p>
+<h3 id="constraints">Constraints</h3>
+<p>$$
+x = x_e - x_s\\
+x_s \ge \delta_i s_i - (1-\delta_i)M, \forall i\\
+x_e \le \delta_i e_i + (1-\delta_i)M , \forall i\\
+x_s, x_e, x \in R^+\\
+$$</p>
+<h3 id="objective">Objective</h3>
+<p>The sum of the area of selected rectangles within the overlap boundaries  should be maximized:
+$$
+\max \sum_i \delta_i h_i x\\
+$$</p>
+<p>This objective is quadratic and needs to be linearized:</p>
+<h4 id="linearize-objective">Linearize Objective</h4>
+<p>$$
+y_i = \delta_i x\\
+max \sum_i h_i y_i\\
+$$</p>
+<p>This implies additional constraints:
+$$
+y_i \le M \delta_i\\
+y_i \le x\\
+y_i \ge x-M(1-\delta_i)\\
+y_i \ge 0\\
+$$</p>
+<h3 id="implementation">Implementation</h3>
+<p>The model is very simple to implement with <a href="http://www.pyomo.org/">Pyomo</a>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model.I = RangeSet(<span style="color:#038">len</span>(config.get(<span style="color:#d20;background-color:#fff0f0">&#39;blocks&#39;</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888">################################################################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># Params put at model</span>
+</span></span><span style="display:flex;"><span><span style="color:#888">################################################################################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model.block = Param(model.I, domain=Any, initialize=<span style="color:#038">dict</span>(<span style="color:#038">zip</span>(model.I, config.get(<span style="color:#d20;background-color:#fff0f0">&#39;blocks&#39;</span>))))
+</span></span><span style="display:flex;"><span>model.start = Param(model.I, domain=Reals, initialize=<span style="color:#038">dict</span>(<span style="color:#038">zip</span>(model.I, (x[<span style="color:#00d;font-weight:bold">0</span>] <span style="color:#080;font-weight:bold">for</span> x <span style="color:#080">in</span> config.get(<span style="color:#d20;background-color:#fff0f0">&#39;blocks&#39;</span>)))))
+</span></span><span style="display:flex;"><span>model.end = Param(model.I, domain=Reals, initialize=<span style="color:#038">dict</span>(<span style="color:#038">zip</span>(model.I, (x[<span style="color:#00d;font-weight:bold">1</span>] <span style="color:#080;font-weight:bold">for</span> x <span style="color:#080">in</span> config.get(<span style="color:#d20;background-color:#fff0f0">&#39;blocks&#39;</span>)))))
+</span></span><span style="display:flex;"><span>model.height = Param(model.I, domain=Reals, initialize=<span style="color:#038">dict</span>(<span style="color:#038">zip</span>(model.I, (x[<span style="color:#00d;font-weight:bold">2</span>] <span style="color:#080;font-weight:bold">for</span> x <span style="color:#080">in</span> config.get(<span style="color:#d20;background-color:#fff0f0">&#39;blocks&#39;</span>)))))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888">################################################################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># Var</span>
+</span></span><span style="display:flex;"><span><span style="color:#888">################################################################################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model.delta = Var(model.I, domain=Binary, initialize=<span style="color:#080;font-weight:bold">False</span>)
+</span></span><span style="display:flex;"><span>model.xs = Var(domain=NonNegativeReals, initialize=<span style="color:#00d;font-weight:bold">0</span>)
+</span></span><span style="display:flex;"><span>model.xe = Var(domain=NonNegativeReals, initialize=<span style="color:#00d;font-weight:bold">0</span>)
+</span></span><span style="display:flex;"><span>model.x = Var(domain=NonNegativeReals, initialize=<span style="color:#00d;font-weight:bold">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model.y = Var(model.I, domain=NonNegativeReals, initialize=<span style="color:#00d;font-weight:bold">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888">################################################################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># Constraints</span>
+</span></span><span style="display:flex;"><span><span style="color:#888">################################################################################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model.x_order_c = Constraint(
+</span></span><span style="display:flex;"><span>    rule=<span style="color:#080;font-weight:bold">lambda</span> model: model.xs &lt;= model.xe
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model.x_c = Constraint(rule=<span style="color:#080;font-weight:bold">lambda</span> model: model.xe - model.xs == model.x)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>M = <span style="color:#00d;font-weight:bold">100</span>
+</span></span><span style="display:flex;"><span>model.y_bound1_c = Constraint(
+</span></span><span style="display:flex;"><span>    model.I, rule=<span style="color:#080;font-weight:bold">lambda</span> model, i: model.y[i] &lt;= M * model.delta[i]
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>model.y_bound2_c = Constraint(
+</span></span><span style="display:flex;"><span>    model.I, rule=<span style="color:#080;font-weight:bold">lambda</span> model, i: model.y[i] &lt;= model.x
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>model.y_bound3_c = Constraint(
+</span></span><span style="display:flex;"><span>    model.I, rule=<span style="color:#080;font-weight:bold">lambda</span> model, i: model.y[i] &gt;= model.x - M * (<span style="color:#00d;font-weight:bold">1</span> - model.delta[i])
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model.xs_c = Constraint(
+</span></span><span style="display:flex;"><span>    model.I, rule=<span style="color:#080;font-weight:bold">lambda</span> model, i: model.xs &gt;= model.delta[i] * model.start[i]
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>model.xe_c = Constraint(
+</span></span><span style="display:flex;"><span>    model.I, rule=<span style="color:#080;font-weight:bold">lambda</span> model, i: model.xe &lt;= model.delta[i] * model.end[i] + (<span style="color:#00d;font-weight:bold">1</span> - model.delta[i]) * M
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888">################################################################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># Objective</span>
+</span></span><span style="display:flex;"><span><span style="color:#888">################################################################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">obj_profit</span>(model):
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> <span style="color:#038">sum</span>(model.y[i] * model.height[i] <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080">in</span> model.I)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model.objective = Objective(rule=obj_profit, sense=maximize)
+</span></span></code></pre></div><h2 id="solution">Solution</h2>
+<h3 id="example-1">Example 1</h3>
+<figure class="center"><img src="example.png" width="100%"/>
+</figure>
+
+<h4 id="configuration">Configuration</h4>
+<pre tabindex="0"><code>example1 = {
+    &#39;blocks&#39;: [
+        (1, 2, 3),
+        (3, 5, 3),
+        (4, 10, 2),
+        (4, 7, 4),
+        (5, 6, 1),
+    ]
+}
+</code></pre><ul>
+<li>Solution 18.0</li>
+<li>Number of constraints : 27</li>
+<li>Number of variables : 13</li>
+<li>Duration: 00:00:00</li>
+</ul>
+<p>The black rectangle is the area of maximal overlap. The two filled rectangles are selected as constributors to the
+overlap:</p>
+<figure class="center"><img src="solution_test2.png" width="100%"/>
+</figure>
+
+<h3 id="example-2">Example 2</h3>
+<figure class="center"><img src="test4.png" width="100%"/>
+</figure>
+
+<h4 id="configuration-1">Configuration</h4>
+<pre tabindex="0"><code>example2 = {
+    &#39;blocks&#39;: [
+        (1, 2, 3),
+        (3, 5, 3),
+        (4, 8, 2),
+        (4, 7, 4),
+        (5, 6, 1),
+        (5, 7, 3),
+        (8, 13, 3),
+        (8, 13, 4),
+        (8, 13, 5),
+    ]
+}
+</code></pre><ul>
+<li>Solution 60.0</li>
+<li>Number of constraints : 47</li>
+<li>Number of variables : 21</li>
+<li>Duration: 00:00:00</li>
+</ul>
+<figure class="center"><img src="solution_test5.png" width="100%"/>
+</figure>
+
+<p>The solver CBC does not have a problem and solves the model in a split second.</p>
+
+</content>
+<p>
+  
+  <a href="/blog/python/">#python</a>
+  
+  <a href="/blog/optimization/">#optimization</a>
+  
+  <a href="/blog/pyomo/">#pyomo</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

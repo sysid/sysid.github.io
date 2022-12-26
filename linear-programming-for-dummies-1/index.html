@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="images/favicon.png" />
+<title>Linear Programming for Dummies 1 | sysid blog</title>
+<meta name="title" content="Linear Programming for Dummies 1" />
+<meta name="description" content="Things I wish I knew when I started..." />
+<meta name="keywords" content="optimization," />
+
+
+<meta property="og:title" content="Linear Programming for Dummies 1" />
+<meta property="og:description" content="Things I wish I knew when I started..." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/linear-programming-for-dummies-1/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-04-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-04-09T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="Linear Programming for Dummies 1"/>
+<meta name="twitter:description" content="Things I wish I knew when I started..."/>
+
+
+
+<meta itemprop="name" content="Linear Programming for Dummies 1">
+<meta itemprop="description" content="Things I wish I knew when I started..."><meta itemprop="datePublished" content="2020-04-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-04-09T00:00:00+00:00" />
+<meta itemprop="wordCount" content="514"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="optimization," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Linear Programming for Dummies 1</h1>
+<p>
+  <i>
+    <time datetime='2020-04-09' pubdate>
+      09 Apr, 2020
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>This is a primer on Linear Programming.</p>
+<p>It is based on personal learning experience and focuses on application rather than theory.
+For a rigorous approach please refer to a textbook.</p>
+<p><a href="https://en.wikipedia.org/wiki/Linear_programming">Wikipedia</a>:</p>
+<blockquote>
+<p>Linear programming (LP, also called linear optimization) is a method to achieve the best outcome
+(such as maximum profit or lowest cost) in a mathematical model whose requirements are represented by linear relationships.
+Linear programming is a special case of mathematical programming (also known as mathematical optimization).</p>
+</blockquote>
+<blockquote>
+<p>More formally, linear programming is a technique for the optimization of a linear objective function,
+subject to linear equality and linear inequality constraints. Its feasible region is a convex polytope,
+which is a set defined as the intersection of finitely many half spaces, each of which is defined by a linear inequality.
+Its objective function is a real-valued affine (linear) function defined on this polyhedron.
+A linear programming algorithm finds a point in the polytope where this function has the smallest (or largest) value if such a point exists.</p>
+</blockquote>
+<h2 id="general-optimization-problem">General Optimization Problem</h2>
+<h5 id="objective">Objective</h5>
+<p>$$
+\text{Maximize} \ \sum_j c_jx_j \\
+\text{subject to}\\
+$$</p>
+<h5 id="constraints">Constraints</h5>
+<p>$$
+\sum_j a_{ij}x_j = b_i, (i= 1, 2, &hellip;, m)\\
+x_j \ge 0, (j= 1, 2, &hellip;, n)
+$$</p>
+<p>A Linear Programming system can either:</p>
+<ol>
+<li>be unbound</li>
+<li>be infeasible (no solution)</li>
+<li>or have one optimal solution.</li>
+</ol>
+<p>In this graphic solution the optimum is found with the maximum of the objective function \(x_1 + 2x_2 = 8.5\).</p>
+<figure class="center"><img src="linear_opt.png" width="100%"/>
+</figure>
+
+<p>Linear constraints define the &lsquo;feasible region&rsquo; (yellow) for a solution and the objective function (red line)
+is positioned such that it runs through the maximum or minimum corner of the &lsquo;feasible region&rsquo; polygone.
+Optimized algorithms exist to find the solution in multidimensional space effectively (if it exists), e.g. Simplex
+algorithm.</p>
+<h2 id="general-facts">General Facts</h2>
+<ul>
+<li>The more constraints the more difficult a problem is to solve.</li>
+<li>An infeasible model has constraints which are over restrictive whereas an unbounded model either has vital constraints unrepresented or is insufficiently restrictive</li>
+<li>If, in a maximization problem, the optimal objective is lower than expected, our model might be over restrictive, some constraints are too severe.</li>
+<li>If the optimal objective is higher than expected, our model might be insufficiently restrictive, some constraints are too weak or have been left out.</li>
+<li>Any linear optimization problem that has an  optimal solution will have at least one vertex that is optimal (see picture above).</li>
+<li>Any Constraint must be &rsquo;tight&rsquo;, i.e. \(\le\) instead of \(\lt\).</li>
+</ul>
+<h2 id="simple-example">Simple Example</h2>
+<h4 id="objective-function">Objective Function</h4>
+<p>Maximize the following function:
+$$
+\max 3x_1 + 2x_2
+$$</p>
+<h4 id="constraints-1">Constraints</h4>
+<p>$$
+x_1 + x_2 \le 4 \\
+2x_1 + x_2 \le 5 \\
+-x_1 + 4x_2 \ge 2 \\
+x_1, x_2 \ge 0\\
+$$</p>
+<h4 id="solution">Solution</h4>
+<p>This is a graphical solution of the model<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>:
+<figure class="center"><img src="example_solution.png" width="100%"/>
+</figure>
+</p>
+<h2 id="complex-example">Complex Example</h2>
+<p>A much more involved example <a href="../optimized-car-rental/">Car Rental</a> demonstrates features of a real world Operations Research planning problem and
+requires an adequate solver in order to find an optimal solution.</p>
+<p>The next article <a href="../linear-programming-for-dummies-2/">MIP for dummies</a> will cover Mixed Integer Programming which opens Mathematical Programming to a whole new world of
+even more interesting problems.</p>
+<!-- raw HTML omitted -->
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Inspired by: Model Building in Mathematical Programming by H.Paul Williams&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</content>
+<p>
+  
+  <a href="/blog/optimization/">#optimization</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

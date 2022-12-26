@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="images/favicon.png" />
+<title>Mondriaan Puzzle | sysid blog</title>
+<meta name="title" content="Mondriaan Puzzle" />
+<meta name="description" content="A tiling puzzle related to art." />
+<meta name="keywords" content="python,optimization,puzzle,pyomo," />
+
+
+<meta property="og:title" content="Mondriaan Puzzle" />
+<meta property="og:description" content="A tiling puzzle related to art." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/mondriaan-puzzle/" /><meta property="og:image" content="/mondriaan-puzzle/cover.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-05-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-05-01T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="/mondriaan-puzzle/cover.png"/>
+<meta name="twitter:title" content="Mondriaan Puzzle"/>
+<meta name="twitter:description" content="A tiling puzzle related to art."/>
+
+
+
+<meta itemprop="name" content="Mondriaan Puzzle">
+<meta itemprop="description" content="A tiling puzzle related to art."><meta itemprop="datePublished" content="2020-05-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-05-01T00:00:00+00:00" />
+<meta itemprop="wordCount" content="913"><meta itemprop="image" content="/mondriaan-puzzle/cover.png">
+<meta itemprop="keywords" content="python,optimization,puzzle,pyomo," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Mondriaan Puzzle</h1>
+<p>
+  <i>
+    <time datetime='2020-05-01' pubdate>
+      01 May, 2020
+    </time>
+  </i>
+</p>
+
+<content>
+  <ul>
+<li>Partition an \(n \times n\) square into multiple non-congruent integer-sided rectangles.</li>
+<li>The rectangles must be <strong>non-congruent</strong> and the side length must be an <strong>integer</strong> number.</li>
+<li>Find the <strong>least possible length difference</strong> between the largest and smallest used rectangle, i.e. make the
+rectangles as similar as possible.</li>
+<li>Every rectangle can only be used <strong>once</strong>.</li>
+</ul>
+<p>There is related work covering multiple aspects of the problem and its solution. Here we focus on
+a Mixed Integer Programming approach.</p>
+<h1 id="artistic-approach">Artistic Approach</h1>
+<p>The visualization of solutions to this puzzle bear some resemblance to artwork of to the famous painter
+<a href="https://en.wikipedia.org/wiki/Piet_Mondrian">Piet Mondriaan</a>. This is the reason why this class of puzzles is associated
+with his name:</p>
+<figure class="center"><img src="painting.png"/>
+</figure>
+
+<h2 id="challenges">Challenges</h2>
+<p>The mileage varies with your experience, of course.</p>
+<ol>
+<li>Understand the problem (easy)</li>
+<li>Understand a general way to model tiling problems in MIP (medium)</li>
+<li>Implement the index sets (challenging)</li>
+<li>Translate the model into Pyomo (medium)</li>
+<li>Visualize the result (easy)</li>
+</ol>
+<h2 id="tooling">Tooling</h2>
+<ul>
+<li><a href="http://www.pyomo.org/">Pyomo</a> as LP modelling language</li>
+<li>Optimizer: <a href="https://projects.coin-or.org/Cbc">CBC</a></li>
+<li><a href="https://matplotlib.org/">matplotlib</a> for visualization</li>
+<li>Python</li>
+</ul>
+<h1 id="model">Model</h1>
+<p>The following indices characterize the model objects:
+$$
+k = (1,..,K): \ \text{ set of rectangles }\\
+r = (0,1): \ \text{ rectangle is rotated (1) or not (0) }\\
+i, j = (1,..,N):  \ \text{ N is the dimension of the enclosing square }
+$$</p>
+<p>A rectangle is fully characterized by the tuple \((k, r)\).
+Not all rectangles can be rotated (it does not make sense to rotate a square, or there may not be space left to rotate for a given position).</p>
+<h2 id="how-to-model-tiling-problems">How to model tiling problems</h2>
+<p>The partitioning of an area into rectangles requires to answer two questions.
+To encode this information we deploy two Boolean datastructures <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<ol>
+<li>
+<p>Where can a rectangle be position without violating the bounding square:
+$$
+\mathit{ok}_{k,r,i,j} = \begin{cases}
+\mathit{Yes} &amp; \text{if we can place rectangle \(k\) at location \((i,j)\)} \\
+\mathit{No} &amp; \text{otherwise}
+\end{cases}
+$$</p>
+</li>
+<li>
+<p>Which cells \((i&rsquo;, j&rsquo;)\) are covered by placing a rectangle \((k, r)\) at \((i, j)\):
+$$
+\mathit{cover}_{k,r,i,j,i&rsquo;,j&rsquo;} = \begin{cases}
+\mathit{Yes} &amp; \text{if cell \((i&rsquo;,j&rsquo;)\) is covered by placing rectangle \(k\) at location \((i,j)\)} \\
+\mathit{No} &amp; \text{otherwise}
+\end{cases}
+$$</p>
+</li>
+</ol>
+<p>The central idea is to construct a parameter set which encodes the information which rectangles cover a particular
+cell \((i&rsquo;,j&rsquo;)\). In our model a rectangle is charcterized by the tuple (k, r, i, j). The following scetch outlines
+the basic principle with three rectangles, overlapping at cell \((4,3)\).</p>
+<figure class="center"><img src="cover.png" width="100%"/>
+</figure>
+
+<p>The datastructure \(cover\) allows to filter all rectangles which cover a particular cell \((i&rsquo;,j&rsquo;)\) and so provides a
+means to formulate an overlap constraint elegantly: The sum off over all potential rectangles must be one.</p>
+<h2 id="variables">Variables</h2>
+<p>The decision variables for this partition problem are:
+$$
+x_{k,r,i,j} = \begin{cases}
+1 &amp; \text{if rectangle \(k\) (rotated if \(r=\mathrm{y}\)) is placed at location \((i,j)\)} \\
+0 &amp; \text{otherwise}\end{cases}
+$$</p>
+<p>$$
+y_{k} = \begin{cases}
+1 &amp; \text{if rectangle \(k\) is used} \\
+0 &amp; \text{otherwise}\end{cases}
+$$</p>
+<p>$$
+u: \ \text{ upper length: longest rectangle }\\
+l: \ \text{ lower length: longest rectangle }\\
+$$</p>
+<h2 id="objective">Objective</h2>
+<p>Minimize the difference in length between the longest and shortest rectangle:
+$$
+\min u-l\\
+$$</p>
+<h2 id="constraints">Constraints</h2>
+<p>Cover all cells \((i&rsquo;, j&rsquo;)\):
+$$
+\sum_{k,r,i,j|cover(k,r,i,j,i&rsquo;,j&rsquo;)} x_{k,r,i&rsquo;, j&rsquo;} = 1, \ \forall i&rsquo;,j&rsquo; \\
+$$</p>
+<p>Select max one type of rectangle:
+$$
+y_k = \sum_{r,i,j|ok(k,r,i,j)} x_{k,r,i,j}, \ \forall k\\
+$$</p>
+<p>Bound smallest area:
+$$
+l \le area_k y_k + M(1-y_k), \ \forall k\\
+$$</p>
+<p>Bound largest area:
+$$
+u \ge area_k y_k \ \forall k\\
+$$</p>
+<p>Bound total area:
+$$
+\sum_k area_k y_k = n^2\\
+$$</p>
+<p>Number domain constraints:
+$$
+x_{k,r,i,j} \in {0,1}\\
+y_k \in {0,1}\\
+u,l \ge 0\\
+M = \max_k area_k\\
+$$</p>
+<h2 id="pyomo-implementation">Pyomo Implementation</h2>
+<p>Interpretation of the &lsquo;cover all cells&rsquo; constraint:<br>
+Pick a cell \((i&rsquo;, j&rsquo;)\) and sum over all possible rectangles which theoretically could cover it. The constraint enforces
+that exactly one rectangle will cover that cell.</p>
+<p>In Pyomo this constraint looks like (ii, jj stands for \(i&rsquo;, j&rsquo;\)):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">cover_cell_c</span>(model, ii, jj):
+</span></span><span style="display:flex;"><span>        covers = [key <span style="color:#080;font-weight:bold">for</span> key, _ <span style="color:#080">in</span> cover.items() <span style="color:#080;font-weight:bold">if</span> (key[<span style="color:#00d;font-weight:bold">4</span>] == ii <span style="color:#080">and</span> key[<span style="color:#00d;font-weight:bold">5</span>] == jj)]
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> <span style="color:#038">sum</span>(model.x[k, r, i, j] <span style="color:#080;font-weight:bold">for</span> (k, r, i, j, ii, jj) <span style="color:#080">in</span> covers) == <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>    model.cover_cell_c = Constraint(model.I, model.J, rule=cover_cell_c)
+</span></span></code></pre></div><p>This does look simple enough because the inherent complexity is already encoded in the Boolean datastructure <code>cover[k, r, i, j, ii, jj]</code>.</p>
+<p>The final Pyomo model was surprisingly compact after the indices have been defined correctly.</p>
+<p>Of course some <em>matplotlib</em> programming is required in order to provide adequate visualization.</p>
+<h1 id="result">Result</h1>
+<p>For a \(17 \times 17\) square I reached to optimal solution after 21min compute time on an I7 with 8 cores. The length difference between the
+smallest and longest rectangle is 8.</p>
+<figure class="center"><img src="17_21min.png" width="100%"/>
+</figure>
+
+<p>At the time of this writing solutions up until N=57 have been found <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
+<h1 id="summary">Summary</h1>
+<p>The biggest challenge with this puzzle was to understand how to restrict indices in the constraint formulas
+to viable subsets. The definition and implementation of indices itself is something to get your head around, but then applying
+these sparse sets in the MIP model is an important skill in solving MIP problems of this type.</p>
+<p>Again I have to thank <a href="https://yetanothermathprogrammingconsultant.blogspot.com">Yet Another Math Programming Consultant</a>
+for his blog which provides just the right level of detail in order to not provide a full solution, but give enough
+guidance to find your own way.</p>
+<p>Another interesting application of the \(cover\) idea is <a href="../square-tiling">Another Boring Lockdown Day</a> and <a href="../patient-scheduling">Patient Scheduling</a>.</p>
+<p>If you are interested in the Pyomo model or the Python code contact me via <a href="mailto:sysid@gmx.de">mail</a>.</p>
+<!-- raw HTML omitted -->
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Inspired by <a href="http://yetanothermathprogrammingconsultant.blogspot.com/2020/04/mondriaan-tilings.html">Yet Another Mathprogramming Consultant</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://oeis.org/A276523">Repository of solutions</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</content>
+<p>
+  
+  <a href="/blog/python/">#python</a>
+  
+  <a href="/blog/optimization/">#optimization</a>
+  
+  <a href="/blog/puzzle/">#puzzle</a>
+  
+  <a href="/blog/pyomo/">#pyomo</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

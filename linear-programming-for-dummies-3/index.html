@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="images/favicon.png" />
+<title>Linear Programming for Dummies 3 | sysid blog</title>
+<meta name="title" content="Linear Programming for Dummies 3" />
+<meta name="description" content="Mixed Integer Programming. The Logic Foundation." />
+<meta name="keywords" content="optimization," />
+
+
+<meta property="og:title" content="Linear Programming for Dummies 3" />
+<meta property="og:description" content="Mixed Integer Programming. The Logic Foundation." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/linear-programming-for-dummies-3/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-04-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-04-13T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="Linear Programming for Dummies 3"/>
+<meta name="twitter:description" content="Mixed Integer Programming. The Logic Foundation."/>
+
+
+
+<meta itemprop="name" content="Linear Programming for Dummies 3">
+<meta itemprop="description" content="Mixed Integer Programming. The Logic Foundation."><meta itemprop="datePublished" content="2020-04-13T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-04-13T00:00:00+00:00" />
+<meta itemprop="wordCount" content="920"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="optimization," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Linear Programming for Dummies 3</h1>
+<p>
+  <i>
+    <time datetime='2020-04-13' pubdate>
+      13 Apr, 2020
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>This is a primer on Mixed Integer Programming.
+It builds on <a href="../linear-programming-for-dummies-2/">Part2</a></p>
+<p>It is based on personal learning experience and focuses on application rather than theory.
+For a rigorous approach please refer to a textbook.</p>
+<h2 id="connect-decision-variable-with-boolean-variable">Connect decision variable with boolean variable</h2>
+<p>From <a href="../linear-programming-for-dummies-2">Part2</a> it is known that the fundamental technique to link continuous decision variables with
+indicator/boolean variables is via Big-M/Small-m constraints.</p>
+<p>They implement the following logical statement:
+$$
+\delta = 1 \Leftrightarrow x \gt 0 \tag{0}
+$$</p>
+<p>To allow for more complex boolean logic in MIP models this fundamental relationship needs to be generalized:</p>
+<h2 id="indicator-for-inequality">Indicator for inequality</h2>
+<p>One of the simplest logical question that can be asked in mathematical programming is whether a given
+choice of the decision variables satisfies a constraint. More precisely, <em>when</em> is the following constraint
+satisfied?
+$$
+f(x_1, &hellip; , x_n) \le b\\
+\Leftrightarrow\\
+\sum_j a_jx_j \le b
+$$</p>
+<p>Let \(M, m\) be an upper and lower bound:
+$$
+\sum_j a_jx_j -b \le M\\
+\sum_j a_jx_j -b \ge m\\
+$$</p>
+<h4 id="a-namele--indicator-for-le"><!-- raw HTML omitted --> Indicator for \(\le\)</h4>
+<p>$$
+\boldsymbol{\delta = 1 \Leftrightarrow \sum_j a_jx_j \le b} \tag{1}
+$$</p>
+<h5 id="linearization">Linearization</h5>
+<p>$$
+\tag{1a} \Rightarrow: \ \sum_j a_jx_j +M\delta \le M + b
+$$</p>
+<p>$$
+\tag{1b} \Leftarrow: \ \sum_j a_jx_j - (m -\epsilon)\delta \ge b + \epsilon
+$$</p>
+<p>If \(a_j, x_j \in N\) we can set \(\epsilon = 1\).</p>
+<h4 id="a-namege--indicator-for-ge"><!-- raw HTML omitted --> Indicator for \(\ge\)</h4>
+<p>$$
+\boldsymbol{\delta = 1 \Leftrightarrow \sum_j a_jx_j \ge b} \tag{2}
+$$</p>
+<h5 id="linearization-1">Linearization</h5>
+<p>$$
+\tag{2a} \Rightarrow: \ \sum_j a_jx_j + m\delta \ge m + b
+$$
+$$
+\tag{2b} \Leftarrow: \ \sum_j a_jx_j - (M + \epsilon)\delta \le b - \epsilon
+$$</p>
+<h2 id="a-nameeq--indicator-for-equality"><!-- raw HTML omitted --> Indicator for equality</h2>
+<h4 id="indicator-for-">Indicator for \(=\)</h4>
+<p>$$
+\boldsymbol{\delta = 1 \rightarrow \sum_j a_jx_j = b} \tag{3a}
+$$</p>
+<h5 id="resulting-constraints">Resulting constraints</h5>
+<p>Use \(\delta=1\) to indicate that the \(\le\) and \(\ge\) cases hold simultaneously.
+This is done by stating both the constraints (1a) and (2a) together.
+$$
+\tag{1a} \sum_j a_jx_j + M\delta \le M + b
+$$
+$$
+\tag{2a} \sum_j a_jx_j + m\delta \ge m + b
+$$</p>
+<h4 id="indicator-for-ne">Indicator for \(\ne\)</h4>
+<p>$$
+\boldsymbol{\delta = 0 \implies \sum_j a_jx_j \ne b} \tag{3b}
+$$</p>
+<p>If indicator \(\delta=0\) we want to force <em>either</em> \(\le\) or \(\ge\) to be broken.
+This can be done be introducing \(\delta^{&rsquo;}\) and \(\delta^{&rsquo;&rsquo;}\) in order to link
+equation 1b and 2b accordingly.</p>
+<h5 id="resulting-constraints-1">Resulting constraints</h5>
+<p>$$
+\tag{1b} \sum_j a_jx_j - (m -\epsilon)\delta^{&rsquo;} \ge b + \epsilon
+$$
+$$
+\tag{2b} \sum_j a_jx_j - (M + \epsilon)\delta^{&rsquo;&rsquo;} \le b - \epsilon
+$$</p>
+<p>$$
+\delta^{&rsquo;} + \delta^{&rsquo;&rsquo;} - \delta \le 1 \tag{3c}
+$$</p>
+<p>(3c) enforces that one of the inequality constraints will be broken if \(\delta=0\).</p>
+<h2 id="logic-primer">Logic Primer</h2>
+<p>Boolean operations are the building blocks for modelling logic in MIP models. Here are some important
+relationships.</p>
+<p>A proposition is a statement proposing an idea that can be true or false.</p>
+<p>Converse of a logical statement/proposition:
+$$
+p \rightarrow q \equiv \lnot q \rightarrow \lnot p \\
+$$</p>
+<h4 id="logical-operators-connectives">Logical Operators (Connectives)</h4>
+<p>$$
+\lor \ \text{inclusive or}\\
+\land \ \text{logical and}\\
+\lnot \ \text{logical not}\\
+\rightarrow \ \text{implies}\\
+\Leftrightarrow \ \text{if and only if}\\
+$$</p>
+<h4 id="example">Example</h4>
+<p>Proposition P: &lsquo;I will miss the bus&rsquo;
+Proposition Q: &lsquo;I will be late&rsquo;
+\(P \rightarrow Q\) stands for the proposition: If I miss the bus I will be late.</p>
+<h2 id="boolean-logic-with-lp">Boolean Logic with LP</h2>
+<p>The trick is to express boolean expressions with LP inequalities.
+Let \(X_i\)  stand for the proposition \(\delta_i = 1\), where \(\delta\) is an indicator variable.</p>
+<h3 id="mapping-propositions-to-01-constraints">Mapping propositions to (0,1) constraints</h3>
+<p>The following propositions and constraints are equivalent:</p>
+<p>$$
+X_1 \lor X_2 \Leftrightarrow \delta_1 + \delta_2 \ge 1 \\
+X_1 \cdot X_2 \Leftrightarrow \delta_1 = 1, \delta_2 = 1 \\
+\lnot X_1 \Leftrightarrow \delta_1 = 0, 1- \delta_1 = 1 \\
+X_1 \rightarrow X_2 \Leftrightarrow \delta_1 - \delta_2 \le 0 \\
+X_1 \Leftrightarrow X_2 \Leftrightarrow \delta_1 - \delta_2 = 0 \\
+$$</p>
+<h3 id="linearize-polynomial-boolean-relationship">Linearize polynomial boolean relationship</h3>
+<p>A product term such as \(\delta_1\delta_2\) can be linearized:</p>
+<ol>
+<li>Replace \(\delta_1\delta_2\) with \(\delta_3\)</li>
+<li>Impose logical condition:
+$$\delta_3 \Leftrightarrow \delta_1 \land \delta_2$$
+with constraints:
+$$
+-\delta_1 + \delta_3 \le 0\\
+-\delta_2 + \delta_3 \le 0\\
+\delta_1 + \delta_2 - \delta_3 \le 1
+$$</li>
+</ol>
+<h3 id="linearize-polynomial-mixed-relationship">Linearize polynomial mixed relationship</h3>
+<p>A product such as \(x\delta\) can be linearized. Here \(x\) is a continuous decision variable and \(\delta \in {0,1}\).</p>
+<ol>
+<li>Replace \(x\delta\) with \(y \in \mathbb{R}\)</li>
+<li>Impose \(\delta=1 \Leftrightarrow y=x\)
+with constraints:
+$$
+y - M\delta \le 0\\
+-x+y \le 0\\
+x - y \le M(1-\delta)\\
+$$
+M is an upper bound for x and hence also y.</li>
+</ol>
+<h2 id="disjunctive-constraints">Disjunctive Constraints</h2>
+<p>Let&rsquo;s have a set of constraints \(R_s, s \in [0,..,S]\), where every constraint \(R_s\) has the form:
+$$
+\sum_i a_ix_i \le b \ \text{ or }\ge, =
+$$</p>
+<p>Disjunction: Only a subset of all constraints needs to hold.
+$$
+R_1 \lor .. \lor R_N
+$$</p>
+<p>\(R_s\) is the proposition: &lsquo;The constraints in subset \(s\) are satisfied&rsquo;:</p>
+<p>Now introduce an indicator variable \(\delta_i\) to indicate whether \(R_i\) is satisfied.
+Equivalent to the proposition is imposing the logical condition:
+$$
+\delta_i = 1 \rightarrow R_i\\
+$$</p>
+<p>This proposition translates into the known set of constraints:</p>
+<ol>
+<li><a href="#le">[1]</a> for \(\le\)</li>
+<li><a href="#ge">[2]</a> for \(\ge\)</li>
+<li><a href="#eq">[3]</a> for =</li>
+</ol>
+<p>Additionally the disjunction needs to be enforced by the following constraint:
+$$
+\delta_0 +..+ \delta_S \ge 1
+$$</p>
+<h4 id="generalization">Generalization</h4>
+<p>At least \(k\) of \((R_0,..,R_s)\) must be satisfied:
+$$
+\delta_0 +..+ \delta_S \ge k
+$$
+At most \(k\) of \((R_0,..,R_s)\) must be satisfied:
+$$
+\delta_0 +..+ \delta_S \le k
+$$</p>
+<h2 id="summary">Summary</h2>
+<p>Disjunctions of constraints involve <strong>\(\lor\)</strong> and necessitate IP models.
+<strong>\(\land\)</strong> simply involves constraints holding simultaneously.</p>
+<p>In this sense, \(\land\) corresponds to LP, whereas \(\lor\) to IP.</p>
+<p>This was a lot of math. Now the foundations are laid.</p>
+<!-- raw HTML omitted -->
+
+</content>
+<p>
+  
+  <a href="/blog/optimization/">#optimization</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

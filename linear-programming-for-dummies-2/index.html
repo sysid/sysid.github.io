@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="images/favicon.png" />
+<title>Linear Programming for Dummies 2 | sysid blog</title>
+<meta name="title" content="Linear Programming for Dummies 2" />
+<meta name="description" content="Mixed Integer Programming. Things I whish I knew when I started..." />
+<meta name="keywords" content="optimization," />
+
+
+<meta property="og:title" content="Linear Programming for Dummies 2" />
+<meta property="og:description" content="Mixed Integer Programming. Things I whish I knew when I started..." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/linear-programming-for-dummies-2/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-04-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-04-12T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="Linear Programming for Dummies 2"/>
+<meta name="twitter:description" content="Mixed Integer Programming. Things I whish I knew when I started..."/>
+
+
+
+<meta itemprop="name" content="Linear Programming for Dummies 2">
+<meta itemprop="description" content="Mixed Integer Programming. Things I whish I knew when I started..."><meta itemprop="datePublished" content="2020-04-12T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-04-12T00:00:00+00:00" />
+<meta itemprop="wordCount" content="722"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="optimization," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Linear Programming for Dummies 2</h1>
+<p>
+  <i>
+    <time datetime='2020-04-12' pubdate>
+      12 Apr, 2020
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>This is a primer on Mixed Integer Programming.<br>
+It builds on <a href="../linear-programming-for-dummies-1">Part1</a>.</p>
+<p>It is based on personal learning experience and focuses on application rather than theory.
+For a rigorous approach please refer to a textbook.</p>
+<p><a href="https://en.wikipedia.org/wiki/Integer_programming">Wikipedia</a>:</p>
+<blockquote>
+<p>An integer programming problem is a mathematical optimization or feasibility program in which some or all of the variables are restricted to be integers.
+In contrast to linear programming, which can be solved efficiently in the worst case, integer programming
+problems are in many practical situations (those with bounded variables) NP-hard.</p>
+</blockquote>
+<blockquote>
+<p>If only some of the unknown variables are required to be integers, then the problem is called a mixed integer programming (MIP) problem.
+These are generally also NP-hard because they are even more general than ILP programs.</p>
+</blockquote>
+<h2 id="a-namegeneral-facts--general-facts"><!-- raw HTML omitted --> General Facts</h2>
+<ul>
+<li>More constraints make a MIP problem easier  to solve.</li>
+<li>MIP formulation is non-convex.</li>
+</ul>
+<h2 id="application">Application</h2>
+<p>Sometimes decision variables have to be integral because the real-world objects which they represent are
+entities and the number is low. When deciding how many aircraft carriers to have, fractional solutions are meaningless.</p>
+<p>However, when dealing with bigger numbers it is often possible to use LP and round the
+results, e.g. <a href="../optimized-car-rental/">Optimized Car Rental</a>.</p>
+<p>Often it makes no sense to consider fractional values because e.g. the problem requires a go–no-go decision.
+Hence, an important application of integer decision variables is the introduction of boolean logic into LP by providing
+&lsquo;indicator&rsquo; or boolean variables which only take the values 0 (false) or 1 (true).</p>
+<p>A third application is to model non-linearities such as fixed costs for e.g. opening a warehouse.</p>
+<p>This allows to frame problems like:</p>
+<blockquote>
+<p>If A or B is in the mix, then at least one of C, D or E must also be in the mix.</p>
+</blockquote>
+<p>One technique is to link the boolean variables to its associated continuous variables via Big-M constraints.</p>
+<h2 id="a-namebig-mabig-m"><!-- raw HTML omitted --><!-- raw HTML omitted -->Big-M</h2>
+<p>Big-M constraints get the name from the fact that either a &ldquo;big&rdquo; upper limit (M), or a &ldquo;small&rdquo; lower limit (m)
+are chosen. M must not limit the real solution space of the variables, it is an
+upper (lower) bound which allows to relate the boolean to the continuous variables.</p>
+<p>For numerical stability it is important to choose M/m as small/big as possible.</p>
+<h4 id="a-namebig-m-constraint-big-m-constraint-upper-boundary"><!-- raw HTML omitted -->Big-M Constraint, Upper Boundary</h4>
+<p>It forces the indicator (bool) variable to true if \(x &gt; 0\).</p>
+<p>$$
+x &gt; 0 \rightarrow \delta = 1 \\
+x - M\delta \le 0 \tag{1} \\
+$$</p>
+<h4 id="a-namesmall-m-constraint-small-m-constraint-lower-boundary"><!-- raw HTML omitted -->Small-m Constraint, Lower Boundary</h4>
+<p>It forces the indicator variable to false if \(x = 0\).</p>
+<p>$$
+x = 0 \rightarrow \delta = 0 \\
+x - m\delta \ge 0 \tag{2} \\
+$$</p>
+<h4 id="result">Result</h4>
+<p>Both constraints applied in a model implement the logical statement:
+$$
+\delta = 1 \Leftrightarrow x \gt 0
+$$</p>
+<h3 id="a-namerecipe-recipe"><!-- raw HTML omitted -->Recipe</h3>
+<ol>
+<li>
+<p>Start with a proposition:
+$$
+\delta = 0 \rightarrow \ \text{constraint for x, e.g. } \ x \le 0 \tag{a}
+$$</p>
+</li>
+<li>
+<p>Find an inequality which enforces this proposition with the assumed \(\delta\) value.
+$$
+x - M\delta \le 0 \tag{b}
+$$</p>
+</li>
+</ol>
+<p>Whenever \(\delta = 0\) gives a feasible solution to constraint (b), we know that constraint (a) must also be satisfied.
+The value of \(\delta\) enforces the proposition (a).</p>
+<p>The inverse value of \(\delta\) must not constrain \(x\) because the proposition (a) does not imply anything about \(\delta = 1\).</p>
+<ol start="3">
+<li>Test both alternatives:
+<ol>
+<li>\(\delta = 0\) enforces \(x \le 0\)</li>
+<li>\(\delta = 1\) does not constrain \(x - M\delta \le 0\)</li>
+</ol>
+</li>
+</ol>
+<p>Two constraints are necessary in order to model the proposition &lsquo;if and only if&rsquo;.</p>
+<h3 id="example">Example</h3>
+<p>If A is in the mix, B must also be included.
+$$
+x_A, x_B \ge 0 \ \text{(proportion of A, B in the mix)}\\
+\delta \in {0, 1} \ \text{(indicator variable)}\\
+$$</p>
+<ol>
+<li>Link the indicator variable to the continouus variable A: \(x_A &gt; 0 \rightarrow \delta = 1\)
+$$
+x_A - \delta \le 0, M = 1
+$$</li>
+<li>use the indicator variable to connect B: \(\delta = 1 \rightarrow x_b &gt; 0\)
+$$
+x_B - 0.01\delta \ge 0, m=0.01 \\
+$$</li>
+</ol>
+<p>\(M=1\) is upper bound for \(x_A, x_B\) because these variables are proportions. \(m=0.01\) is an arbitrary choice which
+assumes that below 1% concentration B is not relevant.</p>
+<h2 id="summary">Summary</h2>
+<p>Big-M and Small-m constraints are an important building block in order
+to help modelling conditions and boolean logic in Linear Programming.</p>
+<p>The <a href="../linear-programming-for-dummies-3">next chapter</a> will deal with how to model more advanced conditions.</p>
+<!-- raw HTML omitted -->
+
+</content>
+<p>
+  
+  <a href="/blog/optimization/">#optimization</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

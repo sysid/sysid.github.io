@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="images/favicon.png" />
+<title>Task Scheduling | sysid blog</title>
+<meta name="title" content="Task Scheduling" />
+<meta name="description" content="Experimentation about a common Operations Research problem, part I." />
+<meta name="keywords" content="python,optimization,pyomo,scheduling," />
+
+
+<meta property="og:title" content="Task Scheduling" />
+<meta property="og:description" content="Experimentation about a common Operations Research problem, part I." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/task-scheduling/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-05-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-05-23T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="Task Scheduling"/>
+<meta name="twitter:description" content="Experimentation about a common Operations Research problem, part I."/>
+
+
+
+<meta itemprop="name" content="Task Scheduling">
+<meta itemprop="description" content="Experimentation about a common Operations Research problem, part I."><meta itemprop="datePublished" content="2020-05-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-05-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="570"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="python,optimization,pyomo,scheduling," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Task Scheduling</h1>
+<p>
+  <i>
+    <time datetime='2020-05-23' pubdate>
+      23 May, 2020
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>We already looked at a real world scheduling problem: <a href="../patient-scheduling">Patient Scheduling</a>.</p>
+<p>Important concepts have been touched there. Here we look at additional aspects of this important
+optimization domain, especially in using <a href="http://www.pyomo.org/">Pyomo</a> as modelling environment.</p>
+<h2 id="simple-scheduling">Simple Scheduling</h2>
+<h3 id="problem">Problem</h3>
+<p>Schedule 10 tasks. Each task must be assigned to a single time slot, however, not every time slot is viable.
+The duration of a task is one timeslot.
+We want to minimize the number of timeslots used.</p>
+<p>Viable timeslots are marked grey:</p>
+<figure class="center"><img src="task_scheduling.png" width="100%"/>
+</figure>
+
+<p>We can see, that an optimal solution requires 4 slots.</p>
+<h3 id="model">Model</h3>
+<h4 id="variables">Variables</h4>
+<p>$$
+x_{i,t} = \begin{cases} 1 &amp; \text{ if job \(i\) is assigned to time slot \(t\)}\\ 0 &amp; \text{ otherwise}\end{cases}
+$$
+$$
+y_t =  \begin{cases} 1 &amp; \text{if time slot \(t\) has at least one job assigned to it}\\ 0 &amp; \text{otherwise}\end{cases}
+$$</p>
+<h4 id="parameters">Parameters</h4>
+<p>As we have seen already in several previous articles <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> we introduce a binary data structure to encode viable task assignments
+into a custom index:</p>
+<p>$$
+ok_{i,t}=
+\begin{cases}
+1, \text{ if and only if \((i, t)\) is an allowed assignemnt }\\
+0, \text{ else }\\
+\end{cases}\\
+$$</p>
+<h4 id="objective">Objective</h4>
+<p>$$
+\min \sum_t y_t\\
+$$</p>
+<h4 id="constraints">Constraints</h4>
+<p>$$
+\sum_{t|ok_{i,t}}  x_{i,t} = 1 \forall i \\
+\sum_{i|ok_{i,t}} x_{i,t} \le N \forall t \\
+y_t \ge x_{i,t} \forall i,t|ok_{i,t}\\
+x_{i,t}, y_t \in {0,1}
+$$</p>
+<h2 id="results">Results</h2>
+<p>Now what if we want to scale the problem to a more realistic size?</p>
+<p>Let&rsquo;s generate some sample data:
+100 task, 100 timeslots, capacity per timeslot is three.</p>
+<ul>
+<li>\(ok_{i,t}\) index created with total number of viable slots: 626</li>
+<li>Optimum: 34 (number of used timeslots)</li>
+<li>Number of constraints : 823</li>
+<li>Number of variables : 10100</li>
+<li>Duration: 00:00:01</li>
+</ul>
+<figure class="center"><img src="100_3.png" width="100%"/>
+</figure>
+
+<p>Scaling up to 200x200 results in erratic solution times with CBC between 10s and hours.</p>
+<p>Here I got a solution after 9s.</p>
+<ul>
+<li>\(ok_{i,t}\) index created with total number of viable slots: 1303</li>
+<li>Optimum: 67 (number of used timeslots)</li>
+<li>Number of constraints : 1706</li>
+<li>Number of variables : 40200</li>
+<li>Duration: 00:00:09</li>
+</ul>
+<p>It seems that the number of viable slots has a significant effect on solution times. The higher the number, the
+faster the solver. Since the configuration of the timeslots determine the complexity of the system this is to
+be expected.</p>
+<p>In comparison with GAMS YAMPC<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> mentioned
+explicitly the value of having data and results viewing capability out of the box in contrast to using e.g. Pulp.</p>
+<blockquote>
+<p>When developing and debugging models, often under pressure, life without easy data viewing is just more complicated than it should be.</p>
+</blockquote>
+<p>This it very true. However, it is only modestly complicated to load the <a href="http://www.pyomo.org/">Pyomo</a> result data structure into Pandas dataframes.
+After that you are good to go with the entire Panda&rsquo;s ecosystem. Just cast the boilerplate logic into a template and you almost
+never need  additional brain cycles and context switches to view data at will.</p>
+<p>A generic solution could be something along these lines:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">for</span> var <span style="color:#080">in</span> instance.component_objects(Var, active=<span style="color:#080;font-weight:bold">True</span>):
+</span></span><span style="display:flex;"><span>    self.result[var.name] = {k: v <span style="color:#080;font-weight:bold">for</span> (k, v) <span style="color:#080">in</span> var.get_values().items()}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df = pd.DataFrame({k: pd.Series(self.result[var_name]) <span style="color:#080;font-weight:bold">for</span> var_name <span style="color:#080">in</span> variables})
+</span></span></code></pre></div><h1 id="summary">Summary</h1>
+<p>We have seen (again) that using bespoke index sets which encode business rules help, expressing constraints and make
+models easier to formulate and to solve.</p>
+<p>Calculating these binary datastructures comes down to applying sound software
+engineering practice, so they can be tested and debugged with known tools of the trade. This is easier and
+less error-prone than trying to find errors in constraint equations.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="../square-tiling">Another Boring Lockdown Day</a>, <a href="../patient-scheduling">Patient Scheduling</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://yetanothermathprogrammingconsultant.blogspot.com/2018/08/scheduling-easy-mip.html">Scheduling: easy MIP</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</content>
+<p>
+  
+  <a href="/blog/python/">#python</a>
+  
+  <a href="/blog/optimization/">#optimization</a>
+  
+  <a href="/blog/pyomo/">#pyomo</a>
+  
+  <a href="/blog/scheduling/">#scheduling</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

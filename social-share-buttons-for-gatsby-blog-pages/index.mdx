@@ -1,0 +1,171 @@
+---
+title: "Social Share Buttons for Gatsby Blog Pages"
+date: "2020-05-24"
+description: "A concise manual of how to add social network sharing to your Gatsby blog."
+tags: ["javascript", "gatsby"]
+---
+
+A concise manual of how to add social network sharing to your [Gatsby](https://www.gatsbyjs.org/) blog [^1].
+
+![icons](icons.png)
+
+### Prerequisites: 
+
+1. [gatsby-starter-blog](https://www.gatsbyjs.org/starters/gatsbyjs/gatsby-starter-blog/).
+1. [react-share](https://github.com/nygardk/react-share)
+
+### Gatsby config
+Make sure that your configuration includes the necessary metadata which is required for the social networks.
+Make sure you have the following information added to your `gatsby-config.js`:
+
+```javascript
+module.exports = {
+  siteMetadata: {
+    title: `sysid blog`,
+    author: {
+      name: `sysid`,
+      email: `sysid@gmx.de`,
+      summary: `always be building`,
+    },
+    description: `always be building.`,
+    siteUrl: `https://sysid.github.io`,
+    social: {
+      twitter: ``,
+    },
+  },
+  plugins: [
+    {
+      ...
+    }
+}
+```
+
+### GraphQL
+We need to provide the data for the social networks (url, title, tags, ...) to the blog pages where the sharing should happen. Gatsby uses GraphQL
+in order to query the data from `gatsby-config.js` and mangle it as needed.
+
+The code is located in `src/templates/blog-post.js`:
+
+```javascript
+export const pageQuery = graphql`
+  query BlogPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+        siteUrl
+        social {
+          twitter
+        }
+      }
+    }
+    mdx(fields: { slug: { eq: $slug } }) {
+      id
+      excerpt(pruneLength: 200)
+      body
+      frontmatter {
+        title
+        date(formatString: "MMMM DD, YYYY")
+        description
+        tags
+      }
+      fields {
+        slug
+        readingTime {
+          minutes
+        }
+      }
+
+    }
+  }
+`
+```
+
+<br />
+
+This assumes that that the blog `frontmatter` has the standard form:
+
+    ---
+    title: "Social Share button for Gatsby Blog Pages"
+    date: "2020-05-24"
+    description: "How to show sharing buttons on your Gatsby blog."
+    tags: ["javascript", "gatsby"]
+    ---
+
+
+### Create React Component: Share
+Create a reusable React component: `src/components/Share.js`.
+
+```javascript
+import React from "react"
+import PropTypes from "prop-types"
+import {
+  FacebookShareButton,
+  ...,
+} from "react-share"
+
+const Share = ({ socialConfig, tags }) => (
+  <div className="post-social">
+    <FacebookShareButton url={socialConfig.config.url} quote={socialConfig.config.title} hashtag={""}>
+      <FacebookIcon size={32} round={true}/>
+    </FacebookShareButton>
+    ...
+  </div>
+)
+
+Share.propTypes = {
+  socialConfig: PropTypes.shape({
+    twitter: PropTypes.string.isRequired,
+    config: PropTypes.shape({
+      url: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
+  tags: PropTypes.arrayOf(PropTypes.string),
+}
+Share.defaultProps = {
+  tags: [],
+}
+
+export default Share
+```
+
+<br />
+
+Finally we need to add the `Share` component to the blog template `src/templates/blog-post.js` so it will show up on all blog pages:
+
+```javascript
+const BlogPostTemplate = ({ data, pageContext, location }) => {
+  console.debug(data)
+
+  const post = data.mdx
+  const siteTitle = data.site.siteMetadata.title
+  const twitter = data.site.siteMetadata.social.twitter
+  const url = data.site.siteMetadata.siteUrl
+
+  const { previous, next } = pageContext
+
+  return (
+    <Layout location={location} title={siteTitle}>
+      ...
+          <Share
+            socialConfig={{
+              twitter,
+              config: {
+                url: `${url}${post.frontmatter.slug}`,
+                title: post.frontmatter.title,
+              },
+            }}
+            tags={post.frontmatter.tags}
+          />
+    </Layout>
+  )
+}
+```
+
+That's it. Now social sharing is enabled for all major social networks. Most of the heavy-lifting is
+being done by [react-share](https://github.com/nygardk/react-share). Thanks.
+
+
+
+[^1]: Based on [Swas.io](https://swas.io/blog/social-share-button-for-gatsby-blog-pages/)
+

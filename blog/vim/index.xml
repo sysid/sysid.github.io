@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vim on sysid blog</title>
+    <link>/blog/vim/</link>
+    <description>Recent content in vim on sysid blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2022, sysid.</copyright>
+    <lastBuildDate>Thu, 01 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="/blog/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vimania-uri</title>
+      <link>/vimania-uri/</link>
+      <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/vimania-uri/</guid>
+      <description>Like to double-click links in order to &amp;ldquo;open&amp;rdquo; them? Here is the keyboard-based VIM version.
+vimania-uri Key Features Open arbitrary URIs in text files, html, docx, pptx, jpg, png, mp3, &amp;hellip; Save URI seamless in bookmark manager twbm for seamless CLI management Handles almost any kind of URI Paste URLs with human-friendly description Why? One magic power of an OS UI is the capability of opening most URIs by just double-clicking them.</description>
+    </item>
+    
+  </channel>
+</rss>

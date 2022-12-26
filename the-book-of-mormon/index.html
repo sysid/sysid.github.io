@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="images/favicon.png" />
+<title>The Book of Mormon | sysid blog</title>
+<meta name="title" content="The Book of Mormon" />
+<meta name="description" content="How to schedule book chapters for reading. A set covering approach." />
+<meta name="keywords" content="python,optimization,pyomo," />
+
+
+<meta property="og:title" content="The Book of Mormon" />
+<meta property="og:description" content="How to schedule book chapters for reading. A set covering approach." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/the-book-of-mormon/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-06-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-06-07T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="The Book of Mormon"/>
+<meta name="twitter:description" content="How to schedule book chapters for reading. A set covering approach."/>
+
+
+
+<meta itemprop="name" content="The Book of Mormon">
+<meta itemprop="description" content="How to schedule book chapters for reading. A set covering approach."><meta itemprop="datePublished" content="2020-06-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-06-07T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1051"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="python,optimization,pyomo," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>The Book of Mormon</h1>
+<p>
+  <i>
+    <time datetime='2020-06-07' pubdate>
+      07 Jun, 2020
+    </time>
+  </i>
+</p>
+
+<content>
+  <blockquote>
+<p>The Book of Mormon is a sacred text of the Latter Day Saint movement, which, according to adherents, contains writings
+of ancient prophets who lived on the American continent from approximately 2200 BC to AD 421.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+</blockquote>
+<p>Not the easiest matter, so we need a smart reading plan.</p>
+<h2 id="challenge">Challenge</h2>
+<ol>
+<li>We want to read the book in a given number of days: 128.</li>
+<li>We want to read an integer number of chapters each day (there are more chapters than days), and at least 1 chapter each day.</li>
+<li>The chapters are very non uniform in length (some very short, a few very long, many in between) so we would like
+to come up with a reading schedule that minimizes the variance of the length of the days readings
+(read multiple short chapters on the same day, long chapters are the only one read that day).</li>
+<li>We want to read through the book in order (no skipping ahead to combine short chapters that are not naturally next to each other)<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</li>
+</ol>
+<p><a href="https://yetanothermathprogrammingconsultant.blogspot.com/2018/02/on-scheduling-of-reading-book-chapters.html">Yet Another Math Programming Consultant</a>
+analysed various solution approaches. I want to replicate here two of them with <a href="http://www.pyomo.org/">Pyomo</a> as modelling language.</p>
+<h2 id="data-set">Data Set</h2>
+<p>The entire dataset is listed <a href="https://yetanothermathprogrammingconsultant.blogspot.com/2018/02/on-scheduling-of-reading-book-chapters.html">here</a>.</p>
+<p>Number of reading days:  T = 128<br>
+Number of chapters to read: n = 239<br>
+Total number of verses is:
+$$
+\sum_i v_i = 6603
+$$
+The average number of verses to be read per day is:
+$$
+\mu = \frac{\sum_i v_i}{T}= 51.6
+$$</p>
+<p>Objective:<br>
+We minimize the variance of the number of verses read per day.</p>
+<p>I take <em>&lsquo;distance from the average&rsquo;</em> as a stand-in for <em>&lsquo;variance&rsquo;</em>.</p>
+<h2 id="set-covering-approach">Set Covering Approach</h2>
+<blockquote>
+<p>Consider the universe \(U={1,2,3,4,5}\) and the collection of sets \(S={{1,2,3},{2,4},{3,4},{4,5}}\).
+Clearly the union of \(S\) is \(U\). However, we can cover all of the elements with the following,
+smaller number of sets: \({{1,2,3},{4,5}}\).</p>
+</blockquote>
+<p>We try to cover the set of chapters via sub-sets, so that the chosen sub-sets minimize the distance of the number
+of verses to be read per day from the optimal average of 51.6.
+Every chapter is in exactly one sub-set (set partition problem). Chapters are ordered.</p>
+<p>The rows are the potential covering sets, which could cover the set of chapters (1-4):</p>
+<figure class="center"><img src="partition.png" width="100%"/>
+</figure>
+
+<p>The dark blue sets are a feasible solution for T=3. Note, the sum of dark blue cells per column must be equal one.</p>
+<h3 id="model">Model</h3>
+<p>Calculate the collection of sets \((i,j)\) which cover the universe (chapters), i.e. determine the bright blue bars in the
+diagram above.
+$$
+(i,j) \in S | j \ge i\\
+$$</p>
+<p>The constraint to read at least one chapter per day results in an upper limit for the size of the sets.
+The maximum number of chapters to be read in one day is:
+$$
+limit = n-T, \\
+i, j: 1,..,limit\\
+j \ge i\\
+$$</p>
+<p>Any larger covering set would make the number of remaining chapters to be too few to have at least one chapter per
+remaining day.</p>
+<h4 id="variable">Variable</h4>
+<p>The choice of the variable is the modelling trick, which facilitates a linear model despite the fact, that we
+optimize a distance (variance) in the objective.</p>
+<p>$$
+x_{i,j} =
+\begin{cases}
+1 &amp; \text{if we read chapters \(i\) through \(j\)}\\
+0 &amp; \text{otherwise}
+\end{cases}
+$$</p>
+<h4 id="parameter">Parameter</h4>
+<p>The cost coefficient for \(x\) is calculated as the distance of the sum of verses of selected chapters from the average
+number of verses per day \(\mu\).
+$$
+c_{i,j} = abs(\sum_{k=i}^{j} v_k - \mu)\\
+$$</p>
+<h4 id="objective">Objective</h4>
+<p>$$
+\min \sum_{(i,j)\in S} c_{i,j} x_{i,j}\\
+$$</p>
+<h4 id="constraints">Constraints</h4>
+<p>All chapters are covered:
+$$
+\sum_{(i \le k \le j)|(i,j)\in S} x_{i,j} = 1 \ \forall k\\
+$$</p>
+<p>We select \(T\) rows (days) in the diagram above:
+$$
+\sum_{(i,j) \in S} x_{i,j} = T\\
+x_{i,j} \in {0,1}
+$$</p>
+<h3 id="implementation">Implementation</h3>
+<p>After calculating the potential covering sets \((i,j) \in S\) the formulation of the constraints is very close to the mathematical
+model:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model.element_cover_c = Constraint(
+</span></span><span style="display:flex;"><span>    model.K,
+</span></span><span style="display:flex;"><span>    rule=<span style="color:#080;font-weight:bold">lambda</span> model, k: <span style="color:#038">sum</span>(model.x[i, j] <span style="color:#080;font-weight:bold">for</span> (i, j) <span style="color:#080">in</span> model.S <span style="color:#080;font-weight:bold">if</span> i &lt;= k &lt;= j) == <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model.reading_days_c = Constraint(
+</span></span><span style="display:flex;"><span>    rule=<span style="color:#080;font-weight:bold">lambda</span> model: <span style="color:#038">sum</span>(model.x[i, j] <span style="color:#080;font-weight:bold">for</span> (i, j) <span style="color:#080">in</span> model.S) == self.T
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p><a href="http://www.pyomo.org/">Pyomo</a> allows for a compact problem formulation.</p>
+<h3 id="result">Result</h3>
+<p>The results are surprising.</p>
+<p>The CBC solver has no problem solving the model and provides an optimal solution after 8s.
+The large number of binary variables (20552) does not seem to matter a lot.</p>
+<p>However, creating the model and saving the results takes a very long time with <a href="http://www.pyomo.org/">Pyomo</a>. Similar observations have been made by
+<a href="https://stackoverflow.com/questions/51269351/pyomo-seems-very-slow-to-write-models">others</a>.</p>
+<p>Creating the model:<br>
+Reading time in days: 128<br>
+Number of chapters: 239, max number of chapters per day: 112<br>
+Number of verses: 6603.0<br>
+Average number of verses per day to be read: 51.59<br>
+Created sets: 20552, verses: 20552</p>
+<p>Only after <strong>21 min</strong> (!) the solver started working:<br>
+Solution: [999.828125, 999.828125]<br>
+Number of constraints : 240<br>
+Number of variables : 20552<br>
+Duration: 00:00:08</p>
+<p>If you have any ideas why the creation time is so high or how to improve on it, please let me know!</p>
+<p>Here the attempt to visualize the solution, but be warned: it is a large diagram.
+<figure class="center"><img src="standard.png" width="100%"/>
+</figure>
+</p>
+<p>The largest deviation from the mean (51.6) is: 26.<br>
+The smallest number of verses per day is 26, the largest 77.</p>
+<p>So everyday we will be reading between 26 and 77 verses to finish the book in 128 days while having the smoothest
+reading experience.</p>
+<p><a href="https://yetanothermathprogrammingconsultant.blogspot.com/2018/02/on-scheduling-of-reading-book-chapters.html">YAMC</a>
+has found a better solution as his minimum day has 36 reading verses. This might be due to the fact that he
+is using a variance-based cost coefficient metric instead of a distance-based. Closer examination is warranted.</p>
+<p>Update 13.06.2020:<br>
+With also using a variance-based cost coefficient metric I get the same results as
+YAMC (Objective: 11241.05469). However, there is a typo in YAMC&rsquo;s formula. The correct notation is:
+$$
+c_{i,j} = (\sum_{k=i}^{j-1} v_k - \mu)^2\\
+$$</p>
+<h2 id="summary">Summary</h2>
+<p>The clever choice of the variable linearizes this distance/variance problem. It allows to address it with a
+traditional linear set covering approach.</p>
+<p>Translating the real world problem into one of the standard MIP model domains always is the most difficult part of
+solving. Once this is accomplished the rest is just implementation detail. Experience is key!</p>
+<p>In an upcoming article I will address this problem with another standard MIP model domain: Shortest path optimization.</p>
+<p>So now we can start reading the Book of Mormons in an optimal manner.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://en.wikipedia.org/wiki/Book_of_Mormon">https://en.wikipedia.org/wiki/Book_of_Mormon</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Optimization Challenge, <a href="http://r.789695.n4.nabble.com/optimization-challenge-td1012344.html">http://r.789695.n4.nabble.com/optimization-challenge-td1012344.html</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</content>
+<p>
+  
+  <a href="/blog/python/">#python</a>
+  
+  <a href="/blog/optimization/">#optimization</a>
+  
+  <a href="/blog/pyomo/">#pyomo</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

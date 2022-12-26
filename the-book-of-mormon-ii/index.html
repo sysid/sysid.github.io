@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="images/favicon.png" />
+<title>The Book of Mormon II | sysid blog</title>
+<meta name="title" content="The Book of Mormon II" />
+<meta name="description" content="How to schedule book chapters for reading: A network approach." />
+<meta name="keywords" content="python,optimization,pyomo," />
+
+
+<meta property="og:title" content="The Book of Mormon II" />
+<meta property="og:description" content="How to schedule book chapters for reading: A network approach." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/the-book-of-mormon-ii/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-06-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-06-13T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="The Book of Mormon II"/>
+<meta name="twitter:description" content="How to schedule book chapters for reading: A network approach."/>
+
+
+
+<meta itemprop="name" content="The Book of Mormon II">
+<meta itemprop="description" content="How to schedule book chapters for reading: A network approach."><meta itemprop="datePublished" content="2020-06-13T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-06-13T00:00:00+00:00" />
+<meta itemprop="wordCount" content="970"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="python,optimization,pyomo," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>The Book of Mormon II</h1>
+<p>
+  <i>
+    <time datetime='2020-06-13' pubdate>
+      13 Jun, 2020
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>The full version of the problem you can find in <a href="../the-book-of-mormon">part I of the article</a>.</p>
+<h2 id="recap-challenge">Recap Challenge</h2>
+<ol>
+<li>We want to read the book in a given number of days: 128.</li>
+<li>We want to read an integer number of chapters each day (there are more chapters than days), and at least 1 chapter each day.</li>
+<li>The chapters are very non uniform in length (some very short, a few very long, many in between) so we would like
+to come up with a reading schedule that minimizes the variance of the length of the days readings
+(read multiple short chapters on the same day, long chapters are the only one read that day).</li>
+<li>We want to read through the book in order (no skipping ahead to combine short chapters that are not naturally next to each other)<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</li>
+</ol>
+<h3 id="objective">Objective:</h3>
+<p>We minimize the variance of the number of verses read per day.</p>
+<h2 id="shortest-path-approach">Shortest Path Approach</h2>
+<p>Interesting enough this problem can be modelled as a directed network graph:</p>
+<ul>
+<li>chapters form the network nodes.</li>
+<li>edges represent transitions from chapter \(i\) to chapter \(j\), i.e. they correspond reading all chapters from \(i\) to \(j-1\).</li>
+<li>the graph is directed, so transitions are only allowed from \(i \rightarrow j, \ j\ge i\).</li>
+<li>the edges cost is the proportional to the difference from the actual sum of verses per transition from the average.</li>
+<li>to apply flow modelling techniques we need to add a dummy node as network <em>sink</em>.</li>
+<li>\(ch1\) acts as network <em>source</em>.</li>
+</ul>
+<figure class="center"><img src="network.png" width="100%"/>
+</figure>
+
+<h3 id="model">Model</h3>
+<p>Calculate the collection \(A\) of edges \((i,j)\) which represent all possible transitions in the network.
+$$
+A \ \text{ set of edges}\\
+(i,j) \in A | j \ge i\\
+$$</p>
+<p>This is analog to calculating the covering sets in <a href="../the-book-of-mormon">part 1</a>. Since the graph is directed
+the semantic meaning of the edge definition guarantees that every chapter is being read exacty once.</p>
+<p>The same optimization as in the <a href="../the-book-of-mormon">set covering</a> approach can be applied in order to reduce the number of allowed network
+edges.
+The maximum number of chapters to be read in one day is:
+$$
+limit = n-T, \\
+i, j: 1,..,limit\\
+j \ge i\\
+$$</p>
+<p>Any <em>&rsquo;longer&rsquo;</em> edges consisting of more chapters would make the number of remaining chapters to be too few to have at least one chapter per
+remaining day.</p>
+<h4 id="variable">Variable</h4>
+<p>Every edge \((i,j)\) has got a flow \(x_{i,j}\) and a cost \(c_{i,j}\) associated with it. Since we need to put a constraint
+on the number of nodes in the solution we introduce a helper variable \(y_i\):</p>
+<p>$$
+x_{i,j}, \ \text{ flow on edge \((i,j)\)}\\
+y_i, \ \text{ total flow leaving node \(i\) for consumption by other nodes}\\
+x_{i,j}, y_i \ge 0\\
+$$</p>
+<h4 id="objective-1">Objective</h4>
+<p>$$
+\min \sum_{(i,j)\in A} c_{i,j} x_{i,j}\\
+$$</p>
+<h4 id="parameter">Parameter:</h4>
+<p>Node Distance:<br>
+The <em>&lsquo;distance&rsquo;</em> or <em>&lsquo;cost coefficient&rsquo;</em> for flow \(x\) is calculated as
+the variance of the sum of verses of selected chapters from the average number of verses per day \(\mu\).</p>
+<p>$$
+c_{i,j} = (\sum_{k=i}^{j-1} v_k - \mu)^2\\
+$$</p>
+<p>Source and sink flow:<br>
+$$
+b_i =
+\begin{cases}
+1, \ \text{ if \(i=\mathit{ch1}\)}\\<br>
+-1 \ \text{ if \(i=\mathit{sink}\)}\\<br>
+0 \ \text{ otherwise}
+\end{cases}
+$$</p>
+<h4 id="constraints">Constraints</h4>
+<ol>
+<li>classic flow balance constraints</li>
+<li>enforce the number of nodes being part of the solution, i.e. reading days \(T\)</li>
+</ol>
+<p>Since the total number of reading days \(T\) is a parameter, we need to enforce at least \(T\) nodes being part of the <em>shortest path&rsquo;</em>
+solution. Therefore we split the classic node balance equation:</p>
+<p>$$
+\sum_{(j,i)\in A} x_{j,i} + b_i = y_i \ \forall i\\
+y_i = \sum_{(i,j)\in A} x_{i,j} \ \forall i\\
+\sum_i y_i = T \\
+x_{i,j}, y_i \ge 0
+$$</p>
+<h3 id="implementation">Implementation</h3>
+<p>Since <a href="http://www.pyomo.org/">Pyomo</a> allows to use regular Python programming language constructs
+like <code>if..else</code>, the formulation of boundary conditions which involves trailing or leading time intervals feels very
+natural for a software developer.</p>
+<p>Again, the implementation of the constraints is straight forward:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">flow_balance_in_c</span>(model, ii):
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> ii == <span style="color:#00d;font-weight:bold">1</span>:  <span style="color:#888"># source/chap1</span>
+</span></span><span style="display:flex;"><span>        b = <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">elif</span> ii == self.N:  <span style="color:#888"># sink/dummy chapter</span>
+</span></span><span style="display:flex;"><span>        b = -<span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>        b = <span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> <span style="color:#038">sum</span>(model.x[j, i] <span style="color:#080;font-weight:bold">for</span> (j, i) <span style="color:#080">in</span> model.A <span style="color:#080;font-weight:bold">if</span> i == ii) + b == model.y[ii]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model.flow_balance_in_c = Constraint(
+</span></span><span style="display:flex;"><span>    model.I, rule=flow_balance_in_c
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model.flow_balance_out_c = Constraint(
+</span></span><span style="display:flex;"><span>    model.I,
+</span></span><span style="display:flex;"><span>    rule=<span style="color:#080;font-weight:bold">lambda</span> model, ii: <span style="color:#038">sum</span>(model.x[i, j] <span style="color:#080;font-weight:bold">for</span> (i, j) <span style="color:#080">in</span> model.A <span style="color:#080;font-weight:bold">if</span> i == ii) == model.y[ii]
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model.y_c = Constraint(
+</span></span><span style="display:flex;"><span>    rule=<span style="color:#080;font-weight:bold">lambda</span> model: <span style="color:#038">sum</span>(model.y[i] <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080">in</span> model.I) == self.T
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h3 id="result">Result</h3>
+<h4 id="40-chapters">40 Chapters</h4>
+<ul>
+<li>Reading time in days: 8</li>
+<li>Number of chapters: 40, max number of chapters per day: 34</li>
+<li>Number of verses: 1059.0</li>
+<li>Average number of verses per day to be read: 132.38</li>
+</ul>
+<p>The CBC solver has no problem solving the model and provides an optimal solution in a split second.</p>
+<p>Number of constraints : 83<br>
+Number of variables : 833</p>
+<figure class="center"><img src="result_40.png" width="100%"/>
+</figure>
+
+<p>The sum of deviations from the average number of verses per day is 47.
+We need to read 122 verses on day 8 (minimum) and  143 verses on day 4 (maximum) in order to have the smoothest reading
+experience.</p>
+<h4 id="all-chapters">All Chapters</h4>
+<p>Reading time in days: 128<br>
+Number of chapters: 240, max number of chapters per day: 113<br>
+Number of verses: 6603.0<br>
+Average number of verses per day to be read: 51.59<br>
+Created sets: 20552, verses: 20552</p>
+<p>In contrast to the model from <a href="../the-book-of-mormon">the partition set approach</a> model building takes only a few
+seconds.</p>
+<p>Solution [999.828125, 999.828125]<br>
+Number of constraints : 481<br>
+Number of variables : 20792<br>
+Duration: 00:00:01</p>
+<p>For more details regarding the result please refer to <a href="../the-book-of-mormon">part 1</a>. The results are
+identical (as to be expected).</p>
+<h2 id="summary">Summary</h2>
+<p>Framing the problem as a network model might be not your first choice of thinking. It certainly wasn&rsquo;t mine.</p>
+<p>Choosing the correct abstraction results in dramatic solution performance improvements. The network model seems
+to be the best approach by far for this problem. Good to have it in our tool belt now.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>This is a difference to the approache here: <a href="https://yetanothermathprogrammingconsultant.blogspot.com/2018/02/on-scheduling-of-reading-book-chapters.html">https://yetanothermathprogrammingconsultant.blogspot.com/2018/02/on-scheduling-of-reading-book-chapters.html</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</content>
+<p>
+  
+  <a href="/blog/python/">#python</a>
+  
+  <a href="/blog/optimization/">#optimization</a>
+  
+  <a href="/blog/pyomo/">#pyomo</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

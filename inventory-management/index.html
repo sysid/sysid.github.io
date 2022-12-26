@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="images/favicon.png" />
+<title>Inventory Management | sysid blog</title>
+<meta name="title" content="Inventory Management" />
+<meta name="description" content="(Q, R) inventory management as MIP model" />
+<meta name="keywords" content="python,optimization,pyomo," />
+
+
+<meta property="og:title" content="Inventory Management" />
+<meta property="og:description" content="(Q, R) inventory management as MIP model" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/inventory-management/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2021-01-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-01-01T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="Inventory Management"/>
+<meta name="twitter:description" content="(Q, R) inventory management as MIP model"/>
+
+
+
+<meta itemprop="name" content="Inventory Management">
+<meta itemprop="description" content="(Q, R) inventory management as MIP model"><meta itemprop="datePublished" content="2021-01-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-01-01T00:00:00+00:00" />
+<meta itemprop="wordCount" content="837"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="python,optimization,pyomo," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Inventory Management</h1>
+<p>
+  <i>
+    <time datetime='2021-01-01' pubdate>
+      01 Jan, 2021
+    </time>
+  </i>
+</p>
+
+<content>
+  <figure class="center"><img src="im.png" width="100%"/>
+</figure>
+
+<blockquote>
+<p>Find the best order policy to replenish stock levels, i.e. minimize the total cost incurred.</p>
+</blockquote>
+<p>The (Q, R) inventory model is as follows:</p>
+<ul>
+<li>If the inventory falls below threshold R, place an order of quantity Q.</li>
+<li>Lead times: when an order is placed it takes some time to be delivered</li>
+<li>When inventory becomes zero, additional demand will cause a backlog. Backlogged demand will be fulfilled when replenishments arrive but at a cost.</li>
+</ul>
+<h2 id="cost-contribution">Cost Contribution</h2>
+<ol>
+<li>Fixed ordering cost (Fixed cost)</li>
+<li>Holding cost related to inventory (Holding cost)</li>
+<li>Penalties related to backlogs (Shortage cost)</li>
+</ol>
+<figure class="center"><img src="cost_contrib.png" width="100%"/>
+</figure>
+
+<p>Choose quantity Q and ordering threshold R to strike a good balance among these three costs!</p>
+<ul>
+<li>To save on the shortage cost, we want large R</li>
+<li>To save on the holding cost, we want small Q and small R</li>
+<li>To save on the fixed cost, we want large Q</li>
+</ul>
+<p>There are different approaches to this problem. Here we look at a Mixed Integer Programming approach.</p>
+<h1 id="model">Model</h1>
+<p>A very accessible model description can be found here:
+<a href="http://yetanothermathprogrammingconsultant.blogspot.com/2020/11/optimal-qr-inventory-policy-as-mip.html">Optimal (Q,R) Inventory Policy as a MIP</a>:</p>
+<p>$$
+\begin{aligned}
+\min &gt; &amp; z = orderCost \cdot \sum_t order_t+holdCost \cdot \sum_t inv_t+backlogCost \cdot\sum_t back_t &amp;&amp;  (1) \\
+&amp; inv_t-back_t = inv_{t-1}-back_{t-1} - demand_t + repl_t + initInv_t  &amp;&amp; (2) \\
+&amp; inv_t \le invCap \cdot \delta_t \\
+&amp; back_t \le maxBackLogged \cdot (1-\delta_t) \\
+&amp; inv_t \le R + invCap \cdot (1-low_t) &amp;&amp; (3) \\
+&amp; inv_t \ge R + 1 - (invCap+1) \cdot low_t \\
+&amp; order_t \le 1-low_{t-1} &amp;&amp; (4) \\
+&amp; order_t \le low_t \\
+&amp; order_t \ge low_t -low_{t-1} \\
+&amp; repl_t \le maxQ \cdot order_{t-leadTime} &amp;&amp; (5) \\
+&amp; repl_t \le Q \\
+&amp; repl_t \ge  Q - maxQ \cdot (1-order_{t-leadTime}) \\
+&amp; Q \in [0,maxQ] \\
+&amp; R  \in [0,invCap] \\
+&amp; inv_t  \in [0,invCap]  \\
+&amp; back_t  \in [0,maxBackLogged] \\
+&amp; \delta_t  \in {0,1} \\
+&amp; low_t  \in {0,1} \\
+&amp; order_t  \in {0,1} \\
+&amp; repl_t  \in [0,maxQ]
+\end{aligned}
+$$</p>
+<h1 id="implementation">Implementation</h1>
+<p>Using <a href="http://www.pyomo.org/">Pyomo</a> as modelling framework results in the following Python code for the constraints.</p>
+<p>The numbers in the code comments match the constraint numbering in the MIP model above.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>        <span style="color:#888"># 2a inventory balance equation:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">inv_balance_c</span>(model, t):
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> t == <span style="color:#00d;font-weight:bold">1</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> (
+</span></span><span style="display:flex;"><span>                    model.inv[t] - model.backlog[t]
+</span></span><span style="display:flex;"><span>                    == -model.demand[t] + model.repl[t] + model.initInv[t]
+</span></span><span style="display:flex;"><span>                )
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> (
+</span></span><span style="display:flex;"><span>                model.inv[t] - model.backlog[t]
+</span></span><span style="display:flex;"><span>                == model.inv[t - <span style="color:#00d;font-weight:bold">1</span>]
+</span></span><span style="display:flex;"><span>                - model.backlog[t - <span style="color:#00d;font-weight:bold">1</span>]
+</span></span><span style="display:flex;"><span>                - model.demand[t]
+</span></span><span style="display:flex;"><span>                + model.repl[t]
+</span></span><span style="display:flex;"><span>                + model.initInv[t]
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        model.inv_balance_c = Constraint(model.H, rule=inv_balance_c)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># 2b only one of these variables can be non-zero</span>
+</span></span><span style="display:flex;"><span>        model.inv_backlog_excl_c1 = Constraint(
+</span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.inv[t] &lt;= self.invCap * model.delta[t]
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        model.inv_backlog_excl_c2 = Constraint(
+</span></span><span style="display:flex;"><span>            model.H,
+</span></span><span style="display:flex;"><span>            rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.backlog[t]
+</span></span><span style="display:flex;"><span>            &lt;= self.maxBackLogged * (<span style="color:#00d;font-weight:bold">1</span> - model.delta[t]),
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># 3. detect low inventory</span>
+</span></span><span style="display:flex;"><span>        model.low_inv_c1 = Constraint(
+</span></span><span style="display:flex;"><span>            model.H,
+</span></span><span style="display:flex;"><span>            rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.inv[t]
+</span></span><span style="display:flex;"><span>            &lt;= model.r + self.invCap * (<span style="color:#00d;font-weight:bold">1</span> - model.low[t]),
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        model.low_inv_c2 = Constraint(
+</span></span><span style="display:flex;"><span>            model.H,
+</span></span><span style="display:flex;"><span>            rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.inv[t]
+</span></span><span style="display:flex;"><span>            &gt;= model.r + <span style="color:#00d;font-weight:bold">1</span> - (self.invCap + <span style="color:#00d;font-weight:bold">1</span>) * model.low[t],
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># 4. reorder event detection</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">order_event_c1</span>(model, t):
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> t == <span style="color:#00d;font-weight:bold">1</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> Constraint.Skip
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> model.order[t] &lt;= <span style="color:#00d;font-weight:bold">1</span> - model.low[t - <span style="color:#00d;font-weight:bold">1</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        model.order_event_c1 = Constraint(model.H, rule=order_event_c1)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">order_event_c2</span>(model, t):
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> t == <span style="color:#00d;font-weight:bold">1</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> Constraint.Skip
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> model.order[t] &gt;= model.low[t] - model.low[t - <span style="color:#00d;font-weight:bold">1</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        model.order_event_c2 = Constraint(model.H, rule=order_event_c2)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        model.order_event_c3 = Constraint(
+</span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.order[t] &lt;= model.low[t]
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># 5. inventory replenishment takes place after an order was placed and when the lead time passed.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">repl_c1</span>(model, t):
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> t &lt;= self.leadTime:
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> model.repl[t] == <span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> model.repl[t] &lt;= self.maxQ * model.order[t - self.leadTime]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        model.repl_c1 = Constraint(model.H, rule=repl_c1)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">repl_c2</span>(model, t):
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> t &lt;= self.leadTime:
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> model.repl[t] == <span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> model.repl[t] &gt;= model.q - self.maxQ * (
+</span></span><span style="display:flex;"><span>                <span style="color:#00d;font-weight:bold">1</span> - model.order[t - self.leadTime]
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        model.repl_c2 = Constraint(model.H, rule=repl_c2)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        model.repl_c3 = Constraint(
+</span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.repl[t] &lt;= model.q
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        model.q_c = Constraint(rule=<span style="color:#080;font-weight:bold">lambda</span> model: model.q &lt;= self.maxQ)
+</span></span><span style="display:flex;"><span>        model.r_c = Constraint(rule=<span style="color:#080;font-weight:bold">lambda</span> model: model.r &lt;= self.invCap)
+</span></span><span style="display:flex;"><span>        model.inv_c = Constraint(
+</span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.inv[t] &lt;= self.invCap
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        model.backlog_c = Constraint(
+</span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.backlog[t] &lt;= self.maxBackLogged
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        model.repl_c = Constraint(
+</span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.repl[t] &lt;= self.maxQ
+</span></span><span style="display:flex;"><span>        )
+</span></span></code></pre></div><p>Translating the MIP Model into Pyomo code is straight-forward.
+It really is a 1:1 translation of equations and constraints into Pyomo expressions.</p>
+<p>As with any MIP modelling language
+special attention is needed for border conditions, i.e. when indices run out of their definition ranges.
+However, here you can apply all the facilities Python as a full programming language provides.</p>
+<h1 id="results">Results</h1>
+<p><a href="https://projects.coin-or.org/Cbc">CBC</a> solved the model in 3min 27s. With a commercial solver solution time comes down to roundabout 30s.</p>
+<ul>
+<li>Total Cost: 48990</li>
+<li>Number of constraints : 1400</li>
+<li>Number of variables : 602</li>
+</ul>
+<p>Q: 512.0 (quantity to order per order event)<br>
+R: 344 (threshold when order event triggers)</p>
+<figure class="center"><img src="standard.png" width="100%"/>
+</figure>
+
+<p>The results match the results in <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, so the Pyomo approach in combination with CBC seem to be valid. Once the model is in
+the form of a MIP, it is actually easy to solve it via Pyomo. To model the problem is the real challenge, of course.</p>
+<p>The real learning is here: You can actually solve decent MIP problems with Open Source software.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="http://yetanothermathprogrammingconsultant.blogspot.com/2020/11/optimal-qr-inventory-policy-as-mip.html">http://yetanothermathprogrammingconsultant.blogspot.com/2020/11/optimal-qr-inventory-policy-as-mip.html</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</content>
+<p>
+  
+  <a href="/blog/python/">#python</a>
+  
+  <a href="/blog/optimization/">#optimization</a>
+  
+  <a href="/blog/pyomo/">#pyomo</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+---
+title: "Munggoggo: A modern message based async agent framework"
+date: "2019-11-02T22:12:03.284Z"
+description: ""
+tags: ["python", "async"]
+---
+
+import styles from './index.module.css'
+
+<div className={styles.Document}>
+
+An asyncio based agent platform written in Python and based on RabbitMQ. 
+
+Agents are isolated processes which can host multiple parallel running behaviours implementing business 
+logic and can be deployed as independent kubernetes pods. Access to the agent mesh is via 
+REST/HTTP, websocket and jsonrpc.
+
+A few lines of code implement a fully fledged agent with a simple behaviour: sending and
+receiving ping messages to/from other agents.
+
+```python
+from mode import Worker
+from behaviour import Behaviour
+from core import Core
+
+
+class Agent(Core):
+    class PingBehav(Behaviour):
+        async def setup(self):
+            self.counter = 0
+
+        async def run(self):
+            self.counter += 1
+            msg = await self.receive()
+            if msg:
+                print(f"{self.name}: Message received: {msg.body.decode()}")
+            await self.publish(str(self.counter), 'ping')
+            await asyncio.sleep(0.9)
+
+    async def setup(self) -> None:
+        """ Register behaviour and subscribe to 'ping' topic """
+        await self.add_runtime_dependency(self.PingBehav(self, binding_keys=['ping']))
+
+
+if __name__ == '__main__':
+    Worker(Agent(identity='AgentIdentity'), loglevel="info").execute_from_commandline()
+```
+<br/>
+
+Documentation: https://munggoggo.readthedocs.io/en/latest/  
+Github: https://github.com/sysid/munggoggo
+
+## Why
+The physical world forms a massive parallel system.  
+
+The metaphor of software agents communicating via messages helps to model this realty.
+Devices like cars, buildings, etc. can be interpreted as independently acting
+agents communicating via message protocols like AMQP. 
+
+Today's software technology has evolved far enough to model this reality without access to supercomputers or
+highly specialized programming paradigms. Agents running async business logic are a suitable fit and
+can be implemented with various prevalent technology stacks.
+
+## Technology Stack Choice
+Requirements for our tech stack, driven by business reality:
+
+1. very fast turnover and implementation cycles (experiment, learn, extract useful part, repeat...)
+2. focus on data driven models and algorithms, based on IoT data streams (e.g. vehicles)
+3. loose coupling and independent entity modelling 
+4. cloud first (of course...)
+5. standards based and seamless systems integration
+6. scalability
+
+For us this translated in:
+
+1. Python as programming language wich allows quick development cycles and has got a well established footprint
+in data science and data computing
+2. Messaging backend based on AMQP (RabbitMQ) which supports streaming processing while simultaneously allowing
+sophisticated routing and communication patterns
+3. Async programming paradigm in order to fully capitalize on stream processing
+4. Agent metaphor for independent computing units exposing one ore more behaviours
+
+## Bringing it together
+Combining these ideas, reviewing existing solutions and including a few original ideas
+eventually led to this prototype implementation of a behavioural agent software framework based on async python, RabbitMQ and 
+ASGI as web programming model.  
+
+It is a personal PoC rather than production ready software and its potential is to be verified.
+
+In any case it demonstrates some interesting ideas to address the described problem domain and combines some of the latest
+python programming paradigms.
+
+</div>

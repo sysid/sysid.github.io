@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>work on sysid blog</title>
+    <link>/blog/work/</link>
+    <description>Recent content in work on sysid blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2022, sysid.</copyright>
+    <lastBuildDate>Thu, 01 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="/blog/work/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vimania-uri</title>
+      <link>/vimania-uri/</link>
+      <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/vimania-uri/</guid>
+      <description>Like to double-click links in order to &amp;ldquo;open&amp;rdquo; them? Here is the keyboard-based VIM version.
+vimania-uri Key Features Open arbitrary URIs in text files, html, docx, pptx, jpg, png, mp3, &amp;hellip; Save URI seamless in bookmark manager twbm for seamless CLI management Handles almost any kind of URI Paste URLs with human-friendly description Why? One magic power of an OS UI is the capability of opening most URIs by just double-clicking them.</description>
+    </item>
+    
+    <item>
+      <title>Software Architecture 2022</title>
+      <link>/software-architecture-2022/</link>
+      <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/software-architecture-2022/</guid>
+      <description>A refresher in software architecture philosophies with Perseverance, Patience and Python.
+This is a high-speed overflight over current approaches with an occasional deep dive.
+CRUD, MVC simple concepts and therefore effective communication in dev teams works as expected. Limits known, e.g. modelling complex business domains DDD and Clean Architecture structure of software logic reflects business processes ubiquitous language as common communication ground for developer and business concepts like Aggregate and UnitOfWork provide clear consistency and concurrency model.</description>
+    </item>
+    
+    <item>
+      <title>Code Snippets</title>
+      <link>/code-snippets/</link>
+      <pubDate>Sat, 20 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/code-snippets/</guid>
+      <description>Using code snippets cross platform in VIM and JetBrains IDE without having to maintain them twice!
+As developer we are always striving to improve our (work)flow.
+This includes especially tooling, of course.
+Here omes taste, capability, technology and craze come together in an unholy mélange of preferences. Your idea of Nirvana surely will be different from mine.
+I am using two IDEs:
+vim JetBrains PyCharm A challenge while coding is to remember correct syntax, so IDEs provide helpers like code completion, linters and yes, still code snippets (call me old-fashioned).</description>
+    </item>
+    
+    <item>
+      <title>Job Shop Scheduling Problem</title>
+      <link>/job-shop-scheduling-problem/</link>
+      <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/job-shop-scheduling-problem/</guid>
+      <description>The Job Shop Scheduling Problem (JSSP) is an NP-hard problem. 1
+The JSSP is defined by a set of jobs that must be executed by a set of machines in a specific order for each job. Each job has a defined execution time for each machine and a defined processing order of machines. Also, each job must use each machine only once. The machines can only execute a job at a time and once started, the machine cannot be interrupted until the completion of the assigned job.</description>
+    </item>
+    
+    <item>
+      <title>Dispersion</title>
+      <link>/dispersion/</link>
+      <pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/dispersion/</guid>
+      <description>Find 10 points out of 50 with maximum distance from each other.1
+This problem can modelled as a max-min model where we maximize the smallest distance of 10 points.
+Model $$ \max \Delta\\ s.t.\\ \Delta \le d_{i,j} + M(1- x_i x_j), \forall i \lt j \\ \sum_i x_i = k\\ x_i \in {0,1}\\ $$
+M is an upper bound on the distances: $$ M = \max_{i\le j} d_{i,j}\\ $$</description>
+    </item>
+    
+  </channel>
+</rss>
