@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/images/favicon.png" />
+<title>bkmr | sysid blog</title>
+<meta name="title" content="bkmr" />
+<meta name="description" content="Super fast CLI Bookmark Manager and Launcher" />
+<meta name="keywords" content="rust," />
+
+
+<meta property="og:title" content="bkmr" />
+<meta property="og:description" content="Super fast CLI Bookmark Manager and Launcher" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/bkmr/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-01-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-01-14T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="bkmr"/>
+<meta name="twitter:description" content="Super fast CLI Bookmark Manager and Launcher"/>
+
+
+
+<meta itemprop="name" content="bkmr">
+<meta itemprop="description" content="Super fast CLI Bookmark Manager and Launcher"><meta itemprop="datePublished" content="2023-01-14T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-01-14T00:00:00+00:00" />
+<meta itemprop="wordCount" content="825"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="rust," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-49519316-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>bkmr</h1>
+<p>
+  <i>
+    <time datetime='2023-01-14' pubdate>
+      14 Jan, 2023
+    </time>
+  </i>
+</p>
+
+<content>
+  <blockquote>
+<p>Super fast CLI Bookmark Manager and Launcher</p>
+</blockquote>
+<h1 id="developer-productivity-in-rust-vs-python">Developer Productivity in Rust vs Python</h1>
+<p>I am aware that this is a complex subject and impossible to treat objectively,
+given the my time limit of 2 weeks.</p>
+<p>In order to compare apples with apples I decided to re-implement a Python application in Rust,
+which I use on a daily basis:</p>
+<p>CLI bookmark manager with fulltext search capability: <a href="https://github.com/sysid/twbm">twbm</a>.</p>
+<h3 id="objectives">Objectives:</h3>
+<ol>
+<li>Learn Rust and it&rsquo;s idioms</li>
+<li>Get an idea of developer productivity in Rust vs Python</li>
+<li>Get an understanding of Rust&rsquo;s capabilities and ecosystem</li>
+<li>Better performance for a frequently used CLI tool</li>
+</ol>
+<p>Approach:
+1-to-1 translation of Python CLI bookmark manager <a href="https://github.com/sysid/twbm">twbm</a> to Rust.</p>
+<h3 id="first-impression">First Impression</h3>
+<p>Rust&rsquo;s syntax looks dense and sometimes verbose, harder on my eyes than Python.
+I like the Python bracket-less style and the almost natural language syntax. One
+of Python strengths.</p>
+<p>Python feels like writing a letter, while in Rust, it felt more like compiling a legal contract.</p>
+<p>I also am missing things which I would take as a given in modern languages, e.g.</p>
+<ul>
+<li>keyword arguments</li>
+<li>default parameters</li>
+<li>exceptions</li>
+</ul>
+<p>I read quite a view articles in this regard and I gained the impression that
+missing features are being justified in the community with &rsquo;explicitness&rsquo; and
+cleanliness of the language and are &lsquo;by design&rsquo;.</p>
+<p>However, I do not need to be persuaded that missing features
+are actually good for me and helping me writing clean code. I can decide
+by myself and like to have the choice.</p>
+<p>And it&rsquo;s not like there is no hidden magic in Rust:
+Implicit Deref coercion was added to Rust so that programmers writing function and method calls don&rsquo;t need to add as many explicit references and dereferences with &amp; and *.</p>
+<p>E.g.: <code>hello(&amp;(*m)[..]);</code></p>
+<h2 id="the-hard-and-the-ugly">The Hard and the Ugly</h2>
+<p>I went through Rust&rsquo;s notorious baptism of fire, trying to work with, against and
+around the Rust compiler and borrow-checker. New paradigms can be hard, that&rsquo;s
+part of the experience. The promise that code once it compiles runs flawlessly
+helps a lot.</p>
+<p>I have to say though, that traditional debugging comes more naturally
+to me than trying to understand all the compile errors in Rust up front. There is no
+compiler debugging, so the only way to find the problem is based on compiler messages.
+No step debugging or variable inspections here to help narrowing down the problem.</p>
+<p>I like to refactor heavily during development, but with the compiler looming, every
+non trivial change felt like a threat. Every change guaranteed having
+another heavy compiler fixing session. This motivates to avoid refactoring which is not
+a good thing. Maybe this goes away with more experience.</p>
+<h2 id="language-features">Language Features</h2>
+<p>I am a fan of Python&rsquo;s list comprehensions and generators and found that
+Rust&rsquo;s collections and iterators were a good equivalent here. Overall I think
+the two languages are pretty similar in language features on a higher level, except
+for the exceptions mentioned above.</p>
+<p>On low level systems programming Python does not compete, of course.</p>
+<h2 id="testing">Testing</h2>
+<p>Cargo as test runner does a decent job but I feel that fixture- and parametrized-based testing
+is a minimum requirement nowadays. Here <code>rstest</code> is a start, but no match to <code>pytest</code>.</p>
+<h2 id="ecosystem-3rd-party-libraries">Ecosystem, 3rd Party Libraries</h2>
+<p>In Python world almost all problems have been solved already in high quality.
+Rust seems to be catching up quickly and  I could find everything I needed:</p>
+<ul>
+<li><code>diesel</code> as ORM</li>
+<li><code>clap</code> for CLI</li>
+<li><code>skim</code> for fzf style search</li>
+<li>&hellip;</li>
+</ul>
+<p>Setting up and managing a project with Cargo is a pleasure. Dependency management feels
+much more pleasant than in Python.</p>
+<p>Documentation is excellent in quality
+and structure. This helps to sail the complexities and idioms of Rust. The entire setup
+reminds of Golang which is similar enjoyable.</p>
+<h2 id="performance">Performance</h2>
+<p>No suprises here. The application in Rust performs ~20s faster in comparison to Python,
+even when Python is warmed-up. A nice reward for a lot of effort.</p>
+<p>Rust excels in performance, especially in startup time for CLI applications.</p>
+<p>On the other hand Python&rsquo;s syntax is clearer.
+Readability is sometimes more important than raw performance, which is &lsquo;good enough&rsquo; for many Python applications.</p>
+<h2 id="summary">Summary</h2>
+<p>Rust&rsquo;s memory ownership model is interesting but it gets in your way often.
+It increases complexity and development time and it must be weighed against the benefits it provides.
+In languages like Golang, Java or Python a lot if this complexitity is handled by the Garbage Collector.</p>
+<p>For a CLI application startup time matters, but for large applications and distributed systems, speed of execution is often
+less important than speed of development.
+Also Golang and Java have similar performance characteristics for long running applications.</p>
+<p>It was an intensive christmas holiday and significant more effort than I expected.
+Still, I only could scratch the Rust surface.</p>
+<p>My reward is a project which is 1:1 comparable to the Python version in terms of features, speed, readability and
+complexity.</p>
+<p>And a performance gain of 20x for a tool I use daily.</p>
+<p>The Rust source code is here: <a href="https://github.com/sysid/bkmr">bkmr</a>.</p>
+
+</content>
+<p>
+  
+  <a href="/blog/rust/">#rust</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>
