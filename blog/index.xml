@@ -15,8 +15,8 @@
       
       <guid>/bkmr/</guid>
       <description>Super fast CLI Bookmark Manager and Launcher
-Developer Productivity in Rust vs Python I am aware that this is a complex subject and impossible to treat objectively, given the my time limit of 2 weeks.
-In order to compare apples with apples I decided to re-implement a Python application in Rust, which I use on a daily basis:
+Developer Productivity in Rust vs Python I am aware that this is a complex subject and impossible to treat objectively, especially given my time limit of 3 weeks.
+In order to compare apples with apples I decided to re-implement a Python productivity application in Rust, which I use on a daily basis:
 CLI bookmark manager with fulltext search capability: twbm.
 Objectives: Learn Rust and it&amp;rsquo;s idioms Get an idea of developer productivity in Rust vs Python Get an understanding of Rust&amp;rsquo;s capabilities and ecosystem Better performance for a frequently used CLI tool Approach: 1-to-1 translation of Python CLI bookmark manager twbm to Rust.</description>
     </item>

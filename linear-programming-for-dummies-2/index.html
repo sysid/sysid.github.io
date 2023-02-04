@@ -278,7 +278,7 @@ problems are in many practical situations (those with bounded variables) NP-hard
 <p>If only some of the unknown variables are required to be integers, then the problem is called a mixed integer programming (MIP) problem.
 These are generally also NP-hard because they are even more general than ILP programs.</p>
 </blockquote>
-<h2 id="a-namegeneral-facts--general-facts"><!-- raw HTML omitted --> General Facts</h2>
+<h2 id="a-namegeneral-facts--general-facts"><a name='general-facts' /> General Facts</h2>
 <ul>
 <li>More constraints make a MIP problem easier  to solve.</li>
 <li>MIP formulation is non-convex.</li>
@@ -297,18 +297,18 @@ Hence, an important application of integer decision variables is the introductio
 <p>If A or B is in the mix, then at least one of C, D or E must also be in the mix.</p>
 </blockquote>
 <p>One technique is to link the boolean variables to its associated continuous variables via Big-M constraints.</p>
-<h2 id="a-namebig-mabig-m"><!-- raw HTML omitted --><!-- raw HTML omitted -->Big-M</h2>
+<h2 id="a-namebig-mabig-m"><a name='big-m'></a>Big-M</h2>
 <p>Big-M constraints get the name from the fact that either a &ldquo;big&rdquo; upper limit (M), or a &ldquo;small&rdquo; lower limit (m)
 are chosen. M must not limit the real solution space of the variables, it is an
 upper (lower) bound which allows to relate the boolean to the continuous variables.</p>
 <p>For numerical stability it is important to choose M/m as small/big as possible.</p>
-<h4 id="a-namebig-m-constraint-big-m-constraint-upper-boundary"><!-- raw HTML omitted -->Big-M Constraint, Upper Boundary</h4>
+<h4 id="a-namebig-m-constraint-big-m-constraint-upper-boundary"><a name='big-m-constraint' />Big-M Constraint, Upper Boundary</h4>
 <p>It forces the indicator (bool) variable to true if \(x &gt; 0\).</p>
 <p>$$
 x &gt; 0 \rightarrow \delta = 1 \\
 x - M\delta \le 0 \tag{1} \\
 $$</p>
-<h4 id="a-namesmall-m-constraint-small-m-constraint-lower-boundary"><!-- raw HTML omitted -->Small-m Constraint, Lower Boundary</h4>
+<h4 id="a-namesmall-m-constraint-small-m-constraint-lower-boundary"><a name='small-m-constraint' />Small-m Constraint, Lower Boundary</h4>
 <p>It forces the indicator variable to false if \(x = 0\).</p>
 <p>$$
 x = 0 \rightarrow \delta = 0 \\
@@ -319,7 +319,7 @@ $$</p>
 $$
 \delta = 1 \Leftrightarrow x \gt 0
 $$</p>
-<h3 id="a-namerecipe-recipe"><!-- raw HTML omitted -->Recipe</h3>
+<h3 id="a-namerecipe-recipe"><a name='recipe' />Recipe</h3>
 <ol>
 <li>
 <p>Start with a proposition:
@@ -368,7 +368,7 @@ assumes that below 1% concentration B is not relevant.</p>
 <p>Big-M and Small-m constraints are an important building block in order
 to help modelling conditions and boolean logic in Linear Programming.</p>
 <p>The <a href="../linear-programming-for-dummies-3">next chapter</a> will deal with how to model more advanced conditions.</p>
-<!-- raw HTML omitted -->
+</div>
 
 </content>
 <p>
