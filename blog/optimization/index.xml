@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Sun, 07 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/blog/optimization/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="/blog/optimization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Select Points</title>
+      <link>/select-points/</link>
+      <pubDate>Sun, 30 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/select-points/</guid>
+      <description>Given multiple sets of data points. Select one point per set so that the distances between the points is minimal.1
+Model Non-convex MIQP Model $$ \min \sum_{i,j| ok_{i,j}} dist_{i,j} \cdot x_i \cdot x_j \\ \sum_{i|group_{i,g}} x_i = 1 \forall g \\ x_i \in {0,1} $$
+Linear MIP Model To linearize the model a standard procedure can be applied:
+Let&amp;rsquo;s introduce a new binary variable, $z_{i,j}$, that represents the product of the binary variables $\color{darkred}x_i$ and $\color{darkred}x_j$.</description>
+    </item>
+    
     <item>
       <title>Maximal Overlap of Rectangles</title>
       <link>/maximal-overlap-of-rectangles/</link>

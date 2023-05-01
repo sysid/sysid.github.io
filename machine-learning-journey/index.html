@@ -9,7 +9,7 @@
 <title>Machine Learning Journey | sysid blog</title>
 <meta name="title" content="Machine Learning Journey" />
 <meta name="description" content="Cheat Sheet General Explanations: embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices KFold Cross Validation: The purpose of cross-validation is model checking, not model building. Once we have used cross-validation to select the better performing model, we train that model (whether it be the linear regression or the neural network) on all the data." />
-<meta name="keywords" content="python,learning," />
+<meta name="keywords" content="python,learning,ai,machine learning," />
 
 
 <meta property="og:title" content="Machine Learning Journey" />
@@ -33,7 +33,7 @@
 <meta itemprop="description" content="Cheat Sheet General Explanations: embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices KFold Cross Validation: The purpose of cross-validation is model checking, not model building. Once we have used cross-validation to select the better performing model, we train that model (whether it be the linear regression or the neural network) on all the data."><meta itemprop="datePublished" content="2017-01-23T22:12:03+00:00" />
 <meta itemprop="dateModified" content="2017-01-23T22:12:03+00:00" />
 <meta itemprop="wordCount" content="4521"><meta itemprop="image" content="images/share.png"/>
-<meta itemprop="keywords" content="python,learning," />
+<meta itemprop="keywords" content="python,learning,ai,machine learning," />
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <style>
@@ -553,7 +553,7 @@ word2vec (Google) vs. glove</p>
 </span></span><span style="display:flex;"><span>rnn_bwd1 = LSTM(rnn_size, return_sequence=<span style="color:#080;font-weight:bold">True</span>, go_backwards=<span style="color:#080;font-weight:bold">True</span>)(xemb)
 </span></span><span style="display:flex;"><span>rnn_bidir1 = merge([rnn_fwd1, rnn_bwd1], mode=<span style="color:#d20;background-color:#fff0f0">&#39;concat&#39;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>predictions = TimeDistributed(Dense(output_class_size, activation=<span style="color:#d20;background-color:#fff0f0">&#39;softmax&#39;</span>))(rnn_bidir1) 
+</span></span><span style="display:flex;"><span>predictions = TimeDistributed(Dense(output_class_size, activation=<span style="color:#d20;background-color:#fff0f0">&#39;softmax&#39;</span>))(rnn_bidir1)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>model = Model(<span style="color:#038">input</span>=xin, output=predictions)
 </span></span><span style="display:flex;"><span>
@@ -615,6 +615,10 @@ word2vec (Google) vs. glove</p>
   <a href="/blog/python/">#python</a>
   
   <a href="/blog/learning/">#learning</a>
+  
+  <a href="/blog/ai/">#ai</a>
+  
+  <a href="/blog/machine-learning/">#machine learning</a>
   
 </p>
 

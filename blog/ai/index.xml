@@ -20,5 +20,45 @@ I will just show examples of how ChatGPT is about changing my workflow and impro
 Infrastructure as Code One workflow to deploy new infrastructure often is to work interactively with the cloud&amp;rsquo;s provider graphical UI and rewrite it in the IaC suite of your choice.</description>
     </item>
     
+    <item>
+      <title>String Puppets</title>
+      <link>/string-puppets/</link>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/string-puppets/</guid>
+      <description>import mona1 from &amp;ldquo;./mona1.mp4&amp;rdquo;
+I am a fan of the Augsburger Puppenkiste. Puppets are brought to live by pulling strings. If you ever get to Augsburg, do not miss to see a show!
+Today a came across an excellent article 1, which creepily reminded me of these happy String Puppets.
+I decided to hit two birds with one stone: Learn something about the current state of Deep Fakes and try out Google&amp;rsquo;s Colab environment.</description>
+    </item>
+    
+    <item>
+      <title>Energy Forecast for a full-scale Vehicle Plant</title>
+      <link>/energy-forecast-for-a-full-scale-vehicle-plant/</link>
+      <pubDate>Sun, 28 May 2017 22:12:03 +0000</pubDate>
+      
+      <guid>/energy-forecast-for-a-full-scale-vehicle-plant/</guid>
+      <description>Energy Forecast for a full scale Vehicle Plant Energy forecasting is based on time series analysis. There are many techniques for analysing and forecasting time series, e.g. ARIMA, linear regression and deep learning. To tackle the challenge at hand a linear regression will be the benchmark model aganst which deep learning models will be tested. In particular a multi layer perceptron (MLP) and recurrent neural network (RNN), i.e. Long-Short Time Memory (LSTM) model will be applied.</description>
+    </item>
+    
+    <item>
+      <title>Fishy Affine Transformation</title>
+      <link>/fishy-affine-transformation/</link>
+      <pubDate>Mon, 13 Mar 2017 22:12:03 +0000</pubDate>
+      
+      <guid>/fishy-affine-transformation/</guid>
+      <description>Fishy Affine Transformation While working on the kaggle competition https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring I hit the point when I wanted to align fish based on an annotation at the fish&amp;rsquo;s head and tail, so that the fish is centered in the image, always in the same orientation and distracting picture information is minimized. This required:
+finding the fish (thanks Nathaniel Shimoni for annotating) centering rotatating cropping Mathematically the challenge is to find the associated Affine Transformation.</description>
+    </item>
+    
+    <item>
+      <title>Machine Learning Journey</title>
+      <link>/machine-learning-journey/</link>
+      <pubDate>Mon, 23 Jan 2017 22:12:03 +0000</pubDate>
+      
+      <guid>/machine-learning-journey/</guid>
+      <description>Cheat Sheet General Explanations: embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices KFold Cross Validation: The purpose of cross-validation is model checking, not model building. Once we have used cross-validation to select the better performing model, we train that model (whether it be the linear regression or the neural network) on all the data.</description>
+    </item>
+    
   </channel>
 </rss>
