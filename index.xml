@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Sat, 14 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChatGPT in Software Development</title>
+      <link>/chatgpt-in-software-development/</link>
+      <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/chatgpt-in-software-development/</guid>
+      <description>Describe the target, let the machine figure it out.
+The world has changed. I know, there are many similar blog articles stating the obvious: Certain professions will have to re-define themselves.
+I will just show examples of how ChatGPT is about changing my workflow and improving my life.
+Infrastructure as Code One workflow to deploy new infrastructure often is to work interactively with the cloud&amp;rsquo;s provider graphical UI and rewrite it in the IaC suite of your choice.</description>
+    </item>
+    
     <item>
       <title>bkmr</title>
       <link>/bkmr/</link>

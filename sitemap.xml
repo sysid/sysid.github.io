@@ -3,13 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2023-01-14T00:00:00+00:00</lastmod>
+    <lastmod>2023-05-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url><url>
-    <loc>/bkmr/</loc>
-    <lastmod>2023-01-14T00:00:00+00:00</lastmod>
+    <loc>/blog/ai/</loc>
+    <lastmod>2023-05-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/</loc>
+    <lastmod>2023-05-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/chatgpt-in-software-development/</loc>
+    <lastmod>2023-05-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/machine-learning/</loc>
+    <lastmod>2023-05-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/software-development/</loc>
+    <lastmod>2023-05-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/bkmr/</loc>
     <lastmod>2023-01-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/rust/</loc>
@@ -80,9 +92,6 @@
   </url><url>
     <loc>/the-book-of-mormon/</loc>
     <lastmod>2020-06-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/blog/machine-learning/</loc>
-    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/society/</loc>
     <lastmod>2020-06-01T00:00:00+00:00</lastmod>

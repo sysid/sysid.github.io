@@ -1,0 +1,14 @@
+
+To linearize the given model, we can introduce a new binary variable, $z_{i,j}$, that represents the product of the binary variables $\color{darkred}x_i$ and $\color{darkred}x_j$. This new variable will replace the nonlinear term in the objective function, making the model linear. We will also add constraints to link the new variable $z_{i,j}$ with the original variables $\color{darkred}x_i$ and $\color{darkred}x_j$.
+
+The linearized model can be written as:
+
+\begin{align}\min&\sum_{i,j|\color{darkblue}{\mathit{ok}}{i,j}} \color{darkblue}{\mathit{dist}}{i,j}\cdot z_{i,j} \ &
+\sum_{i|\color{darkblue}{\mathit{group}}{i,g}} \color{darkred}x_i = 1 && \forall g\ &
+\color{darkred}x_i \in {0,1} \ &
+z{i,j} \leq \color{darkred}x_i && \forall i,j|\color{darkblue}{\mathit{ok}}{i,j} \ &
+z{i,j} \leq \color{darkred}x_j && \forall i,j|\color{darkblue}{\mathit{ok}}{i,j} \ &
+z{i,j} \geq \color{darkred}x_i + \color{darkred}x_j - 1 && \forall i,j|\color{darkblue}{\mathit{ok}}{i,j} \ &
+z{i,j} \in {0,1} && \forall i,j|\color{darkblue}{\mathit{ok}}_{i,j} \end{align}
+
+In this linearized model, the nonlinear term $\color{darkred}x_i \cdot \color{darkred}x_j$ has been replaced by the new variable $z_{i,j}$ in the objective function. The constraints have been added to ensure the relationship between $z_{i,j}$, $\color{darkred}x_i$, and $\color{darkred}x_j$.
