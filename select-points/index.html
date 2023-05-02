@@ -32,7 +32,7 @@
 <meta itemprop="name" content="Select Points">
 <meta itemprop="description" content="Find the maximal distanced subset of points."><meta itemprop="datePublished" content="2023-04-30T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-04-30T00:00:00+00:00" />
-<meta itemprop="wordCount" content="353"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="wordCount" content="400"><meta itemprop="image" content="images/share.png"/>
 <meta itemprop="keywords" content="python,optimization,work,pyomo," />
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
@@ -337,6 +337,20 @@ With this set and using Pyomo&rsquo;s decorator syntax the model looks compact:<
 The complete code can be found <a href="https://github.com/sysid/pyo-select-points">here</a>.</p>
 <p>Interesting to see is the solution time between CPLEX <sup id="fnref1:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> 0.672s and CBC 22s.
 There is a huge gap between commercial solvers and OSS solvers.</p>
+<h3 id="maximize">Maximize</h3>
+<p>Maximizing the same model seems to be much harder for the solver. The same model size as above
+did not solve within 6000s.</p>
+<p>Halve the size solved:</p>
+<ul>
+<li>feasible and optimal solution found</li>
+<li>Solution 777.58370723</li>
+<li>Number of constraints : 2933</li>
+<li>Number of variables : 1026</li>
+<li>Duration: 00:00:33</li>
+</ul>
+<figure class="center"><img src="max1_result.png" width="100%"/>
+</figure>
+
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>

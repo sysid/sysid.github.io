@@ -1,14 +1,16 @@
 
-To linearize the given model, we can introduce a new binary variable, $z_{i,j}$, that represents the product of the binary variables $\color{darkred}x_i$ and $\color{darkred}x_j$. This new variable will replace the nonlinear term in the objective function, making the model linear. We will also add constraints to link the new variable $z_{i,j}$ with the original variables $\color{darkred}x_i$ and $\color{darkred}x_j$.
+To linearize the given model, we need to remove the quadratic terms in the objective function. The quadratic term in the objective function is $x_i \cdot x_j$. We can introduce a new binary variable $y_{i,j}$ to replace this term, which represents the product of $x_i$ and $x_j$. The new variable $y_{i,j}$ will take the value 1 if both $x_i$ and $x_j$ are 1, and 0 otherwise.
 
-The linearized model can be written as:
+The linearized model will be:
 
-\begin{align}\min&\sum_{i,j|\color{darkblue}{\mathit{ok}}{i,j}} \color{darkblue}{\mathit{dist}}{i,j}\cdot z_{i,j} \ &
-\sum_{i|\color{darkblue}{\mathit{group}}{i,g}} \color{darkred}x_i = 1 && \forall g\ &
-\color{darkred}x_i \in {0,1} \ &
-z{i,j} \leq \color{darkred}x_i && \forall i,j|\color{darkblue}{\mathit{ok}}{i,j} \ &
-z{i,j} \leq \color{darkred}x_j && \forall i,j|\color{darkblue}{\mathit{ok}}{i,j} \ &
-z{i,j} \geq \color{darkred}x_i + \color{darkred}x_j - 1 && \forall i,j|\color{darkblue}{\mathit{ok}}{i,j} \ &
-z{i,j} \in {0,1} && \forall i,j|\color{darkblue}{\mathit{ok}}_{i,j} \end{align}
+\begin{align*}
+    & \min \sum_{i,j| ok_{i,j}} dist_{i,j} \cdot y_{i,j} \\
+    & \sum_{i|group_{i,g}} x_i = 1 \quad \forall g \\
+    & y_{i,j} \ge x_i + x_j - 1 \quad \forall i,j | ok_{i,j} \\
+    & y_{i,j} \le x_i \quad \forall i,j | ok_{i,j} \\
+    & y_{i,j} \le x_j \quad \forall i,j | ok_{i,j} \\
+    & x_i \in \{0,1\} \\
+    & y_{i,j} \in \{0,1\}
+\end{align*}
 
-In this linearized model, the nonlinear term $\color{darkred}x_i \cdot \color{darkred}x_j$ has been replaced by the new variable $z_{i,j}$ in the objective function. The constraints have been added to ensure the relationship between $z_{i,j}$, $\color{darkred}x_i$, and $\color{darkred}x_j$.
+The new constraints ensure that $y_{i,j}$ takes the value of the product of $x_i$ and $x_j$. Specifically, the first two constraints enforce that $y_{i,j}$ must be 0 if either $x_i$ or $x_j$ is 0, while the third constraint guarantees that $y_{i,j}$ must be 1 if both $x_i$ and $x_j$ are 1.

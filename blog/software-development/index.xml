@@ -15,9 +15,10 @@
       
       <guid>/chatgpt-in-software-development/</guid>
       <description>Describe the target, let the machine figure it out.
-The world has changed. I know, there are many similar blog articles stating the obvious: Certain professions will have to re-define themselves.
-I will just show examples of how ChatGPT is about changing my workflow and improving my life.
-Infrastructure as Code One workflow to deploy new infrastructure often is to work interactively with the cloud&amp;rsquo;s provider graphical UI and rewrite it in the IaC suite of your choice.</description>
+The world has changed. I am showing examples of how ChatGPT is changing my workflow.
+Infrastructure as Code One way to deploy new infrastructure is to work interactively with the cloud&amp;rsquo;s provider graphical UI and rewrite it in the IaC suite of your choice.
+However, re-writing it feels like redundant work.
+Using terraform as an example there are several options:</description>
     </item>
     
   </channel>

@@ -32,7 +32,7 @@
 <meta itemprop="name" content="ChatGPT in Software Development">
 <meta itemprop="description" content="Revolution in Software Development"><meta itemprop="datePublished" content="2023-05-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-05-01T00:00:00+00:00" />
-<meta itemprop="wordCount" content="764"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="wordCount" content="662"><meta itemprop="image" content="images/share.png"/>
 <meta itemprop="keywords" content="software development,machine learning,ai," />
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
@@ -268,13 +268,11 @@ if (!doNotTrack) {
 <p>Describe the target, let the machine figure it out.</p>
 </blockquote>
 <h1 id="the-world-has-changed">The world has changed.</h1>
-<p>I know, there are many similar blog articles stating the obvious: Certain professions
-will have to re-define themselves.</p>
-<p>I will just show examples of how ChatGPT is about changing my workflow and improving my life.</p>
+<p>I am showing examples of how ChatGPT is changing my workflow.</p>
 <h2 id="infrastructure-as-code">Infrastructure as Code</h2>
-<p>One workflow to deploy new infrastructure often is to work interactively with the cloud&rsquo;s
-provider graphical UI and rewrite it in the IaC suite of your choice.
-Re-writing it feels like redundant work, though.</p>
+<p>One way to deploy new infrastructure is to work interactively with the cloud&rsquo;s
+provider graphical UI and rewrite it in the IaC suite of your choice.</p>
+<p>However, re-writing it feels like redundant work.</p>
 <p>Using <code>terraform</code> as an example there are several options:</p>
 <ol>
 <li><code>terraform import</code></li>
@@ -284,16 +282,17 @@ Re-writing it feels like redundant work, though.</p>
 </ol>
 <p>They all work (to some degree). However, the mental impedance for using them only once in a while
 is considerable, e.g. remembering the syntax, gotchas, etc&hellip;</p>
-<p>This is a general problem with all tools, which are used only sporadically.</p>
-<p>My new workflow is:</p>
+<p>This is a general problem with tools, which are used only sporadically.</p>
+<p>My new workflow here is:</p>
 <ol>
 <li>create the components in AWS console</li>
-<li>describe them with <code>aws describe</code></li>
-<li>let ChatGPT create the initial terraform (hcl)</li>
+<li>describe them with <code>aws describe</code> (sanitize if required)</li>
+<li>let ChatGPT create the terraform (hcl)</li>
 <li>refine the terraform in a dialog with ChatGPT, e.g. parametrize the resources, add output, create modules, etc&hellip;</li>
 </ol>
 <h2 id="metaprogramming">Metaprogramming</h2>
-<p>Given a Rust struct, I want to implement a function to serialize it to json.</p>
+<p>I got a <a href="https://github.com/sysid/bkmr/issues/13#issue-1688334755">feature request</a> for <a href="https://github.com/sysid/bkmr">bkmr</a> to include plain text output.</p>
+<p>This translates to implementing a function to serialize a Rust struct to json and print it.</p>
 <p><img src="bm_pre.png" alt="bm_pre"></p>
 <p>Not a super fancy problem,
 but since I am not using Rust on daily basis it requires a bit of re-adjusting mental state in
@@ -307,8 +306,8 @@ order get me back into Rust syntax, crate ecosystem, CI/CD, etc.</p>
 <p><img src="list_bms.png" alt="list_bms"></p>
 <p>the updated model:</p>
 <p><img src="bm_post.png" alt="bm_post"></p>
-<p>Implementing a new feature (json serialization for <a href="https://github.com/sysid/bkmr">bkmr</a>) from start till uploaded crate on <a href="https://crates.io/crates/bkmr">crates.io</a> took less
-then 45 minutes.</p>
+<p>Implementing a new feature took so from start to <a href="https://crates.io/crates/bkmr">published crate</a> less then 45 minutes.</p>
+<br>
 <h2 id="mathematical-programming">Mathematical Programming</h2>
 <p>How can ChatGPT handle Math and especially Mathematical Programming? For this I selected a simple example
 of a non linear optimization problem <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>:</p>
@@ -323,34 +322,30 @@ of a non linear optimization problem <sup id="fnref:1"><a href="#fn:1" class="fo
 \color{darkred}x_i \in {0,1}
 $$</p>
 <p>I want to use a linear MIP solver, so I ask ChatGPT to linearize the model:</p>
-<p><img src="miqp.png" alt="miqp">
-<img src="miqp_cleaned.png" alt="miqp_cleaned"></p>
+<p><img src="miqp_chatgpt.png" alt="miqp_chatgpt"></p>
 <h4 id="result">Result</h4>
-<p>&ldquo;To linearize the given model, we can introduce a new binary variable, $z_{i,j}$, that represents the product of the binary variables $\color{darkred}x_i$ and $\color{darkred}x_j$. This new variable will replace the nonlinear term in the objective function, making the model linear. We will also add constraints to link the new variable $z_{i,j}$ with the original variables $\color{darkred}x_i$ and $\color{darkred}x_j$.</p>
-<p>The linearized model can be written as:</p>
-<p>\begin{align}
-\min&amp;\sum_{i,j|ok_{i,j}} dist_{i,j}\cdot z_{i,j} \\
-&amp; \sum_{i|group_{i,g}} x_i = 1 &amp;&amp; \forall g\\
+<p>\begin{align*}
+&amp; \min \sum_{i,j| ok_{i,j}} dist_{i,j} \cdot y_{i,j} \\
+&amp; \sum_{i|group_{i,g}} x_i = 1 \quad \forall g \\
+&amp; y_{i,j} \ge x_i + x_j - 1 \quad \forall i,j | ok_{i,j} \\
+&amp; y_{i,j} \le x_i \quad \forall i,j | ok_{i,j} \\
+&amp; y_{i,j} \le x_j \quad \forall i,j | ok_{i,j} \\
 &amp; x_i \in {0,1} \\
-&amp; z_{i,j} \leq x_i &amp;&amp; \forall i,j|ok_{i,j} \\
-&amp; z_{i,j} \leq x_j &amp;&amp; \forall i,j|ok_{i,j} \\
-&amp; z_{i,j} \geq x_i + x_j - 1 &amp;&amp; \forall i,j|ok_{i,j} \\
-&amp; z_{i,j} \in {0,1} &amp;&amp; \forall i,j|ok_{i,j}
-\end{align}</p>
-<p>In this linearized model, the nonlinear term $\color{darkred}x_i \cdot \color{darkred}x_j$ has been replaced by the new variable $z_{i,j}$ in the objective function. The constraints have been added to ensure the relationship between $z_{i,j}$, $\color{darkred}x_i$, and $\color{darkred}x_j$.&rdquo;</p>
+&amp; y_{i,j} \in {0,1}
+\end{align*}</p>
 <p>The linearization is correct, as is the Latex output. This is pretty amazing!
-ChatGPT does not care which encoding you use to phrase your problem, it can speak Latex.</p>
-<p><a href="../select-points">Here</a> is the full article.</p>
+ChatGPT does not care which encoding you use to phrase a problem, it can speak Latex.</p>
+<p><a href="../select-points">Here</a> is the full article regarding the MP problem and solution.</p>
 <h1 id="summary">Summary</h1>
 <p>The striking feature of ChatGPT for me is the promise of having <strong>ONE UNIFIED INTERFACE</strong>
-for all heterogenous tasks that I need to get done.</p>
-<p>It is the universal translation layer to all different languages and tools which I need to use for my daily work.
+for all tasks that I need to get done.</p>
+<p>It is a universal translation layer to all different domain specific languages and tools which I need to use for my daily work.
 DSL hell seems to be finally a thing of the past!</p>
 <p>In addition to that it feels like having a personal consultant sitting next to you, waiting
 to answer your questions and provide you with valuable reasoning.</p>
-<p>If I can describe my task and desired outcome properly, ChatGPT happily
+<p>If I can describe the task and desired outcome properly, ChatGPT happily
 translate it into whatever API, tool, DSL, programming language, formula I need.</p>
-<p>The productivity gain is huge, but the mental peace of mind of having the syntax problem solved is priceless.</p>
+<p>Productivity gain is huge, but the mental peace of mind of having the syntax problem solved is priceless.</p>
 <h3 id="caveat-emptor">Caveat Emptor</h3>
 <p>With all the incredible results it is important not to forget, that</p>
 <ol>
