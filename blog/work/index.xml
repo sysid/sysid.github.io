@@ -45,20 +45,6 @@ CRUD, MVC simple concepts and therefore effective communication in dev teams wor
     </item>
     
     <item>
-      <title>Code Snippets</title>
-      <link>/code-snippets/</link>
-      <pubDate>Sat, 20 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/code-snippets/</guid>
-      <description>Using code snippets cross platform in VIM and JetBrains IDE without having to maintain them twice!
-As developer we are always striving to improve our (work)flow.
-This includes especially tooling, of course.
-Here omes taste, capability, technology and craze come together in an unholy mélange of preferences. Your idea of Nirvana surely will be different from mine.
-I am using two IDEs:
-vim JetBrains PyCharm A challenge while coding is to remember correct syntax, so IDEs provide helpers like code completion, linters and yes, still code snippets (call me old-fashioned).</description>
-    </item>
-    
-    <item>
       <title>Job Shop Scheduling Problem</title>
       <link>/job-shop-scheduling-problem/</link>
       <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
