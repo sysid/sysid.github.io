@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Sun, 30 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="/blog/pyomo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="/blog/pyomo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linear Optimization in time-critical Control Loop</title>
+      <link>/linear-optimization-in-time-critical-control-loop/</link>
+      <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/linear-optimization-in-time-critical-control-loop/</guid>
+      <description>Problem Given a start and endpoint, find the eager and lazy path from start to end.
+Model The visualization translates to a simple rhombus (German: Raute) where the enclosed area is to be maximized.
+The task is to find the corner points A, B, C, D, of the Raute.
+There is a twist, however. The points must be contained within a &amp;ldquo;valid&amp;rdquo; area, whereas start and endpoint may lie outside.</description>
+    </item>
+    
     <item>
       <title>Select Points</title>
       <link>/select-points/</link>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/images/favicon.png" />
+<title>Linear Optimization in time-critical Control Loop | sysid blog</title>
+<meta name="title" content="Linear Optimization in time-critical Control Loop" />
+<meta name="description" content="Linear Optimization in time-critical Control Loop" />
+<meta name="keywords" content="python,optimization,pyomo,rust," />
+
+
+<meta property="og:title" content="Linear Optimization in time-critical Control Loop" />
+<meta property="og:description" content="Linear Optimization in time-critical Control Loop" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/linear-optimization-in-time-critical-control-loop/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-05-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-05-13T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="Linear Optimization in time-critical Control Loop"/>
+<meta name="twitter:description" content="Linear Optimization in time-critical Control Loop"/>
+
+
+
+<meta itemprop="name" content="Linear Optimization in time-critical Control Loop">
+<meta itemprop="description" content="Linear Optimization in time-critical Control Loop"><meta itemprop="datePublished" content="2023-05-13T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-05-13T00:00:00+00:00" />
+<meta itemprop="wordCount" content="734"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="python,optimization,pyomo,rust," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-49519316-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-alpha.1/es5/tex-mml-chtml.js"></script>
+
+
+<script>
+    MathJaxDone = new Promise((resolve, reject) => {
+        window.MathJax = {
+            tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+            startup: {
+                pageReady() {
+                    return MathJax.startup.defaultPageReady().then(resolve);
+                }
+            }
+        }
+    });
+</script>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Linear Optimization in time-critical Control Loop</h1>
+<p>
+  <i>
+    <time datetime='2023-05-13' pubdate>
+      13 May, 2023
+    </time>
+  </i>
+</p>
+
+<content>
+  <h2 id="problem">Problem</h2>
+<blockquote>
+<p>Given a start and endpoint, find the eager and lazy path from start to end.</p>
+</blockquote>
+<figure class="center"><img src="eager_lazy_path.png" width="100%"/>
+</figure>
+
+<h2 id="model">Model</h2>
+<p>The visualization translates to a simple rhombus (German: Raute) where the enclosed area is to be maximized.</p>
+<p>The task is to find the corner points A, B, C, D, of the Raute.</p>
+<p>There is a twist, however. The points must be contained within a &ldquo;valid&rdquo; area, whereas
+start and endpoint may lie outside.</p>
+<figure class="center"><img src="valid_area.png" width="100%"/>
+</figure>
+
+<p>Without this twist, the problem would be trivial to solve with a simple linear equation system.</p>
+<p>The problem still can be solved easily with simple linear math, but due to the twist it would require
+conditional calculations, depending whether the start/endpoint lie within or outside the valid area.</p>
+<p>With a LP (linear programming) model a closed formulation without conditional branching is possible:</p>
+<h3 id="parameters">Parameters</h3>
+<p>$$
+S=(t_S, Y_S)\\
+E=(t_E, Y_E)\\
+P_0 &gt; 0\\
+C_1 = Y_S - P_0 t_S \\
+C_2 = Y_E - P_0 t_E \\
+$$</p>
+<h3 id="objective">Objective</h3>
+<p>$$
+\max \ t_C - t_A \\
+$$</p>
+<h3 id="variables">Variables</h3>
+<p>$$
+A=(t_A, Y_A)\\
+B=(t_B, Y_B)\\
+C=(t_C, Y_C)\\
+D=(t_D, Y_D)\\
+$$</p>
+<h3 id="feasability">Feasability</h3>
+<p>$$
+C_1 \ge C_2\\
+$$</p>
+<h3 id="constraints">Constraints</h3>
+<h4 id="allowed-area">Allowed Area</h4>
+<p>$$
+Y_{min} \le P_0 t_A + C_1 \le Y_{max}\\
+Y_{min} \le P_0 t_C + C_1 \le Y_{max}\\
+Y_{min} \le P_0 t_B + C_2 \le Y_{max}\\
+Y_{min} \le P_0 t_D + C_2 \le Y_{max}\\
+$$</p>
+<h4 id="startend">Start/End</h4>
+<p>$$
+Y_{S} \le P_0 t_A + C_1 \le Y_{E}\\
+Y_{S} \le P_0 t_C + C_1 \le Y_{E}\\
+Y_{S} \le P_0 t_B + C_2 \le Y_{E}\\
+Y_{S} \le P_0 t_D + C_2 \le Y_{E}\\
+$$</p>
+<h4 id="raute">Raute</h4>
+<p>$$
+Y_A = Y_B \\
+Y_C = Y_D \\
+Y_A = P_0 t_A + C_1 \\
+Y_C = P_0 t_C + C_1 \\
+Y_B = P_0 t_B + C_2 \\
+Y_D = P_0 t_D + C_2 \\
+$$</p>
+<p>With <a href="http://www.pyomo.org/">Pyomo</a> it is easy to translate the LP model
+into Python code. The model solves in a split second.</p>
+<h2 id="result">Result</h2>
+<h3 id="startend-outside--valid-area">Start/End outside  valid area</h3>
+<ul>
+<li>Solution 35.0</li>
+<li>Number of constraints : 14</li>
+<li>Number of variables : 8</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>{<span style="color:#d20;background-color:#fff0f0">&#39;Y&#39;</span>: {<span style="color:#d20;background-color:#fff0f0">&#39;A&#39;</span>: <span style="color:#00d;font-weight:bold">50.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;B&#39;</span>: <span style="color:#00d;font-weight:bold">50.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;C&#39;</span>: <span style="color:#00d;font-weight:bold">400.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;D&#39;</span>: <span style="color:#00d;font-weight:bold">400.0</span>},
+</span></span><span style="display:flex;"><span> <span style="color:#d20;background-color:#fff0f0">&#39;t&#39;</span>: {<span style="color:#d20;background-color:#fff0f0">&#39;A&#39;</span>: <span style="color:#00d;font-weight:bold">14.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;B&#39;</span>: <span style="color:#00d;font-weight:bold">55.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;C&#39;</span>: <span style="color:#00d;font-weight:bold">49.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;D&#39;</span>: <span style="color:#00d;font-weight:bold">90.0</span>}}
+</span></span></code></pre></div><figure class="center"><img src="pyomo_outside.png" width="100%"/>
+</figure>
+
+<h3 id="startend-within-valid-area">Start/End within valid area</h3>
+<ul>
+<li>Solution 28.0</li>
+<li>Number of constraints : 14</li>
+<li>Number of variables : 8</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>{<span style="color:#d20;background-color:#fff0f0">&#39;Y&#39;</span>: {<span style="color:#d20;background-color:#fff0f0">&#39;A&#39;</span>: <span style="color:#00d;font-weight:bold">70.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;B&#39;</span>: <span style="color:#00d;font-weight:bold">70.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;C&#39;</span>: <span style="color:#00d;font-weight:bold">350.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;D&#39;</span>: <span style="color:#00d;font-weight:bold">350.0</span>},
+</span></span><span style="display:flex;"><span> <span style="color:#d20;background-color:#fff0f0">&#39;t&#39;</span>: {<span style="color:#d20;background-color:#fff0f0">&#39;A&#39;</span>: <span style="color:#00d;font-weight:bold">10.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;B&#39;</span>: <span style="color:#00d;font-weight:bold">72.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;C&#39;</span>: <span style="color:#00d;font-weight:bold">38.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;D&#39;</span>: <span style="color:#00d;font-weight:bold">100.0</span>}}
+</span></span></code></pre></div><figure class="center"><img src="pyomo_inside.png" width="100%"/>
+</figure>
+
+<h1 id="high-performance-solution">High Performance Solution</h1>
+<p><a href="http://www.pyomo.org/">Pyomo</a> is very capable and flexible for any modelling needs,
+but performance-wise we can do better.</p>
+<p>Before the solver can start working on the problem, Pyomo needs to translate the model into an LP
+file format which will then be read by the (CBC) solver. This indirection is an &ldquo;ok&rdquo; worflow
+for quick iteration and model building.</p>
+<p>However, if for example the optimization needs to run in a critical
+real-time control loop this might be inacceptable.</p>
+<p>A better way is to directly talk to the solver API. Here Rust and
+<a href="https://github.com/rust-or/good_lp">good_lp</a> provide an interesting option.</p>
+<p>Translating the model into Rust allows to directly bind the shared libraries of CBC and
+avoid any intermediate translation steps.</p>
+<h2 id="rust-implementation">Rust Implementation</h2>
+<p>Translating the model into Rust is straight forward for such a simple problem:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#888">// Objective
+</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">let</span><span style="color:#bbb"> </span>solution<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>vars.maximise(t_C<span style="color:#bbb"> </span>-<span style="color:#bbb"> </span>t_A)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.using(good_lp::default_solver)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(Emin<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>E_A<span style="color:#bbb"> </span>))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(Emin<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>E_B<span style="color:#bbb"> </span>))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(Emin<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>E_C<span style="color:#bbb"> </span>))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(Emin<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>E_D<span style="color:#bbb"> </span>))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(E_A<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>Emax))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(E_B<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>Emax))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(E_C<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>Emax))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(E_D<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>Emax))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(plugin.E<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>E_A<span style="color:#bbb"> </span>))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(plugin.E<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>E_B<span style="color:#bbb"> </span>))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(plugin.E<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>E_C<span style="color:#bbb"> </span>))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(plugin.E<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>E_D<span style="color:#bbb"> </span>))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(E_A<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>plugout.E))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(E_B<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>plugout.E))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(E_C<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>plugout.E))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(E_D<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>plugout.E))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(E_A<span style="color:#bbb"> </span>==<span style="color:#bbb"> </span>E_B))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(E_C<span style="color:#bbb"> </span>==<span style="color:#bbb"> </span>E_D))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(E_A<span style="color:#bbb"> </span>==<span style="color:#bbb"> </span>P<span style="color:#bbb"> </span>*<span style="color:#bbb"> </span>t_A<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>Ce))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(E_C<span style="color:#bbb"> </span>==<span style="color:#bbb"> </span>P<span style="color:#bbb"> </span>*<span style="color:#bbb"> </span>t_C<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>Ce))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(E_B<span style="color:#bbb"> </span>==<span style="color:#bbb"> </span>P<span style="color:#bbb"> </span>*<span style="color:#bbb"> </span>t_B<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>Cl))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(constraint!(E_D<span style="color:#bbb"> </span>==<span style="color:#bbb"> </span>P<span style="color:#bbb"> </span>*<span style="color:#bbb"> </span>t_D<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>Cl))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.solve()?;<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="comparison">Comparison</h2>
+<p>The &ldquo;rustified&rdquo; model is more than 50 times faster then the Pyomo version! This is impressive, because the
+actual solver code is in both cases highly optimized CBC C++ code.</p>
+<p>Solving the model with Pyomo is not the bottleneck, CBC is fast once it has read the LP file. But
+generating the LP file and reading it into CBC adds a lot of overhead.</p>
+<h3 id="pyomo">Pyomo</h3>
+<figure class="center"><img src="pyomo_solution.png" width="100%"/>
+</figure>
+
+<h3 id="rust">Rust</h3>
+<figure class="center"><img src="rust_solution.png" width="100%"/>
+</figure>
+
+<h1 id="conclusion">Conclusion</h1>
+<p>To model a LP/MIP problem Pyomo is a very attractive solution. In any case it is much more powerful and flexible
+than Rust <a href="https://github.com/rust-or/good_lp">good_lp</a>.</p>
+<p>Combining Pyomo&rsquo;s strengths with the
+raw performance of Rust and direct library binding results in a very competitive and capable
+optimization toolchain for LP and MIP problems.</p>
+
+</content>
+<p>
+  
+  <a href="/blog/python/">#python</a>
+  
+  <a href="/blog/optimization/">#optimization</a>
+  
+  <a href="/blog/pyomo/">#pyomo</a>
+  
+  <a href="/blog/rust/">#rust</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>
