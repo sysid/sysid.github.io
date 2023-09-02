@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/images/favicon.png" />
+<title>Hierarchical Environment Variable Management | sysid blog</title>
+<meta name="title" content="Hierarchical Environment Variable Management" />
+<meta name="description" content="Hierarchical Environment Management in Software Development" />
+<meta name="keywords" content="software development,rust," />
+
+
+<meta property="og:title" content="Hierarchical Environment Variable Management" />
+<meta property="og:description" content="Hierarchical Environment Management in Software Development" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/hierarchical-environment-variable-management/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-08-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-08-31T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="Hierarchical Environment Variable Management"/>
+<meta name="twitter:description" content="Hierarchical Environment Management in Software Development"/>
+
+
+
+<meta itemprop="name" content="Hierarchical Environment Variable Management">
+<meta itemprop="description" content="Hierarchical Environment Management in Software Development"><meta itemprop="datePublished" content="2023-08-31T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-08-31T00:00:00+00:00" />
+<meta itemprop="wordCount" content="728"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="software development,rust," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-8VH574W51S', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Hierarchical Environment Variable Management</h1>
+<p>
+  <i>
+    <time datetime='2023-08-31' pubdate>
+      31 Aug, 2023
+    </time>
+  </i>
+</p>
+
+<content>
+  <blockquote>
+<p>I still spend too much time managing environment variables!</p>
+</blockquote>
+<p>The &ldquo;Twelve-Factor&rdquo; methodology prescribes that cloud-native applications should be configured via environment variables.</p>
+<p>This recommendation separates configuration from code, which is essential for scalability and security. But it also
+results in an extensive array of environment variables.</p>
+<p>Having to manage these variables for test, integration, end-to-end, and production environments becomes a daunting task. Often, these variable sets intersect. For instance, while Github credentials might be consistent across all environments, AWS accounts may vary.</p>
+<p>Duplicating variables across environments is error-prone due to the necessary, often manual synchronization.</p>
+<p>Small errors can lead to subtle bugs and tedious debug sessions.</p>
+<h2 id="problem-to-solve">Problem To Solve</h2>
+<p>How to manage the set of environment variables without duplication and synchronization.</p>
+<h2 id="solution-rs-envhttpsgithubcomsysidrs-env">Solution: <a href="https://github.com/sysid/rs-env">rs-env</a></h2>
+<p><a href="https://github.com/sysid/rs-env">rs-env</a> crafts a definitive variable set for each environment.</p>
+<p>By utilizing different definition files, it prevents duplication and sync errors. It starts with global variables, gradually augmenting and refining the set for each level of specification.</p>
+<h2 id="demonstration">Demonstration</h2>
+<p>Given a set of files which declare variables on various levels, the files can be linked and the resulting set is read
+from top to bottom. Hereby overwrite later variable definitions earlier ones.</p>
+<!--![example](example.png)-->
+<figure class="center"><img src="example.png" width="50%"/>
+</figure>
+
+<p>This set of files is being linked together:</p>
+<!--![hierarchy](hierarchy.png)-->
+<figure class="center"><img src="hierarchy.png" width="50%"/>
+</figure>
+
+<p>The resulting variable set then would be:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#888"># final variable set</span>
+</span></span><span style="display:flex;"><span><span style="color:#038">export</span> <span style="color:#369">VAR_1</span>=var_11
+</span></span><span style="display:flex;"><span><span style="color:#038">export</span> <span style="color:#369">VAR_2</span>=var_21
+</span></span><span style="display:flex;"><span><span style="color:#038">export</span> <span style="color:#369">VAR_3</span>=var_31
+</span></span><span style="display:flex;"><span><span style="color:#038">export</span> <span style="color:#369">VAR_4</span>=cloud_42
+</span></span><span style="display:flex;"><span><span style="color:#038">export</span> <span style="color:#369">VAR_5</span>=var_53
+</span></span><span style="display:flex;"><span><span style="color:#038">export</span> <span style="color:#369">VAR_6</span>=local_64
+</span></span><span style="display:flex;"><span><span style="color:#038">export</span> <span style="color:#369">VAR_7</span>=local_74
+</span></span></code></pre></div><h2 id="advantage">Advantage</h2>
+<p>No more sync mishaps. Each variable is declared just once and integrated into a dependency graph. Any modifications in the graph flow seamlessly to the definitive variable set.</p>
+<h2 id="how-it-works">How It Works</h2>
+<ul>
+<li>File comments, <code># rsenv: &lt;previous-file&gt;</code>, link variable definitions.</li>
+<li>No limit to structuring variable definitions or the number of parallel dependency chains.</li>
+<li>The dependency graph is recursively assembled.</li>
+<li>Subsequent definitions override preceding ones.</li>
+</ul>
+<h3 id="usage">Usage</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Hierarchical environment variable management
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Usage: rsenv [OPTIONS] [NAME] [COMMAND]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Commands:
+</span></span><span style="display:flex;"><span>  build      Build the resulting <span style="color:#038">set</span> of environment variables from one branch
+</span></span><span style="display:flex;"><span>  envrc      Write the resulting <span style="color:#038">set</span> of variables to .envrc (requires direnv)
+</span></span><span style="display:flex;"><span>  files      Show all files of a branch
+</span></span><span style="display:flex;"><span>  edit       Edit the FZF selected branch
+</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">select</span>     FZF based selection of environment/branch and update of .envrc file (requires direnv)
+</span></span><span style="display:flex;"><span>  link       Link files into a dependency branch/tree
+</span></span><span style="display:flex;"><span>  branches   Show all branches (linear representation)
+</span></span><span style="display:flex;"><span>  tree       Show all trees (hierarchical representation)
+</span></span><span style="display:flex;"><span>  tree-edit  Edit branches of all trees side-by-side (vim required in path)
+</span></span><span style="display:flex;"><span>  <span style="color:#038">help</span>       Print this message or the <span style="color:#038">help</span> of the given subcommand(s)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Arguments:
+</span></span><span style="display:flex;"><span>  [NAME]  Optional name to operate on
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Options:
+</span></span><span style="display:flex;"><span>  -d, --debug...              Turn debugging information on
+</span></span><span style="display:flex;"><span>      --generate &lt;GENERATOR&gt;  [possible values: bash, elvish, fish, powershell, zsh]
+</span></span><span style="display:flex;"><span>      --info
+</span></span><span style="display:flex;"><span>  -h, --help                  Print <span style="color:#038">help</span>
+</span></span><span style="display:flex;"><span>  -V, --version               Print version
+</span></span></code></pre></div><p>Activate a set of variable definitions using:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#038">source</span> &lt;(rsenv build &lt;path-to-leaf.env&gt;)
+</span></span></code></pre></div><h2 id="seamless-integrations">Seamless Integrations</h2>
+<h3 id="direnv">direnv</h3>
+<p><a href="https://direnv.net/">direnv</a> is a gem for environment activation. It seamlessly toggles variable activation without side-effects and remains my go-to tool. Paired with <a href="https://github.com/sysid/rs-env">rs-env</a>, it&rsquo;s a match made in heaven.</p>
+<p>Not only does direnv handle environment switches, but it also doubles as documentation.
+The <code>.envrc</code> file, updated by <a href="https://github.com/sysid/rs-env">rs-env</a>, sheds light on the origin of each environment variable.</p>
+<p>No guessing where a particular environment variable value is coming from.  It is right where you expect it to be.</p>
+<h3 id="jetbrains">JetBrains</h3>
+<p>Having the correct set of variables active in JetBrains IDEs often is challenging.</p>
+<p>Starting the IDE from the terminal where the correct variables are active does work, but any changes in the environment go un-noticed in the IDE unless it is being
+restarted. Environment settings are only picked up during startup time. Not good.</p>
+<p>Alternatively variables can be defined in the IDE&rsquo;s run configurations. But then we are back at having several places to
+update and keep in sync. Laborious and error-prone. Not good.</p>
+<p>However, there is a very nice solution to this problem:</p>
+<p>Using the plugin <a href="https://plugins.jetbrains.com/plugin/7861-envfile">EnvFile</a> allows to specify an executable which injects the variables
+live. <a href="https://github.com/sysid/rs-env">rs-env</a> has a command which builds the environment set. This can be easily
+parametrized to pull the correct environment variable tree and inject it into the IDE runtime configuration.</p>
+<!--![jetbrain](jetbrain.png)-->
+<p><a href="jetbrain.png"><img src="jetbrain.png" alt="jetbrain"></a></p>
+<p>By setting just <strong>one</strong> variable <code>RUN_ENV=local</code> the script <code>runenv.sh</code> injects the correct full set of variables into the IDE. And this
+works live, i.e. changes in the environment files will be picked up automatically. Nice! No redundant configuration, always
+up-to-date, less headache.</p>
+<h2 id="summary">Summary</h2>
+<p>While managing environment variables inherently has its complexities, it shouldn&rsquo;t be a tedious chore.</p>
+<p>By using <a href="https://github.com/sysid/rs-env">rs-env</a>, especially in combination with <a href="https://direnv.net/">direnv</a> and JetBrain&rsquo; IDE the process can be much smoother and be less error-prone.</p>
+
+</content>
+<p>
+  
+  <a href="/blog/software-development/">#software development</a>
+  
+  <a href="/blog/rust/">#rust</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

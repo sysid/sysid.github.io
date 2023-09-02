@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Sat, 13 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 31 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hierarchical Environment Variable Management</title>
+      <link>/hierarchical-environment-variable-management/</link>
+      <pubDate>Thu, 31 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/hierarchical-environment-variable-management/</guid>
+      <description>I still spend too much time managing environment variables!
+The &amp;ldquo;Twelve-Factor&amp;rdquo; methodology prescribes that cloud-native applications should be configured via environment variables.
+This recommendation separates configuration from code, which is essential for scalability and security. But it also results in an extensive array of environment variables.
+Having to manage these variables for test, integration, end-to-end, and production environments becomes a daunting task. Often, these variable sets intersect. For instance, while Github credentials might be consistent across all environments, AWS accounts may vary.</description>
+    </item>
+    
     <item>
       <title>Linear Optimization in time-critical Control Loop</title>
       <link>/linear-optimization-in-time-critical-control-loop/</link>
