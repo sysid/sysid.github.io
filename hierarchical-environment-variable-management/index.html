@@ -32,7 +32,7 @@
 <meta itemprop="name" content="Hierarchical Environment Variable Management">
 <meta itemprop="description" content="Hierarchical Environment Management in Software Development"><meta itemprop="datePublished" content="2023-08-31T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-08-31T00:00:00+00:00" />
-<meta itemprop="wordCount" content="728"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="wordCount" content="724"><meta itemprop="image" content="images/share.png"/>
 <meta itemprop="keywords" content="software development,rust," />
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
@@ -321,21 +321,19 @@ from top to bottom. Hereby overwrite later variable definitions earlier ones.</p
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#038">source</span> &lt;(rsenv build &lt;path-to-leaf.env&gt;)
 </span></span></code></pre></div><h2 id="seamless-integrations">Seamless Integrations</h2>
 <h3 id="direnv">direnv</h3>
-<p><a href="https://direnv.net/">direnv</a> is a gem for environment activation. It seamlessly toggles variable activation without side-effects and remains my go-to tool. Paired with <a href="https://github.com/sysid/rs-env">rs-env</a>, it&rsquo;s a match made in heaven.</p>
-<p>Not only does direnv handle environment switches, but it also doubles as documentation.
-The <code>.envrc</code> file, updated by <a href="https://github.com/sysid/rs-env">rs-env</a>, sheds light on the origin of each environment variable.</p>
-<p>No guessing where a particular environment variable value is coming from.  It is right where you expect it to be.</p>
+<p><a href="https://direnv.net/">direnv</a> is a gem for environment activation. It seamlessly toggles variable activation without side-effects and remains my go-to tool for environment management. Pairing it with <a href="https://github.com/sysid/rs-env">rs-env</a> seems to be an excellent idea.</p>
+<p><a href="https://github.com/sysid/rs-env">rs-env</a> updates the <code>.envrc</code> file with the definite set of variables. <code>.envrc</code> is the
+single point of documentation for environment settings. No guessing where a particular environment variable value is coming from. It is right where you expect it to be.</p>
 <h3 id="jetbrains">JetBrains</h3>
-<p>Having the correct set of variables active in JetBrains IDEs often is challenging.</p>
-<p>Starting the IDE from the terminal where the correct variables are active does work, but any changes in the environment go un-noticed in the IDE unless it is being
+<p>Having always the correct set of variables active in JetBrains IDEs is challenging.</p>
+<p>Yes, starting the IDE from the terminal where the variables are active does work, but any changes in the environment go un-noticed in the IDE unless it is being
 restarted. Environment settings are only picked up during startup time. Not good.</p>
-<p>Alternatively variables can be defined in the IDE&rsquo;s run configurations. But then we are back at having several places to
+<p>Alternatively, variables can be defined in the IDE&rsquo;s run configurations. But then we are back at having several places to
 update and keep in sync. Laborious and error-prone. Not good.</p>
-<p>However, there is a very nice solution to this problem:</p>
+<p>However, there is an elegant solution to this problem:</p>
 <p>Using the plugin <a href="https://plugins.jetbrains.com/plugin/7861-envfile">EnvFile</a> allows to specify an executable which injects the variables
 live. <a href="https://github.com/sysid/rs-env">rs-env</a> has a command which builds the environment set. This can be easily
 parametrized to pull the correct environment variable tree and inject it into the IDE runtime configuration.</p>
-<!--![jetbrain](jetbrain.png)-->
 <p><a href="jetbrain.png"><img src="jetbrain.png" alt="jetbrain"></a></p>
 <p>By setting just <strong>one</strong> variable <code>RUN_ENV=local</code> the script <code>runenv.sh</code> injects the correct full set of variables into the IDE. And this
 works live, i.e. changes in the environment files will be picked up automatically. Nice! No redundant configuration, always
