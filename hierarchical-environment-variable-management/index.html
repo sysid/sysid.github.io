@@ -32,7 +32,7 @@
 <meta itemprop="name" content="Hierarchical Environment Variable Management">
 <meta itemprop="description" content="Hierarchical Environment Management in Software Development"><meta itemprop="datePublished" content="2023-08-31T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-08-31T00:00:00+00:00" />
-<meta itemprop="wordCount" content="724"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="wordCount" content="726"><meta itemprop="image" content="images/share.png"/>
 <meta itemprop="keywords" content="software development,rust," />
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
@@ -297,12 +297,12 @@ from top to bottom. Hereby overwrite later variable definitions earlier ones.</p
 </span></span><span style="display:flex;"><span>Usage: rsenv [OPTIONS] [NAME] [COMMAND]
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Commands:
-</span></span><span style="display:flex;"><span>  build      Build the resulting <span style="color:#038">set</span> of environment variables from one branch
-</span></span><span style="display:flex;"><span>  envrc      Write the resulting <span style="color:#038">set</span> of variables to .envrc (requires direnv)
-</span></span><span style="display:flex;"><span>  files      Show all files of a branch
-</span></span><span style="display:flex;"><span>  edit       Edit the FZF selected branch
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">select</span>     FZF based selection of environment/branch and update of .envrc file (requires direnv)
-</span></span><span style="display:flex;"><span>  link       Link files into a dependency branch/tree
+</span></span><span style="display:flex;"><span>  build      Build the resulting <span style="color:#038">set</span> of environment variables (DAG/Tree)
+</span></span><span style="display:flex;"><span>  envrc      Write the resulting <span style="color:#038">set</span> to .envrc (requires direnv, DAG/Tree)
+</span></span><span style="display:flex;"><span>  files      Show all files involved in resulting <span style="color:#038">set</span> (DAG/Tree)
+</span></span><span style="display:flex;"><span>  edit       Edit the FZF selected branch/DAG
+</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">select</span>     FZF selection and update of .envrc file (requires direnv, DAG/Tree)
+</span></span><span style="display:flex;"><span>  link       Link files into a dependency branch (root -&gt; parent -&gt; child)
 </span></span><span style="display:flex;"><span>  branches   Show all branches (linear representation)
 </span></span><span style="display:flex;"><span>  tree       Show all trees (hierarchical representation)
 </span></span><span style="display:flex;"><span>  tree-edit  Edit branches of all trees side-by-side (vim required in path)
@@ -335,7 +335,7 @@ update and keep in sync. Laborious and error-prone. Not good.</p>
 live. <a href="https://github.com/sysid/rs-env">rs-env</a> has a command which builds the environment set. This can be easily
 parametrized to pull the correct environment variable tree and inject it into the IDE runtime configuration.</p>
 <p><a href="jetbrain.png"><img src="jetbrain.png" alt="jetbrain"></a></p>
-<p>By setting just <strong>one</strong> variable <code>RUN_ENV=local</code> the script <code>runenv.sh</code> injects the correct full set of variables into the IDE. And this
+<p>By setting just <strong>one</strong> variable <code>RUN_ENV=local</code> the script <code>rsenv.sh</code> injects the correct full set of variables into the IDE. And this
 works live, i.e. changes in the environment files will be picked up automatically. Nice! No redundant configuration, always
 up-to-date, less headache.</p>
 <h2 id="summary">Summary</h2>
