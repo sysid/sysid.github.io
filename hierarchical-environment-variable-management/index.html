@@ -32,7 +32,7 @@
 <meta itemprop="name" content="Hierarchical Environment Variable Management">
 <meta itemprop="description" content="Hierarchical Environment Management in Software Development"><meta itemprop="datePublished" content="2023-08-31T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-08-31T00:00:00+00:00" />
-<meta itemprop="wordCount" content="726"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="wordCount" content="759"><meta itemprop="image" content="images/share.png"/>
 <meta itemprop="keywords" content="software development,rust," />
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
@@ -292,32 +292,35 @@ from top to bottom. Hereby overwrite later variable definitions earlier ones.</p
 <li>Subsequent definitions override preceding ones.</li>
 </ul>
 <h3 id="usage">Usage</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Hierarchical environment variable management
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Usage: rsenv [OPTIONS] [NAME] [COMMAND]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Commands:
-</span></span><span style="display:flex;"><span>  build      Build the resulting <span style="color:#038">set</span> of environment variables (DAG/Tree)
-</span></span><span style="display:flex;"><span>  envrc      Write the resulting <span style="color:#038">set</span> to .envrc (requires direnv, DAG/Tree)
-</span></span><span style="display:flex;"><span>  files      Show all files involved in resulting <span style="color:#038">set</span> (DAG/Tree)
-</span></span><span style="display:flex;"><span>  edit       Edit the FZF selected branch/DAG
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">select</span>     FZF selection and update of .envrc file (requires direnv, DAG/Tree)
-</span></span><span style="display:flex;"><span>  link       Link files into a dependency branch (root -&gt; parent -&gt; child)
-</span></span><span style="display:flex;"><span>  branches   Show all branches (linear representation)
-</span></span><span style="display:flex;"><span>  tree       Show all trees (hierarchical representation)
-</span></span><span style="display:flex;"><span>  tree-edit  Edit branches of all trees side-by-side (vim required in path)
-</span></span><span style="display:flex;"><span>  <span style="color:#038">help</span>       Print this message or the <span style="color:#038">help</span> of the given subcommand(s)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Arguments:
-</span></span><span style="display:flex;"><span>  [NAME]  Optional name to operate on
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Options:
-</span></span><span style="display:flex;"><span>  -d, --debug...              Turn debugging information on
-</span></span><span style="display:flex;"><span>      --generate &lt;GENERATOR&gt;  [possible values: bash, elvish, fish, powershell, zsh]
-</span></span><span style="display:flex;"><span>      --info
-</span></span><span style="display:flex;"><span>  -h, --help                  Print <span style="color:#038">help</span>
-</span></span><span style="display:flex;"><span>  -V, --version               Print version
-</span></span></code></pre></div><p>Activate a set of variable definitions using:</p>
+<pre tabindex="0"><code>Hierarchical environment variable management
+
+Usage: rsenv [OPTIONS] [NAME] [COMMAND]
+
+Commands:
+  build        Build the resulting set of environment variables (DAG/Tree)
+  envrc        Write the resulting set of variables to .envrc (requires direnv, DAG/Tree)
+  files        Show all files involved in resulting set (DAG/Tree)
+  edit-leaf    Edit the given environment file and all its parents (DAG/Tree)
+  edit         Edit the FZF selected branch/DAG
+  select-leaf  select environment/branch and update .envrc file (requires direnv, DAG/Tree)
+  select       FZF based selection of environment/branch and update of .envrc file (requires direnv, DAG/Tree)
+  link         Link files into a linear dependency branch (root -&gt; parent -&gt; child)
+  branches     Show all branches (linear representation)
+  tree         Show all trees (hierarchical representation)
+  tree-edit    Edit branches of all trees side-by-side (vim required in path)
+  leaves       Output leaves as paths (Tree)
+  help         Print this message or the help of the given subcommand(s)
+
+Arguments:
+  [NAME]  Optional name to operate on
+
+Options:
+  -d, --debug...              Turn debugging information on
+      --generate &lt;GENERATOR&gt;  [possible values: bash, elvish, fish, powershell, zsh]
+      --info
+  -h, --help                  Print help
+  -V, --version               Print version
+</code></pre><p>Activate a set of variable definitions using:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#038">source</span> &lt;(rsenv build &lt;path-to-leaf.env&gt;)
 </span></span></code></pre></div><h2 id="seamless-integrations">Seamless Integrations</h2>
 <h3 id="direnv">direnv</h3>
