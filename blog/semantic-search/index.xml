@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>semantic search on sysid blog</title>
+    <link>/blog/semantic-search/</link>
+    <description>Recent content in semantic search on sysid blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2022, sysid.</copyright>
+    <lastBuildDate>Sun, 14 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="/blog/semantic-search/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elevating Bookmark Management with AI-Driven Semantic Search</title>
+      <link>/elevating-bookmark-management-with-ai-driven-semantic-search/</link>
+      <pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/elevating-bookmark-management-with-ai-driven-semantic-search/</guid>
+      <description>Search has been revolutionized by AI, bringing &amp;lsquo;Google-level&amp;rsquo; quality within the reach of everybody.
+Introduction Finding information is one of the most important capabilities for any professional.
+bkmr introduced a CLI Bookmark Manager leveraging SQLite&amp;rsquo;s full-text search (FTS) capabilities, offering improved search efficiency. This tool, developed in Rust, aimed to provide snappy bookmark manager capabilities for the command line.
+However, the landscape of search has changed radically. Traditional keyword-based searches, while effective, fall short in understanding the context and semantics behind user queries.</description>
+    </item>
+    
+  </channel>
+</rss>

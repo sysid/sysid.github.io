@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/images/favicon.png" />
+<title>Elevating Bookmark Management with AI-Driven Semantic Search | sysid blog</title>
+<meta name="title" content="Elevating Bookmark Management with AI-Driven Semantic Search" />
+<meta name="description" content="Enhancing CLI Bookmark Manager with OpenAI Embeddings for Intuitive and Efficient Semantic Search" />
+<meta name="keywords" content="rust,ai,semantic search,openai," />
+
+
+<meta property="og:title" content="Elevating Bookmark Management with AI-Driven Semantic Search" />
+<meta property="og:description" content="Enhancing CLI Bookmark Manager with OpenAI Embeddings for Intuitive and Efficient Semantic Search" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/elevating-bookmark-management-with-ai-driven-semantic-search/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2024-01-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-01-14T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="Elevating Bookmark Management with AI-Driven Semantic Search"/>
+<meta name="twitter:description" content="Enhancing CLI Bookmark Manager with OpenAI Embeddings for Intuitive and Efficient Semantic Search"/>
+
+
+
+<meta itemprop="name" content="Elevating Bookmark Management with AI-Driven Semantic Search">
+<meta itemprop="description" content="Enhancing CLI Bookmark Manager with OpenAI Embeddings for Intuitive and Efficient Semantic Search"><meta itemprop="datePublished" content="2024-01-14T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-01-14T00:00:00+00:00" />
+<meta itemprop="wordCount" content="796"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="rust,ai,semantic search,openai," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-8VH574W51S', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Elevating Bookmark Management with AI-Driven Semantic Search</h1>
+<p>
+  <i>
+    <time datetime='2024-01-14' pubdate>
+      14 Jan, 2024
+    </time>
+  </i>
+</p>
+
+<content>
+  <blockquote>
+<p>Search has been revolutionized by AI, bringing &lsquo;Google-level&rsquo; quality
+within the reach of everybody.</p>
+</blockquote>
+<h2 id="introduction">Introduction</h2>
+<p>Finding information is one of the most important capabilities for any professional.</p>
+<p><a href="https://sysid.github.io/bkmr/">bkmr</a> introduced a CLI Bookmark Manager leveraging SQLite&rsquo;s full-text search (FTS) capabilities, offering improved search efficiency.
+This tool, developed in Rust, aimed to provide snappy bookmark manager capabilities for the command line.</p>
+<p>However, the landscape of search has changed radically.
+Traditional keyword-based searches, while effective, fall short in understanding the context and semantics behind user queries.
+Semantic Search, once the realm of companies like Google, is now available for everyone.</p>
+<p>The new search experience is not just about finding keywords but about understanding the essence of the content.</p>
+<h2 id="semantic-search">Semantic Search</h2>
+<h3 id="conceptual-overview">Conceptual Overview</h3>
+<p>Key technology for semantic search is language model embeddings.
+Embeddings, like those from OpenAI, convert text into high-dimensional vectors, capturing the semantic essence beyond mere words.</p>
+<p>AI embeddings integration allows <a href="https://sysid.github.io/bkmr/">bkmr</a> to interpret search queries with greater relevance, mimicking human language comprehension and improving user search experience.</p>
+<h3 id="challenges">Challenges</h3>
+<p>Embedding computations are very compute-intensive, which would impact performance of an CLI application. Not everyone has got
+GPU access on his local setup.</p>
+<p>Self-hosted models like many from Hugging Face, while offering control and customization, may introduce latency, negatively affecting responsiveness.</p>
+<p>Opting for a closed-source solution like OpenAI introduces external API dependencies and necessitates an OpenAPI key, adding some configuration complexity.</p>
+<p>Despite this, it&rsquo;s crucial to maintain the application&rsquo;s excellent performance, balancing advanced search capabilities with the tool&rsquo;s efficiency and user experience.
+Therefore <a href="https://sysid.github.io/bkmr/">bkmr</a> opted for OpenAI rather then self-hosting a model.</p>
+<h2 id="project-evolution">Project Evolution</h2>
+<h3 id="objectives-revisited">Objectives Revisited</h3>
+<ul>
+<li>Extend <a href="https://sysid.github.io/bkmr/">bkmr</a> with semantic search capabilities</li>
+<li>Enhance search efficiency and quality</li>
+<li>Explore applicability of AI in a tool used daily, while maintaining the tool&rsquo;s inherent performance and responsiveness.</li>
+</ul>
+<h3 id="implementation">Implementation</h3>
+<p><strong>Strategy Pattern for Model Integration:</strong>
+Adopted a strategy pattern to allow flexibility in integrating various models, facilitating potential future expansions beyond the current AI model.</p>
+<p><strong>Database Schema Migration:</strong>
+Extended the database to include embeddings, essential for storing and retrieving the AI-processed data efficiently.</p>
+<p><strong>Content Hashing:</strong>
+Implemented content hashing to minimize redundant API calls. This approach helps in identifying already processed content, reducing unnecessary computational load.</p>
+<p><strong>Transparent User Experience:</strong>
+Ensured that all embedding-related operations are executed transparently, maintaining the user experience without exposing the complexities of the underlying AI processes.</p>
+<p><strong>Batch Processing and Embedding Backfill:</strong>
+Incorporated batch processing for handling existing datasets efficiently. Implemented an embedding backfill mechanism to update existing or new bookmarks with semantic data, e.g. unavailability of OpenAPI API.</p>
+<p><strong>Embedding Input</strong>:
+The semantic quality of the embeddings vector is determined by the text fed in. Since bookmarks inherently lack a lot of context
+the actual value of semantic search for URLs might be limited as long as there is no additional context being added.</p>
+<p>The URL title (TITLE), tags (TAGS) and description (COMMENTS) fields have been chosen as embedding input. The URL itself has been
+excluded deliberately, since it often contain information which is not conducive for language embeddings, e.g. uuids.</p>
+<p><img src="sem_search.png" alt="sem_search.png"></p>
+<h2 id="results-and-reflections">Results and Reflections</h2>
+<h3 id="performance-analysis">Performance Analysis</h3>
+<p>Now how is the quality of semantic search results versus FTS?</p>
+<p><img src="sem_search_vs_fts.png" alt="sem_search_vs_fts.png"></p>
+<p>Semantic search will find related URLs which would not be matched by keywords or FTS.</p>
+<p>However, the relevance of the results is depending on the context which has been given to the language model. The more context provided the
+better the result. Since naked URLs do not carry a lot of semantic meaning, any language model will struggle. But as
+soon as the data is being enriched by tags or further comments, the search results improve rapidly.</p>
+<p>As expected latency increases due to reaching out to OpenAI in order to embed the search query. After that a full
+similarity scan of the database is surprisingly fast.</p>
+<p>Overall the semantic search performance of 0.6s for a database with ca. 2000 URLs is dominated by the OpenAPI call.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The integration of AI-driven semantic search into <a href="https://sysid.github.io/bkmr/">bkmr</a>  proved to be straightforward, with all challenges being manageable.
+While the performance impact due to external API access is noticeable, it remains within acceptable limits.</p>
+<p>The benefit of semantic search for this use-case is a mixed bag, primarily due to the very limited information typically associated with URLs.</p>
+<p>However, the quality improves significantly with adding more context. It enhances the AI&rsquo;s ability to understand and categorize bookmarks more effectively.
+The more context is given, the better the results become.</p>
+<p>Also for this use-case semantic search does not replace traditional full-text search (FTS).
+But the additonal results often uncover new and unexpected findings from the bookmark database which FTS alone would have missed.</p>
+<p>The rapid pace of innovation in AI and search technologies is both exciting and challenging to keep up with.
+As the field evolves, established solutions and approaches are quickly becoming outdated.</p>
+<p>The Rust source code is here: <a href="https://github.com/sysid/bkmr">bkmr</a>.</p>
+
+</content>
+<p>
+  
+  <a href="/blog/rust/">#rust</a>
+  
+  <a href="/blog/ai/">#ai</a>
+  
+  <a href="/blog/semantic-search/">#semantic search</a>
+  
+  <a href="/blog/openai/">#openai</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>
