@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Mon, 26 Dec 2022 08:25:13 +0100</lastBuildDate><atom:link href="/blog/learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="/blog/learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Anki, Markdown, and the Power of inka2</title>
+      <link>/anki-markdown-and-the-power-of-inka2/</link>
+      <pubDate>Sun, 10 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/anki-markdown-and-the-power-of-inka2/</guid>
+      <description>Streamlining Knowledge Management: Anki, Markdown, and the Power of inka2 Introduction Acquiring and keeping knowledge is an uphill battle. Luckily the digital age has awarded us two powerful tools: Anki for spaced repetition learning, and Markdown for its straightforward syntax in note-taking. Bridging these worlds is inka2 a tool designed to transform Markdown notes into Anki flashcards with seamless efficiency.
+Why Markdown for Knowledge Management? Markdown stands as the go-to format for many developers and writers, praised for its simplicity and versatility.</description>
+    </item>
+    
     <item>
       <title>Reboot</title>
       <link>/reboot/</link>
