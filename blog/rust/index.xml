@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Sun, 14 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="/blog/rust/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="/blog/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rewriting a Vim Plugin in Rust: vimania-uri-rs</title>
+      <link>/rewriting-a-vim-plugin-in-rust-vimania-uri-rs/</link>
+      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/rewriting-a-vim-plugin-in-rust-vimania-uri-rs/</guid>
+      <description>Advanced URI Handling for the Modern Vim User
+Why? Vim&amp;rsquo;s native gx command is somehow limited in its flexibility and capabilities. I wanted more powerful URI handling capabilities, which led me to create vimania-uri, a Vim plugin designed to provide advanced URI management within Vim.
+However, while the plugin achieved its goal in terms of functionality, it came with a performance penalty: the initial loading of the plugin&amp;rsquo;s Python dependencies severely impacted Vim&amp;rsquo;s startup times.</description>
+    </item>
+    
     <item>
       <title>Elevating Bookmark Management with AI-Driven Semantic Search</title>
       <link>/elevating-bookmark-management-with-ai-driven-semantic-search/</link>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/images/favicon.png" />
+<title>Rewriting a Vim Plugin in Rust: vimania-uri-rs | sysid blog</title>
+<meta name="title" content="Rewriting a Vim Plugin in Rust: vimania-uri-rs" />
+<meta name="description" content="Advanced URI Handling for the Modern Vim User: Intuitive, Fast, and Powerful" />
+<meta name="keywords" content="python,rust,work,vim," />
+
+
+<meta property="og:title" content="Rewriting a Vim Plugin in Rust: vimania-uri-rs" />
+<meta property="og:description" content="Advanced URI Handling for the Modern Vim User: Intuitive, Fast, and Powerful" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/rewriting-a-vim-plugin-in-rust-vimania-uri-rs/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2024-08-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-08-19T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="Rewriting a Vim Plugin in Rust: vimania-uri-rs"/>
+<meta name="twitter:description" content="Advanced URI Handling for the Modern Vim User: Intuitive, Fast, and Powerful"/>
+
+
+
+<meta itemprop="name" content="Rewriting a Vim Plugin in Rust: vimania-uri-rs">
+<meta itemprop="description" content="Advanced URI Handling for the Modern Vim User: Intuitive, Fast, and Powerful"><meta itemprop="datePublished" content="2024-08-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-08-19T00:00:00+00:00" />
+<meta itemprop="wordCount" content="763"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="python,rust,work,vim," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-8VH574W51S', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Rewriting a Vim Plugin in Rust: vimania-uri-rs</h1>
+<p>
+  <i>
+    <time datetime='2024-08-19' pubdate>
+      19 Aug, 2024
+    </time>
+  </i>
+</p>
+
+<content>
+  <blockquote>
+<p>Advanced URI Handling for the Modern Vim User</p>
+</blockquote>
+<h2 id="why">Why?</h2>
+<p>Vim&rsquo;s native <code>gx</code> command is somehow limited in its flexibility and capabilities. I wanted more powerful URI handling capabilities, which led me to create <a href="https://github.com/sysid/vimania-uri">vimania-uri</a>, a Vim plugin designed to provide advanced URI management within Vim.</p>
+<p>However, while the plugin achieved its goal in terms of functionality, it came with a performance penalty: the initial loading of the plugin&rsquo;s Python dependencies severely impacted Vim&rsquo;s startup times. The plugin relied on dependencies such as <code>beautifulsoup4</code> (bs4) and <code>lxml</code>, which are known for substantial size and complexity. As a result, the plugin introduced noticeable delays during Vim startup, with load times sporadically exceeding 3 seconds &ndash; painful for a vim user.</p>
+<h2 id="the-new-plugin-vimania-uri-rshttpsgithubcomsysidvimania-uri-rs">The new Plugin: <a href="https://github.com/sysid/vimania-uri-rs"><code>vimania-uri-rs</code></a></h2>
+<h3 id="key-features">Key Features</h3>
+<ol>
+<li><strong>Open URIs and Various File Types</strong>: Seamlessly open URIs, HTML files, DOCX, PPTX, JPG, PNG, MP3, and more.</li>
+<li><strong>Handle Almost Any URI</strong>: Manage a wide range of URI formats, ensuring maximum compatibility and flexibility.</li>
+<li><strong>Paste URLs as Markdown Links</strong>: Automatically fetch the title and create reference-style Markdown links for easy documentation.</li>
+<li><strong>Jump to Headings or Line Numbers</strong>: Navigate directly to specific headings or line numbers within files for quick access.</li>
+<li><strong>Bookmark Manager Integration</strong>: Load your URIs into Rust based CLI Bookmark Manager <a href="https://github.com/sysid/bkmr"><code>bkmr</code></a>.</li>
+</ol>
+<p><img src="vimania-uri-demo.png" alt="vimania-uri-rs Demo">
+<a href="https://github.com/sysid/vimania-uri-rs">vimania-uri-rs</a></p>
+<h2 id="hypothesis">Hypothesis</h2>
+<p>The idea to improve this situation was to replace the performance-critical parts of the Python code with a Rust implementation.</p>
+<p>Rust&rsquo;s reputation for speed, safety, and minimal runtime overhead made it an ideal candidate for this. However, writing Vim plugins in Rust is not yet a common practice, and due to the lack of established examples, I had to navigate the challenges largely on my own. Using ChatGPT proved to be very helpful, indeed.</p>
+<p>I hypothesized that replacing the heavy dependencies with a bespoke, compiled Rust library would significantly improve startup performance.</p>
+<p>Rust and Python are known to have excellent interoperability capabilities, making Rust an attractive option for optimizing the plugin&rsquo;s performance without sacrificing its functionality.</p>
+<p>Additionally, applying these optimizations to a Vim plugin posed an interesting problem per se. And since I am a heavy user of this plugin, I would enjoy any improvements directly.</p>
+<h2 id="challenges">Challenges</h2>
+<ol>
+<li>
+<p><strong>Cross-Platform Support</strong>:</p>
+<ul>
+<li>Ensuring that the plugin works seamlessly across different operating systems is a non-trivial challenge for Python alone, but adding a binary Rust library exacerbates the prolbem.</li>
+</ul>
+</li>
+<li>
+<p><strong>Keeping the Interface Simple</strong>:</p>
+<ul>
+<li>Maintaining the simplicity and intuitiveness of the user interface was a priority. While adding advanced features and improving performance were key goals, the plugin needed to remain easy to use, aligning with Vim&rsquo;s ethos of minimalism and efficiency.</li>
+</ul>
+</li>
+</ol>
+<h2 id="the-evolution-into-vimania-uri-rs">The Evolution into <code>vimania-uri-rs</code></h2>
+<h3 id="refactoring-critical-parts-in-rust">Refactoring Critical Parts in Rust</h3>
+<p>It was very clear from profiling startup times where the culprit lies: Loading the Python dependencies of the plugin.
+Luckily these dependencies where only used in a very isolated part of the code, so replacing this code with Rust was
+a straightforward refactoring path.</p>
+<p><code>pyo3</code> plays a crucial role in bridging Rust and Python. It allowed me to re-write the identified components in Rust while retaining the flexibility and ease of use of Python for the rest of the plugin.</p>
+<h3 id="building-and-distributing-the-plugin">Building and Distributing the Plugin</h3>
+<p>Rust&rsquo;s cross-compilation capabilities make it easy to ensure the plugin works on different platforms. The result was a set of platform-specific wheels that could be installed and used on any of these operating systems.</p>
+<p>It was not too difficult to streamline the build and distribution process, by using Github Actions for a continuous integration (CI) pipeline.</p>
+<h2 id="result">Result</h2>
+<ul>
+<li>
+<p><strong>10x Startup Time Improvement</strong>:
+My hpythises proved right: The refactor yielded significant performance gains, reducing Vim&rsquo;s startup time from over 3 seconds to just 0.3 seconds. This 10x improvement was immediately noticeable, making the plugin much more user-friendly and responsive.</p>
+</li>
+<li>
+<p><strong>User Interface</strong>:
+Despite the significant changes under the hood, the plugin&rsquo;s user interface did not change.</p>
+</li>
+<li>
+<p><strong>Code Maintainability</strong>:
+By only writing a small isolated portions of the code in Rust, the plugin retains the simplicity and expressiveness of Python for the majority of its functionality. This hybrid approach ensures that the codebase remains maintainable and extensible, while also benefiting from Rust&rsquo;s performance advantages.</p>
+</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>The journey from <code>vimania-uri</code> to <code>vimania-uri-rs</code> was rewarding. The final product is a powerful, responsive, and elegant solution for advanced URI handling in Vim.
+Using Rust for Vim plugins is straightforward through Python as intermediary. With proper code architecture the benefits
+of both worlds can be combined while keeping the additional complexity managable.</p>
+<p>If you&rsquo;re looking for a way to enhance your Vim experience, I encourage you to try out <code>vimania-uri-rs</code>. Your feedback and contributions are always welcome!</p>
+<p>Here is the <a href="https://github.com/sysid/vimania-uri-rs">code</a>!</p>
+
+</content>
+<p>
+  
+  <a href="/blog/python/">#python</a>
+  
+  <a href="/blog/rust/">#rust</a>
+  
+  <a href="/blog/work/">#work</a>
+  
+  <a href="/blog/vim/">#vim</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>
