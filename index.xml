@@ -506,5 +506,14 @@ finding the fish (thanks Nathaniel Shimoni for annotating) centering rotatating 
       <description>Cheat Sheet General Explanations: embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices KFold Cross Validation: The purpose of cross-validation is model checking, not model building. Once we have used cross-validation to select the better performing model, we train that model (whether it be the linear regression or the neural network) on all the data.</description>
     </item>
     
+    <item>
+      <title>Tools</title>
+      <link>/tools/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tools/</guid>
+      <description>GeoJSON Viewer Interactive viewer for GeoJSON data which supports arbitrary coordinates, i.e. also cartesian coordinates. No map tiles are provided. Purpose is rather to visualize general Gemoetries, but built with geo-json format.</description>
+    </item>
+    
   </channel>
 </rss>

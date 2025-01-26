@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .controls {
+            flex: 0 0 auto;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: calc(100% - 20px);
+            height: 120px;
+            margin: 10px 0;
+            font-family: monospace;
+            resize: vertical;
+        }
+
+        .button-group {
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 8px 16px;
+            margin-right: 8px;
+        }
+
+        .output-container {
+            flex: 1 1 auto;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+            background: white;
+            cursor: grab;
+        }
+
+        svg:active {
+            cursor: grabbing;
+        }
+
+        .axis {
+            stroke: black;
+            stroke-width: 0.5;
+            vector-effect: non-scaling-stroke;
+        }
+
+        .grid {
+            stroke: #ddd;
+            stroke-width: 0.5;
+            vector-effect: non-scaling-stroke;
+        }
+
+        .point {
+            /* remove fill here if any */
+            vector-effect: non-scaling-stroke;
+        }
+
+        .line {
+            /* remove stroke here */
+            stroke-width: 1.5;
+            fill: none; /* can keep `fill: none` if desired */
+            vector-effect: non-scaling-stroke;
+        }
+
+        .polygon {
+            /* remove fill & stroke here */
+            stroke-width: 1;
+            vector-effect: non-scaling-stroke;
+            /* remove or comment out fill / stroke color */
+            /* Keep any desired general styles, e.g. a default opacity:
+               opacity: 0.5; (optional if you want to rely on inline attributes)
+            */
+            opacity: 0.3;
+        }
+
+        .tick-label {
+            font-family: sans-serif;
+        }
+
+        .title {
+            font-size: 14px;
+            font-family: sans-serif;
+            text-anchor: middle;
+        }
+
+        /* style for our layer controls */
+        #layer-controls {
+            margin-top: 10px;
+        }
+
+        #layer-controls input[type="color"] {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="controls">
+    <h2>GeoJSON Viewer</h2>
+    <textarea id="input" placeholder="Paste GeoJSON here">{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {"name": "MyPoint"},
+            "geometry": { "type": "Point", "coordinates": [1, 1] }
+        },
+        {
+            "type": "Feature",
+            "properties": {"name": "MyLine"},
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [[0, 0], [2, 2]]
+            }
+        }
+    ]
+}</textarea>
+    <div class="button-group">
+        <button onclick="render()">Render</button>
+        <button onclick="resetZoom()">Reset Zoom</button>
+    </div>
+</div>
+<div class="output-container" id="output"></div>
+<!-- container for layer controls -->
+<div id="layer-controls"></div>
+
+<script>
+    // 1) Create a color palette for initial colors.
+    const colorPalette = [
+        '#ff0000', // red
+        '#008000', // green
+        '#0000ff', // blue
+        '#ffa500', // orange
+        '#800080', // purple
+        '#a52a2a', // brown
+        '#00ffff', // cyan
+        '#ff00ff'  // magenta
+    ];
+
+    let zoomState = {
+        scale: 1,
+        translateX: 0,
+        translateY: 0,
+        isDragging: false,
+        startX: 0,
+        startY: 0
+    };
+
+    let plotState = {
+        margin: {top: 40, right: 60, bottom: 50, left: 70},
+        get width() {
+            return document.querySelector('.output-container').clientWidth;
+        },
+        get height() {
+            return document.querySelector('.output-container').clientHeight;
+        },
+        minX: 0,
+        maxX: 0,
+        minY: 0,
+        maxY: 0,
+        baseScale: 1
+    };
+
+    function updateTransform() {
+        const group = document.getElementById('zoom-group');
+        if (!group) return;
+
+        group.setAttribute('transform',
+            `translate(${zoomState.translateX},${zoomState.translateY}) scale(${zoomState.scale})`);
+
+        const gridContainer = document.getElementById('grid-container');
+        if (gridContainer) {
+            gridContainer.setAttribute('transform',
+                `translate(${zoomState.translateX},${zoomState.translateY}) scale(${zoomState.scale})`);
+        }
+
+        renderGrid();
+        updateGeometryScaling();
+    }
+
+    function renderGrid() {
+        const container = document.getElementById('grid-container');
+        if (!container) return;
+
+        const pixelGridStep = 38;
+        const gridStep = pixelGridStep / (plotState.baseScale * zoomState.scale);
+
+        const gridLines = [];
+        const labels = [];
+
+        for (let x = Math.floor(plotState.minX); x <= Math.ceil(plotState.maxX); x += gridStep) {
+            if (Math.abs(x) < 0.01) continue;
+            const point = transformPoint(x, 0);
+            gridLines.push(`<line class="grid"
+                    x1="${point.x}" y1="${transformPoint(0, plotState.minY).y}"
+                    x2="${point.x}" y2="${transformPoint(0, plotState.maxY).y}"/>`);
+            labels.push(`<text class="tick-label"
+                    x="${point.x}"
+                    y="${transformPoint(0, plotState.minY).y + 20 / zoomState.scale}"
+                    text-anchor="middle"
+                    style="font-size: ${10 / zoomState.scale}px">${x.toFixed(1)}</text>`);
+        }
+
+        for (let y = Math.floor(plotState.minY); y <= Math.ceil(plotState.maxY); y += gridStep) {
+            if (Math.abs(y) < 0.01) continue;
+            const point = transformPoint(0, y);
+            gridLines.push(`<line class="grid"
+                    x1="${transformPoint(plotState.minX, 0).x}" y1="${point.y}"
+                    x2="${transformPoint(plotState.maxX, 0).x}" y2="${point.y}"/>`);
+            labels.push(`<text class="tick-label"
+                    x="${transformPoint(plotState.minX, 0).x - 10 / zoomState.scale}"
+                    y="${point.y}"
+                    text-anchor="end"
+                    dominant-baseline="middle"
+                    style="font-size: ${10 / zoomState.scale}px">${y.toFixed(1)}</text>`);
+        }
+
+        const axes = `
+                <line class="axis"
+                    x1="${transformPoint(plotState.minX, 0).x}"
+                    y1="${transformPoint(0, 0).y}"
+                    x2="${transformPoint(plotState.maxX, 0).x}"
+                    y2="${transformPoint(0, 0).y}"/>
+                <line class="axis"
+                    x1="${transformPoint(0, 0).x}"
+                    y1="${transformPoint(0, plotState.minY).y}"
+                    x2="${transformPoint(0, 0).x}"
+                    y2="${transformPoint(0, plotState.maxY).y}"/>
+                <text class="tick-label"
+                    x="${transformPoint(0, 0).x}"
+                    y="${transformPoint(0, 0).y + 20 / zoomState.scale}"
+                    text-anchor="middle"
+                    style="font-size: ${10 / zoomState.scale}px">0</text>`;
+
+        container.innerHTML = gridLines.join('\n') + labels.join('\n') + axes;
+    }
+
+    function resetZoom() {
+        zoomState = {
+            scale: 1,
+            translateX: 0,
+            translateY: 0,
+            isDragging: false,
+            startX: 0,
+            startY: 0
+        };
+        updateTransform();
+    }
+
+    function transformPoint(x, y) {
+        return {
+            x: plotState.margin.left + (x - plotState.minX) * plotState.baseScale,
+            y: plotState.height - plotState.margin.bottom - (y - plotState.minY) * plotState.baseScale
+        };
+    }
+
+    function handleWheel(event) {
+        if (!event.metaKey && !event.ctrlKey) return;
+        event.preventDefault();
+
+        const rect = event.currentTarget.getBoundingClientRect();
+        const mouseX = event.clientX - rect.left;
+        const mouseY = event.clientY - rect.top;
+
+        const scaleFactor = event.deltaY > 0 ? 0.9 : 1.1;
+        const newScale = zoomState.scale * scaleFactor;
+
+        if (newScale >= 0.1 && newScale <= 10) {
+            const dx = (mouseX - zoomState.translateX) * (1 - scaleFactor);
+            const dy = (mouseY - zoomState.translateY) * (1 - scaleFactor);
+
+            zoomState.scale = newScale;
+            zoomState.translateX += dx;
+            zoomState.translateY += dy;
+
+            updateTransform();
+        }
+    }
+
+    function updateGeometryScaling() {
+        document.querySelectorAll('.point').forEach(point => {
+            point.setAttribute('r', 5 / zoomState.scale);
+        });
+
+        document.querySelectorAll('.line').forEach(line => {
+            line.style.strokeWidth = 1.5 / zoomState.scale;
+        });
+
+        document.querySelectorAll('.polygon').forEach(polygon => {
+            polygon.style.strokeWidth = 1 / zoomState.scale;
+        });
+    }
+
+    function handleMouseDown(event) {
+        if (event.button !== 0) return;
+        event.preventDefault();
+
+        const svg = event.currentTarget;
+        zoomState.isDragging = true;
+        zoomState.startX = event.clientX - zoomState.translateX;
+        zoomState.startY = event.clientY - zoomState.translateY;
+
+        svg.addEventListener('mousemove', handleMouseMove);
+        svg.addEventListener('mouseup', handleMouseUp);
+        svg.addEventListener('mouseleave', handleMouseUp);
+    }
+
+    function handleMouseMove(event) {
+        if (!zoomState.isDragging) return;
+        event.preventDefault();
+
+        zoomState.translateX = event.clientX - zoomState.startX;
+        zoomState.translateY = event.clientY - zoomState.startY;
+        updateTransform();
+    }
+
+    function handleMouseUp(event) {
+        const svg = event.currentTarget;
+        zoomState.isDragging = false;
+
+        svg.removeEventListener('mousemove', handleMouseMove);
+        svg.removeEventListener('mouseup', handleMouseUp);
+        svg.removeEventListener('mouseleave', handleMouseUp);
+    }
+
+    function extractCoordinates(geometry) {
+        if (!geometry) return [];
+        switch (geometry.type) {
+            case 'Point':
+                return [geometry.coordinates];
+            case 'MultiPoint':
+            case 'LineString':
+                return geometry.coordinates;
+            case 'MultiLineString':
+            case 'Polygon':
+                return geometry.coordinates.flat();
+            case 'MultiPolygon':
+                return geometry.coordinates.flat(2);
+            case 'GeometryCollection':
+                return geometry.geometries.flatMap(extractCoordinates);
+            default:
+                return [];
+        }
+    }
+
+    function renderFeature(feature, transformPoint) {
+        const geometry = feature.geometry;
+        if (!geometry) return '';
+
+        switch (geometry.type) {
+            case 'Point':
+                const point = transformPoint(geometry.coordinates[0], geometry.coordinates[1]);
+                return `<circle class="point" cx="${point.x}" cy="${point.y}" r="5"/>`;
+            case 'MultiPoint':
+                return geometry.coordinates
+                    .map(coord => {
+                        const pt = transformPoint(coord[0], coord[1]);
+                        return `<circle class="point" cx="${pt.x}" cy="${pt.y}" r="5"/>`;
+                    })
+                    .join('\n');
+            case 'LineString':
+                return `<path class="line" d="M ${geometry.coordinates
+                    .map(c => {
+                        const pt = transformPoint(c[0], c[1]);
+                        return `${pt.x} ${pt.y}`;
+                    })
+                    .join(' L')}"/>`;
+            case 'MultiLineString':
+                return geometry.coordinates
+                    .map(line => `<path class="line" d="M ${line
+                        .map(c => {
+                            const pt = transformPoint(c[0], c[1]);
+                            return `${pt.x} ${pt.y}`;
+                        })
+                        .join(' L')}"/>`)
+                    .join('\n');
+            case 'Polygon':
+                return `<path class="polygon" d="M ${geometry.coordinates[0]
+                    .map(c => {
+                        const pt = transformPoint(c[0], c[1]);
+                        return `${pt.x} ${pt.y}`;
+                    })
+                    .join(' L')} Z"/>`;
+            case 'MultiPolygon':
+                return geometry.coordinates
+                    .map(poly => `<path class="polygon" d="M ${poly[0]
+                        .map(c => {
+                            const pt = transformPoint(c[0], c[1]);
+                            return `${pt.x} ${pt.y}`;
+                        })
+                        .join(' L')} Z"/>`)
+                    .join('\n');
+            case 'GeometryCollection':
+                return geometry.geometries
+                    .map(geom => renderFeature({type: 'Feature', geometry: geom}, transformPoint))
+                    .join('\n');
+            default:
+                return '';
+        }
+    }
+
+    function render() {
+        try {
+            const input = JSON.parse(document.getElementById('input').value);
+            const features = input.features || [];
+            const coordinates = features.flatMap(f => extractCoordinates(f.geometry));
+
+            if (coordinates.length === 0) {
+                document.getElementById('output').innerHTML = '<p>No valid coordinates found in GeoJSON</p>';
+                return;
+            }
+
+            const xValues = coordinates.map(c => c[0]);
+            const yValues = coordinates.map(c => c[1]);
+            plotState.minX = Math.floor(Math.min(...xValues) - 1);
+            plotState.maxX = Math.ceil(Math.max(...xValues) + 1);
+            plotState.minY = Math.floor(Math.min(...yValues) - 1);
+            plotState.maxY = Math.ceil(Math.max(...yValues) + 1);
+
+            const plotWidth = plotState.width - plotState.margin.left - plotState.margin.right;
+            const plotHeight = plotState.height - plotState.margin.top - plotState.margin.bottom;
+
+            const scaleX = plotWidth / (plotState.maxX - plotState.minX);
+            const scaleY = plotHeight / (plotState.maxY - plotState.minY);
+            plotState.baseScale = Math.min(scaleX, scaleY);
+
+            // Each feature goes in its own <g> with an initial color from colorPalette
+            const svg = `
+                <svg id="plot-svg" width="${plotState.width}" height="${plotState.height}">
+                    <defs>
+                        <clipPath id="plot-area">
+                            <rect x="${plotState.margin.left}" y="${plotState.margin.top}"
+                                  width="${plotWidth}" height="${plotHeight}"/>
+                        </clipPath>
+                    </defs>
+
+                    <text x="${plotState.width / 2}" y="${plotState.margin.top / 2}" class="title">
+                        GeoJSON Viewer with Color Controls
+                    </text>
+
+                    <g id="grid-container"></g>
+
+                    <g id="zoom-group" clip-path="url(#plot-area)">
+                        ${
+                features.map((f, i) => {
+                    // Choose a color
+                    const color = colorPalette[i % colorPalette.length];
+                    // Render geometry
+                    const geometrySvg = renderFeature(f, transformPoint);
+                    return `
+                                  <g id="feature-layer-${i}" style="fill: ${color}; stroke: ${color};">
+                                    ${renderFeature(f, transformPoint)}
+                                  </g>`;
+                }).join('')
+            }
+                    </g>
+                </svg>
+            `;
+            document.getElementById('output').innerHTML = svg;
+
+            // Now set up layer controls *after* we've injected the SVG
+            const layerControls = document.getElementById('layer-controls');
+            const checkboxesHtml = features.map((f, i) => {
+                const featureName = f.properties?.name ?? `Feature ${i + 1}`;
+                const defaultColor = colorPalette[i % colorPalette.length];
+                return `
+                  <label>
+                    <input type="checkbox" data-index="${i}" checked>
+                    ${featureName}
+                  </label>
+                  <input type="color" data-index="${i}" value="${defaultColor}">
+                `;
+            }).join('<br>');
+
+            layerControls.innerHTML = checkboxesHtml;
+
+            // Toggle visibility
+            layerControls.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', e => {
+                    const index = e.target.dataset.index;
+                    const layer = document.getElementById(`feature-layer-${index}`);
+                    layer.style.display = e.target.checked ? 'inline' : 'none';
+                });
+            });
+
+            // Dynamically change color
+            layerControls.querySelectorAll('input[type="color"]').forEach(colorInput => {
+                colorInput.addEventListener('input', e => {
+                    const index = e.target.dataset.index;
+                    const layer = document.getElementById(`feature-layer-${index}`);
+                    layer.style.fill = e.target.value;
+                    layer.style.stroke = e.target.value;
+                });
+            });
+
+            const svgElement = document.getElementById('plot-svg');
+            svgElement.addEventListener('wheel', handleWheel);
+            svgElement.addEventListener('mousedown', handleMouseDown);
+            resetZoom();
+        } catch (e) {
+            document.getElementById('output').innerHTML = `<p style="color: red">Error: ${e.message}</p>`;
+        }
+    }
+
+    render();
+</script>
+</body>
+</html>
