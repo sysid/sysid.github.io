@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>development on sysid blog</title>
+    <title>Development on sysid blog</title>
     <link>/blog/development/</link>
-    <description>Recent content in development on sysid blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Development on sysid blog</description>
+    <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Mon, 06 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="/blog/development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/blog/development/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>rsnip</title>
       <link>/rsnip/</link>
       <pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate>
-      
       <guid>/rsnip/</guid>
-      <description>Fast, Reliable, Yours: Why Snippets Outshine LLMs for boring Tasks While large language models (LLMs) like ChatGPT are revolutionizing workflows with their smart completions and contextual insights, you don’t want to re-research a command or script every time you need it.
-Why does a good snippet manager still matter? Even in an age of intelligent assistants, there’s a compelling case for a specialized and fast snippet manager:
-Speed: LLMs are slow when it comes to re-fetching familiar snippets.</description>
+      <description>&lt;h1 id=&#34;fast-reliable-yours-why-snippets-outshine-llms-for-boring-tasks&#34;&gt;Fast, Reliable, Yours: Why Snippets Outshine LLMs for boring Tasks&lt;/h1&gt;&#xA;&lt;p&gt;While large language models (LLMs) like ChatGPT are revolutionizing workflows with their smart completions and contextual insights, you don’t want to re-research a command or script every time you need it.&lt;/p&gt;&#xA;&lt;h3 id=&#34;why-does-a-good-snippet-manager-still-matter&#34;&gt;Why does a good snippet manager still matter?&lt;/h3&gt;&#xA;&lt;p&gt;Even in an age of intelligent assistants, there’s a compelling case for a specialized and fast snippet manager:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Speed&lt;/strong&gt;: LLMs are slow when it comes to re-fetching familiar snippets. rsnip provides instant access via shell completion and fuzzy search (fzf).&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

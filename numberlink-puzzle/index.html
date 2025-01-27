@@ -12,28 +12,38 @@
 <meta name="keywords" content="python,optimization,pyomo," />
 
 
-<meta property="og:title" content="Numberlink Puzzle" />
-<meta property="og:description" content="Finding paths in the numbers labyrinth." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/numberlink-puzzle/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2020-05-30T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-05-30T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+<meta property="og:url" content="/numberlink-puzzle/">
+  <meta property="og:site_name" content="sysid blog">
+  <meta property="og:title" content="Numberlink Puzzle">
+  <meta property="og:description" content="Finding paths in the numbers labyrinth.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2020-05-30T00:00:00+00:00">
+    <meta property="article:modified_time" content="2020-05-30T00:00:00+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Optimization">
+    <meta property="article:tag" content="Pyomo">
+    <meta property="og:image" content="/images/share.png">
 
 
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="images/share.png"/>
 
-<meta name="twitter:title" content="Numberlink Puzzle"/>
-<meta name="twitter:description" content="Finding paths in the numbers labyrinth."/>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/images/share.png">
+  <meta name="twitter:title" content="Numberlink Puzzle">
+  <meta name="twitter:description" content="Finding paths in the numbers labyrinth.">
 
 
 
-<meta itemprop="name" content="Numberlink Puzzle">
-<meta itemprop="description" content="Finding paths in the numbers labyrinth."><meta itemprop="datePublished" content="2020-05-30T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-05-30T00:00:00+00:00" />
-<meta itemprop="wordCount" content="696"><meta itemprop="image" content="images/share.png"/>
-<meta itemprop="keywords" content="python,optimization,pyomo," />
+
+  <meta itemprop="name" content="Numberlink Puzzle">
+  <meta itemprop="description" content="Finding paths in the numbers labyrinth.">
+  <meta itemprop="datePublished" content="2020-05-30T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2020-05-30T00:00:00+00:00">
+  <meta itemprop="wordCount" content="696">
+  <meta itemprop="image" content="/images/share.png">
+  <meta itemprop="keywords" content="Python,Optimization,Pyomo">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <style>
@@ -210,17 +220,20 @@
 
 </style>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-8VH574W51S', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8VH574W51S');
+        }
+      </script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-alpha.1/es5/tex-mml-chtml.js"></script>
 
@@ -265,7 +278,7 @@ if (!doNotTrack) {
 </p>
 
 <content>
-  <figure class="center"><img src="mynumberlink.png" width="100%"/>
+  <figure class="center"><img src="/numberlink-puzzle/mynumberlink.png" width="100%">
 </figure>
 
 <h2 id="problem">Problem</h2>
@@ -274,7 +287,7 @@ if (!doNotTrack) {
 <li>The sections of a line run horizontally or vertically.</li>
 <li>Each cell must be visited exactly once by a line.</li>
 </ol>
-<figure class="center"><img src="numberlink.png" width="100%"/>
+<figure class="center"><img src="/numberlink-puzzle/numberlink.png" width="100%">
 </figure>
 
 <h2 id="solution">Solution</h2>
@@ -282,7 +295,7 @@ if (!doNotTrack) {
 <p>The trick is to identify endpoints of numberlinks. They do have only one neighbor with the same value. Cells wich are part of a
 path must have two neighbors with the same value.</p>
 </blockquote>
-<figure class="center"><img src="endpoints.png" width="100%"/>
+<figure class="center"><img src="/numberlink-puzzle/endpoints.png" width="100%">
 </figure>
 
 <p>The challenge is now to encode this insight into a Mixed Integer Programming model and fire up a solver.</p>
@@ -375,10 +388,10 @@ corresponding constraint for numberlink edges concise:</p>
 <h3 id="11-x-11">11 x 11</h3>
 <p>Running the model against this 11x11 puzzle <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> was easy for CBC on 6 cores on my virtual machine. The solution
 took less then 1s.</p>
-<figure class="center"><img src="d_11x11_puzzle.png" width="100%"/>
+<figure class="center"><img src="/numberlink-puzzle/d_11x11_puzzle.png" width="100%">
 </figure>
 
-<figure class="center"><img src="d_11x11.png" width="100%"/>
+<figure class="center"><img src="/numberlink-puzzle/d_11x11.png" width="100%">
 </figure>
 
 <h3 id="15-x-15">15 x 15</h3>
@@ -388,12 +401,12 @@ took less then 1s.</p>
 <li>Number of variables : 2700</li>
 <li>Duration: 00:00:40</li>
 </ul>
-<figure class="center"><img src="d_15x15.png" width="100%"/>
+<figure class="center"><img src="/numberlink-puzzle/d_15x15.png" width="100%">
 </figure>
 
 <h3 id="20-x-20">20 x 20</h3>
 <p>Going for a bigger prize <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> however did not result in a solution with CBC. After 12h I stopped the calculation.</p>
-<figure class="center"><img src="d_20x20_puzzle.png" width="100%"/>
+<figure class="center"><img src="/numberlink-puzzle/d_20x20_puzzle.png" width="100%">
 </figure>
 
 <p>Here the difference between Open Source and commercial solver becomes obvious. With a commercial solver (e.g. CPLEX, Gurobi) the problem can be solved within 43min:</p>
@@ -402,7 +415,7 @@ took less then 1s.</p>
 <li>Number of variables : 10000</li>
 <li>Duration: 00:42:47</li>
 </ul>
-<figure class="center"><img src="d_20x20.png" width="100%"/>
+<figure class="center"><img src="/numberlink-puzzle/d_20x20.png" width="100%">
 </figure>
 
 <h2 id="summary">Summary</h2>
@@ -425,11 +438,11 @@ took less then 1s.</p>
 </content>
 <p>
   
-  <a href="/blog/python/">#python</a>
+  <a href="/blog/python/">#Python</a>
   
-  <a href="/blog/optimization/">#optimization</a>
+  <a href="/blog/optimization/">#Optimization</a>
   
-  <a href="/blog/pyomo/">#pyomo</a>
+  <a href="/blog/pyomo/">#Pyomo</a>
   
 </p>
 

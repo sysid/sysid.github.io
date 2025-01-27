@@ -12,27 +12,39 @@
 <meta name="keywords" content="python,optimization,pyomo,scheduling," />
 
 
-<meta property="og:title" content="Patient Scheduling" />
-<meta property="og:description" content="Task Scheduling Problem" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/patient-scheduling/" /><meta property="og:image" content="/patient-scheduling/cover.png"/><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2020-05-09T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-05-09T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+<meta property="og:url" content="/patient-scheduling/">
+  <meta property="og:site_name" content="sysid blog">
+  <meta property="og:title" content="Patient Scheduling">
+  <meta property="og:description" content="Task Scheduling Problem">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2020-05-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2020-05-09T00:00:00+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Optimization">
+    <meta property="article:tag" content="Pyomo">
+    <meta property="article:tag" content="Scheduling">
+    <meta property="og:image" content="/patient-scheduling/cover.png">
 
 
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="/patient-scheduling/cover.png"/>
-<meta name="twitter:title" content="Patient Scheduling"/>
-<meta name="twitter:description" content="Task Scheduling Problem"/>
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/patient-scheduling/cover.png">
+  <meta name="twitter:title" content="Patient Scheduling">
+  <meta name="twitter:description" content="Task Scheduling Problem">
 
 
 
-<meta itemprop="name" content="Patient Scheduling">
-<meta itemprop="description" content="Task Scheduling Problem"><meta itemprop="datePublished" content="2020-05-09T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-05-09T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1005"><meta itemprop="image" content="/patient-scheduling/cover.png">
-<meta itemprop="keywords" content="python,optimization,pyomo,scheduling," />
+
+  <meta itemprop="name" content="Patient Scheduling">
+  <meta itemprop="description" content="Task Scheduling Problem">
+  <meta itemprop="datePublished" content="2020-05-09T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2020-05-09T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1005">
+  <meta itemprop="image" content="/patient-scheduling/cover.png">
+  <meta itemprop="keywords" content="Python,Optimization,Pyomo,Scheduling">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <style>
@@ -209,17 +221,20 @@
 
 </style>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-8VH574W51S', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8VH574W51S');
+        }
+      </script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-alpha.1/es5/tex-mml-chtml.js"></script>
 
@@ -276,7 +291,7 @@ if (!doNotTrack) {
 <li>No treatments can start during lunch break</li>
 <li>At most 2 treatments can start in each time slot.</li>
 </ul>
-<figure class="center"><img src="patient_data.png"/>
+<figure class="center"><img src="/patient-scheduling/patient_data.png">
 </figure>
 
 <p><a href="https://yetanothermathprogrammingconsultant.blogspot.com/2018/07/scheduling-of-patients.html">Yet Another Mathprogramming Consultant</a>
@@ -298,7 +313,7 @@ cover_{p,t,t&rsquo;} =
 $$</p>
 <p>It is important to note that \(cover\) is a model parameter not a variable. The main idea is to be able to filter all potential patient sessions at a
 timeslot \(t&rsquo;\).</p>
-<figure class="center"><img src="data_structure.png"/>
+<figure class="center"><img src="/patient-scheduling/data_structure.png">
 </figure>
 
 <p>If we look at the 15min timeslot \((p, t, 10)\) in the sketch above (right square), we find three
@@ -308,12 +323,12 @@ constraint, we can therefore formulate the non-overlap constraint as:</p>
 \sum_{(p,t&rsquo;,t)|cover_{p,t,t&rsquo;}} start_{c, p, t&rsquo;} \le 1, \forall c, t
 $$</p>
 <p>Here I am illustrating how the datasctructure \(cover\) looks like for patient type 5:</p>
-<p><figure class="center"><img src="cover.png" width="100%"/>
+<p><figure class="center"><img src="/patient-scheduling/cover.png" width="100%">
 </figure>
 
 Notice the lunch break at \(t=19\).</p>
 <p>In order to create \(cover\) it is necessary to pre-calculate all potential start slots for the respective patient type:</p>
-<p><figure class="center"><img src="ok.png" width="100%"/>
+<p><figure class="center"><img src="/patient-scheduling/ok.png" width="100%">
 </figure>
 
 E.g. for patient type 1 a session can be started up until the last available slot \(T=40\). Again notice the lunch break at \(t=19\).
@@ -411,7 +426,7 @@ Slot demand: 584, available slots: 920</p>
 Number of variables : 7383<br>
 The optimal solution requires 17 infusion chairs.</p>
 <p>The resulting schedule is:</p>
-<figure class="center"><img src="standard.png" width="100%"/>
+<figure class="center"><img src="/patient-scheduling/standard.png" width="100%">
 </figure>
 
 <p>The CBC solver finds a feasible and optimal solution in less than 2s for this model. Interesting to note that the
@@ -442,13 +457,13 @@ inspiration.</p>
 </content>
 <p>
   
-  <a href="/blog/python/">#python</a>
+  <a href="/blog/python/">#Python</a>
   
-  <a href="/blog/optimization/">#optimization</a>
+  <a href="/blog/optimization/">#Optimization</a>
   
-  <a href="/blog/pyomo/">#pyomo</a>
+  <a href="/blog/pyomo/">#Pyomo</a>
   
-  <a href="/blog/scheduling/">#scheduling</a>
+  <a href="/blog/scheduling/">#Scheduling</a>
   
 </p>
 

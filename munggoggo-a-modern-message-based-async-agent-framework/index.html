@@ -9,43 +9,85 @@
 <title>Munggoggo: A modern message based async agent framework | sysid blog</title>
 <meta name="title" content="Munggoggo: A modern message based async agent framework" />
 <meta name="description" content="An asyncio based agent platform written in Python and based on RabbitMQ.
-Agents are isolated processes which can host multiple parallel running behaviours implementing business logic and can be deployed as independent kubernetes pods. Access to the agent mesh is via REST/HTTP, websocket and jsonrpc.
-A few lines of code implement a fully fledged agent with a simple behaviour: sending and receiving ping messages to/from other agents.
-from mode import Worker from behaviour import Behaviour from core import Core class Agent(Core): class PingBehav(Behaviour): async def setup(self): self." />
+Agents are isolated processes which can host multiple parallel running behaviours implementing business
+logic and can be deployed as independent kubernetes pods. Access to the agent mesh is via
+REST/HTTP, websocket and jsonrpc.
+A few lines of code implement a fully fledged agent with a simple behaviour: sending and
+receiving ping messages to/from other agents.
+from mode import Worker
+from behaviour import Behaviour
+from core import Core
+
+
+class Agent(Core):
+    class PingBehav(Behaviour):
+        async def setup(self):
+            self.counter = 0
+
+        async def run(self):
+            self.counter &#43;= 1
+            msg = await self.receive()
+            if msg:
+                print(f&#34;{self.name}: Message received: {msg.body.decode()}&#34;)
+            await self.publish(str(self.counter), &#39;ping&#39;)
+            await asyncio.sleep(0.9)
+
+    async def setup(self) -&gt; None:
+        &#34;&#34;&#34; Register behaviour and subscribe to &#39;ping&#39; topic &#34;&#34;&#34;
+        await self.add_runtime_dependency(self.PingBehav(self, binding_keys=[&#39;ping&#39;]))
+
+
+if __name__ == &#39;__main__&#39;:
+    Worker(Agent(identity=&#39;AgentIdentity&#39;), loglevel=&#34;info&#34;).execute_from_commandline()
+
+Documentation: https://munggoggo.readthedocs.io/en/latest/
+Github: https://github.com/sysid/munggoggo" />
 <meta name="keywords" content="python,async," />
 
 
-<meta property="og:title" content="Munggoggo: A modern message based async agent framework" />
-<meta property="og:description" content="An asyncio based agent platform written in Python and based on RabbitMQ.
+<meta property="og:url" content="/munggoggo-a-modern-message-based-async-agent-framework/">
+  <meta property="og:site_name" content="sysid blog">
+  <meta property="og:title" content="Munggoggo: A modern message based async agent framework">
+  <meta property="og:description" content="An asyncio based agent platform written in Python and based on RabbitMQ.
 Agents are isolated processes which can host multiple parallel running behaviours implementing business logic and can be deployed as independent kubernetes pods. Access to the agent mesh is via REST/HTTP, websocket and jsonrpc.
 A few lines of code implement a fully fledged agent with a simple behaviour: sending and receiving ping messages to/from other agents.
-from mode import Worker from behaviour import Behaviour from core import Core class Agent(Core): class PingBehav(Behaviour): async def setup(self): self." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/munggoggo-a-modern-message-based-async-agent-framework/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2019-11-02T22:12:03+00:00" />
-<meta property="article:modified_time" content="2019-11-02T22:12:03+00:00" /><meta property="og:site_name" content="sysid blog" />
+from mode import Worker from behaviour import Behaviour from core import Core class Agent(Core): class PingBehav(Behaviour): async def setup(self): self.counter = 0 async def run(self): self.counter &#43;= 1 msg = await self.receive() if msg: print(f&#34;{self.name}: Message received: {msg.body.decode()}&#34;) await self.publish(str(self.counter), &#39;ping&#39;) await asyncio.sleep(0.9) async def setup(self) -&gt; None: &#34;&#34;&#34; Register behaviour and subscribe to &#39;ping&#39; topic &#34;&#34;&#34; await self.add_runtime_dependency(self.PingBehav(self, binding_keys=[&#39;ping&#39;])) if __name__ == &#39;__main__&#39;: Worker(Agent(identity=&#39;AgentIdentity&#39;), loglevel=&#34;info&#34;).execute_from_commandline() Documentation: https://munggoggo.readthedocs.io/en/latest/
+Github: https://github.com/sysid/munggoggo">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2019-11-02T22:12:03+00:00">
+    <meta property="article:modified_time" content="2019-11-02T22:12:03+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Async">
+    <meta property="og:image" content="/images/share.png">
 
 
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="images/share.png"/>
 
-<meta name="twitter:title" content="Munggoggo: A modern message based async agent framework"/>
-<meta name="twitter:description" content="An asyncio based agent platform written in Python and based on RabbitMQ.
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/images/share.png">
+  <meta name="twitter:title" content="Munggoggo: A modern message based async agent framework">
+  <meta name="twitter:description" content="An asyncio based agent platform written in Python and based on RabbitMQ.
 Agents are isolated processes which can host multiple parallel running behaviours implementing business logic and can be deployed as independent kubernetes pods. Access to the agent mesh is via REST/HTTP, websocket and jsonrpc.
 A few lines of code implement a fully fledged agent with a simple behaviour: sending and receiving ping messages to/from other agents.
-from mode import Worker from behaviour import Behaviour from core import Core class Agent(Core): class PingBehav(Behaviour): async def setup(self): self."/>
+from mode import Worker from behaviour import Behaviour from core import Core class Agent(Core): class PingBehav(Behaviour): async def setup(self): self.counter = 0 async def run(self): self.counter &#43;= 1 msg = await self.receive() if msg: print(f&#34;{self.name}: Message received: {msg.body.decode()}&#34;) await self.publish(str(self.counter), &#39;ping&#39;) await asyncio.sleep(0.9) async def setup(self) -&gt; None: &#34;&#34;&#34; Register behaviour and subscribe to &#39;ping&#39; topic &#34;&#34;&#34; await self.add_runtime_dependency(self.PingBehav(self, binding_keys=[&#39;ping&#39;])) if __name__ == &#39;__main__&#39;: Worker(Agent(identity=&#39;AgentIdentity&#39;), loglevel=&#34;info&#34;).execute_from_commandline() Documentation: https://munggoggo.readthedocs.io/en/latest/
+Github: https://github.com/sysid/munggoggo">
 
 
 
-<meta itemprop="name" content="Munggoggo: A modern message based async agent framework">
-<meta itemprop="description" content="An asyncio based agent platform written in Python and based on RabbitMQ.
+
+  <meta itemprop="name" content="Munggoggo: A modern message based async agent framework">
+  <meta itemprop="description" content="An asyncio based agent platform written in Python and based on RabbitMQ.
 Agents are isolated processes which can host multiple parallel running behaviours implementing business logic and can be deployed as independent kubernetes pods. Access to the agent mesh is via REST/HTTP, websocket and jsonrpc.
 A few lines of code implement a fully fledged agent with a simple behaviour: sending and receiving ping messages to/from other agents.
-from mode import Worker from behaviour import Behaviour from core import Core class Agent(Core): class PingBehav(Behaviour): async def setup(self): self."><meta itemprop="datePublished" content="2019-11-02T22:12:03+00:00" />
-<meta itemprop="dateModified" content="2019-11-02T22:12:03+00:00" />
-<meta itemprop="wordCount" content="415"><meta itemprop="image" content="images/share.png"/>
-<meta itemprop="keywords" content="python,async," />
+from mode import Worker from behaviour import Behaviour from core import Core class Agent(Core): class PingBehav(Behaviour): async def setup(self): self.counter = 0 async def run(self): self.counter &#43;= 1 msg = await self.receive() if msg: print(f&#34;{self.name}: Message received: {msg.body.decode()}&#34;) await self.publish(str(self.counter), &#39;ping&#39;) await asyncio.sleep(0.9) async def setup(self) -&gt; None: &#34;&#34;&#34; Register behaviour and subscribe to &#39;ping&#39; topic &#34;&#34;&#34; await self.add_runtime_dependency(self.PingBehav(self, binding_keys=[&#39;ping&#39;])) if __name__ == &#39;__main__&#39;: Worker(Agent(identity=&#39;AgentIdentity&#39;), loglevel=&#34;info&#34;).execute_from_commandline() Documentation: https://munggoggo.readthedocs.io/en/latest/
+Github: https://github.com/sysid/munggoggo">
+  <meta itemprop="datePublished" content="2019-11-02T22:12:03+00:00">
+  <meta itemprop="dateModified" content="2019-11-02T22:12:03+00:00">
+  <meta itemprop="wordCount" content="415">
+  <meta itemprop="image" content="/images/share.png">
+  <meta itemprop="keywords" content="Python,Async">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <style>
@@ -222,17 +264,20 @@ from mode import Worker from behaviour import Behaviour from core import Core cl
 
 </style>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-8VH574W51S', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8VH574W51S');
+        }
+      </script>
 
 </head>
 
@@ -334,9 +379,9 @@ python programming paradigms.</p>
 </content>
 <p>
   
-  <a href="/blog/python/">#python</a>
+  <a href="/blog/python/">#Python</a>
   
-  <a href="/blog/async/">#async</a>
+  <a href="/blog/async/">#Async</a>
   
 </p>
 

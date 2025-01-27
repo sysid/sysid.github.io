@@ -1,389 +1,251 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>python on sysid blog</title>
+    <title>Python on sysid blog</title>
     <link>/blog/python/</link>
-    <description>Recent content in python on sysid blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Python on sysid blog</description>
+    <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Mon, 19 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="/blog/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/blog/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rewriting a Vim Plugin in Rust: vimania-uri-rs</title>
       <link>/rewriting-a-vim-plugin-in-rust-vimania-uri-rs/</link>
       <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
-      
       <guid>/rewriting-a-vim-plugin-in-rust-vimania-uri-rs/</guid>
-      <description>Advanced URI Handling for the Modern Vim User
-Why? Vim&amp;rsquo;s native gx command is somehow limited in its flexibility and capabilities. I wanted more powerful URI handling capabilities, which led me to create vimania-uri, a Vim plugin designed to provide advanced URI management within Vim.
-However, while the plugin achieved its goal in terms of functionality, it came with a performance penalty: the initial loading of the plugin&amp;rsquo;s Python dependencies severely impacted Vim&amp;rsquo;s startup times.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Advanced URI Handling for the Modern Vim User&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;why&#34;&gt;Why?&lt;/h2&gt;&#xA;&lt;p&gt;Vim&amp;rsquo;s native &lt;code&gt;gx&lt;/code&gt; command is somehow limited in its flexibility and capabilities. I wanted more powerful URI handling capabilities, which led me to create &lt;a href=&#34;https://github.com/sysid/vimania-uri&#34;&gt;vimania-uri&lt;/a&gt;, a Vim plugin designed to provide advanced URI management within Vim.&lt;/p&gt;&#xA;&lt;p&gt;However, while the plugin achieved its goal in terms of functionality, it came with a performance penalty: the initial loading of the plugin&amp;rsquo;s Python dependencies severely impacted Vim&amp;rsquo;s startup times. The plugin relied on dependencies such as &lt;code&gt;beautifulsoup4&lt;/code&gt; (bs4) and &lt;code&gt;lxml&lt;/code&gt;, which are known for substantial size and complexity. As a result, the plugin introduced noticeable delays during Vim startup, with load times sporadically exceeding 3 seconds &amp;ndash; painful for a vim user.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Anki, Markdown, and the Power of inka2</title>
       <link>/anki-markdown-and-the-power-of-inka2/</link>
       <pubDate>Sun, 10 Mar 2024 00:00:00 +0000</pubDate>
-      
       <guid>/anki-markdown-and-the-power-of-inka2/</guid>
-      <description>Streamlining Knowledge Management: Anki, Markdown, and the Power of inka2 Introduction Acquiring and keeping knowledge is an uphill battle. Luckily the digital age has awarded us two powerful tools: Anki for spaced repetition learning, and Markdown for its straightforward syntax in note-taking. Bridging these worlds is inka2 a tool designed to transform Markdown notes into Anki flashcards with seamless efficiency.
-Why Markdown for Knowledge Management? Markdown stands as the go-to format for many developers and writers, praised for its simplicity and versatility.</description>
+      <description>&lt;h3 id=&#34;streamlining-knowledge-management-anki-markdown-and-the-power-of-inka2&#34;&gt;Streamlining Knowledge Management: Anki, Markdown, and the Power of inka2&lt;/h3&gt;&#xA;&lt;h4 id=&#34;introduction&#34;&gt;Introduction&lt;/h4&gt;&#xA;&lt;p&gt;Acquiring and keeping knowledge is an uphill battle.&#xA;Luckily the digital age has awarded us two powerful tools: Anki for spaced repetition learning, and Markdown for its straightforward syntax in note-taking.&#xA;Bridging these worlds is &lt;a href=&#34;https://github.com/sysid/inka2&#34;&gt;&lt;strong&gt;inka2&lt;/strong&gt;&lt;/a&gt; a tool designed to transform Markdown notes into Anki flashcards with seamless efficiency.&lt;/p&gt;&#xA;&lt;h4 id=&#34;why-markdown-for-knowledge-management&#34;&gt;Why Markdown for Knowledge Management?&lt;/h4&gt;&#xA;&lt;p&gt;Markdown stands as the go-to format for many developers and writers, praised for its simplicity and versatility.&#xA;It allows for quick note-taking, organizing thoughts, and even documenting complex code snippets without breaking a sweat.&#xA;Coupled with a text editor like Vim, managing knowledge becomes a streamlined process, minimizing distractions and maximizing productivity.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Linear Optimization in time-critical Control Loop</title>
       <link>/linear-optimization-in-time-critical-control-loop/</link>
       <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
-      
       <guid>/linear-optimization-in-time-critical-control-loop/</guid>
-      <description>Problem Given a start and endpoint, find the eager and lazy path from start to end.
-Model The visualization translates to a simple rhombus (German: Raute) where the enclosed area is to be maximized.
-The task is to find the corner points A, B, C, D, of the Raute.
-There is a twist, however. The points must be contained within a &amp;ldquo;valid&amp;rdquo; area, whereas start and endpoint may lie outside.</description>
+      <description>&lt;h2 id=&#34;problem&#34;&gt;Problem&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Given a start and endpoint, find the eager and lazy path from start to end.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/linear-optimization-in-time-critical-control-loop/eager_lazy_path.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;h2 id=&#34;model&#34;&gt;Model&lt;/h2&gt;&#xA;&lt;p&gt;The visualization translates to a simple rhombus (German: Raute) where the enclosed area is to be maximized.&lt;/p&gt;&#xA;&lt;p&gt;The task is to find the corner points A, B, C, D, of the Raute.&lt;/p&gt;&#xA;&lt;p&gt;There is a twist, however. The points must be contained within a &amp;ldquo;valid&amp;rdquo; area, whereas&#xA;start and endpoint may lie outside.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Select Points</title>
       <link>/select-points/</link>
       <pubDate>Sun, 30 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>/select-points/</guid>
-      <description>Given multiple sets of data points. Select one point per set so that the distances between the points is minimal.1
-Model Non-convex MIQP Model $$ \min \sum_{i,j| ok_{i,j}} dist_{i,j} \cdot x_i \cdot x_j \\ \sum_{i|group_{i,g}} x_i = 1 \forall g \\ x_i \in {0,1} $$
-Linear MIP Model To linearize the model a standard procedure can be applied:
-Let&amp;rsquo;s introduce a new binary variable, $z_{i,j}$, that represents the product of the binary variables $\color{darkred}x_i$ and $\color{darkred}x_j$.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Given multiple sets of data points. Select one point per set so that the distances between the points is minimal.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/select-points/full2.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;h2 id=&#34;model&#34;&gt;Model&lt;/h2&gt;&#xA;&lt;h3 id=&#34;non-convex-miqp-model&#34;&gt;Non-convex MIQP Model&lt;/h3&gt;&#xA;&lt;p&gt;$$&#xA;\min \sum_{i,j| ok_{i,j}} dist_{i,j} \cdot x_i \cdot x_j  \\&#xA;\sum_{i|group_{i,g}} x_i = 1 \forall g \\&#xA;x_i \in {0,1}&#xA;$$&lt;/p&gt;&#xA;&lt;h3 id=&#34;linear-mip-model&#34;&gt;Linear MIP Model&lt;/h3&gt;&#xA;&lt;p&gt;To linearize the model a standard procedure can be applied:&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s introduce a new binary variable, $z_{i,j}$, that represents the product of the binary variables $\color{darkred}x_i$ and $\color{darkred}x_j$.&#xA;This new variable will replace the nonlinear term in the objective function, making the model linear.&#xA;We will also add constraints to link the new variable $z_{i,j}$ with the original variables $\color{darkred}x_i$ and $\color{darkred}x_j$.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>vimania-uri</title>
       <link>/vimania-uri/</link>
       <pubDate>Mon, 19 Dec 2022 00:00:00 +0000</pubDate>
-      
       <guid>/vimania-uri/</guid>
-      <description>Double-click-&amp;gt;Open. But for VIM. No mouse.
-Key Features Open URIs, html, docx, pptx, jpg, png, mp3, &amp;hellip; Handle almost any URI Paste URLs with human-friendly description vimania-uri
-Why? One magic power of OS UI is the capability of opening URIs by just double-clicking. As CLI worker using a mouse does not cut it.
-Markdown Plugin To deal with markdown a plugin is helpful, e.g. plasticboy&amp;rsquo;s plugin.
-It allows to create new files by adding a link [topic](topic) and then jump to it by typing ge while the cursor is on the link.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Double-click-&amp;gt;Open. But for VIM. No mouse.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h1 id=&#34;key-features&#34;&gt;Key Features&lt;/h1&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Open URIs, html, docx, pptx, jpg, png, mp3, &amp;hellip;&lt;/li&gt;&#xA;&lt;li&gt;Handle almost any URI&lt;/li&gt;&#xA;&lt;li&gt;Paste URLs with human-friendly description&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/vimania-uri/vimania-uri-demo.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;a href=&#34;https://github.com/sysid/vimania-uri&#34;&gt;vimania-uri&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;why&#34;&gt;Why?&lt;/h2&gt;&#xA;&lt;p&gt;One magic power of OS UI is the capability of opening URIs by just double-clicking.&#xA;As CLI worker using a mouse does not cut it.&lt;/p&gt;&#xA;&lt;h4 id=&#34;markdown-plugin&#34;&gt;Markdown Plugin&lt;/h4&gt;&#xA;&lt;p&gt;To deal with markdown a plugin is helpful, e.g. &lt;a href=&#34;https://github.com/plasticboy/vim-markdown&#34;&gt;plasticboy&amp;rsquo;s plugin&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;It allows to create new files by adding a link &lt;code&gt;[topic](topic)&lt;/code&gt; and then jump to it by typing &lt;code&gt;ge&lt;/code&gt; while the cursor is on the link.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Software Architecture 2022</title>
       <link>/software-architecture-2022/</link>
       <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>/software-architecture-2022/</guid>
-      <description>A refresher in software architecture philosophies with Perseverance, Patience and Python.
-This is a high-speed overflight over current approaches with an occasional deep dive.
-CRUD, MVC simple concepts and therefore effective communication in dev teams works as expected. Limits known, e.g. modelling complex business domains DDD and Clean Architecture structure of software logic reflects business processes ubiquitous language as common communication ground for developer and business concepts like Aggregate and UnitOfWork provide clear consistency and concurrency model.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;A refresher in software architecture philosophies with Perseverance, Patience and Python.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This is a high-speed overflight over current approaches with an occasional deep dive.&lt;/p&gt;&#xA;&lt;h2 id=&#34;crud-mvc&#34;&gt;CRUD, MVC&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;simple concepts and therefore effective communication in dev teams&lt;/li&gt;&#xA;&lt;li&gt;works as expected. Limits known, e.g. modelling complex business domains&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;ddd-and-clean-architecture&#34;&gt;DDD and Clean Architecture&lt;/h2&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/software-architecture-2022/layered.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;structure of software logic reflects business processes&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;ubiquitous language&lt;/strong&gt; as common communication ground for developer and business&lt;/li&gt;&#xA;&lt;li&gt;concepts like &lt;strong&gt;Aggregate&lt;/strong&gt; and &lt;strong&gt;UnitOfWork&lt;/strong&gt; provide clear consistency and concurrency model. Facilitates communication.&lt;/li&gt;&#xA;&lt;li&gt;Clean Architecture and DI is conducive to structured and decoupled code (SRP)&#xA;&lt;a href=&#34;https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749&#34;&gt;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/software-architecture-2022/hexagon.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&lt;/a&gt;&#xA;&lt;a href=&#34;https://medium.com/gdplabs/clean-architecture-a8b5d93d0944&#34;&gt;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/software-architecture-2022/clean_architecture.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html&#34;&gt;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/software-architecture-2022/dep_vs_flow.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&lt;/a&gt;&#xA;Every system has these two kind of arrows:&#xA;the dotted-green one showing the flow of control (or the flow of data in your system) and the red one showing the source code dependency.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>twbm</title>
       <link>/twbm/</link>
       <pubDate>Sat, 24 Jul 2021 00:00:00 +0000</pubDate>
-      
       <guid>/twbm/</guid>
-      <description>Bookmarks are a major pillar of any knowledge-management strategy.
-Bookmarks are the foundation of the World Wide Web and personal bookmark management should be regarded as a solved problem these days, right?
-Truth is, I used to struggle a lot with bookmarks.
-My requirements:
-I want to own my bookmarks. They reflect a carefully curated list of knowledge and expertise which I have honed over years. I maintain this list and keep it up-to-date.</description>
+      <description>&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/twbm/bm.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Bookmarks are a major pillar of any knowledge-management strategy.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Bookmarks are the foundation of the World Wide Web and personal bookmark management should be regarded as a solved problem&#xA;these days, right?&lt;/p&gt;&#xA;&lt;p&gt;Truth is, I used to struggle a lot with bookmarks.&lt;/p&gt;&#xA;&lt;p&gt;My requirements:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;I want to own my bookmarks. They reflect a carefully curated list of knowledge and expertise which I have honed over&#xA;years. I maintain this list and keep it up-to-date. I do not want them to live in any walled garden or cloud service.&lt;/li&gt;&#xA;&lt;li&gt;I want them to be platform agnostic.&lt;/li&gt;&#xA;&lt;li&gt;I need them to be at my fingertip wherever I am currently working, no matter where, on what device&amp;hellip;&lt;/li&gt;&#xA;&lt;li&gt;I need them searchable with respect to various categories and keywords. Searchability is the whole point of&#xA;knowledge management, so this one is very important.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Well, there are myriads of bookmark managers out there, so just pick one, right?&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Maximal Overlap of Rectangles</title>
       <link>/maximal-overlap-of-rectangles/</link>
       <pubDate>Sun, 07 Feb 2021 00:00:00 +0000</pubDate>
-      
       <guid>/maximal-overlap-of-rectangles/</guid>
-      <description>Find the maximal overlap of rectangles so, that every selected rectangle covers the full width of the overlap area.
-A selected rectangle can be larger than the overlap area, but not smaller.
-Problem Parameters: a set of rectangles aligned on the x-axis rectanges can have different heigt rectangles show arbitrary overlap Model Parameters $$ i \in [1..N],\ \text{ index: N rectangles }\\ s_i \in R^+,\ \text{ start of rectangle \(i\) }\\ e_i \in R^+,\ \text{ end of rectangle \(i\) }\\ h_i \in R^+,\ \text{ height of rectangle \(i\) }\\ M \in R^+,\ \text{ Big-M constant, upper limit for x }\\ $$</description>
+      <description>&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/maximal-overlap-of-rectangles/start_pic.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Find the maximal overlap of rectangles so, that every selected rectangle covers the full width of the overlap area.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;A selected rectangle can be larger than the overlap area, but not smaller.&lt;/p&gt;&#xA;&lt;h3 id=&#34;problem-parameters&#34;&gt;Problem Parameters:&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;a set of rectangles aligned on the x-axis&lt;/li&gt;&#xA;&lt;li&gt;rectanges can have different heigt&lt;/li&gt;&#xA;&lt;li&gt;rectangles show arbitrary overlap&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;model&#34;&gt;Model&lt;/h2&gt;&#xA;&lt;h3 id=&#34;parameters&#34;&gt;Parameters&lt;/h3&gt;&#xA;&lt;p&gt;$$&#xA;i \in [1..N],\ \text{ index: N rectangles }\\&#xA;s_i \in R^+,\ \text{ start of rectangle \(i\) }\\&#xA;e_i \in R^+,\ \text{ end of rectangle \(i\) }\\&#xA;h_i \in R^+,\ \text{ height of rectangle \(i\) }\\&#xA;M \in R^+,\ \text{ Big-M constant, upper limit for x }\\&#xA;$$&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Scheduling</title>
       <link>/scheduling/</link>
       <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
-      
       <guid>/scheduling/</guid>
-      <description>I already analysed several scheduling problems:
-Task Scheduling Task Scheduling with limited Resources Job Shop Scheduling Problem Patient Scheduling The class of scheduling problems is interesting and every example provides new insight. Here I am going to look at two problems which can be solved with a very similar and quite common approach: The continuous time model approach.
-Problem 1: Machine Scheduling Schedule jobs onto available machines so, that the total processing time (a.</description>
+      <description>&lt;p&gt;I already analysed several scheduling problems:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;../task-scheduling&#34;&gt;Task Scheduling&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;../task-scheduling-with-limited-resources&#34;&gt;Task Scheduling with limited Resources&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;../job-shop-scheduling-problem&#34;&gt;Job Shop Scheduling Problem&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;../patient-scheduling&#34;&gt;Patient Scheduling&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The class of scheduling problems is interesting and every example provides new insight. Here I am going to look at&#xA;two problems which can be solved with a very similar and quite common approach: The&#xA;&lt;strong&gt;continuous time model&lt;/strong&gt; approach.&lt;/p&gt;&#xA;&lt;h2 id=&#34;problem-1-machine-scheduling&#34;&gt;Problem 1: Machine Scheduling&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Schedule jobs onto available machines so, that the total processing time (a.k.a. makespan) is minimized.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Inventory Management</title>
       <link>/inventory-management/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      
       <guid>/inventory-management/</guid>
-      <description>Find the best order policy to replenish stock levels, i.e. minimize the total cost incurred.
-The (Q, R) inventory model is as follows:
-If the inventory falls below threshold R, place an order of quantity Q. Lead times: when an order is placed it takes some time to be delivered When inventory becomes zero, additional demand will cause a backlog. Backlogged demand will be fulfilled when replenishments arrive but at a cost.</description>
+      <description>&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/inventory-management/im.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Find the best order policy to replenish stock levels, i.e. minimize the total cost incurred.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;The (Q, R) inventory model is as follows:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;If the inventory falls below threshold R, place an order of quantity Q.&lt;/li&gt;&#xA;&lt;li&gt;Lead times: when an order is placed it takes some time to be delivered&lt;/li&gt;&#xA;&lt;li&gt;When inventory becomes zero, additional demand will cause a backlog. Backlogged demand will be fulfilled when replenishments arrive but at a cost.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;cost-contribution&#34;&gt;Cost Contribution&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Fixed ordering cost (Fixed cost)&lt;/li&gt;&#xA;&lt;li&gt;Holding cost related to inventory (Holding cost)&lt;/li&gt;&#xA;&lt;li&gt;Penalties related to backlogs (Shortage cost)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/inventory-management/cost_contrib.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Choose quantity Q and ordering threshold R to strike a good balance among these three costs!&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Job Shop Scheduling Problem</title>
       <link>/job-shop-scheduling-problem/</link>
       <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>/job-shop-scheduling-problem/</guid>
-      <description>The Job Shop Scheduling Problem (JSSP) is an NP-hard problem. 1
-The JSSP is defined by a set of jobs that must be executed by a set of machines in a specific order for each job. Each job has a defined execution time for each machine and a defined processing order of machines. Also, each job must use each machine only once. The machines can only execute a job at a time and once started, the machine cannot be interrupted until the completion of the assigned job.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;The Job Shop Scheduling Problem (JSSP) is an NP-hard problem. &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;The JSSP is defined by a set of jobs that must be executed by&#xA;a set of machines in a specific order for each job. Each job has a defined execution time for each machine and&#xA;a defined processing order of machines. Also, each job must use each machine only once.&#xA;The machines can only execute a job at a time and once started, the machine cannot be interrupted until the completion of the assigned job.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Resource Constrained Project Success Plan</title>
       <link>/resource-constrained-project-success-plan/</link>
       <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
-      
       <guid>/resource-constrained-project-success-plan/</guid>
-      <description>Scheduling tasks in a large project translates to facing a graph optimization challenge:
-The Resource-Constrained Project Scheduling Problem is a combinatorial optimization problem that consists of finding a feasible scheduling for a set of \(n\) jobs subject to resource and precedence constraints.
-Problem Domain: Network Optimization. Taks are represented by nodes. Dependencies of tasks on predecessors form a directed graph. Every task has got a duration which is represented by the weight of the directed edges of the graph.</description>
+      <description>&lt;p&gt;Scheduling tasks in a large project translates to facing a graph optimization challenge:&lt;/p&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/resource-constrained-project-success-plan/network.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;The Resource-Constrained Project Scheduling Problem is a combinatorial optimization problem that consists of finding&#xA;a feasible scheduling for a set of \(n\) jobs subject to resource and precedence constraints.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;problem-domain-network-optimization&#34;&gt;Problem Domain: Network Optimization.&lt;/h2&gt;&#xA;&lt;p&gt;Taks are represented by nodes. Dependencies of tasks on predecessors form a directed graph. Every task has got a&#xA;duration which is represented by the weight of the directed edges of the graph. Tasks consume limited resources.&#xA;In order to provide an entry and exit point to the graph we introduce two &lt;em&gt;dummy&lt;/em&gt; tasks,&#xA;\(x_0, x_{n+1}\) with duration 0 and no resource consumption (a.k.a. sentinels).&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Installing CBC on MacOS</title>
       <link>/installing-cbc-on-macos/</link>
       <pubDate>Wed, 24 Jun 2020 00:00:00 +0000</pubDate>
-      
       <guid>/installing-cbc-on-macos/</guid>
-      <description>Update May 2022: Using the coinbrew approach as documented here works now out of the box. Today I needed to install CBC on MacOS and it was not a walk in the park, unfortunately.
-Yes, there is a brew package which makes installation trivial. However, this only installs a single-threaded version of CBC. Not good!
-One of the greatest selling points of CBC is multithreading. This makes CBC a contender for serious optimization tasks in MIP programming.</description>
+      <description>&lt;h4 id=&#34;update-may-2022-using-the-coinbrew-approach-as-documented-herehttpsgithubcomcoin-orcbcusing-coinbrew-works-now-out-of-the-box&#34;&gt;Update May 2022: Using the coinbrew approach as documented &lt;a href=&#34;https://github.com/coin-or/Cbc#using-coinbrew&#34;&gt;here&lt;/a&gt; works now out of the box.&lt;/h4&gt;&#xA;&lt;p&gt;Today I needed to install &lt;a href=&#34;https://github.com/coin-or/Cbc&#34;&gt;CBC&lt;/a&gt; on MacOS and it was not a walk in the park, unfortunately.&lt;/p&gt;&#xA;&lt;p&gt;Yes, there is a &lt;em&gt;brew&lt;/em&gt; package which makes installation trivial. However, this only installs a single-threaded version&#xA;of CBC. Not good!&lt;/p&gt;&#xA;&lt;p&gt;One of the greatest selling points of CBC is multithreading. This makes CBC a contender for serious optimization&#xA;tasks in MIP programming.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Dispersion</title>
       <link>/dispersion/</link>
       <pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate>
-      
       <guid>/dispersion/</guid>
-      <description>Find 10 points out of 50 with maximum distance from each other.1
-This problem can modelled as a max-min model where we maximize the smallest distance of 10 points.
-Model $$ \max \Delta\\ s.t.\\ \Delta \le d_{i,j} + M(1- x_i x_j), \forall i \lt j \\ \sum_i x_i = k\\ x_i \in {0,1}\\ $$
-M is an upper bound on the distances: $$ M = \max_{i\le j} d_{i,j}\\ $$</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Find 10 points out of 50 with maximum distance from each other.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/dispersion/points.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;This problem can modelled as a &lt;strong&gt;max-min&lt;/strong&gt; model where we maximize the smallest distance of 10 points.&lt;/p&gt;&#xA;&lt;h2 id=&#34;model&#34;&gt;Model&lt;/h2&gt;&#xA;&lt;p&gt;$$&#xA;\max \Delta\\&#xA;s.t.\\&#xA;\Delta \le d_{i,j} + M(1- x_i x_j), \forall i \lt j \\&#xA;\sum_i x_i = k\\&#xA;x_i \in {0,1}\\&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;M is an upper bound on the distances:&#xA;$$&#xA;M = \max_{i\le j} d_{i,j}\\&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;The quadratic part \(x_i x_j\) of the constraint can be linearized:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>The Book of Mormon II</title>
       <link>/the-book-of-mormon-ii/</link>
       <pubDate>Sat, 13 Jun 2020 00:00:00 +0000</pubDate>
-      
       <guid>/the-book-of-mormon-ii/</guid>
-      <description>The full version of the problem you can find in part I of the article.
-Recap Challenge We want to read the book in a given number of days: 128. We want to read an integer number of chapters each day (there are more chapters than days), and at least 1 chapter each day. The chapters are very non uniform in length (some very short, a few very long, many in between) so we would like to come up with a reading schedule that minimizes the variance of the length of the days readings (read multiple short chapters on the same day, long chapters are the only one read that day).</description>
+      <description>&lt;p&gt;The full version of the problem you can find in &lt;a href=&#34;../the-book-of-mormon&#34;&gt;part I of the article&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;recap-challenge&#34;&gt;Recap Challenge&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;We want to read the book in a given number of days: 128.&lt;/li&gt;&#xA;&lt;li&gt;We want to read an integer number of chapters each day (there are more chapters than days), and at least 1 chapter each day.&lt;/li&gt;&#xA;&lt;li&gt;The chapters are very non uniform in length (some very short, a few very long, many in between) so we would like&#xA;to come up with a reading schedule that minimizes the variance of the length of the days readings&#xA;(read multiple short chapters on the same day, long chapters are the only one read that day).&lt;/li&gt;&#xA;&lt;li&gt;We want to read through the book in order (no skipping ahead to combine short chapters that are not naturally next to each other)&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;objective&#34;&gt;Objective:&lt;/h3&gt;&#xA;&lt;p&gt;We minimize the variance of the number of verses read per day.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>The Book of Mormon</title>
       <link>/the-book-of-mormon/</link>
       <pubDate>Sun, 07 Jun 2020 00:00:00 +0000</pubDate>
-      
       <guid>/the-book-of-mormon/</guid>
-      <description>The Book of Mormon is a sacred text of the Latter Day Saint movement, which, according to adherents, contains writings of ancient prophets who lived on the American continent from approximately 2200 BC to AD 421.1
-Not the easiest matter, so we need a smart reading plan.
-Challenge We want to read the book in a given number of days: 128. We want to read an integer number of chapters each day (there are more chapters than days), and at least 1 chapter each day.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;The Book of Mormon is a sacred text of the Latter Day Saint movement, which, according to adherents, contains writings&#xA;of ancient prophets who lived on the American continent from approximately 2200 BC to AD 421.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Not the easiest matter, so we need a smart reading plan.&lt;/p&gt;&#xA;&lt;h2 id=&#34;challenge&#34;&gt;Challenge&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;We want to read the book in a given number of days: 128.&lt;/li&gt;&#xA;&lt;li&gt;We want to read an integer number of chapters each day (there are more chapters than days), and at least 1 chapter each day.&lt;/li&gt;&#xA;&lt;li&gt;The chapters are very non uniform in length (some very short, a few very long, many in between) so we would like&#xA;to come up with a reading schedule that minimizes the variance of the length of the days readings&#xA;(read multiple short chapters on the same day, long chapters are the only one read that day).&lt;/li&gt;&#xA;&lt;li&gt;We want to read through the book in order (no skipping ahead to combine short chapters that are not naturally next to each other)&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yetanothermathprogrammingconsultant.blogspot.com/2018/02/on-scheduling-of-reading-book-chapters.html&#34;&gt;Yet Another Math Programming Consultant&lt;/a&gt;&#xA;analysed various solution approaches. I want to replicate here two of them with &lt;a href=&#34;http://www.pyomo.org/&#34;&gt;Pyomo&lt;/a&gt; as modelling language.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>String Puppets</title>
       <link>/string-puppets/</link>
       <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
-      
       <guid>/string-puppets/</guid>
-      <description>import mona1 from &amp;ldquo;./mona1.mp4&amp;rdquo;
-I am a fan of the Augsburger Puppenkiste. Puppets are brought to live by pulling strings. If you ever get to Augsburg, do not miss to see a show!
-Today a came across an excellent article 1, which creepily reminded me of these happy String Puppets.
-I decided to hit two birds with one stone: Learn something about the current state of Deep Fakes and try out Google&amp;rsquo;s Colab environment.</description>
+      <description>&lt;p&gt;import mona1 from &amp;ldquo;./mona1.mp4&amp;rdquo;&lt;/p&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/string-puppets/puppenkiste.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;I am a fan of the &lt;a href=&#34;http://www.augsburger-puppenkiste.de/&#34;&gt;Augsburger Puppenkiste&lt;/a&gt;. Puppets&#xA;are brought to live by pulling strings. If you ever get to Augsburg, do not miss to see a show!&lt;/p&gt;&#xA;&lt;p&gt;Today a came across an excellent article &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, which creepily reminded me of these happy String Puppets.&lt;/p&gt;&#xA;&lt;p&gt;I decided to hit two birds with one stone: Learn something about the current state of&#xA;&lt;a href=&#34;https://en.wikipedia.org/wiki/Deepfake&#34;&gt;Deep Fakes&lt;/a&gt; and try out Google&amp;rsquo;s &lt;a href=&#34;https://colab.research.google.com/&#34;&gt;Colab&lt;/a&gt; environment.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Numberlink Puzzle</title>
       <link>/numberlink-puzzle/</link>
       <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>/numberlink-puzzle/</guid>
-      <description>Problem Connect each two cells with the same numbers by a line. The sections of a line run horizontally or vertically. Each cell must be visited exactly once by a line. Solution The trick is to identify endpoints of numberlinks. They do have only one neighbor with the same value. Cells wich are part of a path must have two neighbors with the same value.
-The challenge is now to encode this insight into a Mixed Integer Programming model and fire up a solver.</description>
+      <description>&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/numberlink-puzzle/mynumberlink.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;h2 id=&#34;problem&#34;&gt;Problem&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Connect each two cells with the same numbers by a line.&lt;/li&gt;&#xA;&lt;li&gt;The sections of a line run horizontally or vertically.&lt;/li&gt;&#xA;&lt;li&gt;Each cell must be visited exactly once by a line.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/numberlink-puzzle/numberlink.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;h2 id=&#34;solution&#34;&gt;Solution&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;The trick is to identify endpoints of numberlinks. They do have only one neighbor with the same value. Cells wich are part of a&#xA;path must have two neighbors with the same value.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/numberlink-puzzle/endpoints.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;The challenge is now to encode this insight into a Mixed Integer Programming model and fire up a solver.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Server Sent Events</title>
       <link>/server-sent-events/</link>
       <pubDate>Wed, 27 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>/server-sent-events/</guid>
-      <description>If you are looking for realtime features in WEB applciations you often end with Websockets.
-Just to be complete I also mention &amp;lsquo;Long/Short polling&amp;rsquo; as a client-side pull option. I regard it as mere workaround to a realtime communication implementation.
-As always, requirements are key: If you need bi-directional realtime features with high volume and low latency, Websocket is your choice. If you need to deliver realtime information to many clients, but you can live with the HTTP Request/Response model to trigger actions, Server Sent Events (SSE) are a powerful contender.</description>
+      <description>&lt;p&gt;If you are looking for &lt;em&gt;realtime&lt;/em&gt; features in WEB applciations&#xA;you often end with &lt;a href=&#34;https://en.wikipedia.org/wiki/WebSocket&#34;&gt;Websockets&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Just to be complete I also mention &amp;lsquo;Long/Short polling&amp;rsquo; as a client-side pull option. I&#xA;regard it as mere workaround to a &lt;em&gt;realtime&lt;/em&gt; communication implementation.&lt;/p&gt;&#xA;&lt;h4 id=&#34;as-always-requirements-are-key&#34;&gt;As always, requirements are key:&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;If you need bi-directional realtime features with high volume and low latency, &lt;a href=&#34;https://en.wikipedia.org/wiki/WebSocket&#34;&gt;Websocket&lt;/a&gt; is your choice.&lt;/li&gt;&#xA;&lt;li&gt;If you need to deliver &lt;em&gt;realtime&lt;/em&gt; information&#xA;to many clients, but you can live with the HTTP Request/Response model to trigger actions, &lt;a href=&#34;https://en.wikipedia.org/wiki/Server-sent_events&#34;&gt;Server Sent Events (SSE)&lt;/a&gt; are a&#xA;powerful contender.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;SSE is a mechanism that allows the server to asynchronously push the data to the client once the client-server connection is established.&#xA;The client &lt;em&gt;subscribes&lt;/em&gt; to the server data via an &lt;a href=&#34;https://www.w3.org/TR/eventsource/&#34;&gt;Event Source&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Task Scheduling with limited Resources</title>
       <link>/task-scheduling-with-limited-resources/</link>
       <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>/task-scheduling-with-limited-resources/</guid>
-      <description>We already looked at a simple scheduling problem: Task Scheduling.
-Here we are looking at a more elaborated scheduling example with limited resources for tasks with various durations. We want to get insights by re-engineering the solution of 1 with Pyomo.
-Problem We have \(N\) tasks and \(M\) facilities to execute the tasks. Every task has a due date. Tasks require certain resources for execution, e.g. water, electricity, &amp;hellip; Every facility provides a set of resources Only one task per resource can be executed at a given time.</description>
+      <description>&lt;p&gt;We already looked at a simple scheduling problem: &lt;a href=&#34;../task-scheduling&#34;&gt;Task Scheduling&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Here we are looking at a more elaborated scheduling example with limited resources for tasks with various durations.&#xA;We want to get insights by re-engineering the solution of &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; with &lt;a href=&#34;http://www.pyomo.org/&#34;&gt;Pyomo&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h3 id=&#34;problem&#34;&gt;Problem&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;We have \(N\) tasks and \(M\) facilities to execute the tasks.&lt;/li&gt;&#xA;&lt;li&gt;Every task has a due date.&lt;/li&gt;&#xA;&lt;li&gt;Tasks require certain resources for execution, e.g. water, electricity, &amp;hellip;&lt;/li&gt;&#xA;&lt;li&gt;Every facility provides a set of resources&lt;/li&gt;&#xA;&lt;li&gt;Only one task per resource can be executed at a given time.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Assign the tasks to the facilities so that the task get all required resources for execution.&#xA;We want to minimize the total time to complete all tasks. This time is called &lt;em&gt;makespan&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Task Scheduling</title>
       <link>/task-scheduling/</link>
       <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>/task-scheduling/</guid>
-      <description>We already looked at a real world scheduling problem: Patient Scheduling.
-Important concepts have been touched there. Here we look at additional aspects of this important optimization domain, especially in using Pyomo as modelling environment.
-Simple Scheduling Problem Schedule 10 tasks. Each task must be assigned to a single time slot, however, not every time slot is viable. The duration of a task is one timeslot. We want to minimize the number of timeslots used.</description>
+      <description>&lt;p&gt;We already looked at a real world scheduling problem: &lt;a href=&#34;../patient-scheduling&#34;&gt;Patient Scheduling&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Important concepts have been touched there. Here we look at additional aspects of this important&#xA;optimization domain, especially in using &lt;a href=&#34;http://www.pyomo.org/&#34;&gt;Pyomo&lt;/a&gt; as modelling environment.&lt;/p&gt;&#xA;&lt;h2 id=&#34;simple-scheduling&#34;&gt;Simple Scheduling&lt;/h2&gt;&#xA;&lt;h3 id=&#34;problem&#34;&gt;Problem&lt;/h3&gt;&#xA;&lt;p&gt;Schedule 10 tasks. Each task must be assigned to a single time slot, however, not every time slot is viable.&#xA;The duration of a task is one timeslot.&#xA;We want to minimize the number of timeslots used.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Polyominos, Tetris</title>
       <link>/polyominos-tetris/</link>
       <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>/polyominos-tetris/</guid>
-      <description>Problem Fill a rectangle with polyominos.
-What is a Polyomino?
-A plane geometric figure formed by joining one or more equal squares edge to edge. It is a polyform whose cells are squares. It may be regarded as a finite subset of the regular square tiling.
-Model Since this puzzle is just another form of tiling challenge we can reuse concepts and ideas from Mondriaan Puzzle, Another Boring Lockdown Day and Patient Scheduling.</description>
+      <description>&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/polyominos-tetris/pentominoes.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;h2 id=&#34;problem&#34;&gt;Problem&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Fill a rectangle with polyominos.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Polyomino&#34;&gt;What is a Polyomino?&lt;/a&gt;&lt;br&gt;&#xA;A plane geometric figure formed by joining one or more equal squares edge to edge.&#xA;It is a polyform whose cells are squares. It may be regarded as a finite subset of the regular square tiling.&lt;/p&gt;&#xA;&lt;h1 id=&#34;model&#34;&gt;Model&lt;/h1&gt;&#xA;&lt;p&gt;Since this puzzle is just another form of tiling challenge we can reuse concepts and ideas from&#xA;&lt;a href=&#34;../mondriaan-puzzle&#34;&gt;Mondriaan Puzzle&lt;/a&gt;, &lt;a href=&#34;../square-tiling&#34;&gt;Another Boring Lockdown Day&lt;/a&gt; and &lt;a href=&#34;../patient-scheduling&#34;&gt;Patient Scheduling&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Patient Scheduling</title>
       <link>/patient-scheduling/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>/patient-scheduling/</guid>
-      <description>How to optimize the scheduling of patients in order to use the necessary infrastructure, i.e. infusion chairs optimally.
-Problem Parameters 1: There are \(T = 40\) time slots of 15 minutes We have 23 infusion chairs for patient treatment We have 8 different types of patients Each patient type has a demand (number of patients) and treatment length (expressed in 15 minute slots) No treatments can start during lunch break At most 2 treatments can start in each time slot.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;How to optimize the scheduling of patients in order to use the necessary infrastructure, i.e. infusion chairs optimally.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;problem-parameters-1&#34;&gt;Problem Parameters &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;:&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;There are \(T = 40\) time slots of 15 minutes&lt;/li&gt;&#xA;&lt;li&gt;We have 23 infusion chairs for patient treatment&lt;/li&gt;&#xA;&lt;li&gt;We have 8 different types of patients&lt;/li&gt;&#xA;&lt;li&gt;Each patient type has a demand (number of patients) and treatment length (expressed in 15 minute slots)&lt;/li&gt;&#xA;&lt;li&gt;No treatments can start during lunch break&lt;/li&gt;&#xA;&lt;li&gt;At most 2 treatments can start in each time slot.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/patient-scheduling/patient_data.png&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;https://yetanothermathprogrammingconsultant.blogspot.com/2018/07/scheduling-of-patients.html&#34;&gt;Yet Another Mathprogramming Consultant&lt;/a&gt;&#xA;provides a comprehensive treatment of the problem. Here I will focus on a Mixed Integer Programming &amp;lsquo;grid approach&amp;rsquo;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Square Tiling</title>
       <link>/square-tiling/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>/square-tiling/</guid>
-      <description>Given an inventory of square tiles, what is the maximum square space we can fill with them?
-The picture above consists of the following set of tiles:
-length 1 2 3 count 4 3 2 8 out of the 9 given tiles can be used to form the resulting (5x5) square. One (3x3) tile cannot be used. With the given set this is the larges square area we can fill.</description>
+      <description>&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/square-tiling/5_5.png&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Given an inventory of square tiles, what is the maximum square space we can fill with them?&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;The picture above consists of the following set of tiles:&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;length&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;1&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;2&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;3&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;count&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;4&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;3&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;2&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;8 out of the 9 given tiles can be used to form the resulting (5x5) square. One (3x3) tile cannot be used.&#xA;With the given set this is the larges square area we can fill.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Mondriaan Puzzle</title>
       <link>/mondriaan-puzzle/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>/mondriaan-puzzle/</guid>
-      <description>Partition an \(n \times n\) square into multiple non-congruent integer-sided rectangles. The rectangles must be non-congruent and the side length must be an integer number. Find the least possible length difference between the largest and smallest used rectangle, i.e. make the rectangles as similar as possible. Every rectangle can only be used once. There is related work covering multiple aspects of the problem and its solution. Here we focus on a Mixed Integer Programming approach.</description>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;Partition an \(n \times n\) square into multiple non-congruent integer-sided rectangles.&lt;/li&gt;&#xA;&lt;li&gt;The rectangles must be &lt;strong&gt;non-congruent&lt;/strong&gt; and the side length must be an &lt;strong&gt;integer&lt;/strong&gt; number.&lt;/li&gt;&#xA;&lt;li&gt;Find the &lt;strong&gt;least possible length difference&lt;/strong&gt; between the largest and smallest used rectangle, i.e. make the&#xA;rectangles as similar as possible.&lt;/li&gt;&#xA;&lt;li&gt;Every rectangle can only be used &lt;strong&gt;once&lt;/strong&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;There is related work covering multiple aspects of the problem and its solution. Here we focus on&#xA;a Mixed Integer Programming approach.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Sudoku</title>
       <link>/sudoku/</link>
       <pubDate>Sun, 26 Apr 2020 00:00:00 +0000</pubDate>
-      
       <guid>/sudoku/</guid>
-      <description>Wikipedia
-a logic-based, combinatorial number-placement puzzle.
-Fill a 9×9 grid with digits so that each column, each row, and each of the nine 3×3 subgrids that compose the grid contain all of the digits from 1 to 9.
-The puzzle setter provides a partially completed grid, which for a well-posed puzzle has a single solution.
-Challenges Understand the problem (easy) Design the index sets (medium) Translate the model into Pyomo (easy) Tooling Pyomo as LP modelling language Optimizer: CBC Python Model Indexing Schema Variables $$ y^m_{i,j;k} = \begin{cases} 1, \ \text{ when cell \((i,j;k)\) contains number \(m\) }\\ 0, \ \text{ else }\\ \end{cases} $$</description>
+      <description>&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/sudoku/solution.png&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Sudoku&#34;&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;a logic-based, combinatorial number-placement puzzle.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Fill a 9×9 grid with digits so that each column, each row, and each of the nine 3×3 subgrids&#xA;that compose the grid contain all of the digits from 1 to 9.&lt;/p&gt;&#xA;&lt;p&gt;The puzzle setter provides a partially completed grid, which for a well-posed puzzle has a single solution.&lt;/p&gt;&#xA;&lt;h2 id=&#34;challenges&#34;&gt;Challenges&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Understand the problem (easy)&lt;/li&gt;&#xA;&lt;li&gt;Design the index sets (medium)&lt;/li&gt;&#xA;&lt;li&gt;Translate the model into Pyomo (easy)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;tooling&#34;&gt;Tooling&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;http://www.pyomo.org/&#34;&gt;Pyomo&lt;/a&gt; as LP modelling language&lt;/li&gt;&#xA;&lt;li&gt;Optimizer: &lt;a href=&#34;https://projects.coin-or.org/Cbc&#34;&gt;CBC&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Python&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;model&#34;&gt;Model&lt;/h1&gt;&#xA;&lt;h2 id=&#34;indexing-schema&#34;&gt;Indexing Schema&lt;/h2&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/sudoku/sudoku.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;h2 id=&#34;variables&#34;&gt;Variables&lt;/h2&gt;&#xA;&lt;p&gt;$$&#xA;y^m_{i,j;k} =&#xA;\begin{cases}&#xA;1, \ \text{ when cell \((i,j;k)\) contains number \(m\) }\\&#xA;0, \ \text{ else }\\&#xA;\end{cases}&#xA;$$&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Longest Path Journey</title>
       <link>/longest-path-journey/</link>
       <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
-      
       <guid>/longest-path-journey/</guid>
-      <description>Normally you would be searching for the shortest path from A to B. At least this is what navigation systems do. But here we want to look at the opposite problem:
-What is the longest possible path to get from A to B? Wikipedia
-The longest path problem is the problem of finding a simple path of maximum length in a given graph. In contrast to the shortest path problem, which can be solved in polynomial time in graphs without negative-weight cycles, the longest path problem is NP-hard.</description>
+      <description>&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/longest-path-journey/graph.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Normally you would be searching for the shortest path from A to B. At least this is what navigation systems&#xA;do. But here we want to look at the opposite problem:&lt;/p&gt;&#xA;&lt;h3 id=&#34;what-is-the-longest-possible-path-to-get-from-a-to-b&#34;&gt;What is the longest possible path to get from A to B?&lt;/h3&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Longest_path_problem&#34;&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;The longest path problem is the problem of finding a simple path of maximum length in a given graph.&#xA;In contrast to the shortest path problem, which can be solved in polynomial time in graphs without&#xA;negative-weight cycles, the longest path problem is NP-hard.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Finding the way with TSP</title>
       <link>/finding-the-way-with-tsp/</link>
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
-      
       <guid>/finding-the-way-with-tsp/</guid>
-      <description>Reading time is a bug due to size of embedded SVG images.
-Travelling Salesman (TSP) Art in Python There is already a lot of existing work on this topic 1, but especially the book from Robert Bosch 2 inspired me to embark on my own journey.
-It became an rewarding and entertaining melange of &amp;ldquo;Mathematical Optimization&amp;rdquo; and playful programming while exploring new concepts and building a basic theoretical foundation for one of the most famous problems in mathematical optimization.</description>
+      <description>&lt;div className={styles.Document}&gt;&#xA;&lt;p&gt;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/finding-the-way-with-tsp/munggoggo.1000.color.svg&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;small&gt;&lt;small&gt;Reading time is a bug due to size of embedded SVG images.&lt;/small&gt;&lt;/small&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;travelling-salesman-tsp-art-in-python&#34;&gt;Travelling Salesman (TSP) Art in Python&lt;/h2&gt;&#xA;&lt;p&gt;There is already a lot of existing work on this topic &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, but especially the book from Robert Bosch &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; inspired me to embark on my own&#xA;journey.&lt;/p&gt;&#xA;&lt;p&gt;It became an rewarding and entertaining melange of &amp;ldquo;Mathematical Optimization&amp;rdquo; and playful programming while exploring new concepts and&#xA;building a basic theoretical foundation for one of the most famous problems in mathematical optimization.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Optimized Car Rental</title>
       <link>/optimized-car-rental/</link>
       <pubDate>Sat, 11 Apr 2020 00:00:00 +0000</pubDate>
-      
       <guid>/optimized-car-rental/</guid>
-      <description>Modelling a car rental company with medium complexity or how to make 120k € per week.1
-If you need a primer on Linear Programming: Linear Programming for Dummies 1
-Tools employed: Linear programming Python Pyomo as LP modelling language Optimizer: CBC Company model Let&amp;rsquo;s assume a car rental company with 4 locations and business hours from Monday to Saturday.
-The rental car demand estimate is:
-Cars can be rented for 1, 2 or 3 days and can be returned to either the depot from which rented or another depot at the start of the next morning.</description>
+      <description>&lt;p&gt;Modelling a car rental company with medium complexity or how to make 120k € per week.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;&#xA;&lt;p&gt;If you need a primer on Linear Programming: &lt;a href=&#34;../lp_for_dummies&#34;&gt;Linear Programming for Dummies 1&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;tools-employed&#34;&gt;Tools employed:&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Linear programming&lt;/li&gt;&#xA;&lt;li&gt;Python&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;http://www.pyomo.org/&#34;&gt;Pyomo&lt;/a&gt; as LP modelling language&lt;/li&gt;&#xA;&lt;li&gt;Optimizer: &lt;a href=&#34;https://projects.coin-or.org/Cbc&#34;&gt;CBC&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;company-model&#34;&gt;Company model&lt;/h3&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s assume a car rental company with 4 locations and business hours from Monday to Saturday.&lt;/p&gt;&#xA;&lt;p&gt;The rental car demand estimate is:&lt;/p&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/optimized-car-rental/demand.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Cars can be rented for 1, 2 or 3 days and can be returned to either the depot from which rented or another depot at the start of the next morning.&#xA;A 3-day rental on Friday means that the car has to be returned on Tuesday morning because Sunday is closed.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>BMW I4 and linear dynamic Truchet tilings</title>
       <link>/bmw-i4-and-linear-dynamic-truchet-tilings/</link>
       <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
-      
       <guid>/bmw-i4-and-linear-dynamic-truchet-tilings/</guid>
-      <description>Isn&amp;rsquo;t this BMW I4 a beauty? The perfect motivation to start a journey into a little optimization problem:
-How to manipulate traditional Truchet tiles so that the resulting tiling resembles the Ultimate Driving Machine?
-Truchet tiles are a well known niche in math because they form a foundation for a lot of interesting questions. The basic theory: You have four simple tiles:
-Since every tile is 50% black and 50% white a resulting tiling can only resemble a grey area if viewed from afar.</description>
+      <description>&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/bmw-i4-and-linear-dynamic-truchet-tilings/i4.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Isn&amp;rsquo;t this BMW I4 a beauty? The perfect motivation to start a journey into a little optimization problem:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;How to manipulate traditional Truchet tiles so that the resulting tiling resembles the Ultimate Driving Machine?&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Truchet tiles are a well known niche in math because they form a foundation for a lot of interesting questions.&#xA;The basic theory: You have four simple tiles:&lt;/p&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/bmw-i4-and-linear-dynamic-truchet-tilings/truchet_tiles.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Since every tile is 50% black and 50% white a resulting tiling can only resemble a grey area if viewed from afar.&#xA;In order to depict images it is necessary to manipulate the proportion of black vs. white.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Munggoggo: A modern message based async agent framework</title>
       <link>/munggoggo-a-modern-message-based-async-agent-framework/</link>
       <pubDate>Sat, 02 Nov 2019 22:12:03 +0000</pubDate>
-      
       <guid>/munggoggo-a-modern-message-based-async-agent-framework/</guid>
-      <description>An asyncio based agent platform written in Python and based on RabbitMQ.
-Agents are isolated processes which can host multiple parallel running behaviours implementing business logic and can be deployed as independent kubernetes pods. Access to the agent mesh is via REST/HTTP, websocket and jsonrpc.
-A few lines of code implement a fully fledged agent with a simple behaviour: sending and receiving ping messages to/from other agents.
-from mode import Worker from behaviour import Behaviour from core import Core class Agent(Core): class PingBehav(Behaviour): async def setup(self): self.</description>
+      <description>&lt;p&gt;An asyncio based agent platform written in Python and based on RabbitMQ.&lt;/p&gt;&#xA;&lt;p&gt;Agents are isolated processes which can host multiple parallel running behaviours implementing business&#xA;logic and can be deployed as independent kubernetes pods. Access to the agent mesh is via&#xA;REST/HTTP, websocket and jsonrpc.&lt;/p&gt;&#xA;&lt;p&gt;A few lines of code implement a fully fledged agent with a simple behaviour: sending and&#xA;receiving ping messages to/from other agents.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#b06;font-weight:bold&#34;&gt;mode&lt;/span&gt; &lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;import&lt;/span&gt; Worker&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#b06;font-weight:bold&#34;&gt;behaviour&lt;/span&gt; &lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;import&lt;/span&gt; Behaviour&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#b06;font-weight:bold&#34;&gt;core&lt;/span&gt; &lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;import&lt;/span&gt; Core&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#b06;font-weight:bold&#34;&gt;Agent&lt;/span&gt;(Core):&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#b06;font-weight:bold&#34;&gt;PingBehav&lt;/span&gt;(Behaviour):&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#06b;font-weight:bold&#34;&gt;setup&lt;/span&gt;(self):&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            self.counter = &lt;span style=&#34;color:#00d;font-weight:bold&#34;&gt;0&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#06b;font-weight:bold&#34;&gt;run&lt;/span&gt;(self):&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            self.counter += &lt;span style=&#34;color:#00d;font-weight:bold&#34;&gt;1&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            msg = &lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;await&lt;/span&gt; self.receive()&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;if&lt;/span&gt; msg:&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#038&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#d20;background-color:#fff0f0&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#d20;background-color:#fff0f0&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#33b;background-color:#fff0f0&#34;&gt;{&lt;/span&gt;self.name&lt;span style=&#34;color:#33b;background-color:#fff0f0&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#d20;background-color:#fff0f0&#34;&gt;: Message received: &lt;/span&gt;&lt;span style=&#34;color:#33b;background-color:#fff0f0&#34;&gt;{&lt;/span&gt;msg.body.decode()&lt;span style=&#34;color:#33b;background-color:#fff0f0&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#d20;background-color:#fff0f0&#34;&gt;&amp;#34;&lt;/span&gt;)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;await&lt;/span&gt; self.publish(&lt;span style=&#34;color:#038&#34;&gt;str&lt;/span&gt;(self.counter), &lt;span style=&#34;color:#d20;background-color:#fff0f0&#34;&gt;&amp;#39;ping&amp;#39;&lt;/span&gt;)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;await&lt;/span&gt; asyncio.sleep(&lt;span style=&#34;color:#00d;font-weight:bold&#34;&gt;0.9&lt;/span&gt;)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#06b;font-weight:bold&#34;&gt;setup&lt;/span&gt;(self) -&amp;gt; &lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;None&lt;/span&gt;:&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#d20;background-color:#fff0f0&#34;&gt;&amp;#34;&amp;#34;&amp;#34; Register behaviour and subscribe to &amp;#39;ping&amp;#39; topic &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;await&lt;/span&gt; self.add_runtime_dependency(self.PingBehav(self, binding_keys=[&lt;span style=&#34;color:#d20;background-color:#fff0f0&#34;&gt;&amp;#39;ping&amp;#39;&lt;/span&gt;]))&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;if&lt;/span&gt; __name__ == &lt;span style=&#34;color:#d20;background-color:#fff0f0&#34;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;:&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Worker(Agent(identity=&lt;span style=&#34;color:#d20;background-color:#fff0f0&#34;&gt;&amp;#39;AgentIdentity&amp;#39;&lt;/span&gt;), loglevel=&lt;span style=&#34;color:#d20;background-color:#fff0f0&#34;&gt;&amp;#34;info&amp;#34;&lt;/span&gt;).execute_from_commandline()&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br/&gt;&#xA;&lt;p&gt;Documentation: &lt;a href=&#34;https://munggoggo.readthedocs.io/en/latest/&#34;&gt;https://munggoggo.readthedocs.io/en/latest/&lt;/a&gt;&lt;br&gt;&#xA;Github: &lt;a href=&#34;https://github.com/sysid/munggoggo&#34;&gt;https://github.com/sysid/munggoggo&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Energy Forecast for a full-scale Vehicle Plant</title>
       <link>/energy-forecast-for-a-full-scale-vehicle-plant/</link>
       <pubDate>Sun, 28 May 2017 22:12:03 +0000</pubDate>
-      
       <guid>/energy-forecast-for-a-full-scale-vehicle-plant/</guid>
-      <description>Energy Forecast for a full scale Vehicle Plant Energy forecasting is based on time series analysis. There are many techniques for analysing and forecasting time series, e.g. ARIMA, linear regression and deep learning. To tackle the challenge at hand a linear regression will be the benchmark model aganst which deep learning models will be tested. In particular a multi layer perceptron (MLP) and recurrent neural network (RNN), i.e. Long-Short Time Memory (LSTM) model will be applied.</description>
+      <description>&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/energy-forecast-for-a-full-scale-vehicle-plant/plant_lpz.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;h1 id=&#34;energy-forecast-for-a-full-scale-vehicle-plant&#34;&gt;Energy Forecast for a full scale Vehicle Plant&lt;/h1&gt;&#xA;&lt;p&gt;Energy forecasting is based on time series analysis.&#xA;There are many techniques for analysing and forecasting time series, e.g. ARIMA, linear regression and deep learning.&#xA;To tackle the challenge at hand a linear regression will be the benchmark model aganst which deep learning models will be tested. In particular a multi layer perceptron (MLP) and recurrent&#xA;neural network (RNN), i.e.  Long-Short Time Memory (LSTM) model will be applied.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Fishy Affine Transformation</title>
       <link>/fishy-affine-transformation/</link>
       <pubDate>Mon, 13 Mar 2017 22:12:03 +0000</pubDate>
-      
       <guid>/fishy-affine-transformation/</guid>
-      <description>Fishy Affine Transformation While working on the kaggle competition https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring I hit the point when I wanted to align fish based on an annotation at the fish&amp;rsquo;s head and tail, so that the fish is centered in the image, always in the same orientation and distracting picture information is minimized. This required:
-finding the fish (thanks Nathaniel Shimoni for annotating) centering rotatating cropping Mathematically the challenge is to find the associated Affine Transformation.</description>
+      <description>&lt;h1 id=&#34;fishy-affine-transformation&#34;&gt;Fishy Affine Transformation&lt;/h1&gt;&#xA;&lt;p&gt;While working on the kaggle competition &lt;a href=&#34;https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring&#34;&gt;https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring&lt;/a&gt; I hit the point when I wanted&#xA;to align fish based on an annotation at the fish&amp;rsquo;s head and tail, so that the fish is centered in the image, always in the same orientation&#xA;and distracting picture information is minimized. This required:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;finding the fish (thanks Nathaniel Shimoni for annotating)&lt;/li&gt;&#xA;&lt;li&gt;centering&lt;/li&gt;&#xA;&lt;li&gt;rotatating&lt;/li&gt;&#xA;&lt;li&gt;cropping&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Mathematically the challenge is to find the associated  Affine Transformation. After years of working in a managerial role my linear algebra skills are a bit rusty so I decided to&#xA;invest the weekend.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Machine Learning Journey</title>
       <link>/machine-learning-journey/</link>
       <pubDate>Mon, 23 Jan 2017 22:12:03 +0000</pubDate>
-      
       <guid>/machine-learning-journey/</guid>
-      <description>Cheat Sheet General Explanations: embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices KFold Cross Validation: The purpose of cross-validation is model checking, not model building. Once we have used cross-validation to select the better performing model, we train that model (whether it be the linear regression or the neural network) on all the data.</description>
+      <description>&lt;h1 id=&#34;cheat-sheet&#34;&gt;Cheat Sheet&lt;/h1&gt;&#xA;&lt;h5 id=&#34;general-explanations&#34;&gt;General Explanations:&lt;/h5&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices&lt;/li&gt;&#xA;&lt;li&gt;KFold Cross Validation:&#xA;The purpose of cross-validation is model checking, not model building.&#xA;Once we have used cross-validation to select the better performing model, we train that model&#xA;(whether it be the linear regression or the neural network) on all the data.&#xA;We don&amp;rsquo;t use the actual model instances we trained during cross-validation for our final predictive model.&lt;/li&gt;&#xA;&lt;li&gt;A dense layer in a multilayer perceptron (MLP) is a lot more feature intensive than a convolutional layer. People use convolutional nets with subsampling precisely because they get to aggressively prune the features they’re computing.&lt;/li&gt;&#xA;&lt;li&gt;in NNs rarely occur local minima due to vast parameter space (probability not to get better in ayn dimension is miniscule)&lt;/li&gt;&#xA;&lt;li&gt;the fast majority of space of a loss function in NN is all saddlepoints&lt;/li&gt;&#xA;&lt;li&gt;one training cycle for the entire dataset is called epoch, i.e. the algorithm sees the ENTIRE dataset&lt;/li&gt;&#xA;&lt;li&gt;iteration: every time a batch is passed through the NN (forward + backward pass)&lt;/li&gt;&#xA;&lt;li&gt;Latent factors = features of embeddings (used in Collaborative Filtering)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;http://www.learnopencv.com/bias-variance-tradeoff-in-machine-learning/&#34;&gt;Bias-Variance Tradeoff in Machine Learning&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Softmax vs Sigmoid: All the softmax units in a layer are constrained to add up to 1, whereas sigmoid units don&amp;rsquo;t have this &amp;rsquo;lateral&amp;rsquo; constraint.&#xA;If every example can be associated with multiple labels, you need to use a sigmoid output layer that learns to predict &amp;ldquo;yes&amp;rdquo; or &amp;ldquo;no&amp;rdquo; for each individual label. If the classes are disjoint, i.e. each example can only belong to one class, you should use a softmax output layer to incorporate this constraint.&lt;/li&gt;&#xA;&lt;li&gt;Do not forget to fine tune your network architecture and your learning rate. If you have more data, a complex network is preferable. According to one important deep learning theorem, the local minima are very close to the global minimum for very deep neural networks.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h5 id=&#34;preprocessing&#34;&gt;Preprocessing&lt;/h5&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;pre-process your data by making sure each dimension has 0 mean and unit variance. This should always be the case with data your are feeding to a NN, unless you have strong, well-understood reasons not to do it.&#xA;A simple MLP will never cause gradient explosion if your data is correctly preprocessed.&lt;/li&gt;&#xA;&lt;li&gt;Centering sparse data would destroy the sparseness structure in the data, and thus rarely is a sensible thing to do.&lt;/li&gt;&#xA;&lt;li&gt;However, it can make sense to scale sparse inputs, especially if features are on different scales.&lt;/li&gt;&#xA;&lt;li&gt;MaxAbsScaler and maxabs_scale were specifically designed for scaling sparse data, and are the recommended way to go&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h5 id=&#34;underfittingoverfitting&#34;&gt;Underfitting/Overfitting&lt;/h5&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Underfitting: This describes a model that lacks the complexity to accurately capture the complexity inherent in the problem you&amp;rsquo;re trying to solve. We can recognize this when our training error is much lower than our validation error&lt;/li&gt;&#xA;&lt;li&gt;Overfitting: This describes a model that is using too many parameters and has been trained too long. Specifically, it has learned how to match your exact training images to classes, but has become so specific that it is unable to generalize to similar images. This is easily recognizable when your training set accuracy is much higher than your validation.&lt;/li&gt;&#xA;&lt;li&gt;when you start overfitting you know, that your model is complex enough to handle your data&lt;/li&gt;&#xA;&lt;li&gt;Your main focus for fighting overfitting should be the entropic capacity of your model &amp;ndash;how much information your model is allowed to store. A model that can store a lot of information has the potential to be more accurate by leveraging more features, but it is also more at risk to start storing irrelevant features. Meanwhile, a model that can only store a few features will have to focus on the most significant features found in the data, and these are more likely to be truly relevant and to generalize better.&lt;/li&gt;&#xA;&lt;li&gt;Dropout also helps reduce overfitting, by preventing a layer from seeing twice the exact same pattern, thus acting in a way analoguous to data augmentation (you could say that both dropout and data augmentation tend to disrupt random correlations occuring in your data).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Recipe:&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

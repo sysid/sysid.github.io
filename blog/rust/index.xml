@@ -1,83 +1,55 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>rust on sysid blog</title>
+    <title>Rust on sysid blog</title>
     <link>/blog/rust/</link>
-    <description>Recent content in rust on sysid blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Rust on sysid blog</description>
+    <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Mon, 06 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="/blog/rust/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/blog/rust/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>rsnip</title>
       <link>/rsnip/</link>
       <pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate>
-      
       <guid>/rsnip/</guid>
-      <description>Fast, Reliable, Yours: Why Snippets Outshine LLMs for boring Tasks While large language models (LLMs) like ChatGPT are revolutionizing workflows with their smart completions and contextual insights, you don’t want to re-research a command or script every time you need it.
-Why does a good snippet manager still matter? Even in an age of intelligent assistants, there’s a compelling case for a specialized and fast snippet manager:
-Speed: LLMs are slow when it comes to re-fetching familiar snippets.</description>
+      <description>&lt;h1 id=&#34;fast-reliable-yours-why-snippets-outshine-llms-for-boring-tasks&#34;&gt;Fast, Reliable, Yours: Why Snippets Outshine LLMs for boring Tasks&lt;/h1&gt;&#xA;&lt;p&gt;While large language models (LLMs) like ChatGPT are revolutionizing workflows with their smart completions and contextual insights, you don’t want to re-research a command or script every time you need it.&lt;/p&gt;&#xA;&lt;h3 id=&#34;why-does-a-good-snippet-manager-still-matter&#34;&gt;Why does a good snippet manager still matter?&lt;/h3&gt;&#xA;&lt;p&gt;Even in an age of intelligent assistants, there’s a compelling case for a specialized and fast snippet manager:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Speed&lt;/strong&gt;: LLMs are slow when it comes to re-fetching familiar snippets. rsnip provides instant access via shell completion and fuzzy search (fzf).&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Rewriting a Vim Plugin in Rust: vimania-uri-rs</title>
       <link>/rewriting-a-vim-plugin-in-rust-vimania-uri-rs/</link>
       <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
-      
       <guid>/rewriting-a-vim-plugin-in-rust-vimania-uri-rs/</guid>
-      <description>Advanced URI Handling for the Modern Vim User
-Why? Vim&amp;rsquo;s native gx command is somehow limited in its flexibility and capabilities. I wanted more powerful URI handling capabilities, which led me to create vimania-uri, a Vim plugin designed to provide advanced URI management within Vim.
-However, while the plugin achieved its goal in terms of functionality, it came with a performance penalty: the initial loading of the plugin&amp;rsquo;s Python dependencies severely impacted Vim&amp;rsquo;s startup times.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Advanced URI Handling for the Modern Vim User&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;why&#34;&gt;Why?&lt;/h2&gt;&#xA;&lt;p&gt;Vim&amp;rsquo;s native &lt;code&gt;gx&lt;/code&gt; command is somehow limited in its flexibility and capabilities. I wanted more powerful URI handling capabilities, which led me to create &lt;a href=&#34;https://github.com/sysid/vimania-uri&#34;&gt;vimania-uri&lt;/a&gt;, a Vim plugin designed to provide advanced URI management within Vim.&lt;/p&gt;&#xA;&lt;p&gt;However, while the plugin achieved its goal in terms of functionality, it came with a performance penalty: the initial loading of the plugin&amp;rsquo;s Python dependencies severely impacted Vim&amp;rsquo;s startup times. The plugin relied on dependencies such as &lt;code&gt;beautifulsoup4&lt;/code&gt; (bs4) and &lt;code&gt;lxml&lt;/code&gt;, which are known for substantial size and complexity. As a result, the plugin introduced noticeable delays during Vim startup, with load times sporadically exceeding 3 seconds &amp;ndash; painful for a vim user.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Elevating Bookmark Management with AI-Driven Semantic Search</title>
       <link>/elevating-bookmark-management-with-ai-driven-semantic-search/</link>
       <pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate>
-      
       <guid>/elevating-bookmark-management-with-ai-driven-semantic-search/</guid>
-      <description>Search has been revolutionized by AI, bringing &amp;lsquo;Google-level&amp;rsquo; quality within the reach of everybody.
-Introduction Finding information is one of the most important capabilities for any professional.
-bkmr introduced a CLI Bookmark Manager leveraging SQLite&amp;rsquo;s full-text search (FTS) capabilities, offering improved search efficiency. This tool, developed in Rust, aimed to provide snappy bookmark manager capabilities for the command line.
-However, the landscape of search has changed radically. Traditional keyword-based searches, while effective, fall short in understanding the context and semantics behind user queries.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Search has been revolutionized by AI, bringing &amp;lsquo;Google-level&amp;rsquo; quality&#xA;within the reach of everybody.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Finding information is one of the most important capabilities for any professional.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://sysid.github.io/bkmr/&#34;&gt;bkmr&lt;/a&gt; introduced a CLI Bookmark Manager leveraging SQLite&amp;rsquo;s full-text search (FTS) capabilities, offering improved search efficiency.&#xA;This tool, developed in Rust, aimed to provide snappy bookmark manager capabilities for the command line.&lt;/p&gt;&#xA;&lt;p&gt;However, the landscape of search has changed radically.&#xA;Traditional keyword-based searches, while effective, fall short in understanding the context and semantics behind user queries.&#xA;Semantic Search, once the realm of companies like Google, is now available for everyone.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Hierarchical Environment Variable Management</title>
       <link>/hierarchical-environment-variable-management/</link>
       <pubDate>Thu, 31 Aug 2023 00:00:00 +0000</pubDate>
-      
       <guid>/hierarchical-environment-variable-management/</guid>
-      <description>I still spend too much time managing environment variables!
-The &amp;ldquo;Twelve-Factor&amp;rdquo; methodology prescribes that cloud-native applications should be configured via environment variables.
-This recommendation separates configuration from code, which is essential for scalability and security. But it also results in an extensive array of environment variables.
-Having to manage these variables for test, integration, end-to-end, and production environments becomes a daunting task. Often, these variable sets intersect. For instance, while Github credentials might be consistent across all environments, AWS accounts may vary.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;I still spend too much time managing environment variables!&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;The &amp;ldquo;Twelve-Factor&amp;rdquo; methodology prescribes that cloud-native applications should be configured via environment variables.&lt;/p&gt;&#xA;&lt;p&gt;This recommendation separates configuration from code, which is essential for scalability and security. But it also&#xA;results in an extensive array of environment variables.&lt;/p&gt;&#xA;&lt;p&gt;Having to manage these variables for test, integration, end-to-end, and production environments becomes a daunting task. Often, these variable sets intersect. For instance, while Github credentials might be consistent across all environments, AWS accounts may vary.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Linear Optimization in time-critical Control Loop</title>
       <link>/linear-optimization-in-time-critical-control-loop/</link>
       <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
-      
       <guid>/linear-optimization-in-time-critical-control-loop/</guid>
-      <description>Problem Given a start and endpoint, find the eager and lazy path from start to end.
-Model The visualization translates to a simple rhombus (German: Raute) where the enclosed area is to be maximized.
-The task is to find the corner points A, B, C, D, of the Raute.
-There is a twist, however. The points must be contained within a &amp;ldquo;valid&amp;rdquo; area, whereas start and endpoint may lie outside.</description>
+      <description>&lt;h2 id=&#34;problem&#34;&gt;Problem&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Given a start and endpoint, find the eager and lazy path from start to end.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/linear-optimization-in-time-critical-control-loop/eager_lazy_path.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;h2 id=&#34;model&#34;&gt;Model&lt;/h2&gt;&#xA;&lt;p&gt;The visualization translates to a simple rhombus (German: Raute) where the enclosed area is to be maximized.&lt;/p&gt;&#xA;&lt;p&gt;The task is to find the corner points A, B, C, D, of the Raute.&lt;/p&gt;&#xA;&lt;p&gt;There is a twist, however. The points must be contained within a &amp;ldquo;valid&amp;rdquo; area, whereas&#xA;start and endpoint may lie outside.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>bkmr</title>
       <link>/bkmr/</link>
       <pubDate>Sat, 14 Jan 2023 00:00:00 +0000</pubDate>
-      
       <guid>/bkmr/</guid>
-      <description>Super fast CLI Bookmark Manager and Launcher
-Developer Productivity in Rust vs Python I am aware that this is a complex subject and impossible to treat objectively, especially given my time limit of 3 weeks.
-In order to compare apples with apples I decided to re-implement a Python productivity application in Rust, which I use on a daily basis:
-CLI bookmark manager with fulltext search capability: twbm.
-Objectives: Learn Rust and it&amp;rsquo;s idioms Get an idea of developer productivity in Rust vs Python Get an understanding of Rust&amp;rsquo;s capabilities and ecosystem Better performance for a frequently used CLI tool Approach: 1-to-1 translation of Python CLI bookmark manager twbm to Rust.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Super fast CLI Bookmark Manager and Launcher&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h1 id=&#34;developer-productivity-in-rust-vs-python&#34;&gt;Developer Productivity in Rust vs Python&lt;/h1&gt;&#xA;&lt;p&gt;I am aware that this is a complex subject and impossible to treat objectively,&#xA;especially given my time limit of 3 weeks.&lt;/p&gt;&#xA;&lt;p&gt;In order to compare apples with apples I decided to re-implement a Python productivity application in Rust,&#xA;which I use on a daily basis:&lt;/p&gt;&#xA;&lt;p&gt;CLI bookmark manager with fulltext search capability: &lt;a href=&#34;https://github.com/sysid/twbm&#34;&gt;twbm&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h3 id=&#34;objectives&#34;&gt;Objectives:&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Learn Rust and it&amp;rsquo;s idioms&lt;/li&gt;&#xA;&lt;li&gt;Get an idea of developer productivity in Rust vs Python&lt;/li&gt;&#xA;&lt;li&gt;Get an understanding of Rust&amp;rsquo;s capabilities and ecosystem&lt;/li&gt;&#xA;&lt;li&gt;Better performance for a frequently used CLI tool&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Approach:&#xA;1-to-1 translation of Python CLI bookmark manager &lt;a href=&#34;https://github.com/sysid/twbm&#34;&gt;twbm&lt;/a&gt; to Rust.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

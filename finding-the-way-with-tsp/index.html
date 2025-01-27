@@ -12,28 +12,37 @@
 <meta name="keywords" content="optimization,python," />
 
 
-<meta property="og:title" content="Finding the way with TSP" />
-<meta property="og:description" content="Travelling Salesman Optimization to draw BMWs." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/finding-the-way-with-tsp/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2020-04-17T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-04-17T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+<meta property="og:url" content="/finding-the-way-with-tsp/">
+  <meta property="og:site_name" content="sysid blog">
+  <meta property="og:title" content="Finding the way with TSP">
+  <meta property="og:description" content="Travelling Salesman Optimization to draw BMWs.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2020-04-17T00:00:00+00:00">
+    <meta property="article:modified_time" content="2020-04-17T00:00:00+00:00">
+    <meta property="article:tag" content="Optimization">
+    <meta property="article:tag" content="Python">
+    <meta property="og:image" content="/images/share.png">
 
 
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="images/share.png"/>
 
-<meta name="twitter:title" content="Finding the way with TSP"/>
-<meta name="twitter:description" content="Travelling Salesman Optimization to draw BMWs."/>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/images/share.png">
+  <meta name="twitter:title" content="Finding the way with TSP">
+  <meta name="twitter:description" content="Travelling Salesman Optimization to draw BMWs.">
 
 
 
-<meta itemprop="name" content="Finding the way with TSP">
-<meta itemprop="description" content="Travelling Salesman Optimization to draw BMWs."><meta itemprop="datePublished" content="2020-04-17T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-04-17T00:00:00+00:00" />
-<meta itemprop="wordCount" content="542"><meta itemprop="image" content="images/share.png"/>
-<meta itemprop="keywords" content="optimization,python," />
+
+  <meta itemprop="name" content="Finding the way with TSP">
+  <meta itemprop="description" content="Travelling Salesman Optimization to draw BMWs.">
+  <meta itemprop="datePublished" content="2020-04-17T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2020-04-17T00:00:00+00:00">
+  <meta itemprop="wordCount" content="542">
+  <meta itemprop="image" content="/images/share.png">
+  <meta itemprop="keywords" content="Optimization,Python">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <style>
@@ -210,17 +219,20 @@
 
 </style>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-8VH574W51S', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8VH574W51S');
+        }
+      </script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-alpha.1/es5/tex-mml-chtml.js"></script>
 
@@ -266,7 +278,7 @@ if (!doNotTrack) {
 
 <content>
   <div className={styles.Document}>
-<p><figure class="center"><img src="munggoggo.1000.color.svg" width="100%"/>
+<p><figure class="center"><img src="/finding-the-way-with-tsp/munggoggo.1000.color.svg" width="100%">
 </figure>
 
 <small><small>Reading time is a bug due to size of embedded SVG images.</small></small></p>
@@ -300,7 +312,7 @@ you started.</li>
 <p>Create a point cloud which is suitables for drawing:<br>
 This task is rather more involved as it meets the eye <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>. The challenge is to create a homogenous point cloud such
 that the point density encodes the &lsquo;color&rsquo; of the picture without creating lumpy areas.
-<figure class="center"><img src="shoe.png" width="100%"/>
+<figure class="center"><img src="/finding-the-way-with-tsp/shoe.png" width="100%">
 </figure>
 
 A Python based implementation can be found <a href="https://github.com/ReScience-Archives/Rougier-2017">here</a>.</p>
@@ -311,7 +323,7 @@ Here comes the solver into play. There are several options since the problem can
 Programming problem. However due to the specificy and complexity of the problem it is best to use a specialized
 solver. I just followed here the choice of much brighter brains <sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> and went for <em>Concorde</em> <sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>. Used by experts the results speak
 of themselves <sup id="fnref1:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>:
-<figure class="center"><img src="marilyn.png" width="100%"/>
+<figure class="center"><img src="/finding-the-way-with-tsp/marilyn.png" width="100%">
 </figure>
 </p>
 </li>
@@ -326,15 +338,15 @@ a SVG drawing as final visualization of the result.</p>
 <h2 id="putting-it-all-together">Putting it all together</h2>
 <p>Here the results of my first application:</p>
 <p>BMW Logo, 15.000 points:
-<figure class="center"><img src="bmw_processed.svg" width="100%"/>
+<figure class="center"><img src="/finding-the-way-with-tsp/bmw_processed.svg" width="100%">
 </figure>
 </p>
 <p>BMW Classic Car 2002: 15.000 points:
-<figure class="center"><img src="2002_processed.svg" width="100%"/>
+<figure class="center"><img src="/finding-the-way-with-tsp/2002_processed.svg" width="100%">
 </figure>
 </p>
 <p>Photo 50.000 points:
-<figure class="center"><img src="karin_processed.svg" width="100%"/>
+<figure class="center"><img src="/finding-the-way-with-tsp/karin_processed.svg" width="100%">
 </figure>
 </p>
 <h2 id="summary">Summary</h2>
@@ -366,9 +378,9 @@ together an enjoyable mix of learning motivation.</p>
 </content>
 <p>
   
-  <a href="/blog/optimization/">#optimization</a>
+  <a href="/blog/optimization/">#Optimization</a>
   
-  <a href="/blog/python/">#python</a>
+  <a href="/blog/python/">#Python</a>
   
 </p>
 
