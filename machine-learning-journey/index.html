@@ -8,79 +8,32 @@
 <link rel="shortcut icon" href="/images/favicon.png" />
 <title>Machine Learning Journey | sysid blog</title>
 <meta name="title" content="Machine Learning Journey" />
-<meta name="description" content="Cheat Sheet
-General Explanations:
-
-embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices
-KFold Cross Validation:
-The purpose of cross-validation is model checking, not model building.
-Once we have used cross-validation to select the better performing model, we train that model
-(whether it be the linear regression or the neural network) on all the data.
-We don&rsquo;t use the actual model instances we trained during cross-validation for our final predictive model.
-A dense layer in a multilayer perceptron (MLP) is a lot more feature intensive than a convolutional layer. People use convolutional nets with subsampling precisely because they get to aggressively prune the features they’re computing.
-in NNs rarely occur local minima due to vast parameter space (probability not to get better in ayn dimension is miniscule)
-the fast majority of space of a loss function in NN is all saddlepoints
-one training cycle for the entire dataset is called epoch, i.e. the algorithm sees the ENTIRE dataset
-iteration: every time a batch is passed through the NN (forward &#43; backward pass)
-Latent factors = features of embeddings (used in Collaborative Filtering)
-Bias-Variance Tradeoff in Machine Learning
-Softmax vs Sigmoid: All the softmax units in a layer are constrained to add up to 1, whereas sigmoid units don&rsquo;t have this &rsquo;lateral&rsquo; constraint.
-If every example can be associated with multiple labels, you need to use a sigmoid output layer that learns to predict &ldquo;yes&rdquo; or &ldquo;no&rdquo; for each individual label. If the classes are disjoint, i.e. each example can only belong to one class, you should use a softmax output layer to incorporate this constraint.
-Do not forget to fine tune your network architecture and your learning rate. If you have more data, a complex network is preferable. According to one important deep learning theorem, the local minima are very close to the global minimum for very deep neural networks.
-
-Preprocessing
-
-pre-process your data by making sure each dimension has 0 mean and unit variance. This should always be the case with data your are feeding to a NN, unless you have strong, well-understood reasons not to do it.
-A simple MLP will never cause gradient explosion if your data is correctly preprocessed.
-Centering sparse data would destroy the sparseness structure in the data, and thus rarely is a sensible thing to do.
-However, it can make sense to scale sparse inputs, especially if features are on different scales.
-MaxAbsScaler and maxabs_scale were specifically designed for scaling sparse data, and are the recommended way to go
-
-Underfitting/Overfitting
-
-Underfitting: This describes a model that lacks the complexity to accurately capture the complexity inherent in the problem you&rsquo;re trying to solve. We can recognize this when our training error is much lower than our validation error
-Overfitting: This describes a model that is using too many parameters and has been trained too long. Specifically, it has learned how to match your exact training images to classes, but has become so specific that it is unable to generalize to similar images. This is easily recognizable when your training set accuracy is much higher than your validation.
-when you start overfitting you know, that your model is complex enough to handle your data
-Your main focus for fighting overfitting should be the entropic capacity of your model &ndash;how much information your model is allowed to store. A model that can store a lot of information has the potential to be more accurate by leveraging more features, but it is also more at risk to start storing irrelevant features. Meanwhile, a model that can only store a few features will have to focus on the most significant features found in the data, and these are more likely to be truly relevant and to generalize better.
-Dropout also helps reduce overfitting, by preventing a layer from seeing twice the exact same pattern, thus acting in a way analoguous to data augmentation (you could say that both dropout and data augmentation tend to disrupt random correlations occuring in your data).
-
-Recipe:" />
+<meta name="description" content="Cheat Sheet General Explanations: embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices KFold Cross Validation: The purpose of cross-validation is model checking, not model building. Once we have used cross-validation to select the better performing model, we train that model (whether it be the linear regression or the neural network) on all the data." />
 <meta name="keywords" content="python,learning,ai,machine learning," />
 
 
-<meta property="og:url" content="/machine-learning-journey/">
-  <meta property="og:site_name" content="sysid blog">
-  <meta property="og:title" content="Machine Learning Journey">
-  <meta property="og:description" content="Cheat Sheet General Explanations: embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices KFold Cross Validation: The purpose of cross-validation is model checking, not model building. Once we have used cross-validation to select the better performing model, we train that model (whether it be the linear regression or the neural network) on all the data. We don’t use the actual model instances we trained during cross-validation for our final predictive model. A dense layer in a multilayer perceptron (MLP) is a lot more feature intensive than a convolutional layer. People use convolutional nets with subsampling precisely because they get to aggressively prune the features they’re computing. in NNs rarely occur local minima due to vast parameter space (probability not to get better in ayn dimension is miniscule) the fast majority of space of a loss function in NN is all saddlepoints one training cycle for the entire dataset is called epoch, i.e. the algorithm sees the ENTIRE dataset iteration: every time a batch is passed through the NN (forward &#43; backward pass) Latent factors = features of embeddings (used in Collaborative Filtering) Bias-Variance Tradeoff in Machine Learning Softmax vs Sigmoid: All the softmax units in a layer are constrained to add up to 1, whereas sigmoid units don’t have this ’lateral’ constraint. If every example can be associated with multiple labels, you need to use a sigmoid output layer that learns to predict “yes” or “no” for each individual label. If the classes are disjoint, i.e. each example can only belong to one class, you should use a softmax output layer to incorporate this constraint. Do not forget to fine tune your network architecture and your learning rate. If you have more data, a complex network is preferable. According to one important deep learning theorem, the local minima are very close to the global minimum for very deep neural networks. Preprocessing pre-process your data by making sure each dimension has 0 mean and unit variance. This should always be the case with data your are feeding to a NN, unless you have strong, well-understood reasons not to do it. A simple MLP will never cause gradient explosion if your data is correctly preprocessed. Centering sparse data would destroy the sparseness structure in the data, and thus rarely is a sensible thing to do. However, it can make sense to scale sparse inputs, especially if features are on different scales. MaxAbsScaler and maxabs_scale were specifically designed for scaling sparse data, and are the recommended way to go Underfitting/Overfitting Underfitting: This describes a model that lacks the complexity to accurately capture the complexity inherent in the problem you’re trying to solve. We can recognize this when our training error is much lower than our validation error Overfitting: This describes a model that is using too many parameters and has been trained too long. Specifically, it has learned how to match your exact training images to classes, but has become so specific that it is unable to generalize to similar images. This is easily recognizable when your training set accuracy is much higher than your validation. when you start overfitting you know, that your model is complex enough to handle your data Your main focus for fighting overfitting should be the entropic capacity of your model –how much information your model is allowed to store. A model that can store a lot of information has the potential to be more accurate by leveraging more features, but it is also more at risk to start storing irrelevant features. Meanwhile, a model that can only store a few features will have to focus on the most significant features found in the data, and these are more likely to be truly relevant and to generalize better. Dropout also helps reduce overfitting, by preventing a layer from seeing twice the exact same pattern, thus acting in a way analoguous to data augmentation (you could say that both dropout and data augmentation tend to disrupt random correlations occuring in your data). Recipe:">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2017-01-23T22:12:03+00:00">
-    <meta property="article:modified_time" content="2017-01-23T22:12:03+00:00">
-    <meta property="article:tag" content="Python">
-    <meta property="article:tag" content="Learning">
-    <meta property="article:tag" content="Ai">
-    <meta property="article:tag" content="Machine Learning">
-    <meta property="og:image" content="/images/share.png">
+<meta property="og:title" content="Machine Learning Journey" />
+<meta property="og:description" content="Cheat Sheet General Explanations: embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices KFold Cross Validation: The purpose of cross-validation is model checking, not model building. Once we have used cross-validation to select the better performing model, we train that model (whether it be the linear regression or the neural network) on all the data." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/machine-learning-journey/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2017-01-23T22:12:03+00:00" />
+<meta property="article:modified_time" content="2017-01-23T22:12:03+00:00" /><meta property="og:site_name" content="sysid blog" />
 
 
 
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="/images/share.png">
-  <meta name="twitter:title" content="Machine Learning Journey">
-  <meta name="twitter:description" content="Cheat Sheet General Explanations: embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices KFold Cross Validation: The purpose of cross-validation is model checking, not model building. Once we have used cross-validation to select the better performing model, we train that model (whether it be the linear regression or the neural network) on all the data. We don’t use the actual model instances we trained during cross-validation for our final predictive model. A dense layer in a multilayer perceptron (MLP) is a lot more feature intensive than a convolutional layer. People use convolutional nets with subsampling precisely because they get to aggressively prune the features they’re computing. in NNs rarely occur local minima due to vast parameter space (probability not to get better in ayn dimension is miniscule) the fast majority of space of a loss function in NN is all saddlepoints one training cycle for the entire dataset is called epoch, i.e. the algorithm sees the ENTIRE dataset iteration: every time a batch is passed through the NN (forward &#43; backward pass) Latent factors = features of embeddings (used in Collaborative Filtering) Bias-Variance Tradeoff in Machine Learning Softmax vs Sigmoid: All the softmax units in a layer are constrained to add up to 1, whereas sigmoid units don’t have this ’lateral’ constraint. If every example can be associated with multiple labels, you need to use a sigmoid output layer that learns to predict “yes” or “no” for each individual label. If the classes are disjoint, i.e. each example can only belong to one class, you should use a softmax output layer to incorporate this constraint. Do not forget to fine tune your network architecture and your learning rate. If you have more data, a complex network is preferable. According to one important deep learning theorem, the local minima are very close to the global minimum for very deep neural networks. Preprocessing pre-process your data by making sure each dimension has 0 mean and unit variance. This should always be the case with data your are feeding to a NN, unless you have strong, well-understood reasons not to do it. A simple MLP will never cause gradient explosion if your data is correctly preprocessed. Centering sparse data would destroy the sparseness structure in the data, and thus rarely is a sensible thing to do. However, it can make sense to scale sparse inputs, especially if features are on different scales. MaxAbsScaler and maxabs_scale were specifically designed for scaling sparse data, and are the recommended way to go Underfitting/Overfitting Underfitting: This describes a model that lacks the complexity to accurately capture the complexity inherent in the problem you’re trying to solve. We can recognize this when our training error is much lower than our validation error Overfitting: This describes a model that is using too many parameters and has been trained too long. Specifically, it has learned how to match your exact training images to classes, but has become so specific that it is unable to generalize to similar images. This is easily recognizable when your training set accuracy is much higher than your validation. when you start overfitting you know, that your model is complex enough to handle your data Your main focus for fighting overfitting should be the entropic capacity of your model –how much information your model is allowed to store. A model that can store a lot of information has the potential to be more accurate by leveraging more features, but it is also more at risk to start storing irrelevant features. Meanwhile, a model that can only store a few features will have to focus on the most significant features found in the data, and these are more likely to be truly relevant and to generalize better. Dropout also helps reduce overfitting, by preventing a layer from seeing twice the exact same pattern, thus acting in a way analoguous to data augmentation (you could say that both dropout and data augmentation tend to disrupt random correlations occuring in your data). Recipe:">
-
-
+<meta name="twitter:title" content="Machine Learning Journey"/>
+<meta name="twitter:description" content="Cheat Sheet General Explanations: embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices KFold Cross Validation: The purpose of cross-validation is model checking, not model building. Once we have used cross-validation to select the better performing model, we train that model (whether it be the linear regression or the neural network) on all the data."/>
 
 
-  <meta itemprop="name" content="Machine Learning Journey">
-  <meta itemprop="description" content="Cheat Sheet General Explanations: embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices KFold Cross Validation: The purpose of cross-validation is model checking, not model building. Once we have used cross-validation to select the better performing model, we train that model (whether it be the linear regression or the neural network) on all the data. We don’t use the actual model instances we trained during cross-validation for our final predictive model. A dense layer in a multilayer perceptron (MLP) is a lot more feature intensive than a convolutional layer. People use convolutional nets with subsampling precisely because they get to aggressively prune the features they’re computing. in NNs rarely occur local minima due to vast parameter space (probability not to get better in ayn dimension is miniscule) the fast majority of space of a loss function in NN is all saddlepoints one training cycle for the entire dataset is called epoch, i.e. the algorithm sees the ENTIRE dataset iteration: every time a batch is passed through the NN (forward &#43; backward pass) Latent factors = features of embeddings (used in Collaborative Filtering) Bias-Variance Tradeoff in Machine Learning Softmax vs Sigmoid: All the softmax units in a layer are constrained to add up to 1, whereas sigmoid units don’t have this ’lateral’ constraint. If every example can be associated with multiple labels, you need to use a sigmoid output layer that learns to predict “yes” or “no” for each individual label. If the classes are disjoint, i.e. each example can only belong to one class, you should use a softmax output layer to incorporate this constraint. Do not forget to fine tune your network architecture and your learning rate. If you have more data, a complex network is preferable. According to one important deep learning theorem, the local minima are very close to the global minimum for very deep neural networks. Preprocessing pre-process your data by making sure each dimension has 0 mean and unit variance. This should always be the case with data your are feeding to a NN, unless you have strong, well-understood reasons not to do it. A simple MLP will never cause gradient explosion if your data is correctly preprocessed. Centering sparse data would destroy the sparseness structure in the data, and thus rarely is a sensible thing to do. However, it can make sense to scale sparse inputs, especially if features are on different scales. MaxAbsScaler and maxabs_scale were specifically designed for scaling sparse data, and are the recommended way to go Underfitting/Overfitting Underfitting: This describes a model that lacks the complexity to accurately capture the complexity inherent in the problem you’re trying to solve. We can recognize this when our training error is much lower than our validation error Overfitting: This describes a model that is using too many parameters and has been trained too long. Specifically, it has learned how to match your exact training images to classes, but has become so specific that it is unable to generalize to similar images. This is easily recognizable when your training set accuracy is much higher than your validation. when you start overfitting you know, that your model is complex enough to handle your data Your main focus for fighting overfitting should be the entropic capacity of your model –how much information your model is allowed to store. A model that can store a lot of information has the potential to be more accurate by leveraging more features, but it is also more at risk to start storing irrelevant features. Meanwhile, a model that can only store a few features will have to focus on the most significant features found in the data, and these are more likely to be truly relevant and to generalize better. Dropout also helps reduce overfitting, by preventing a layer from seeing twice the exact same pattern, thus acting in a way analoguous to data augmentation (you could say that both dropout and data augmentation tend to disrupt random correlations occuring in your data). Recipe:">
-  <meta itemprop="datePublished" content="2017-01-23T22:12:03+00:00">
-  <meta itemprop="dateModified" content="2017-01-23T22:12:03+00:00">
-  <meta itemprop="wordCount" content="4521">
-  <meta itemprop="image" content="/images/share.png">
-  <meta itemprop="keywords" content="Python,Learning,Ai,Machine Learning">
+
+<meta itemprop="name" content="Machine Learning Journey">
+<meta itemprop="description" content="Cheat Sheet General Explanations: embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices KFold Cross Validation: The purpose of cross-validation is model checking, not model building. Once we have used cross-validation to select the better performing model, we train that model (whether it be the linear regression or the neural network) on all the data."><meta itemprop="datePublished" content="2017-01-23T22:12:03+00:00" />
+<meta itemprop="dateModified" content="2017-01-23T22:12:03+00:00" />
+<meta itemprop="wordCount" content="4521"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="python,learning,ai,machine learning," />
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <style>
@@ -257,20 +210,17 @@ Recipe:" />
 
 </style>
 
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
-      <script>
-        var doNotTrack = false;
-        if ( false ) {
-          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
-          var doNotTrack = (dnt == "1" || dnt == "yes");
-        }
-        if (!doNotTrack) {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-8VH574W51S');
-        }
-      </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-8VH574W51S', { 'anonymize_ip': false });
+}
+</script>
+
 
 </head>
 
@@ -402,7 +352,7 @@ Because normalization greatly reduces the ability of a small number of outlying 
 <li>Validation accuracy can remain flat while the loss gets worse as long as the scores don&rsquo;t cross the threshold where the predicted class changes.</li>
 <li>Don’t let the regularization overwhelm the data. Loss function is a sum of the data loss and the regularization loss (e.g. L2 penalty on weights). Regularization loss may overwhelm the data loss, in which case the gradients will be primarily coming from the regularization term (which usually has a much simpler gradient expression).</li>
 <li><a href="http://cs231n.github.io/neural-networks-3/#gradcheck">Traing curves</a>:
-<figure class="center"><img src="/machine-learning-journey/learningrates.jpeg" width="100%">
+<figure class="center"><img src="learningrates.jpeg" width="100%"/>
 </figure>
 </li>
 </ul>
@@ -528,10 +478,10 @@ model.add(LSTM(n, input_shape=(timesteps, data_dim), return_sequences=True))
 <li>momentum + rmsprop = good idea -&gt; adam</li>
 <li>SGD is well understood and a great place to start. ADAM is fast and gives good results and I often use it in practice.</li>
 <li><a href="http://cs231n.github.io/neural-networks-3/#gradcheck">illustration</a> (Images credit: <a href="https://twitter.com/alecrad">Alec Radford</a>):
-<figure class="center"><img src="/machine-learning-journey/opt2.gif" width="100%">
+<figure class="center"><img src="opt2.gif" width="100%"/>
 </figure>
 
-<figure class="center"><img src="/machine-learning-journey/opt1.gif" width="100%">
+<figure class="center"><img src="opt1.gif" width="100%"/>
 </figure>
 </li>
 </ul>
@@ -663,13 +613,13 @@ word2vec (Google) vs. glove</p>
 </content>
 <p>
   
-  <a href="/blog/python/">#Python</a>
+  <a href="/blog/python/">#python</a>
   
-  <a href="/blog/learning/">#Learning</a>
+  <a href="/blog/learning/">#learning</a>
   
-  <a href="/blog/ai/">#Ai</a>
+  <a href="/blog/ai/">#ai</a>
   
-  <a href="/blog/machine-learning/">#Machine Learning</a>
+  <a href="/blog/machine-learning/">#machine learning</a>
   
 </p>
 

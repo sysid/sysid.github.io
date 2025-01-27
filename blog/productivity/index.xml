@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Productivity on sysid blog</title>
+    <title>productivity on sysid blog</title>
     <link>/blog/productivity/</link>
-    <description>Recent content in Productivity on sysid blog</description>
-    <generator>Hugo</generator>
+    <description>Recent content in productivity on sysid blog</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Mon, 26 Dec 2022 08:25:13 +0100</lastBuildDate>
-    <atom:link href="/blog/productivity/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Dec 2022 08:25:13 +0100</lastBuildDate><atom:link href="/blog/productivity/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Reboot</title>
       <link>/reboot/</link>
       <pubDate>Mon, 26 Dec 2022 08:25:13 +0100</pubDate>
+      
       <guid>/reboot/</guid>
-      <description>&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;./success.jpg&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Success is not always a straight line.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;blog-requirements&#34;&gt;Blog Requirements&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;readability, no noise&lt;/li&gt;&#xA;&lt;li&gt;professional math support, i.e. Latex rendering&lt;/li&gt;&#xA;&lt;li&gt;swift build times&lt;/li&gt;&#xA;&lt;li&gt;robust technology&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;switch-to-gatsby&#34;&gt;Switch to Gatsby&lt;/h2&gt;&#xA;&lt;p&gt;End of 2018 I switched from Hugo to Gatsby because why not. Gatsby was the new-kid-on-the-block and it is based on React and&#xA;GraphQL, which I wanted to learn anyway. At the time I could tick above boxes, especially because my blog was&#xA;tiny and I was dealing with React in other projects.&lt;/p&gt;</description>
+      <description>Success is not always a straight line.
+Blog Requirements readability, no noise professional math support, i.e. Latex rendering swift build times robust technology Switch to Gatsby End of 2018 I switched from Hugo to Gatsby because why not. Gatsby was the new-kid-on-the-block and it is based on React and GraphQL, which I wanted to learn anyway. At the time I could tick above boxes, especially because my blog was tiny and I was dealing with React in other projects.</description>
     </item>
+    
     <item>
       <title>twbm</title>
       <link>/twbm/</link>
       <pubDate>Sat, 24 Jul 2021 00:00:00 +0000</pubDate>
+      
       <guid>/twbm/</guid>
-      <description>&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/twbm/bm.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Bookmarks are a major pillar of any knowledge-management strategy.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Bookmarks are the foundation of the World Wide Web and personal bookmark management should be regarded as a solved problem&#xA;these days, right?&lt;/p&gt;&#xA;&lt;p&gt;Truth is, I used to struggle a lot with bookmarks.&lt;/p&gt;&#xA;&lt;p&gt;My requirements:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;I want to own my bookmarks. They reflect a carefully curated list of knowledge and expertise which I have honed over&#xA;years. I maintain this list and keep it up-to-date. I do not want them to live in any walled garden or cloud service.&lt;/li&gt;&#xA;&lt;li&gt;I want them to be platform agnostic.&lt;/li&gt;&#xA;&lt;li&gt;I need them to be at my fingertip wherever I am currently working, no matter where, on what device&amp;hellip;&lt;/li&gt;&#xA;&lt;li&gt;I need them searchable with respect to various categories and keywords. Searchability is the whole point of&#xA;knowledge management, so this one is very important.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Well, there are myriads of bookmark managers out there, so just pick one, right?&lt;/p&gt;</description>
+      <description>Bookmarks are a major pillar of any knowledge-management strategy.
+Bookmarks are the foundation of the World Wide Web and personal bookmark management should be regarded as a solved problem these days, right?
+Truth is, I used to struggle a lot with bookmarks.
+My requirements:
+I want to own my bookmarks. They reflect a carefully curated list of knowledge and expertise which I have honed over years. I maintain this list and keep it up-to-date.</description>
     </item>
+    
   </channel>
 </rss>

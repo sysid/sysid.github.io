@@ -12,39 +12,28 @@
 <meta name="keywords" content="python,optimization,pyomo,scheduling," />
 
 
-<meta property="og:url" content="/scheduling/">
-  <meta property="og:site_name" content="sysid blog">
-  <meta property="og:title" content="Scheduling">
-  <meta property="og:description" content="Experimentation about a common Operations Research problem, part III.">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2021-01-06T00:00:00+00:00">
-    <meta property="article:modified_time" content="2021-01-06T00:00:00+00:00">
-    <meta property="article:tag" content="Python">
-    <meta property="article:tag" content="Optimization">
-    <meta property="article:tag" content="Pyomo">
-    <meta property="article:tag" content="Scheduling">
-    <meta property="og:image" content="/images/share.png">
+<meta property="og:title" content="Scheduling" />
+<meta property="og:description" content="Experimentation about a common Operations Research problem, part III." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/scheduling/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2021-01-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-01-06T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
 
 
 
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="/images/share.png">
-  <meta name="twitter:title" content="Scheduling">
-  <meta name="twitter:description" content="Experimentation about a common Operations Research problem, part III.">
-
-
+<meta name="twitter:title" content="Scheduling"/>
+<meta name="twitter:description" content="Experimentation about a common Operations Research problem, part III."/>
 
 
-  <meta itemprop="name" content="Scheduling">
-  <meta itemprop="description" content="Experimentation about a common Operations Research problem, part III.">
-  <meta itemprop="datePublished" content="2021-01-06T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2021-01-06T00:00:00+00:00">
-  <meta itemprop="wordCount" content="949">
-  <meta itemprop="image" content="/images/share.png">
-  <meta itemprop="keywords" content="Python,Optimization,Pyomo,Scheduling">
+
+<meta itemprop="name" content="Scheduling">
+<meta itemprop="description" content="Experimentation about a common Operations Research problem, part III."><meta itemprop="datePublished" content="2021-01-06T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-01-06T00:00:00+00:00" />
+<meta itemprop="wordCount" content="949"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="python,optimization,pyomo,scheduling," />
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <style>
@@ -221,20 +210,17 @@
 
 </style>
 
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
-      <script>
-        var doNotTrack = false;
-        if ( false ) {
-          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
-          var doNotTrack = (dnt == "1" || dnt == "yes");
-        }
-        if (!doNotTrack) {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-8VH574W51S');
-        }
-      </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-8VH574W51S', { 'anonymize_ip': false });
+}
+</script>
+
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-alpha.1/es5/tex-mml-chtml.js"></script>
 
@@ -373,7 +359,7 @@ $$</p>
 <p>The color coding is taken from <sup id="fnref1:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>: blue represents data and red represents model variables.</p>
 <h3 id="results">Results</h3>
 <p>A simple test model with 4 jobs on 3 machines looks like:</p>
-<figure class="center"><img src="/scheduling/test_machine.png" width="100%">
+<figure class="center"><img src="test_machine.png" width="100%"/>
 </figure>
 
 <p>Using a mall model helps to validate and test the model.</p>
@@ -385,7 +371,7 @@ Here the results for a model with 50 jobs scheduled on 8 machines:</p>
 <li>Number of variables : 3001</li>
 <li>Duration: 00:00:03</li>
 </ul>
-<figure class="center"><img src="/scheduling/standard_machine.png" width="100%">
+<figure class="center"><img src="standard_machine.png" width="100%"/>
 </figure>
 
 <h2 id="problem-2-category-scheduling">Problem 2: Category Scheduling</h2>
@@ -432,7 +418,7 @@ CBC did not produce a solution within 8 hours. However, with a commercial solver
 <li>Number of variables : 2601</li>
 <li>Duration: 00:00:50</li>
 </ul>
-<figure class="center"><img src="/scheduling/standard_category.png" width="100%">
+<figure class="center"><img src="standard_category.png" width="100%"/>
 </figure>
 
 <h1 id="summary">Summary</h1>
@@ -452,13 +438,13 @@ CBC did not produce a solution within 8 hours. However, with a commercial solver
 </content>
 <p>
   
-  <a href="/blog/python/">#Python</a>
+  <a href="/blog/python/">#python</a>
   
-  <a href="/blog/optimization/">#Optimization</a>
+  <a href="/blog/optimization/">#optimization</a>
   
-  <a href="/blog/pyomo/">#Pyomo</a>
+  <a href="/blog/pyomo/">#pyomo</a>
   
-  <a href="/blog/scheduling/">#Scheduling</a>
+  <a href="/blog/scheduling/">#scheduling</a>
   
 </p>
 

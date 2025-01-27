@@ -1,48 +1,65 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Scheduling on sysid blog</title>
+    <title>scheduling on sysid blog</title>
     <link>/blog/scheduling/</link>
-    <description>Recent content in Scheduling on sysid blog</description>
-    <generator>Hugo</generator>
+    <description>Recent content in scheduling on sysid blog</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Wed, 06 Jan 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/blog/scheduling/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/blog/scheduling/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Scheduling</title>
       <link>/scheduling/</link>
       <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
+      
       <guid>/scheduling/</guid>
-      <description>&lt;p&gt;I already analysed several scheduling problems:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;../task-scheduling&#34;&gt;Task Scheduling&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;../task-scheduling-with-limited-resources&#34;&gt;Task Scheduling with limited Resources&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;../job-shop-scheduling-problem&#34;&gt;Job Shop Scheduling Problem&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;../patient-scheduling&#34;&gt;Patient Scheduling&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The class of scheduling problems is interesting and every example provides new insight. Here I am going to look at&#xA;two problems which can be solved with a very similar and quite common approach: The&#xA;&lt;strong&gt;continuous time model&lt;/strong&gt; approach.&lt;/p&gt;&#xA;&lt;h2 id=&#34;problem-1-machine-scheduling&#34;&gt;Problem 1: Machine Scheduling&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Schedule jobs onto available machines so, that the total processing time (a.k.a. makespan) is minimized.&lt;/p&gt;</description>
+      <description>I already analysed several scheduling problems:
+Task Scheduling Task Scheduling with limited Resources Job Shop Scheduling Problem Patient Scheduling The class of scheduling problems is interesting and every example provides new insight. Here I am going to look at two problems which can be solved with a very similar and quite common approach: The continuous time model approach.
+Problem 1: Machine Scheduling Schedule jobs onto available machines so, that the total processing time (a.</description>
     </item>
+    
     <item>
       <title>Job Shop Scheduling Problem</title>
       <link>/job-shop-scheduling-problem/</link>
       <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
+      
       <guid>/job-shop-scheduling-problem/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;The Job Shop Scheduling Problem (JSSP) is an NP-hard problem. &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;The JSSP is defined by a set of jobs that must be executed by&#xA;a set of machines in a specific order for each job. Each job has a defined execution time for each machine and&#xA;a defined processing order of machines. Also, each job must use each machine only once.&#xA;The machines can only execute a job at a time and once started, the machine cannot be interrupted until the completion of the assigned job.&lt;/p&gt;</description>
+      <description>The Job Shop Scheduling Problem (JSSP) is an NP-hard problem. 1
+The JSSP is defined by a set of jobs that must be executed by a set of machines in a specific order for each job. Each job has a defined execution time for each machine and a defined processing order of machines. Also, each job must use each machine only once. The machines can only execute a job at a time and once started, the machine cannot be interrupted until the completion of the assigned job.</description>
     </item>
+    
     <item>
       <title>Task Scheduling with limited Resources</title>
       <link>/task-scheduling-with-limited-resources/</link>
       <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
+      
       <guid>/task-scheduling-with-limited-resources/</guid>
-      <description>&lt;p&gt;We already looked at a simple scheduling problem: &lt;a href=&#34;../task-scheduling&#34;&gt;Task Scheduling&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Here we are looking at a more elaborated scheduling example with limited resources for tasks with various durations.&#xA;We want to get insights by re-engineering the solution of &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; with &lt;a href=&#34;http://www.pyomo.org/&#34;&gt;Pyomo&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h3 id=&#34;problem&#34;&gt;Problem&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;We have \(N\) tasks and \(M\) facilities to execute the tasks.&lt;/li&gt;&#xA;&lt;li&gt;Every task has a due date.&lt;/li&gt;&#xA;&lt;li&gt;Tasks require certain resources for execution, e.g. water, electricity, &amp;hellip;&lt;/li&gt;&#xA;&lt;li&gt;Every facility provides a set of resources&lt;/li&gt;&#xA;&lt;li&gt;Only one task per resource can be executed at a given time.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Assign the tasks to the facilities so that the task get all required resources for execution.&#xA;We want to minimize the total time to complete all tasks. This time is called &lt;em&gt;makespan&lt;/em&gt;.&lt;/p&gt;</description>
+      <description>We already looked at a simple scheduling problem: Task Scheduling.
+Here we are looking at a more elaborated scheduling example with limited resources for tasks with various durations. We want to get insights by re-engineering the solution of 1 with Pyomo.
+Problem We have \(N\) tasks and \(M\) facilities to execute the tasks. Every task has a due date. Tasks require certain resources for execution, e.g. water, electricity, &amp;hellip; Every facility provides a set of resources Only one task per resource can be executed at a given time.</description>
     </item>
+    
     <item>
       <title>Task Scheduling</title>
       <link>/task-scheduling/</link>
       <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
+      
       <guid>/task-scheduling/</guid>
-      <description>&lt;p&gt;We already looked at a real world scheduling problem: &lt;a href=&#34;../patient-scheduling&#34;&gt;Patient Scheduling&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Important concepts have been touched there. Here we look at additional aspects of this important&#xA;optimization domain, especially in using &lt;a href=&#34;http://www.pyomo.org/&#34;&gt;Pyomo&lt;/a&gt; as modelling environment.&lt;/p&gt;&#xA;&lt;h2 id=&#34;simple-scheduling&#34;&gt;Simple Scheduling&lt;/h2&gt;&#xA;&lt;h3 id=&#34;problem&#34;&gt;Problem&lt;/h3&gt;&#xA;&lt;p&gt;Schedule 10 tasks. Each task must be assigned to a single time slot, however, not every time slot is viable.&#xA;The duration of a task is one timeslot.&#xA;We want to minimize the number of timeslots used.&lt;/p&gt;</description>
+      <description>We already looked at a real world scheduling problem: Patient Scheduling.
+Important concepts have been touched there. Here we look at additional aspects of this important optimization domain, especially in using Pyomo as modelling environment.
+Simple Scheduling Problem Schedule 10 tasks. Each task must be assigned to a single time slot, however, not every time slot is viable. The duration of a task is one timeslot. We want to minimize the number of timeslots used.</description>
     </item>
+    
     <item>
       <title>Patient Scheduling</title>
       <link>/patient-scheduling/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
+      
       <guid>/patient-scheduling/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;How to optimize the scheduling of patients in order to use the necessary infrastructure, i.e. infusion chairs optimally.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;problem-parameters-1&#34;&gt;Problem Parameters &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;:&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;There are \(T = 40\) time slots of 15 minutes&lt;/li&gt;&#xA;&lt;li&gt;We have 23 infusion chairs for patient treatment&lt;/li&gt;&#xA;&lt;li&gt;We have 8 different types of patients&lt;/li&gt;&#xA;&lt;li&gt;Each patient type has a demand (number of patients) and treatment length (expressed in 15 minute slots)&lt;/li&gt;&#xA;&lt;li&gt;No treatments can start during lunch break&lt;/li&gt;&#xA;&lt;li&gt;At most 2 treatments can start in each time slot.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/patient-scheduling/patient_data.png&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;https://yetanothermathprogrammingconsultant.blogspot.com/2018/07/scheduling-of-patients.html&#34;&gt;Yet Another Mathprogramming Consultant&lt;/a&gt;&#xA;provides a comprehensive treatment of the problem. Here I will focus on a Mixed Integer Programming &amp;lsquo;grid approach&amp;rsquo;.&lt;/p&gt;</description>
+      <description>How to optimize the scheduling of patients in order to use the necessary infrastructure, i.e. infusion chairs optimally.
+Problem Parameters 1: There are \(T = 40\) time slots of 15 minutes We have 23 infusion chairs for patient treatment We have 8 different types of patients Each patient type has a demand (number of patients) and treatment length (expressed in 15 minute slots) No treatments can start during lunch break At most 2 treatments can start in each time slot.</description>
     </item>
+    
   </channel>
 </rss>

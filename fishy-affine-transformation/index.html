@@ -8,57 +8,36 @@
 <link rel="shortcut icon" href="/images/favicon.png" />
 <title>Fishy Affine Transformation | sysid blog</title>
 <meta name="title" content="Fishy Affine Transformation" />
-<meta name="description" content="Fishy Affine Transformation
-While working on the kaggle competition https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring I hit the point when I wanted
-to align fish based on an annotation at the fish&rsquo;s head and tail, so that the fish is centered in the image, always in the same orientation
-and distracting picture information is minimized. This required:
-
-finding the fish (thanks Nathaniel Shimoni for annotating)
-centering
-rotatating
-cropping
-
-Mathematically the challenge is to find the associated  Affine Transformation. After years of working in a managerial role my linear algebra skills are a bit rusty so I decided to
-invest the weekend." />
+<meta name="description" content="Fishy Affine Transformation While working on the kaggle competition https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring I hit the point when I wanted to align fish based on an annotation at the fish&rsquo;s head and tail, so that the fish is centered in the image, always in the same orientation and distracting picture information is minimized. This required:
+finding the fish (thanks Nathaniel Shimoni for annotating) centering rotatating cropping Mathematically the challenge is to find the associated Affine Transformation." />
 <meta name="keywords" content="python,math,machine learning,ai," />
 
 
-<meta property="og:url" content="/fishy-affine-transformation/">
-  <meta property="og:site_name" content="sysid blog">
-  <meta property="og:title" content="Fishy Affine Transformation">
-  <meta property="og:description" content="Fishy Affine Transformation While working on the kaggle competition https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring I hit the point when I wanted to align fish based on an annotation at the fish’s head and tail, so that the fish is centered in the image, always in the same orientation and distracting picture information is minimized. This required:
-finding the fish (thanks Nathaniel Shimoni for annotating) centering rotatating cropping Mathematically the challenge is to find the associated Affine Transformation. After years of working in a managerial role my linear algebra skills are a bit rusty so I decided to invest the weekend.">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2017-03-13T22:12:03+00:00">
-    <meta property="article:modified_time" content="2017-03-13T22:12:03+00:00">
-    <meta property="article:tag" content="Python">
-    <meta property="article:tag" content="Math">
-    <meta property="article:tag" content="Machine Learning">
-    <meta property="article:tag" content="Ai">
-    <meta property="og:image" content="/images/share.png">
+<meta property="og:title" content="Fishy Affine Transformation" />
+<meta property="og:description" content="Fishy Affine Transformation While working on the kaggle competition https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring I hit the point when I wanted to align fish based on an annotation at the fish&rsquo;s head and tail, so that the fish is centered in the image, always in the same orientation and distracting picture information is minimized. This required:
+finding the fish (thanks Nathaniel Shimoni for annotating) centering rotatating cropping Mathematically the challenge is to find the associated Affine Transformation." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/fishy-affine-transformation/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2017-03-13T22:12:03+00:00" />
+<meta property="article:modified_time" content="2017-03-13T22:12:03+00:00" /><meta property="og:site_name" content="sysid blog" />
 
 
 
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="/images/share.png">
-  <meta name="twitter:title" content="Fishy Affine Transformation">
-  <meta name="twitter:description" content="Fishy Affine Transformation While working on the kaggle competition https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring I hit the point when I wanted to align fish based on an annotation at the fish’s head and tail, so that the fish is centered in the image, always in the same orientation and distracting picture information is minimized. This required:
-finding the fish (thanks Nathaniel Shimoni for annotating) centering rotatating cropping Mathematically the challenge is to find the associated Affine Transformation. After years of working in a managerial role my linear algebra skills are a bit rusty so I decided to invest the weekend.">
-
-
+<meta name="twitter:title" content="Fishy Affine Transformation"/>
+<meta name="twitter:description" content="Fishy Affine Transformation While working on the kaggle competition https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring I hit the point when I wanted to align fish based on an annotation at the fish&rsquo;s head and tail, so that the fish is centered in the image, always in the same orientation and distracting picture information is minimized. This required:
+finding the fish (thanks Nathaniel Shimoni for annotating) centering rotatating cropping Mathematically the challenge is to find the associated Affine Transformation."/>
 
 
-  <meta itemprop="name" content="Fishy Affine Transformation">
-  <meta itemprop="description" content="Fishy Affine Transformation While working on the kaggle competition https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring I hit the point when I wanted to align fish based on an annotation at the fish’s head and tail, so that the fish is centered in the image, always in the same orientation and distracting picture information is minimized. This required:
-finding the fish (thanks Nathaniel Shimoni for annotating) centering rotatating cropping Mathematically the challenge is to find the associated Affine Transformation. After years of working in a managerial role my linear algebra skills are a bit rusty so I decided to invest the weekend.">
-  <meta itemprop="datePublished" content="2017-03-13T22:12:03+00:00">
-  <meta itemprop="dateModified" content="2017-03-13T22:12:03+00:00">
-  <meta itemprop="wordCount" content="834">
-  <meta itemprop="image" content="/images/share.png">
-  <meta itemprop="keywords" content="Python,Math,Machine Learning,Ai">
+
+<meta itemprop="name" content="Fishy Affine Transformation">
+<meta itemprop="description" content="Fishy Affine Transformation While working on the kaggle competition https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring I hit the point when I wanted to align fish based on an annotation at the fish&rsquo;s head and tail, so that the fish is centered in the image, always in the same orientation and distracting picture information is minimized. This required:
+finding the fish (thanks Nathaniel Shimoni for annotating) centering rotatating cropping Mathematically the challenge is to find the associated Affine Transformation."><meta itemprop="datePublished" content="2017-03-13T22:12:03+00:00" />
+<meta itemprop="dateModified" content="2017-03-13T22:12:03+00:00" />
+<meta itemprop="wordCount" content="834"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="python,math,machine learning,ai," />
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <style>
@@ -235,20 +214,17 @@ finding the fish (thanks Nathaniel Shimoni for annotating) centering rotatating 
 
 </style>
 
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
-      <script>
-        var doNotTrack = false;
-        if ( false ) {
-          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
-          var doNotTrack = (dnt == "1" || dnt == "yes");
-        }
-        if (!doNotTrack) {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-8VH574W51S');
-        }
-      </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-8VH574W51S', { 'anonymize_ip': false });
+}
+</script>
+
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-alpha.1/es5/tex-mml-chtml.js"></script>
 
@@ -330,7 +306,7 @@ denoted vector variables and caps matrices.</p>
 </span></span><span style="display:flex;"><span>    t = np.reshape(t, (<span style="color:#00d;font-weight:bold">2</span>,<span style="color:#00d;font-weight:bold">1</span>))  <span style="color:#888"># generate the 2x3 affine transformation matrix</span>
 </span></span><span style="display:flex;"><span>    T = np.concatenate((np.identity(<span style="color:#00d;font-weight:bold">2</span>), t), axis=<span style="color:#00d;font-weight:bold">1</span>)
 </span></span></code></pre></div><p>The respective transformation matrix is:</p>
-<figure class="center"><img src="/fishy-affine-transformation/fishy-affine-transformation-translation.png" width="100%">
+<figure class="center"><img src="fishy-affine-transformation-translation.png" width="100%"/>
 </figure>
 
 <h2 id="3-rotating">3. Rotating</h2>
@@ -391,7 +367,7 @@ e.g. the head and tail annotations are transformed by the same matrix.</p>
 <p>The blue point marks the head and the red point the tail. You can see the fish positioned arbitrarily in the image.
 With the Affine Transformation the fish will be extracted and aligned.
 The result is being displayed in the left upper corner.</p>
-<figure class="center"><img src="/fishy-affine-transformation/fishy-affine-transformation-result.png" width="100%">
+<figure class="center"><img src="fishy-affine-transformation-result.png" width="100%"/>
 </figure>
 
 <p>With this technique I was able to align my fish and feed it into my machine learning models.</p>
@@ -404,13 +380,13 @@ Other sources:
 </content>
 <p>
   
-  <a href="/blog/python/">#Python</a>
+  <a href="/blog/python/">#python</a>
   
-  <a href="/blog/math/">#Math</a>
+  <a href="/blog/math/">#math</a>
   
-  <a href="/blog/machine-learning/">#Machine Learning</a>
+  <a href="/blog/machine-learning/">#machine learning</a>
   
-  <a href="/blog/ai/">#Ai</a>
+  <a href="/blog/ai/">#ai</a>
   
 </p>
 

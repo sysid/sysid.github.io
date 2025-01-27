@@ -12,40 +12,28 @@
 <meta name="keywords" content="python,optimization,work,pyomo,scheduling," />
 
 
-<meta property="og:url" content="/job-shop-scheduling-problem/">
-  <meta property="og:site_name" content="sysid blog">
-  <meta property="og:title" content="Job Shop Scheduling Problem">
-  <meta property="og:description" content="Scheduling jobs requiring several time-dependent machining steps">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2020-08-02T00:00:00+00:00">
-    <meta property="article:modified_time" content="2020-08-02T00:00:00+00:00">
-    <meta property="article:tag" content="Python">
-    <meta property="article:tag" content="Optimization">
-    <meta property="article:tag" content="Work">
-    <meta property="article:tag" content="Pyomo">
-    <meta property="article:tag" content="Scheduling">
-    <meta property="og:image" content="/images/share.png">
+<meta property="og:title" content="Job Shop Scheduling Problem" />
+<meta property="og:description" content="Scheduling jobs requiring several time-dependent machining steps" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/job-shop-scheduling-problem/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-08-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-02T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
 
 
 
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="/images/share.png">
-  <meta name="twitter:title" content="Job Shop Scheduling Problem">
-  <meta name="twitter:description" content="Scheduling jobs requiring several time-dependent machining steps">
-
-
+<meta name="twitter:title" content="Job Shop Scheduling Problem"/>
+<meta name="twitter:description" content="Scheduling jobs requiring several time-dependent machining steps"/>
 
 
-  <meta itemprop="name" content="Job Shop Scheduling Problem">
-  <meta itemprop="description" content="Scheduling jobs requiring several time-dependent machining steps">
-  <meta itemprop="datePublished" content="2020-08-02T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2020-08-02T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1149">
-  <meta itemprop="image" content="/images/share.png">
-  <meta itemprop="keywords" content="Python,Optimization,Work,Pyomo,Scheduling">
+
+<meta itemprop="name" content="Job Shop Scheduling Problem">
+<meta itemprop="description" content="Scheduling jobs requiring several time-dependent machining steps"><meta itemprop="datePublished" content="2020-08-02T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-08-02T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1149"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="python,optimization,work,pyomo,scheduling," />
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <style>
@@ -222,20 +210,17 @@
 
 </style>
 
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
-      <script>
-        var doNotTrack = false;
-        if ( false ) {
-          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
-          var doNotTrack = (dnt == "1" || dnt == "yes");
-        }
-        if (!doNotTrack) {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-8VH574W51S');
-        }
-      </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-8VH574W51S', { 'anonymize_ip': false });
+}
+</script>
+
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-alpha.1/es5/tex-mml-chtml.js"></script>
 
@@ -297,7 +282,7 @@ The machines can only execute a job at a time and once started, the machine cann
 <li>Job 3: 𝑚3 (1) → 𝑚2 (2) → 𝑚1 (1)</li>
 </ul>
 <p>Bellow there are (at least) two feasible schedules <sup id="fnref1:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>:</p>
-<figure class="center"><img src="/job-shop-scheduling-problem/machine_scheduling2.png" width="100%">
+<figure class="center"><img src="machine_scheduling2.png" width="100%"/>
 </figure>
 
 <p>The first schedule shows a naive solution: jobs are processed in a sequence and machines stay idle quite
@@ -443,7 +428,7 @@ $$</p>
 Number of variables : 441<br>
 Duration: 00:00:06</p>
 <p>Optimal scheduling will reduce the total production time from 74 (naive approach) to 21, a 72% improvement.</p>
-<figure class="center"><img src="/job-shop-scheduling-problem/result.png" width="100%">
+<figure class="center"><img src="result.png" width="100%"/>
 </figure>
 
 <p>Zero implies there are no job running on the machine at this time.</p>
@@ -473,15 +458,15 @@ non-overlap constraint and only compare jobs with \(j &lt; k\) instead of \(i \n
 </content>
 <p>
   
-  <a href="/blog/python/">#Python</a>
+  <a href="/blog/python/">#python</a>
   
-  <a href="/blog/optimization/">#Optimization</a>
+  <a href="/blog/optimization/">#optimization</a>
   
-  <a href="/blog/work/">#Work</a>
+  <a href="/blog/work/">#work</a>
   
-  <a href="/blog/pyomo/">#Pyomo</a>
+  <a href="/blog/pyomo/">#pyomo</a>
   
-  <a href="/blog/scheduling/">#Scheduling</a>
+  <a href="/blog/scheduling/">#scheduling</a>
   
 </p>
 

@@ -1,55 +1,77 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ai on sysid blog</title>
+    <title>ai on sysid blog</title>
     <link>/blog/ai/</link>
-    <description>Recent content in Ai on sysid blog</description>
-    <generator>Hugo</generator>
+    <description>Recent content in ai on sysid blog</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Sun, 14 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/blog/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="/blog/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Elevating Bookmark Management with AI-Driven Semantic Search</title>
       <link>/elevating-bookmark-management-with-ai-driven-semantic-search/</link>
       <pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate>
+      
       <guid>/elevating-bookmark-management-with-ai-driven-semantic-search/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Search has been revolutionized by AI, bringing &amp;lsquo;Google-level&amp;rsquo; quality&#xA;within the reach of everybody.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Finding information is one of the most important capabilities for any professional.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://sysid.github.io/bkmr/&#34;&gt;bkmr&lt;/a&gt; introduced a CLI Bookmark Manager leveraging SQLite&amp;rsquo;s full-text search (FTS) capabilities, offering improved search efficiency.&#xA;This tool, developed in Rust, aimed to provide snappy bookmark manager capabilities for the command line.&lt;/p&gt;&#xA;&lt;p&gt;However, the landscape of search has changed radically.&#xA;Traditional keyword-based searches, while effective, fall short in understanding the context and semantics behind user queries.&#xA;Semantic Search, once the realm of companies like Google, is now available for everyone.&lt;/p&gt;</description>
+      <description>Search has been revolutionized by AI, bringing &amp;lsquo;Google-level&amp;rsquo; quality within the reach of everybody.
+Introduction Finding information is one of the most important capabilities for any professional.
+bkmr introduced a CLI Bookmark Manager leveraging SQLite&amp;rsquo;s full-text search (FTS) capabilities, offering improved search efficiency. This tool, developed in Rust, aimed to provide snappy bookmark manager capabilities for the command line.
+However, the landscape of search has changed radically. Traditional keyword-based searches, while effective, fall short in understanding the context and semantics behind user queries.</description>
     </item>
+    
     <item>
       <title>ChatGPT in Software Development</title>
       <link>/chatgpt-in-software-development/</link>
       <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      
       <guid>/chatgpt-in-software-development/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Describe the target, let the machine figure it out.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h1 id=&#34;the-world-has-changed&#34;&gt;The world has changed.&lt;/h1&gt;&#xA;&lt;p&gt;I am showing examples of how ChatGPT is changing my workflow.&lt;/p&gt;&#xA;&lt;h2 id=&#34;infrastructure-as-code&#34;&gt;Infrastructure as Code&lt;/h2&gt;&#xA;&lt;p&gt;One way to deploy new infrastructure is to work interactively with the cloud&amp;rsquo;s&#xA;provider graphical UI and rewrite it in the IaC suite of your choice.&lt;/p&gt;&#xA;&lt;p&gt;However, re-writing it feels like redundant work.&lt;/p&gt;&#xA;&lt;p&gt;Using &lt;code&gt;terraform&lt;/code&gt; as an example there are several options:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;code&gt;terraform import&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/GoogleCloudPlatform/terraformer&#34;&gt;terraformer&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/cycloidio/terracognita&#34;&gt;terracognita&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&amp;hellip;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;They all work (to some degree). However, the mental impedance for using them only once in a while&#xA;is considerable, e.g. remembering the syntax, gotchas, etc&amp;hellip;&lt;/p&gt;</description>
+      <description>Describe the target, let the machine figure it out.
+The world has changed. I am showing examples of how ChatGPT is changing my workflow.
+Infrastructure as Code One way to deploy new infrastructure is to work interactively with the cloud&amp;rsquo;s provider graphical UI and rewrite it in the IaC suite of your choice.
+However, re-writing it feels like redundant work.
+Using terraform as an example there are several options:</description>
     </item>
+    
     <item>
       <title>String Puppets</title>
       <link>/string-puppets/</link>
       <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
+      
       <guid>/string-puppets/</guid>
-      <description>&lt;p&gt;import mona1 from &amp;ldquo;./mona1.mp4&amp;rdquo;&lt;/p&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/string-puppets/puppenkiste.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;I am a fan of the &lt;a href=&#34;http://www.augsburger-puppenkiste.de/&#34;&gt;Augsburger Puppenkiste&lt;/a&gt;. Puppets&#xA;are brought to live by pulling strings. If you ever get to Augsburg, do not miss to see a show!&lt;/p&gt;&#xA;&lt;p&gt;Today a came across an excellent article &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, which creepily reminded me of these happy String Puppets.&lt;/p&gt;&#xA;&lt;p&gt;I decided to hit two birds with one stone: Learn something about the current state of&#xA;&lt;a href=&#34;https://en.wikipedia.org/wiki/Deepfake&#34;&gt;Deep Fakes&lt;/a&gt; and try out Google&amp;rsquo;s &lt;a href=&#34;https://colab.research.google.com/&#34;&gt;Colab&lt;/a&gt; environment.&lt;/p&gt;</description>
+      <description>import mona1 from &amp;ldquo;./mona1.mp4&amp;rdquo;
+I am a fan of the Augsburger Puppenkiste. Puppets are brought to live by pulling strings. If you ever get to Augsburg, do not miss to see a show!
+Today a came across an excellent article 1, which creepily reminded me of these happy String Puppets.
+I decided to hit two birds with one stone: Learn something about the current state of Deep Fakes and try out Google&amp;rsquo;s Colab environment.</description>
     </item>
+    
     <item>
       <title>Energy Forecast for a full-scale Vehicle Plant</title>
       <link>/energy-forecast-for-a-full-scale-vehicle-plant/</link>
       <pubDate>Sun, 28 May 2017 22:12:03 +0000</pubDate>
+      
       <guid>/energy-forecast-for-a-full-scale-vehicle-plant/</guid>
-      <description>&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/energy-forecast-for-a-full-scale-vehicle-plant/plant_lpz.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;h1 id=&#34;energy-forecast-for-a-full-scale-vehicle-plant&#34;&gt;Energy Forecast for a full scale Vehicle Plant&lt;/h1&gt;&#xA;&lt;p&gt;Energy forecasting is based on time series analysis.&#xA;There are many techniques for analysing and forecasting time series, e.g. ARIMA, linear regression and deep learning.&#xA;To tackle the challenge at hand a linear regression will be the benchmark model aganst which deep learning models will be tested. In particular a multi layer perceptron (MLP) and recurrent&#xA;neural network (RNN), i.e.  Long-Short Time Memory (LSTM) model will be applied.&lt;/p&gt;</description>
+      <description>Energy Forecast for a full scale Vehicle Plant Energy forecasting is based on time series analysis. There are many techniques for analysing and forecasting time series, e.g. ARIMA, linear regression and deep learning. To tackle the challenge at hand a linear regression will be the benchmark model aganst which deep learning models will be tested. In particular a multi layer perceptron (MLP) and recurrent neural network (RNN), i.e. Long-Short Time Memory (LSTM) model will be applied.</description>
     </item>
+    
     <item>
       <title>Fishy Affine Transformation</title>
       <link>/fishy-affine-transformation/</link>
       <pubDate>Mon, 13 Mar 2017 22:12:03 +0000</pubDate>
+      
       <guid>/fishy-affine-transformation/</guid>
-      <description>&lt;h1 id=&#34;fishy-affine-transformation&#34;&gt;Fishy Affine Transformation&lt;/h1&gt;&#xA;&lt;p&gt;While working on the kaggle competition &lt;a href=&#34;https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring&#34;&gt;https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring&lt;/a&gt; I hit the point when I wanted&#xA;to align fish based on an annotation at the fish&amp;rsquo;s head and tail, so that the fish is centered in the image, always in the same orientation&#xA;and distracting picture information is minimized. This required:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;finding the fish (thanks Nathaniel Shimoni for annotating)&lt;/li&gt;&#xA;&lt;li&gt;centering&lt;/li&gt;&#xA;&lt;li&gt;rotatating&lt;/li&gt;&#xA;&lt;li&gt;cropping&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Mathematically the challenge is to find the associated  Affine Transformation. After years of working in a managerial role my linear algebra skills are a bit rusty so I decided to&#xA;invest the weekend.&lt;/p&gt;</description>
+      <description>Fishy Affine Transformation While working on the kaggle competition https://www.kaggle.com/c/the-nature-conservancy-fisheries-monitoring I hit the point when I wanted to align fish based on an annotation at the fish&amp;rsquo;s head and tail, so that the fish is centered in the image, always in the same orientation and distracting picture information is minimized. This required:
+finding the fish (thanks Nathaniel Shimoni for annotating) centering rotatating cropping Mathematically the challenge is to find the associated Affine Transformation.</description>
     </item>
+    
     <item>
       <title>Machine Learning Journey</title>
       <link>/machine-learning-journey/</link>
       <pubDate>Mon, 23 Jan 2017 22:12:03 +0000</pubDate>
+      
       <guid>/machine-learning-journey/</guid>
-      <description>&lt;h1 id=&#34;cheat-sheet&#34;&gt;Cheat Sheet&lt;/h1&gt;&#xA;&lt;h5 id=&#34;general-explanations&#34;&gt;General Explanations:&lt;/h5&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices&lt;/li&gt;&#xA;&lt;li&gt;KFold Cross Validation:&#xA;The purpose of cross-validation is model checking, not model building.&#xA;Once we have used cross-validation to select the better performing model, we train that model&#xA;(whether it be the linear regression or the neural network) on all the data.&#xA;We don&amp;rsquo;t use the actual model instances we trained during cross-validation for our final predictive model.&lt;/li&gt;&#xA;&lt;li&gt;A dense layer in a multilayer perceptron (MLP) is a lot more feature intensive than a convolutional layer. People use convolutional nets with subsampling precisely because they get to aggressively prune the features they’re computing.&lt;/li&gt;&#xA;&lt;li&gt;in NNs rarely occur local minima due to vast parameter space (probability not to get better in ayn dimension is miniscule)&lt;/li&gt;&#xA;&lt;li&gt;the fast majority of space of a loss function in NN is all saddlepoints&lt;/li&gt;&#xA;&lt;li&gt;one training cycle for the entire dataset is called epoch, i.e. the algorithm sees the ENTIRE dataset&lt;/li&gt;&#xA;&lt;li&gt;iteration: every time a batch is passed through the NN (forward + backward pass)&lt;/li&gt;&#xA;&lt;li&gt;Latent factors = features of embeddings (used in Collaborative Filtering)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;http://www.learnopencv.com/bias-variance-tradeoff-in-machine-learning/&#34;&gt;Bias-Variance Tradeoff in Machine Learning&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Softmax vs Sigmoid: All the softmax units in a layer are constrained to add up to 1, whereas sigmoid units don&amp;rsquo;t have this &amp;rsquo;lateral&amp;rsquo; constraint.&#xA;If every example can be associated with multiple labels, you need to use a sigmoid output layer that learns to predict &amp;ldquo;yes&amp;rdquo; or &amp;ldquo;no&amp;rdquo; for each individual label. If the classes are disjoint, i.e. each example can only belong to one class, you should use a softmax output layer to incorporate this constraint.&lt;/li&gt;&#xA;&lt;li&gt;Do not forget to fine tune your network architecture and your learning rate. If you have more data, a complex network is preferable. According to one important deep learning theorem, the local minima are very close to the global minimum for very deep neural networks.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h5 id=&#34;preprocessing&#34;&gt;Preprocessing&lt;/h5&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;pre-process your data by making sure each dimension has 0 mean and unit variance. This should always be the case with data your are feeding to a NN, unless you have strong, well-understood reasons not to do it.&#xA;A simple MLP will never cause gradient explosion if your data is correctly preprocessed.&lt;/li&gt;&#xA;&lt;li&gt;Centering sparse data would destroy the sparseness structure in the data, and thus rarely is a sensible thing to do.&lt;/li&gt;&#xA;&lt;li&gt;However, it can make sense to scale sparse inputs, especially if features are on different scales.&lt;/li&gt;&#xA;&lt;li&gt;MaxAbsScaler and maxabs_scale were specifically designed for scaling sparse data, and are the recommended way to go&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h5 id=&#34;underfittingoverfitting&#34;&gt;Underfitting/Overfitting&lt;/h5&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Underfitting: This describes a model that lacks the complexity to accurately capture the complexity inherent in the problem you&amp;rsquo;re trying to solve. We can recognize this when our training error is much lower than our validation error&lt;/li&gt;&#xA;&lt;li&gt;Overfitting: This describes a model that is using too many parameters and has been trained too long. Specifically, it has learned how to match your exact training images to classes, but has become so specific that it is unable to generalize to similar images. This is easily recognizable when your training set accuracy is much higher than your validation.&lt;/li&gt;&#xA;&lt;li&gt;when you start overfitting you know, that your model is complex enough to handle your data&lt;/li&gt;&#xA;&lt;li&gt;Your main focus for fighting overfitting should be the entropic capacity of your model &amp;ndash;how much information your model is allowed to store. A model that can store a lot of information has the potential to be more accurate by leveraging more features, but it is also more at risk to start storing irrelevant features. Meanwhile, a model that can only store a few features will have to focus on the most significant features found in the data, and these are more likely to be truly relevant and to generalize better.&lt;/li&gt;&#xA;&lt;li&gt;Dropout also helps reduce overfitting, by preventing a layer from seeing twice the exact same pattern, thus acting in a way analoguous to data augmentation (you could say that both dropout and data augmentation tend to disrupt random correlations occuring in your data).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Recipe:&lt;/strong&gt;&lt;/p&gt;</description>
+      <description>Cheat Sheet General Explanations: embeddings: a way to translate multidimensional input into fixed length log dimensional representations: lookup the integer index of the object and look it up in a corresponding matrix wich holds the low-dim representation. If no embeddings are used, the input has to be one-hot-encoded wich yields huge matrices KFold Cross Validation: The purpose of cross-validation is model checking, not model building. Once we have used cross-validation to select the better performing model, we train that model (whether it be the linear regression or the neural network) on all the data.</description>
     </item>
+    
   </channel>
 </rss>

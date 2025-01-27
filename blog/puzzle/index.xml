@@ -1,41 +1,57 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Puzzle on sysid blog</title>
+    <title>puzzle on sysid blog</title>
     <link>/blog/puzzle/</link>
-    <description>Recent content in Puzzle on sysid blog</description>
-    <generator>Hugo</generator>
+    <description>Recent content in puzzle on sysid blog</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Sun, 17 May 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/blog/puzzle/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="/blog/puzzle/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Polyominos, Tetris</title>
       <link>/polyominos-tetris/</link>
       <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
+      
       <guid>/polyominos-tetris/</guid>
-      <description>&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/polyominos-tetris/pentominoes.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;h2 id=&#34;problem&#34;&gt;Problem&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Fill a rectangle with polyominos.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Polyomino&#34;&gt;What is a Polyomino?&lt;/a&gt;&lt;br&gt;&#xA;A plane geometric figure formed by joining one or more equal squares edge to edge.&#xA;It is a polyform whose cells are squares. It may be regarded as a finite subset of the regular square tiling.&lt;/p&gt;&#xA;&lt;h1 id=&#34;model&#34;&gt;Model&lt;/h1&gt;&#xA;&lt;p&gt;Since this puzzle is just another form of tiling challenge we can reuse concepts and ideas from&#xA;&lt;a href=&#34;../mondriaan-puzzle&#34;&gt;Mondriaan Puzzle&lt;/a&gt;, &lt;a href=&#34;../square-tiling&#34;&gt;Another Boring Lockdown Day&lt;/a&gt; and &lt;a href=&#34;../patient-scheduling&#34;&gt;Patient Scheduling&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>Problem Fill a rectangle with polyominos.
+What is a Polyomino?
+A plane geometric figure formed by joining one or more equal squares edge to edge. It is a polyform whose cells are squares. It may be regarded as a finite subset of the regular square tiling.
+Model Since this puzzle is just another form of tiling challenge we can reuse concepts and ideas from Mondriaan Puzzle, Another Boring Lockdown Day and Patient Scheduling.</description>
     </item>
+    
     <item>
       <title>Square Tiling</title>
       <link>/square-tiling/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
       <guid>/square-tiling/</guid>
-      <description>&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/square-tiling/5_5.png&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Given an inventory of square tiles, what is the maximum square space we can fill with them?&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;The picture above consists of the following set of tiles:&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;length&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;1&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;2&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;3&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;count&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;4&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;3&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;2&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;8 out of the 9 given tiles can be used to form the resulting (5x5) square. One (3x3) tile cannot be used.&#xA;With the given set this is the larges square area we can fill.&lt;/p&gt;</description>
+      <description>Given an inventory of square tiles, what is the maximum square space we can fill with them?
+The picture above consists of the following set of tiles:
+length 1 2 3 count 4 3 2 8 out of the 9 given tiles can be used to form the resulting (5x5) square. One (3x3) tile cannot be used. With the given set this is the larges square area we can fill.</description>
     </item>
+    
     <item>
       <title>Mondriaan Puzzle</title>
       <link>/mondriaan-puzzle/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+      
       <guid>/mondriaan-puzzle/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;Partition an \(n \times n\) square into multiple non-congruent integer-sided rectangles.&lt;/li&gt;&#xA;&lt;li&gt;The rectangles must be &lt;strong&gt;non-congruent&lt;/strong&gt; and the side length must be an &lt;strong&gt;integer&lt;/strong&gt; number.&lt;/li&gt;&#xA;&lt;li&gt;Find the &lt;strong&gt;least possible length difference&lt;/strong&gt; between the largest and smallest used rectangle, i.e. make the&#xA;rectangles as similar as possible.&lt;/li&gt;&#xA;&lt;li&gt;Every rectangle can only be used &lt;strong&gt;once&lt;/strong&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;There is related work covering multiple aspects of the problem and its solution. Here we focus on&#xA;a Mixed Integer Programming approach.&lt;/p&gt;</description>
+      <description>Partition an \(n \times n\) square into multiple non-congruent integer-sided rectangles. The rectangles must be non-congruent and the side length must be an integer number. Find the least possible length difference between the largest and smallest used rectangle, i.e. make the rectangles as similar as possible. Every rectangle can only be used once. There is related work covering multiple aspects of the problem and its solution. Here we focus on a Mixed Integer Programming approach.</description>
     </item>
+    
     <item>
       <title>Sudoku</title>
       <link>/sudoku/</link>
       <pubDate>Sun, 26 Apr 2020 00:00:00 +0000</pubDate>
+      
       <guid>/sudoku/</guid>
-      <description>&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/sudoku/solution.png&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Sudoku&#34;&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;a logic-based, combinatorial number-placement puzzle.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Fill a 9×9 grid with digits so that each column, each row, and each of the nine 3×3 subgrids&#xA;that compose the grid contain all of the digits from 1 to 9.&lt;/p&gt;&#xA;&lt;p&gt;The puzzle setter provides a partially completed grid, which for a well-posed puzzle has a single solution.&lt;/p&gt;&#xA;&lt;h2 id=&#34;challenges&#34;&gt;Challenges&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Understand the problem (easy)&lt;/li&gt;&#xA;&lt;li&gt;Design the index sets (medium)&lt;/li&gt;&#xA;&lt;li&gt;Translate the model into Pyomo (easy)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;tooling&#34;&gt;Tooling&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;http://www.pyomo.org/&#34;&gt;Pyomo&lt;/a&gt; as LP modelling language&lt;/li&gt;&#xA;&lt;li&gt;Optimizer: &lt;a href=&#34;https://projects.coin-or.org/Cbc&#34;&gt;CBC&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Python&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;model&#34;&gt;Model&lt;/h1&gt;&#xA;&lt;h2 id=&#34;indexing-schema&#34;&gt;Indexing Schema&lt;/h2&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/sudoku/sudoku.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;h2 id=&#34;variables&#34;&gt;Variables&lt;/h2&gt;&#xA;&lt;p&gt;$$&#xA;y^m_{i,j;k} =&#xA;\begin{cases}&#xA;1, \ \text{ when cell \((i,j;k)\) contains number \(m\) }\\&#xA;0, \ \text{ else }\\&#xA;\end{cases}&#xA;$$&lt;/p&gt;</description>
+      <description>Wikipedia
+a logic-based, combinatorial number-placement puzzle.
+Fill a 9×9 grid with digits so that each column, each row, and each of the nine 3×3 subgrids that compose the grid contain all of the digits from 1 to 9.
+The puzzle setter provides a partially completed grid, which for a well-posed puzzle has a single solution.
+Challenges Understand the problem (easy) Design the index sets (medium) Translate the model into Pyomo (easy) Tooling Pyomo as LP modelling language Optimizer: CBC Python Model Indexing Schema Variables $$ y^m_{i,j;k} = \begin{cases} 1, \ \text{ when cell \((i,j;k)\) contains number \(m\) }\\ 0, \ \text{ else }\\ \end{cases} $$</description>
     </item>
+    
   </channel>
 </rss>

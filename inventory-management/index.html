@@ -12,38 +12,28 @@
 <meta name="keywords" content="python,optimization,pyomo," />
 
 
-<meta property="og:url" content="/inventory-management/">
-  <meta property="og:site_name" content="sysid blog">
-  <meta property="og:title" content="Inventory Management">
-  <meta property="og:description" content="(Q, R) inventory management as MIP model">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2021-01-01T00:00:00+00:00">
-    <meta property="article:modified_time" content="2021-01-01T00:00:00+00:00">
-    <meta property="article:tag" content="Python">
-    <meta property="article:tag" content="Optimization">
-    <meta property="article:tag" content="Pyomo">
-    <meta property="og:image" content="/images/share.png">
+<meta property="og:title" content="Inventory Management" />
+<meta property="og:description" content="(Q, R) inventory management as MIP model" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/inventory-management/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2021-01-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-01-01T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
 
 
 
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="/images/share.png">
-  <meta name="twitter:title" content="Inventory Management">
-  <meta name="twitter:description" content="(Q, R) inventory management as MIP model">
-
-
+<meta name="twitter:title" content="Inventory Management"/>
+<meta name="twitter:description" content="(Q, R) inventory management as MIP model"/>
 
 
-  <meta itemprop="name" content="Inventory Management">
-  <meta itemprop="description" content="(Q, R) inventory management as MIP model">
-  <meta itemprop="datePublished" content="2021-01-01T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2021-01-01T00:00:00+00:00">
-  <meta itemprop="wordCount" content="837">
-  <meta itemprop="image" content="/images/share.png">
-  <meta itemprop="keywords" content="Python,Optimization,Pyomo">
+
+<meta itemprop="name" content="Inventory Management">
+<meta itemprop="description" content="(Q, R) inventory management as MIP model"><meta itemprop="datePublished" content="2021-01-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-01-01T00:00:00+00:00" />
+<meta itemprop="wordCount" content="837"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="python,optimization,pyomo," />
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <style>
@@ -220,20 +210,17 @@
 
 </style>
 
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
-      <script>
-        var doNotTrack = false;
-        if ( false ) {
-          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
-          var doNotTrack = (dnt == "1" || dnt == "yes");
-        }
-        if (!doNotTrack) {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-8VH574W51S');
-        }
-      </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-8VH574W51S', { 'anonymize_ip': false });
+}
+</script>
+
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-alpha.1/es5/tex-mml-chtml.js"></script>
 
@@ -278,7 +265,7 @@
 </p>
 
 <content>
-  <figure class="center"><img src="/inventory-management/im.png" width="100%">
+  <figure class="center"><img src="im.png" width="100%"/>
 </figure>
 
 <blockquote>
@@ -296,7 +283,7 @@
 <li>Holding cost related to inventory (Holding cost)</li>
 <li>Penalties related to backlogs (Shortage cost)</li>
 </ol>
-<figure class="center"><img src="/inventory-management/cost_contrib.png" width="100%">
+<figure class="center"><img src="cost_contrib.png" width="100%"/>
 </figure>
 
 <p>Choose quantity Q and ordering threshold R to strike a good balance among these three costs!</p>
@@ -441,7 +428,7 @@ However, here you can apply all the facilities Python as a full programming lang
 </ul>
 <p>Q: 512.0 (quantity to order per order event)<br>
 R: 344 (threshold when order event triggers)</p>
-<figure class="center"><img src="/inventory-management/standard.png" width="100%">
+<figure class="center"><img src="standard.png" width="100%"/>
 </figure>
 
 <p>The results match the results in <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, so the Pyomo approach in combination with CBC seem to be valid. Once the model is in
@@ -459,11 +446,11 @@ the form of a MIP, it is actually easy to solve it via Pyomo. To model the probl
 </content>
 <p>
   
-  <a href="/blog/python/">#Python</a>
+  <a href="/blog/python/">#python</a>
   
-  <a href="/blog/optimization/">#Optimization</a>
+  <a href="/blog/optimization/">#optimization</a>
   
-  <a href="/blog/pyomo/">#Pyomo</a>
+  <a href="/blog/pyomo/">#pyomo</a>
   
 </p>
 
