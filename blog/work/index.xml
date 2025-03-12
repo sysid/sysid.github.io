@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Mon, 06 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="/blog/work/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="/blog/work/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>developer&#39;s learnings</title>
+      <link>/developers-learnings/</link>
+      <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/developers-learnings/</guid>
+      <description>Adages collected over time Simple is not given. It takes constant work There is no pride in managing or understanding complexity Typed languages are essential on teams with mixed experience levels Java is a great language because it&amp;rsquo;s boring Frontend development is a nightmare world of Kafkaesque awfulness I no longer enjoy Good management is invaluable. Objects are extremely good at what they&amp;rsquo;re good at. Blind devotion to functional is dumb.</description>
+    </item>
+    
     <item>
       <title>rsnip</title>
       <link>/rsnip/</link>
