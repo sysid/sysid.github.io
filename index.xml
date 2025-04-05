@@ -7,14 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Thu, 06 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>developer&#39;s learnings</title>
-      <link>/developers-learnings/</link>
-      <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
+      <title>bkmr reborn</title>
+      <link>/bkmr-reborn/</link>
+      <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
       
-      <guid>/developers-learnings/</guid>
-      <description>Adages collected over time Simple is not given. It takes constant work There is no pride in managing or understanding complexity Typed languages are essential on teams with mixed experience levels Java is a great language because it&amp;rsquo;s boring Frontend development is a nightmare world of Kafkaesque awfulness I no longer enjoy Good management is invaluable. Objects are extremely good at what they&amp;rsquo;re good at. Blind devotion to functional is dumb.</description>
+      <guid>/bkmr-reborn/</guid>
+      <description>Streamlining Developer Productivity Bookmark, snippet, any-text manager are addressing the same fundamental problem: Store it, find it, act on it.
+Fast, seamlessly.
+A software developer knows the struggle: You&amp;rsquo;re deep into coding when suddenly you need that specific command, website, or snippet you saved months ago.
+What should have been a quick retrieval turns into a disruptive search.
+Traditional bookmark managers and snippet tools individually address this issue but rarely provide a holistic solution.</description>
     </item>
     
     <item>

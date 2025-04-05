@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>development on sysid blog</title>
-    <link>/blog/development/</link>
-    <description>Recent content in development on sysid blog</description>
+    <title>knowledge_management on sysid blog</title>
+    <link>/blog/knowledge_management/</link>
+    <description>Recent content in knowledge_management on sysid blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Sat, 05 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="/blog/development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="/blog/knowledge_management/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>bkmr reborn</title>
       <link>/bkmr-reborn/</link>
@@ -19,17 +19,6 @@ Fast, seamlessly.
 A software developer knows the struggle: You&amp;rsquo;re deep into coding when suddenly you need that specific command, website, or snippet you saved months ago.
 What should have been a quick retrieval turns into a disruptive search.
 Traditional bookmark managers and snippet tools individually address this issue but rarely provide a holistic solution.</description>
-    </item>
-    
-    <item>
-      <title>rsnip</title>
-      <link>/rsnip/</link>
-      <pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate>
-      
-      <guid>/rsnip/</guid>
-      <description>Fast, Reliable, Yours: Why Snippets Outshine LLMs for boring Tasks While large language models (LLMs) like ChatGPT are revolutionizing workflows with their smart completions and contextual insights, you don’t want to re-research a command or script every time you need it.
-Why does a good snippet manager still matter? Even in an age of intelligent assistants, there’s a compelling case for a specialized and fast snippet manager:
-Speed: LLMs are slow when it comes to re-fetching familiar snippets.</description>
     </item>
     
   </channel>
