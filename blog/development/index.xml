@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Sat, 05 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="/blog/development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="/blog/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How Claude Code Saved My Weekend</title>
+      <link>/how-claude-code-saved-my-weekend/</link>
+      <pubDate>Sat, 26 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/how-claude-code-saved-my-weekend/</guid>
+      <description>If you want something done right, automate it.
+Modern Open-Source Maintenance As the maintainer of sse-starlette, my GitHub notifications rarely bring me joy on a lazy Saturday afternoon.
+This weekend, I decided to push Claude Code a little bit, hoping to save precious summer time.
+Issue #140 didn&amp;rsquo;t just look interesting; it appeared non-trivial, touching on asyncio intricacies, multi-threading, and event-loop handling—elements that typically guarantee headaches.
+Rather than my usual deep-dive session of debugging and refactoring, I handed the reins to Claude Code, eager to see if it could manage the problem.</description>
+    </item>
+    
     <item>
       <title>bkmr reborn</title>
       <link>/bkmr-reborn/</link>

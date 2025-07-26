@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/images/favicon.png" />
+<title>How Claude Code Saved My Weekend | sysid blog</title>
+<meta name="title" content="How Claude Code Saved My Weekend" />
+<meta name="description" content="OSS Developer Happiness" />
+<meta name="keywords" content="python,oss,development," />
+
+
+<meta property="og:title" content="How Claude Code Saved My Weekend" />
+<meta property="og:description" content="OSS Developer Happiness" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/how-claude-code-saved-my-weekend/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2025-07-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-07-26T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="images/share.png"/>
+
+<meta name="twitter:title" content="How Claude Code Saved My Weekend"/>
+<meta name="twitter:description" content="OSS Developer Happiness"/>
+
+
+
+<meta itemprop="name" content="How Claude Code Saved My Weekend">
+<meta itemprop="description" content="OSS Developer Happiness"><meta itemprop="datePublished" content="2025-07-26T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2025-07-26T00:00:00+00:00" />
+<meta itemprop="wordCount" content="376"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="keywords" content="python,oss,development," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-8VH574W51S', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+<a href="/tools">Tools</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>How Claude Code Saved My Weekend</h1>
+<p>
+  <i>
+    <time datetime='2025-07-26' pubdate>
+      26 Jul, 2025
+    </time>
+  </i>
+</p>
+
+<content>
+  <blockquote>
+<p>If you want something done right, automate it.</p>
+</blockquote>
+<h2 id="modern-open-source-maintenance">Modern Open-Source Maintenance</h2>
+<p>As the maintainer of <a href="https://github.com/sysid/sse-starlette">sse-starlette</a>, my GitHub notifications rarely bring me joy on a lazy Saturday afternoon.</p>
+<p>This weekend, I decided to push <a href="https://www.anthropic.com/claude-code">Claude Code</a> a little bit, hoping to save precious summer time.</p>
+<p>Issue <a href="https://github.com/sysid/sse-starlette/issues/140">#140</a> didn&rsquo;t just look interesting; it appeared non-trivial, touching on asyncio intricacies, multi-threading, and event-loop handling—elements that typically guarantee headaches.</p>
+<p><img src="issue140.png" alt="issue140.png"></p>
+<p>Rather than my usual deep-dive session of debugging and refactoring, I handed the reins to Claude Code, eager to see if it could manage the problem.</p>
+<p>Claude swiftly got to work, assessing and verifying the merits of the proposed solution. It is impressive, how clearly structured it presents the assessment result and recommends action.</p>
+<p><img src="issue140-task.png" alt="issue140-task.png"></p>
+<p>The nice thing of Claude Code really is, that it creates transparent todo-list and then works through them, allowing
+a reviewer to easily follow its thought process.</p>
+<p><img src="issue140-plan.png" alt="issue140-plan.png"></p>
+<p>The result was a detailled plan for implementation.</p>
+<p>All this without manual intervention — truly a maintainer’s dream.</p>
+<p><img src="issue140-implementation-plan.png" alt="issue140-implementation-plan.png"></p>
+<p>I always expect an adequate test plan for any proposed bug or feature changes and I did not get dissapointed:</p>
+<p><img src="issue140-test-plan.png" alt="issue140-test-plan.png"></p>
+<p>Pay attention to the level of detail and the various aspects covered by this test concept. I am pretty sure I would not
+have thought of all these aspects on first attempt.</p>
+<p>Watching Claude operate was both impressive and a bit humbling.</p>
+<p>It thoroughly validated the proposed fix, confirming its effectiveness and highlighting the benefits: eliminating the RuntimeError caused by global event objects across multiple event loops.</p>
+<p><img src="issue140-impl-process.png" alt="issue140-impl-process.png"></p>
+<p>Again, admire the structured work plan in form of a todo-list.</p>
+<p>Claude implemented unsupervised. It autonomously:</p>
+<ul>
+<li>Wrote clean, production-ready code to implement the fix.</li>
+<li>Enhanced test cases ensuring rigorous thread and event-loop isolation.</li>
+<li>Verified the solution, passing all unit tests and ticking off every best-practice checkbox—type checks, linting, and zero regressions.</li>
+</ul>
+<p><img src="issue140-result2.png" alt="issue140-result2.png"></p>
+<p>All that was left for me was a final code review.</p>
+<p>This entire process happened autonomously, with me only intervening at strategic points. Claude handled everything seamlessly, from verification to polished execution, giving me back my weekend without sacrificing project quality.</p>
+<p>So, dear maintainers, if you have not yet, take note: AI is here to make our work smoother, more enjoyable, and surprisingly stress-free. Who knew weekends and GitHub issues could peacefully coexist?</p>
+
+</content>
+<p>
+  
+  <a href="/blog/python/">#python</a>
+  
+  <a href="/blog/oss/">#oss</a>
+  
+  <a href="/blog/development/">#development</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>
