@@ -7,7 +7,36 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Sat, 26 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="/blog/development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="/blog/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>bkmr reborn</title>
+      <link>/bkmr-reborn/</link>
+      <pubDate>Mon, 11 Aug 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/bkmr-reborn/</guid>
+      <description>Streamlining Developer Productivity Store it, find it, act on it.
+Developers know the struggle: You&amp;rsquo;re deep into concentration when suddenly you need that specific command, website, or snippet you used weeks ago.
+However, what should have been a quick retrieval turns into a disruptive search.
+There are many tools, which individually address this issue. But rarely provide a holistic solution.
+The Challenge We face a common set of challenges when working with information:</description>
+    </item>
+    
+    <item>
+      <title>Why Rust is comdemned to succeed.</title>
+      <link>/why-rust-is-comdemned-to-succeed./</link>
+      <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/why-rust-is-comdemned-to-succeed./</guid>
+      <description>If you want something done right, automate it.
+Rust is condemned to succeed! rust&amp;rsquo;s globla code base is tiny compared to almost everthing else, case in point C++ and C
+but it is memory safe
+and equally performant
+and at least as expressive
+it has super high quality compiler feedback
+this makes it a perfect match for coding agents which loop until the succeed
+the high quality compiler feedback is key, agents can converge to a good solution</description>
+    </item>
+    
     <item>
       <title>How Claude Code Saved My Weekend</title>
       <link>/how-claude-code-saved-my-weekend/</link>
@@ -19,19 +48,6 @@ Modern Open-Source Maintenance As the maintainer of sse-starlette, my GitHub not
 This weekend, I decided to push Claude Code a little bit, hoping to save precious summer time.
 Issue #140 didn&amp;rsquo;t just look interesting; it appeared non-trivial, touching on asyncio intricacies, multi-threading, and event-loop handling—elements that typically guarantee headaches.
 Rather than my usual deep-dive session of debugging and refactoring, I handed the reins to Claude Code, eager to see if it could manage the problem.</description>
-    </item>
-    
-    <item>
-      <title>bkmr reborn</title>
-      <link>/bkmr-reborn/</link>
-      <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
-      
-      <guid>/bkmr-reborn/</guid>
-      <description>Streamlining Developer Productivity Bookmark, snippet, any-text manager are addressing the same fundamental problem: Store it, find it, act on it.
-Fast, seamlessly.
-A software developer knows the struggle: You&amp;rsquo;re deep into concentration when suddenly you need that specific command, website, or snippet you used weeks ago.
-What should have been a quick retrieval turns into a disruptive search.
-Traditional bookmark managers or snippet tools individually address this issue but rarely provide a holistic solution.</description>
     </item>
     
     <item>

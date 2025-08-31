@@ -16,8 +16,8 @@
 <meta property="og:description" content="Streamlining Developer Productivity with bkmr" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/bkmr-reborn/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2025-04-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2025-04-05T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+<meta property="article:published_time" content="2025-08-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-08-11T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
 
 
 
@@ -30,9 +30,9 @@
 
 
 <meta itemprop="name" content="bkmr reborn">
-<meta itemprop="description" content="Streamlining Developer Productivity with bkmr"><meta itemprop="datePublished" content="2025-04-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2025-04-05T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1438"><meta itemprop="image" content="images/share.png"/>
+<meta itemprop="description" content="Streamlining Developer Productivity with bkmr"><meta itemprop="datePublished" content="2025-08-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2025-08-11T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1942"><meta itemprop="image" content="images/share.png"/>
 <meta itemprop="keywords" content="rust,work,development,knowledge_management," />
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
@@ -242,8 +242,8 @@ if (!doNotTrack) {
 <h1>bkmr reborn</h1>
 <p>
   <i>
-    <time datetime='2025-04-05' pubdate>
-      05 Apr, 2025
+    <time datetime='2025-08-11' pubdate>
+      11 Aug, 2025
     </time>
   </i>
 </p>
@@ -251,76 +251,110 @@ if (!doNotTrack) {
 <content>
   <h1 id="streamlining-developer-productivity">Streamlining Developer Productivity</h1>
 <blockquote>
-<p>Bookmark, snippet, any-text manager are addressing the same fundamental problem: Store it, find it, act on it.</p>
-<p>Fast, seamlessly.</p>
+<p>Store it, find it, act on it.</p>
 </blockquote>
-<p>A software developer knows the struggle: You&rsquo;re deep into concentration when suddenly you need that specific command, website, or snippet you used weeks ago.</p>
-<p>What should have been a quick retrieval turns into a disruptive search.</p>
-<p>Traditional bookmark managers or snippet tools individually address this issue but rarely provide a holistic solution.</p>
-<h2 id="understanding-the-challenge">Understanding the Challenge</h2>
-<p>Developers face a common set of challenges when working with information:</p>
+<p>Developers know the struggle: You&rsquo;re deep into concentration when suddenly you need that
+specific command, website, or snippet you used weeks ago.</p>
+<p>However, what should have been a quick retrieval turns into a disruptive search.</p>
+<p>There are many tools, which individually address this issue. But rarely provide a holistic solution.</p>
+<h2 id="the-challenge">The Challenge</h2>
+<p>We face a common set of challenges when working with information:</p>
 <ol>
 <li><strong>Fragmentation</strong>: Information scattered across bookmarks, notes, documentation, and code snippets</li>
 <li><strong>Context Switching</strong>: Productivity loss from navigating between different tools and interfaces</li>
 <li><strong>Retrieval Friction</strong>: Difficulty in quickly finding the right information at the moment of need</li>
-<li><strong>Action Delay</strong>: The gap between finding information and applying it in the current task</li>
 </ol>
-<p>At its core, the problem isn&rsquo;t just storage or retrieval — it&rsquo;s the friction caused by context switching. Each interruption, even brief, pulls you out of the productive flow state, disrupting your thought process.</p>
-<p>Knowledge management tools today typically focus narrowly, handling either bookmarks, snippets, or documents independently, forcing developers into multiple contexts. A bookmark manager might store useful URLs but lacks actionable snippets or shell commands. Snippet tools might be great for repetitive code but ignore crucial documentation or bookmarked references.</p>
-<p>Ultimately, there is a common underlying structure: each managed entity has a title, description, tags or classifiers, and some payload — whether it&rsquo;s a URL, a snippet of code, or a shell command — that you want to act upon quickly.</p>
-<h2 id="bkmrs-unified-data-model">bkmr&rsquo;s Unified Data Model</h2>
-<p>bkmr&rsquo;s core insight is recognizing that diverse knowledge types share this common underlying structure:</p>
+<p>At its core, the problem isn&rsquo;t storage or retrieval — it&rsquo;s the friction caused by context
+switching. Each interruption, even brief, pulls you out of the productive flow state, disrupting
+your thought process.</p>
+<p>Many tools today often focus narrowly, forcing developers into multiple contexts. A bookmark
+manager might store useful URLs but lacks actionable snippets or shell commands. Snippet tools
+might be great for repetitive code but ignore crucial documentation or action capabilities.</p>
+<h2 id="a-unified-model-many-formats">A unified model, many formats</h2>
+<p>One of bkmr’s biggest strengths is its ability to handle <strong>multiple content types</strong> in a
+context-aware way.</p>
+<p>Under the hood, bkmr treats knowledge items consistently — content, metadata, classification,
+action — so you use <strong>one</strong> mental model for many formats: bookmarks, snippets, shell scripts, Markdown
+docs, plain text, env blocks, and file references.</p>
+<p>That uniformity matters because each type comes with a sensible default action (open, copy,
+execute, render, print), closing the gap between “found it” and “use it” .</p>
 <ul>
-<li><strong>Content</strong>: The payload that delivers value (URL, code, command, note)</li>
-<li><strong>Metadata</strong>: Information that describes the content (title, description)</li>
-<li><strong>Classification</strong>: Methods for organizing and retrieving (tags, categories)</li>
-<li><strong>Action</strong>: What to do with the content when found (open, copy, execute)</li>
+<li>
+<p><strong>Web Bookmarks:</strong> Save URLs with automatic metadata extraction (title, description, etc.) for
+rich context. You can tag bookmarks and instantly open them in your browser via the CLI or fuzzy
+search interface. This replaces the need for browser bookmark collections by giving you a
+searchable, tagged repository of links.</p>
+</li>
+<li>
+<p><strong>Code Snippets:</strong> Store code blocks or commands as <em>snippets</em> that you can quickly retrieve and
+reuse. Snippets are stored with tags and descriptions, and bkmr’s default action will copy a
+snippet’s content to your clipboard for easy pasting. This means no more hunting through gists or
+scattered files for that piece of code – your personal snippet library is always at hand.</p>
+</li>
+<li>
+<p><strong>Shell Scripts &amp; Commands:</strong> Record shell scripts or one-liner commands as entries in bkmr. When
+you search and select a shell script entry, bkmr launches it in an <strong>interactive execution
+mode</strong> so you can review or edit the command before running. This turns bkmr into a mini automation
+library – you might never need to maintain separate shell script files or remember complex command
+invocations again. You can even generate shell function stubs for each script entry, letting you
+call them directly in your terminal as if they were regular commands.</p>
+</li>
+<li>
+<p><strong>Markdown Notes &amp; Documents:</strong> Keep your technical notes, documentation, or README files in bkmr
+as Markdown entries. bkmr can either store the Markdown content or reference local <code>.md</code> files,
+and it provides a built-in <strong>Markdown viewer</strong>: using the <code>bkmr open</code> command on a Markdown entry
+launches a browser-based preview with an interactive table of contents and syntax highlighting.
+This makes bkmr a lightweight alternative to wikis or note-taking apps – you can jot down
+architecture notes, TODO lists, or code review comments in Markdown and instantly render or search
+them when needed.</p>
+</li>
+<li>
+<p><strong>Plain Text &amp; Templates:</strong> Save arbitrary text (like config file snippets, JSON/YAML fragments,
+or template strings) in bkmr. The tool supports Jinja-style template interpolation in text and
+URL entries, meaning your snippets can include dynamic placeholders or shell command results. For
+example, a snippet could include <code>{{ \&quot;pwd\&quot; | shell }}</code> to insert the current directory path upon
+use. This dynamism goes beyond static snippet managers, letting you create templates that are
+<em>processed at insertion time</em>.</p>
+</li>
+<li>
+<p><strong>Environment Variables/Configs:</strong> You can secure your environment setup by storing blocks of
+environment variable exports as a special “env” type in bkmr. Retrieving an env entry will print
+its content to stdout, ready to be sourced in your shell. This provides a convenient way to manage
+environment configurations for different projects or contexts without maintaining separate <code>.env</code>
+files.</p>
+</li>
+<li>
+<p><strong>Local Files &amp; Directories:</strong> bkmr can hold references to important files or folders
+and open it with the default application. This works great for quick access to design docs,
+spreadsheets, or any resource outside your code editor.</p>
+</li>
 </ul>
-<p>By implementing this unified model, bkmr creates a consistent interface for managing disparate knowledge types:</p>
-<ul>
-<li><strong>Bookmarks</strong>: Web resources with descriptive metadata</li>
-<li><strong>Snippets</strong>: Reusable code patterns, potentially with templating</li>
-<li><strong>Shell Commands</strong>: Executable actions stored with descriptive context</li>
-<li><strong>Documentation</strong>: Longer-form knowledge with rich context</li>
-</ul>
-<p>This unified approach allows to focus on what is needed rather than where it might be stored.</p>
-<h2 id="recognizing-synergy-in-combining-bkmr-and-rsnip">Recognizing synergy in combining <code>bkmr</code> and <code>rsnip</code></h2>
-<p>This insight is the motivation to not continue developing two tools:</p>
-<p><a href="https://github.com/sysid/bkmr">bkmr</a> for bookmark management and semantic search, and <a href="https://github.com/sysid/rsnip">rsnip</a> for snippet management.</p>
-<ul>
-<li><strong>bkmr</strong> excels with advanced search functionalities, including AI-driven semantic and traditional full-text search, designed specifically for bookmarks.</li>
-<li><strong>rsnip</strong> shines at managing reusable code snippets with dynamic templates, fuzzy search, and integration into a developer’s workflow.</li>
-</ul>
-<p>Recognizing their complementary nature provides the reasoning for combining them.</p>
-<h2 id="introducing-the-new-bkmr-a-unified-approach">Introducing the New bkmr: A Unified Approach</h2>
-<p>With the integration of the capabilities from both <code>rsnip</code> and <code>bkmr</code>, a more powerful and versatile knowledge management tool emerges.
-The unified <code>bkmr</code> provides developers with one coherent CLI-based system, housing various knowledge types — bookmarks, snippets, documentation, shell commands — in a single local database.</p>
-<h3 id="seamless-workflow-integration">Seamless Workflow Integration</h3>
-<p>One of bkmr&rsquo;s biggest advantages is workflow continuity. Adding knowledge — whether it&rsquo;s a URL, code snippet, or shell command — is frictionless:</p>
-<ul>
-<li>Easily add bookmarks with automatic metadata extraction, enriching them with tags and detailed descriptions.</li>
-<li>Quickly store code snippets, embedding dynamic content through templating (e.g., inserting current dates, environment variables, or command outputs).</li>
-<li>Save and directly execute shell commands from within the tool.</li>
-</ul>
-<h3 id="advanced-search-capabilities">Advanced Search Capabilities</h3>
-<p>bkmr significantly enhances search capabilities:</p>
-<ul>
-<li><strong>Full-text and Tag Search</strong>: Traditional search mechanisms remain powerful, allowing developers precise retrieval based on specific keywords or classifications.</li>
-<li><strong>Semantic Search</strong>: With integrated AI-based semantic search using OpenAI embeddings, developers discover contextually relevant results beyond traditional keyword-based approaches.</li>
-</ul>
-<h3 id="actionable-knowledge">Actionable Knowledge</h3>
-<p>Beyond simple retrieval, bkmr ensures that each stored item becomes immediately actionable, minimizing the interruption to workflow:</p>
-<ul>
-<li>URLs launch directly into a browser from the command line.</li>
-<li>Snippets instantly copy to the clipboard, facilitating immediate use.</li>
-<li>Shell commands can be executed straight from the interface, dramatically reducing repetitive manual typing.</li>
-</ul>
-<h3 id="unified-and-performant">Unified and Performant</h3>
-<p>Built in Rust, bkmr leverages the language’s performance advantages to deliver speed. It maintains data privacy with a local-first approach, simply by not opting into using semantic search whith OpenAI. Moreover, consolidating bookmarks, snippets, and other resources into one local database reduces fragmentation and cognitive load, further streamlining the developer experience.</p>
-<h2 id="advanced-search-capabilities-1">Advanced Search Capabilities</h2>
-<p>bkmr&rsquo;s strength lies in its sophisticated retrieval mechanisms that align with how developers think about their knowledge needs.</p>
+<p>All these items are stored in bkmr’s <strong>local SQLite database</strong>  with a unified tagging
+system and rich metadata. Because everything lives in one searchable place, bkmr effectively breaks
+down information silos and provides <strong>one consistent interface</strong>.</p>
+<h2 id="powerful-search-and-retrieval">Powerful Search and Retrieval</h2>
+<p>At the heart of bkmr is a powerful search engine that ensures you can retrieve any saved item
+quickly. By default, bkmr supports both <strong>full-text search</strong> and <strong>advanced filtering by
+tags</strong> to narrow results. For example, you can tag items by technology or project (“python”,
+“security”, “projectX”) and then search within those tags for specific keywords. The search is
+designed to be fuzzy-friendly as well: you can perform quick fuzzy matches across all your content,
+and bkmr offers an interactive fzf selector so you can pick the desired result if multiple
+items match.</p>
+<p>bkmr’s search capabilities are enhanced by optional <strong>semantic search</strong> integration. If enabled,
+bkmr can generate semantic embeddings (vector representations) of your content and use an
+OpenAI-powered API to find items by conceptual similarity.</p>
+<p>Beyond just finding items, bkmr excels at letting you <strong>act on the results quickly</strong>. If your
+search yields exactly one result, bkmr will automatically perform that item’s default action for
+you. For instance, search for a unique bookmark and it will launch in your browser immediately, or
+search a unique shell snippet and it will drop you into the interactive execute mode straightaway.</p>
+<p>Even when multiple results are found, the fzf-based picker shows a preview of
+each item’s content/metadata and hints about possible actions.</p>
+<p>Moreover, bkmr can output results as JSON for piping to other tools, and since
+everything resides in a SQLite database, advanced users can run SQL queries or utilize the data
+programmatically. In essence, bkmr combines the speed of fuzzy finders with the
+precision of database queries.</p>
 <h3 id="tag-based-filtering-with-prefix-support">Tag-Based Filtering with Prefix Support</h3>
-<p>The tag prefix system enables powerful, composable search patterns:</p>
+<p>The tag prefix system enables powerful, composble search patterns:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#888"># Search for snippets related to authentication, excluding imported content</span>
 </span></span><span style="display:flex;"><span>bkmr search --tags-prefix snippet --ntags auth --Ntags-prefix imported
 </span></span></code></pre></div><p>This prefix system allows developers to:</p>
@@ -343,42 +377,53 @@ It builds upon sqlite&rsquo;s mature FTS5 capabilities:</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#888"># Find shell commands related to Docker in the description</span>
 </span></span><span style="display:flex;"><span>bkmr search <span style="color:#d20;background-color:#fff0f0">&#34;desc:docker tags:command&#34;</span>
-</span></span></code></pre></div><p>This allows for precise targeting of search terms to relevant content areas.</p>
-<h3 id="custom-search-functions">Custom Search Functions</h3>
-<p>The tag prefix system enables sophisticated custom search functions:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#888"># Find documentation with specific criteria</span>
-</span></span><span style="display:flex;"><span>docs() {
-</span></span><span style="display:flex;"><span>    bkmr search --fzf --tags-prefix documentation --ntags <span style="color:#d20;background-color:#fff0f0">&#34;</span><span style="color:#369">$1</span><span style="color:#d20;background-color:#fff0f0">&#34;</span> <span style="color:#d20;background-color:#fff0f0">&#34;</span><span style="color:#369">$2</span><span style="color:#d20;background-color:#fff0f0">&#34;</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Example: docs aws &#34;lambda functions&#34;</span>
-</span></span></code></pre></div><p>These functions create domain-specific mini-applications built on bkmr&rsquo;s core capabilities.</p>
-<h3 id="semantic-search-integration">Semantic Search Integration</h3>
+</span></span></code></pre></div><h3 id="semantic-search-integration">Semantic Search Integration</h3>
 <p>For cases where keyword matching falls short, bkmr offers semantic search capabilities powered by AI embeddings:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#888"># Find content semantically related to &#34;handling API rate limits&#34;</span>
 </span></span><span style="display:flex;"><span>bkmr semsearch <span style="color:#d20;background-color:#fff0f0">&#34;handling API rate limits&#34;</span>
-</span></span></code></pre></div><p>This search mode understands conceptual relationships beyond exact text matching, helping developers find knowledge even when they don&rsquo;t remember the exact terms used.</p>
-<h2 id="streamlined-workflow-integration">Streamlined Workflow Integration</h2>
-<p>bkmr excels at minimizing the friction between finding information and applying it.</p>
-<h3 id="quick-addition">Quick Addition</h3>
-<p>Adding new knowledge happens with minimal interruption:</p>
+</span></span></code></pre></div><p>This search mode understands conceptual relationships beyond exact text matching, helping
+to find knowledge even when the exact terms are not remembered.</p>
+<h2 id="seamless-editor-integration-via-lsp-and-plugins">Seamless Editor Integration via LSP and Plugins</h2>
+<p>A standout feature of bkmr is how it brings your curated knowledge into your editor/IDE.
+This is achieved through the <strong>bkmr Language Server (bkmr lsp)</strong> and dedicated editor plugins that
+leverage it. The bkmr LSP implements the Language Server Protocol for snippet completions, allowing
+any LSP-compatible editor (VS Code, Neovim, Emacs, etc.) to access bkmr’s snippet library in real
+time (<a href="https://github.com/sysid/bkmr?tab=readme-ov-file#built-in-lsp-server">Built-in LSP server</a>).</p>
+<p>Crucially, bkmr lsp <strong>delivers processed snippet content, not just static text</strong>. This means if
+your snippet contained a template (say, a placeholder for the current date or output of a command),
+the LSP will interpolate or execute it and insert the final result directly into your code. Such
+dynamic snippet expansion goes beyond typical IDE “live templates,” effectively giving you
+context-aware code generation on the fly (<a href="https://github.com/sysid/bkmr/blob/main/docs/interpolation.md">server-side interpolation</a>).</p>
+<h3 id="special-ide-support">Special IDE support</h3>
+<ul>
+<li>
+<p><a href="https://github.com/sysid/bkmr-nvim">bkmr-nvim</a>: visual snippet browsing, rich editing, optional
+Telescope/FZF integration, and automatic LSP setup—zero configuration if you want it that way.</p>
+</li>
+<li>
+<p><a href="https://github.com/sysid/bkmr-intellij-plugin">IntelliJ Platform plugin</a>: automatic snippet
+completion across JetBrains IDEs, Tab/Shift-Tab placeholder navigation, and a neat “insert
+filepath as comment” action that detects the right comment syntax for 20+ file types.</p>
+</li>
+</ul>
+<h2 id="seamless-workflow-integration">Seamless Workflow Integration</h2>
+<h3 id="adding-data">Adding data</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#888"># Add a bookmark with automatic metadata extraction</span>
 </span></span><span style="display:flex;"><span>bkmr add https://useful-docs.com
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Add a code snippet with editor integration</span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># Add a code snippet interactively</span>
 </span></span><span style="display:flex;"><span>bkmr add -t snippet -e
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Add a shell command for later reuse</span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># Add a shell command for execution</span>
 </span></span><span style="display:flex;"><span>bkmr add <span style="color:#d20;background-color:#fff0f0">&#34;docker run --rm -it -v </span><span style="color:#080;font-weight:bold">$(</span><span style="color:#038">pwd</span><span style="color:#080;font-weight:bold">)</span><span style="color:#d20;background-color:#fff0f0">:/app node:16&#34;</span> -t <span style="color:#038">command</span>
-</span></span></code></pre></div><p>These commands integrate smoothly into the development workflow, allowing developers to capture knowledge without significant context switching.</p>
-<h3 id="actionable-results">Actionable Results</h3>
-<p>More importantly, bkmr makes retrieved information immediately actionable:</p>
+</span></span></code></pre></div><h3 id="actionable-knowledge">Actionable Knowledge</h3>
+<p>Beyond retrieval, bkmr ensures that each item becomes immediately actionable:</p>
 <ul>
-<li>URLs open directly in the browser</li>
-<li>Snippets copy to clipboard or open in an editor</li>
-<li>Shell commands execute directly from the results</li>
+<li>Snippets instantly copy to the clipboard, facilitating immediate use.</li>
+<li>Shell commands can be executed straight from the interface, dramatically reducing repetitive manual typing.</li>
+<li>URLs launch directly into a browser from the command line.</li>
+<li>Markdown is directly rendered in the browser with automatic TOC.</li>
 </ul>
-<p>This action-oriented approach addresses the critical gap between finding and using information.</p>
 <h3 id="interactive-interface">Interactive Interface</h3>
 <p>The fuzzy finder interface enables rapid narrowing of results:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#888"># Search with interactive fuzzy finder</span>
@@ -389,9 +434,6 @@ It builds upon sqlite&rsquo;s mature FTS5 capabilities:</p>
 <li>Use keyboard shortcuts for common actions (open, edit, delete)</li>
 <li>Filter results dynamically as they type</li>
 </ul>
-<p>This interactive approach allows for exploration and refinement of searches without repeated command execution.</p>
-<h2 id="advanced-configuration">Advanced Configuration</h2>
-<p>bkmr&rsquo;s flexibility extends through its robust configuration options.</p>
 <h3 id="multiple-databases">Multiple Databases</h3>
 <p>Developers can maintain separate databases for different contexts:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#888"># Personal knowledge base</span>
@@ -399,7 +441,7 @@ It builds upon sqlite&rsquo;s mature FTS5 capabilities:</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#888"># Work-specific database</span>
 </span></span><span style="display:flex;"><span><span style="color:#038">alias</span> bkmr-work=<span style="color:#d20;background-color:#fff0f0">&#34;BKMR_DB_URL=</span><span style="color:#369">$HOME</span><span style="color:#d20;background-color:#fff0f0">/.config/bkmr/work.db bkmr&#34;</span>
-</span></span></code></pre></div><p>This separation provides appropriate isolation while maintaining a consistent interface.</p>
+</span></span></code></pre></div><p>This provides appropriate isolation while maintaining a consistent interface.</p>
 <h3 id="integration-with-other-tools">Integration with Other Tools</h3>
 <p>bkmr works seamlessly with other CLI tools:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#888"># Process results with jq</span>
@@ -407,23 +449,46 @@ It builds upon sqlite&rsquo;s mature FTS5 capabilities:</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#888"># Combine with directory navigation</span>
 </span></span><span style="display:flex;"><span>proj() {
-</span></span><span style="display:flex;"><span>    <span style="color:#038">cd</span> ~/projects/<span style="color:#369">$1</span> &amp;&amp; bkmr search --tags <span style="color:#d20;background-color:#fff0f0">&#34;project-</span><span style="color:#369">$1</span><span style="color:#d20;background-color:#fff0f0">&#34;</span> --fzf
+</span></span><span style="display:flex;"><span>    <span style="color:#038">pushd</span> ~/projects/<span style="color:#369">$1</span> &amp;&amp; bkmr search --tags <span style="color:#d20;background-color:#fff0f0">&#34;project-</span><span style="color:#369">$1</span><span style="color:#d20;background-color:#fff0f0">&#34;</span> --fzf
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>This interoperability extends bkmr&rsquo;s capabilities through the broader ecosystem of developer tools.</p>
-<h2 id="implementation-philosophy">Implementation Philosophy</h2>
-<p>bkmr&rsquo;s design reflects several key principles:</p>
-<ol>
-<li><strong>Speed</strong>: Built in Rust for minimal latency in search and retrieval</li>
-<li><strong>CLI-Centric</strong>: Command-line interface integrates with developer workflows</li>
-<li><strong>Extensible</strong>: Flexible configuration options support custom workflows</li>
-<li><strong>Unified</strong>: Common interface across various knowledge types</li>
-</ol>
-<p>These principles ensure that bkmr remains focused on its core purpose: minimizing the friction between knowledge retrieval and application.</p>
+</span></span></code></pre></div><h2 id="replacements">Replacements</h2>
+<p>Here are examples of what <strong>bkmr</strong> could replace in a developer’s toolkit:</p>
+<ul>
+<li>
+<p><strong>Browser Bookmark Managers:</strong> Instead of storing development-related links in your browser (or
+tools like Pocket/Raindrop), bkmr lets you save them with richer context (tags, descriptions) and
+find them via CLI. Because bkmr is terminal-based, you can open links without ever taking your
+hands off the keyboard.</p>
+</li>
+<li>
+<p><strong>Standalone Snippet Managers and IDE Snippets:</strong> Traditional snippet manager apps or
+editor-specific snippet configurations become unnecessary. bkmr provides a unified snippet
+repository accessible from <strong>any editor</strong> through LSP, so you no longer need to maintain separate
+snippets in VS Code, Vim, and IntelliJ – all use the same source. Moreover, bkmr’s support for
+dynamic content (like the template interpolation and shell command execution) goes beyond static
+text expansions offered by typical IDE snippet tools.</p>
+</li>
+<li>
+<p><strong>Note-Taking and Markdown Knowledge Bases:</strong> Many developers keep README files, design docs, or
+troubleshooting notes scattered in folders or in apps like Evernote/Notion. With bkmr, you can
+consolidate all those Markdown notes into a single system with full-text and semantic search. The
+built-in Markdown renderer with table of contents makes reading long notes comfortable.</p>
+</li>
+<li>
+<p><strong>CLI Cheat Sheets and Task Runners:</strong> Developers often rely on command cheat-sheet tools (like
+<code>tldr</code> or personal scripts) and maintain collections of shell scripts for repetitive tasks. bkmr
+rolls these use cases into one: you store your commands with descriptions and then invoke them via
+fuzzy search or shell stub functions. It’s like having a customized <code>tldr</code> that only contains the
+commands relevant to you.</p>
+</li>
+</ul>
+<p>bkmr reduces the mental overhead of remembering where things are saved and which tool to use.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>The most valuable developer tools are those that fade into the background, removing obstacles rather than creating new ones.</p>
-<p>bkmr achieves this by addressing a fundamental knowledge challenge: storing information, providing powerful retrieval mechanisms, and enabling immediate action.
-It provides developers with instant, precise recall of knowledge and reduces friction of context switching. Rather than managing multiple tools, developers gain a single source of truth — one comprehensive system designed specifically to focus on one thing.</p>
-<p>In essence, <code>bkmr</code> integrates seamless with a developer&rsquo;s workflow, because it directly addresses a key pain point: <strong>minimizing disruption</strong>.</p>
+<p>The most valuable developer tools are those that fade into the background, removing obstacles
+rather than creating new ones.</p>
+<p>bkmr tries to achieve this by addressing a fundamental challenge: storing information, finding it
+and enabling immediate action.</p>
+<p><strong>Minimize Disruption</strong>!</p>
 
 </content>
 <p>

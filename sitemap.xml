@@ -3,13 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2025-07-26T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/bkmr-reborn/</loc>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/</loc>
-    <lastmod>2025-07-26T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/development/</loc>
-    <lastmod>2025-07-26T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/knowledge_management/</loc>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/rust/</loc>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/work/</loc>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/why-rust-is-comdemned-to-succeed./</loc>
+    <lastmod>2025-08-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/how-claude-code-saved-my-weekend/</loc>
     <lastmod>2025-07-26T00:00:00+00:00</lastmod>
@@ -19,18 +34,6 @@
   </url><url>
     <loc>/blog/python/</loc>
     <lastmod>2025-07-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/bkmr-reborn/</loc>
-    <lastmod>2025-04-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/blog/knowledge_management/</loc>
-    <lastmod>2025-04-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/blog/rust/</loc>
-    <lastmod>2025-04-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/blog/work/</loc>
-    <lastmod>2025-04-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/rsnip/</loc>
     <lastmod>2025-01-06T00:00:00+00:00</lastmod>
