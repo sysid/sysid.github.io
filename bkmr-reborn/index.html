@@ -273,7 +273,7 @@ might be great for repetitive code but ignore crucial documentation or action ca
 <h2 id="a-unified-model-many-formats">A unified model, many formats</h2>
 <p>One of bkmr’s biggest strengths is its ability to handle <strong>multiple content types</strong> in a
 context-aware way.</p>
-<p>Under the hood, bkmr treats knowledge items consistently — content, metadata, classification,
+<p>Under the hood, <a href="https://github.com/sysid/bkmr">bkmr</a> treats knowledge items consistently — content, metadata, classification,
 action — so you use <strong>one</strong> mental model for many formats: bookmarks, snippets, shell scripts, Markdown
 docs, plain text, env blocks, and file references.</p>
 <p>That uniformity matters because each type comes with a sensible default action (open, copy,
@@ -330,10 +330,10 @@ spreadsheets, or any resource outside your code editor.</p>
 </li>
 </ul>
 <p>All these items are stored in bkmr’s <strong>local SQLite database</strong>  with a unified tagging
-system and rich metadata. Because everything lives in one searchable place, bkmr effectively breaks
+system and rich metadata. Because everything lives in one searchable place, <a href="https://github.com/sysid/bkmr">bkmr</a> effectively breaks
 down information silos and provides <strong>one consistent interface</strong>.</p>
 <h2 id="powerful-search-and-retrieval">Powerful Search and Retrieval</h2>
-<p>At the heart of bkmr is a powerful search engine that ensures you can retrieve any saved item
+<p>At the heart of <a href="https://github.com/sysid/bkmr">bkmr</a> is a powerful search engine that ensures you can retrieve any saved item
 quickly. By default, bkmr supports both <strong>full-text search</strong> and <strong>advanced filtering by
 tags</strong> to narrow results. For example, you can tag items by technology or project (“python”,
 “security”, “projectX”) and then search within those tags for specific keywords. The search is
@@ -349,7 +349,7 @@ you. For instance, search for a unique bookmark and it will launch in your brows
 search a unique shell snippet and it will drop you into the interactive execute mode straightaway.</p>
 <p>Even when multiple results are found, the fzf-based picker shows a preview of
 each item’s content/metadata and hints about possible actions.</p>
-<p>Moreover, bkmr can output results as JSON for piping to other tools, and since
+<p>Moreover, <a href="https://github.com/sysid/bkmr">bkmr</a> can output results as JSON for piping to other tools, and since
 everything resides in a SQLite database, advanced users can run SQL queries or utilize the data
 programmatically. In essence, bkmr combines the speed of fuzzy finders with the
 precision of database queries.</p>
@@ -370,7 +370,7 @@ precision of database queries.</p>
 </span></span><span style="display:flex;"><span><span style="color:#888"># Language-specific snippets</span>
 </span></span><span style="display:flex;"><span><span style="color:#038">alias</span> py-snippets=<span style="color:#d20;background-color:#fff0f0">&#34;bkmr search --tags-prefix snippet,python --fzf&#34;</span>
 </span></span></code></pre></div><h3 id="full-text-search-with-column-specificity">Full-Text Search with Column Specificity</h3>
-<p>Beyond tags, bkmr implements powerful full-text search with column-specific queries.
+<p>Beyond tags, <a href="https://github.com/sysid/bkmr">bkmr</a> implements powerful full-text search with column-specific queries.
 It builds upon sqlite&rsquo;s mature FTS5 capabilities:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#888"># Find bookmarks with &#34;authentication&#34; in the metadata column</span>
 </span></span><span style="display:flex;"><span>bkmr search <span style="color:#d20;background-color:#fff0f0">&#34;metadata:authentication&#34;</span>
@@ -384,7 +384,7 @@ It builds upon sqlite&rsquo;s mature FTS5 capabilities:</p>
 </span></span></code></pre></div><p>This search mode understands conceptual relationships beyond exact text matching, helping
 to find knowledge even when the exact terms are not remembered.</p>
 <h2 id="seamless-editor-integration-via-lsp-and-plugins">Seamless Editor Integration via LSP and Plugins</h2>
-<p>A standout feature of bkmr is how it brings your curated knowledge into your editor/IDE.
+<p>A standout feature of <a href="https://github.com/sysid/bkmr">bkmr</a> is how it brings your curated knowledge into your editor/IDE.
 This is achieved through the <strong>bkmr Language Server (bkmr lsp)</strong> and dedicated editor plugins that
 leverage it. The bkmr LSP implements the Language Server Protocol for snippet completions, allowing
 any LSP-compatible editor (VS Code, Neovim, Emacs, etc.) to access bkmr’s snippet library in real
@@ -417,7 +417,7 @@ filepath as comment” action that detects the right comment syntax for 20+ file
 </span></span><span style="display:flex;"><span><span style="color:#888"># Add a shell command for execution</span>
 </span></span><span style="display:flex;"><span>bkmr add <span style="color:#d20;background-color:#fff0f0">&#34;docker run --rm -it -v </span><span style="color:#080;font-weight:bold">$(</span><span style="color:#038">pwd</span><span style="color:#080;font-weight:bold">)</span><span style="color:#d20;background-color:#fff0f0">:/app node:16&#34;</span> -t <span style="color:#038">command</span>
 </span></span></code></pre></div><h3 id="actionable-knowledge">Actionable Knowledge</h3>
-<p>Beyond retrieval, bkmr ensures that each item becomes immediately actionable:</p>
+<p>Beyond retrieval, <a href="https://github.com/sysid/bkmr">bkmr</a> ensures that each item becomes immediately actionable:</p>
 <ul>
 <li>Snippets instantly copy to the clipboard, facilitating immediate use.</li>
 <li>Shell commands can be executed straight from the interface, dramatically reducing repetitive manual typing.</li>
@@ -486,7 +486,7 @@ commands relevant to you.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>The most valuable developer tools are those that fade into the background, removing obstacles
 rather than creating new ones.</p>
-<p>bkmr tries to achieve this by addressing a fundamental challenge: storing information, finding it
+<p><a href="https://github.com/sysid/bkmr">bkmr</a> tries to achieve this by addressing a fundamental challenge: storing information, finding it
 and enabling immediate action.</p>
 <p><strong>Minimize Disruption</strong>!</p>
 
