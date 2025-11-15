@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Mon, 11 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust’s Strategic Advantage</title>
+      <link>/rusts-strategic-advantage/</link>
+      <pubDate>Sat, 15 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/rusts-strategic-advantage/</guid>
+      <description>The Unexpected Trifecta Three independent forces are reshaping software development, each following its own logic, each seemingly unrelated.
+1. Security:
+70% of critical vulnerabilities in major platforms stem from memory safety issues, costing billions.
+2. Economics:
+Data center energy consumption is growing at 12% annually, heading toward 3% of global electricity by 2030, while water consumption for cooling threatens to double or quadruple by 2028.
+3. GenAI:
+The rise of AI code generation, where training data quality increasingly determines model performance.</description>
+    </item>
+    
     <item>
       <title>bkmr reborn</title>
       <link>/bkmr-reborn/</link>
