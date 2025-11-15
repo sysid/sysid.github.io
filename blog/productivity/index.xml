@@ -18,18 +18,5 @@
 Blog Requirements readability, no noise professional math support, i.e. Latex rendering swift build times robust technology Switch to Gatsby End of 2018 I switched from Hugo to Gatsby because why not. Gatsby was the new-kid-on-the-block and it is based on React and GraphQL, which I wanted to learn anyway. At the time I could tick above boxes, especially because my blog was tiny and I was dealing with React in other projects.</description>
     </item>
     
-    <item>
-      <title>twbm</title>
-      <link>/twbm/</link>
-      <pubDate>Sat, 24 Jul 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/twbm/</guid>
-      <description>Bookmarks are a major pillar of any knowledge-management strategy.
-Bookmarks are the foundation of the World Wide Web and personal bookmark management should be regarded as a solved problem these days, right?
-Truth is, I used to struggle a lot with bookmarks.
-My requirements:
-I want to own my bookmarks. They reflect a carefully curated list of knowledge and expertise which I have honed over years. I maintain this list and keep it up-to-date.</description>
-    </item>
-    
   </channel>
 </rss>

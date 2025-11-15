@@ -50,14 +50,12 @@ Rather than my usual deep-dive session of debugging and refactoring, I handed th
     </item>
     
     <item>
-      <title>rsnip</title>
-      <link>/rsnip/</link>
-      <pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate>
+      <title>developer&#39;s learnings</title>
+      <link>/developers-learnings/</link>
+      <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
       
-      <guid>/rsnip/</guid>
-      <description>Fast, Reliable, Yours: Why Snippets Outshine LLMs for boring Tasks While large language models (LLMs) like ChatGPT are revolutionizing workflows with their smart completions and contextual insights, you don’t want to re-research a command or script every time you need it.
-Why does a good snippet manager still matter? Even in an age of intelligent assistants, there’s a compelling case for a specialized and fast snippet manager:
-Speed: LLMs are slow when it comes to re-fetching familiar snippets.</description>
+      <guid>/developers-learnings/</guid>
+      <description>Simple is not given. It takes constant work! There is no pride in managing or understanding complexity. Typed languages are essential on teams with mixed experience levels. Java is a great language because it&amp;rsquo;s boring! Objects are extremely good at what they&amp;rsquo;re good at. Blind devotion to functional is dumb. Engineering is about communication. If I think something is easy, that&amp;rsquo;s a sure sign I don&amp;rsquo;t understand it. Very few abstractions exist in general application development.</description>
     </item>
     
   </channel>
