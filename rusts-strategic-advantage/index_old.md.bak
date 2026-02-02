@@ -1,0 +1,126 @@
+---
+title: "Why Rust is comdemned to succeed."
+date: "2025-08-06"
+description: "There is no plan B"
+tags: ["rust", "development"]
+draft: true
+---
+
+> If you want something done right, automate it.
+
+## Rust is condemned to succeed!
+
+- code bases like the linux kernel will make progress, despite the fact that existing maintainers are reluctant. Time will solve this issue.
+
+
+### helsing
+Top Rust users like helsing are using Claude collaboration to create PRs:
+[Pull request search results · GitHub](https://github.com/search?q=repo%3Ahelsing-ai%2Fsguaba++claude&type=pullrequests)
+
+
+## Efficiency
+
+
+## Why not Golang?
+- Go's type system and compiler are not sophisticated enough for AI agents. There are just too many cases of "it compiles but crash in production". Find examples
+- There are just too many footguns that are not enforced by the compiler: nil pointer null pointer dereference, implicit default values, where if you (or the model) forget to populate a field of a struct at creation it may lead to unexpected behavior, harmful enums and more...
+
+
+## Source
+Read this: https://kerkour.com/rust-agentic-coding and use its ideas and findings for this article
+
+
+# Prompts
+## Test Hypothisis: High Quality Code
+- You are a expert in software development and programming languages.
+- You  should verify or falsify the hypothesis: Existing Rust code base is small, but high quality overall.
+- Large Language Models need huge data sources for their training, so computer languages with a huge code base are supposed to have an advanvtage in coding agents due to the vast training material.
+- But: high quality data is more important than volume which incorporets also lots of bad practices and bug-prone programming, e.g. C++ due to its evolvment of time
+- Rust does have small code bases
+- Analyse the hypotheses that the code base of Rust is relatively high quality due to its youth and incorporation of many lessons learned from C++ and other languages
+- high learning curve results in more senior programmers using Rust for serious projects (this is alos a hypothesis)
+- collect evidence for and against the hypothesis and make an proefssional assessement. Provide examples.
+- In the end it should be a convincing case that the existing training body of Rust for LLMs results in very good LLM mastering of Rust based on modern best practices. however do not hesitate to falsify this statement if the facts go in this direction.
+
+## Create outline
+
+We want to create a scientific-grade article and discussion about why Rust will succeed in the long
+term and replace languages like C++ or Java, typescript or Python. For this we need to do proper
+research to create facts based foundation for our reasoning. 
+
+I create a very rough outline of my ideas for this article here:
+/Users/Q187392/dev/s/private/sysid-blog/hugo/content/blog/rust-succeed/outline.md
+
+The main reasoning should only be three main headlines. 
+Review it and challenge it from all possible angles whether my initial ideas are promising or
+whether we should find other headlines. Find additional aspects and dimensions for the
+argumentation.
+
+For future work plannning we will use a special syntax: `@LLM` which represents inline prompts for
+you as LLM to execute. `@LLM` is your signal to follow the following instructions, usually to
+collect context and research.
+
+Create a detailled outline of the best storyline and detail the necessary research questions which
+we need to answer and the facts we need to quote via the `@LLM` tag.
+
+The result should be a high quality outline of the compelling storyline to make the point given in
+the headline, based on solid facts and research. The oultine will hold `@LLM` tags for research
+tasks which will then be outsourced to dedicated research agents.
+
+Every hypothesis should be proven by facts and examples. Also for the main statements there should
+be a comparison with Java and Go and the reasoning why for our arguments the corresponding facts
+for these languages are not as good.
+
+Read quality-vs-quantity_llm-implications.pdf for additional context.
+
+Write the result to 'outline-plan.md'. Be as concise as possible! Create clear and unambiouus tasks
+for the research agents. Make sure you have a compelling reasoning.
+
+
+# Other
+[Writing Code Is Easy. Reading It Isn't.](https://idiallo.com/blog/writing-code-is-easy-reading-is-hard)
+We've solved the "typing speed" problem. We can generate more code than we could ever hope to read.
+But until we solve the "understanding" problem, the cost of software development remains the same:
+the time it takes for someone to make sense of it all.
+
+The future of programming might not be about generating more code faster. It might be about
+generating understanding faster. And that's a much harder problem to solve.
+
+
+But don't fall into the trap of endless back-and-forth prompt refinement, trying to get the perfect
+result from AI by "programming in English". It's an imprecise, slow and terribly painful way to get
+things done.
+
+Get your hands dirty. Write the code. It's what you are good at.
+
+You are a software engineer. Don't become a prompt refiner.
+
+# claude code
+But more than anything, Claude Code has shown me the power of extremely fast loops with agents. It
+feels a bit faster than Cursor's agent, but this could also be the UX (it's really well designed).
+Claude Code has access to a bunch of tools, including web search, and is able to spin up subtasks
+to do even more work in parallel.
+
+In practice, I've found it to be extremely good when you can control the entire "loop". Write some
+code, check if it compiles, if not fix it. Then try the tests. If they fail, fix it. Rinse and
+repeat for linting or other steps. This is where Software 1.0 best practices meet Software 2.0
+(AI-era).
+
+Having deterministic, fast ways to verify correctness in your apps is key for agents. You want
+tests. And they can't take 10 minutes to run. You want typed languages and even linters (I
+begrudgingly accept them now). This way the autonomous agents can "self heal" and fix their own
+mistakes.
+
+I sometimes fire off a prompt to Claude Code and see along the way, it fixed 2 or 3 issues from
+TypeScript / tests. It's worth really internalizing this point and thinking about how it will
+impact your tooling choices in the future.
+
+
+# Thoughts
+- natural language leaves lots for room, the more concrete you specifiy the closer you get the just
+  write the code by yourelf
+- common knowledge is readily availabe, but new concsept require extensive humna language, is it
+  worth it?
+- looks up information rapidly and digest it to make it applicable
+- when taking exisitng project as template it can copy needed files, but updates them in the
+  process

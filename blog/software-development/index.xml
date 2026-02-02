@@ -1,37 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>software development on sysid blog</title>
+    <title>Software Development on sysid blog</title>
     <link>/blog/software-development/</link>
-    <description>Recent content in software development on sysid blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Software Development on sysid blog</description>
+    <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Thu, 31 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="/blog/software-development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 31 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/blog/software-development/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hierarchical Environment Variable Management</title>
       <link>/hierarchical-environment-variable-management/</link>
       <pubDate>Thu, 31 Aug 2023 00:00:00 +0000</pubDate>
-      
       <guid>/hierarchical-environment-variable-management/</guid>
-      <description>I still spend too much time managing environment variables!
-The &amp;ldquo;Twelve-Factor&amp;rdquo; methodology prescribes that cloud-native applications should be configured via environment variables.
-This recommendation separates configuration from code, which is essential for scalability and security. But it also results in an extensive array of environment variables.
-Having to manage these variables for test, integration, end-to-end, and production environments becomes a daunting task. Often, these variable sets intersect. For instance, while Github credentials might be consistent across all environments, AWS accounts may vary.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;I still spend too much time managing environment variables!&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;The &amp;ldquo;Twelve-Factor&amp;rdquo; methodology prescribes that cloud-native applications should be configured via environment variables.&lt;/p&gt;&#xA;&lt;p&gt;This recommendation separates configuration from code, which is essential for scalability and security. But it also&#xA;results in an extensive array of environment variables.&lt;/p&gt;&#xA;&lt;p&gt;Having to manage these variables for test, integration, end-to-end, and production environments becomes a daunting task. Often, these variable sets intersect. For instance, while Github credentials might be consistent across all environments, AWS accounts may vary.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>ChatGPT in Software Development</title>
       <link>/chatgpt-in-software-development/</link>
       <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
-      
       <guid>/chatgpt-in-software-development/</guid>
-      <description>Describe the target, let the machine figure it out.
-The world has changed. I am showing examples of how ChatGPT is changing my workflow.
-Infrastructure as Code One way to deploy new infrastructure is to work interactively with the cloud&amp;rsquo;s provider graphical UI and rewrite it in the IaC suite of your choice.
-However, re-writing it feels like redundant work.
-Using terraform as an example there are several options:</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Describe the target, let the machine figure it out.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h1 id=&#34;the-world-has-changed&#34;&gt;The world has changed.&lt;/h1&gt;&#xA;&lt;p&gt;I am showing examples of how ChatGPT is changing my workflow.&lt;/p&gt;&#xA;&lt;h2 id=&#34;infrastructure-as-code&#34;&gt;Infrastructure as Code&lt;/h2&gt;&#xA;&lt;p&gt;One way to deploy new infrastructure is to work interactively with the cloud&amp;rsquo;s&#xA;provider graphical UI and rewrite it in the IaC suite of your choice.&lt;/p&gt;&#xA;&lt;p&gt;However, re-writing it feels like redundant work.&lt;/p&gt;&#xA;&lt;p&gt;Using &lt;code&gt;terraform&lt;/code&gt; as an example there are several options:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;code&gt;terraform import&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/GoogleCloudPlatform/terraformer&#34;&gt;terraformer&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/cycloidio/terracognita&#34;&gt;terracognita&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&amp;hellip;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;They all work (to some degree). However, the mental impedance for using them only once in a while&#xA;is considerable, e.g. remembering the syntax, gotchas, etc&amp;hellip;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

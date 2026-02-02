@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>knowledge_management on sysid blog</title>
+    <title>Knowledge_management on sysid blog</title>
     <link>/blog/knowledge_management/</link>
-    <description>Recent content in knowledge_management on sysid blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Knowledge_management on sysid blog</description>
+    <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Mon, 11 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="/blog/knowledge_management/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/blog/knowledge_management/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>bkmr reborn</title>
       <link>/bkmr-reborn/</link>
       <pubDate>Mon, 11 Aug 2025 00:00:00 +0000</pubDate>
-      
       <guid>/bkmr-reborn/</guid>
-      <description>Streamlining Developer Productivity Store it, find it, act on it.
-Developers know the struggle: You&amp;rsquo;re deep into concentration when suddenly you need that specific command, website, or snippet you used weeks ago.
-However, what should have been a quick retrieval turns into a disruptive search.
-There are many tools, which individually address this issue. But rarely provide a holistic solution.
-The Challenge We face a common set of challenges when working with information:</description>
+      <description>&lt;h1 id=&#34;streamlining-developer-productivity&#34;&gt;Streamlining Developer Productivity&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Store it, find it, act on it.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Developers know the struggle: You&amp;rsquo;re deep into concentration when suddenly you need that&#xA;specific command, website, or snippet you used weeks ago.&lt;/p&gt;&#xA;&lt;p&gt;However, what should have been a quick retrieval turns into a disruptive search.&lt;/p&gt;&#xA;&lt;p&gt;There are many tools, which individually address this issue. But rarely provide a holistic solution.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-challenge&#34;&gt;The Challenge&lt;/h2&gt;&#xA;&lt;p&gt;We face a common set of challenges when working with information:&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

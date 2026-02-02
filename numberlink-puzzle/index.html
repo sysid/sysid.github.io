@@ -12,28 +12,38 @@
 <meta name="keywords" content="python,optimization,pyomo," />
 
 
-<meta property="og:title" content="Numberlink Puzzle" />
-<meta property="og:description" content="Finding paths in the numbers labyrinth." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/numberlink-puzzle/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2020-05-30T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-05-30T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+<meta property="og:url" content="/numberlink-puzzle/">
+  <meta property="og:site_name" content="sysid blog">
+  <meta property="og:title" content="Numberlink Puzzle">
+  <meta property="og:description" content="Finding paths in the numbers labyrinth.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2020-05-30T00:00:00+00:00">
+    <meta property="article:modified_time" content="2020-05-30T00:00:00+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Optimization">
+    <meta property="article:tag" content="Pyomo">
+    <meta property="og:image" content="/images/share.png">
 
 
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="images/share.png"/>
 
-<meta name="twitter:title" content="Numberlink Puzzle"/>
-<meta name="twitter:description" content="Finding paths in the numbers labyrinth."/>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/images/share.png">
+  <meta name="twitter:title" content="Numberlink Puzzle">
+  <meta name="twitter:description" content="Finding paths in the numbers labyrinth.">
 
 
 
-<meta itemprop="name" content="Numberlink Puzzle">
-<meta itemprop="description" content="Finding paths in the numbers labyrinth."><meta itemprop="datePublished" content="2020-05-30T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-05-30T00:00:00+00:00" />
-<meta itemprop="wordCount" content="696"><meta itemprop="image" content="images/share.png"/>
-<meta itemprop="keywords" content="python,optimization,pyomo," />
+
+  <meta itemprop="name" content="Numberlink Puzzle">
+  <meta itemprop="description" content="Finding paths in the numbers labyrinth.">
+  <meta itemprop="datePublished" content="2020-05-30T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2020-05-30T00:00:00+00:00">
+  <meta itemprop="wordCount" content="696">
+  <meta itemprop="image" content="/images/share.png">
+  <meta itemprop="keywords" content="Python,Optimization,Pyomo">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <style>
@@ -210,17 +220,20 @@
 
 </style>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-8VH574W51S', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8VH574W51S');
+        }
+      </script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-alpha.1/es5/tex-mml-chtml.js"></script>
 
@@ -265,7 +278,7 @@ if (!doNotTrack) {
 </p>
 
 <content>
-  <figure class="center"><img src="mynumberlink.png" width="100%"/>
+  <figure class="center"><img src="/numberlink-puzzle/mynumberlink.png" width="100%">
 </figure>
 
 <h2 id="problem">Problem</h2>
@@ -274,7 +287,7 @@ if (!doNotTrack) {
 <li>The sections of a line run horizontally or vertically.</li>
 <li>Each cell must be visited exactly once by a line.</li>
 </ol>
-<figure class="center"><img src="numberlink.png" width="100%"/>
+<figure class="center"><img src="/numberlink-puzzle/numberlink.png" width="100%">
 </figure>
 
 <h2 id="solution">Solution</h2>
@@ -282,7 +295,7 @@ if (!doNotTrack) {
 <p>The trick is to identify endpoints of numberlinks. They do have only one neighbor with the same value. Cells wich are part of a
 path must have two neighbors with the same value.</p>
 </blockquote>
-<figure class="center"><img src="endpoints.png" width="100%"/>
+<figure class="center"><img src="/numberlink-puzzle/endpoints.png" width="100%">
 </figure>
 
 <p>The challenge is now to encode this insight into a Mixed Integer Programming model and fire up a solver.</p>
@@ -330,21 +343,21 @@ x_{p,k} \in {0,1}\\
 $$</p>
 <h2 id="implementation">Implementation</h2>
 <p>We need the set of neighbors, which we use as bespoke index \(N_{pg}\) in order to formulate the model constraints.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">create_neighbors</span>(self) -&gt; <span style="color:#080;font-weight:bold">None</span>:
-</span></span><span style="display:flex;"><span>    N = self.dimension
-</span></span><span style="display:flex;"><span>    M = self.dimension
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">create_neighbors</span>(<span style="color:#038">self</span>) -&gt; <span style="color:#080;font-weight:bold">None</span>:
+</span></span><span style="display:flex;"><span>    N = <span style="color:#038">self</span>.dimension
+</span></span><span style="display:flex;"><span>    M = <span style="color:#038">self</span>.dimension
 </span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080">in</span> <span style="color:#038">range</span>(<span style="color:#00d;font-weight:bold">1</span>, N + <span style="color:#00d;font-weight:bold">1</span>):
 </span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> j <span style="color:#080">in</span> <span style="color:#038">range</span>(<span style="color:#00d;font-weight:bold">1</span>, M + <span style="color:#00d;font-weight:bold">1</span>):
 </span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> i &gt; <span style="color:#00d;font-weight:bold">1</span>:
-</span></span><span style="display:flex;"><span>                self.neighbors[i, j, i - <span style="color:#00d;font-weight:bold">1</span>, j] = <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#038">self</span>.neighbors[i, j, i - <span style="color:#00d;font-weight:bold">1</span>, j] = <span style="color:#00d;font-weight:bold">1</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> i &lt; N:
-</span></span><span style="display:flex;"><span>                self.neighbors[i, j, i + <span style="color:#00d;font-weight:bold">1</span>, j] = <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#038">self</span>.neighbors[i, j, i + <span style="color:#00d;font-weight:bold">1</span>, j] = <span style="color:#00d;font-weight:bold">1</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> j &gt; <span style="color:#00d;font-weight:bold">1</span>:
-</span></span><span style="display:flex;"><span>                self.neighbors[i, j, i, j - <span style="color:#00d;font-weight:bold">1</span>] = <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#038">self</span>.neighbors[i, j, i, j - <span style="color:#00d;font-weight:bold">1</span>] = <span style="color:#00d;font-weight:bold">1</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> j &lt; M:
-</span></span><span style="display:flex;"><span>                self.neighbors[i, j, i, j + <span style="color:#00d;font-weight:bold">1</span>] = <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#038">self</span>.neighbors[i, j, i, j + <span style="color:#00d;font-weight:bold">1</span>] = <span style="color:#00d;font-weight:bold">1</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>model.N = Set(initialize=[n <span style="color:#080;font-weight:bold">for</span> n <span style="color:#080">in</span> self.neighbors <span style="color:#080;font-weight:bold">if</span> self.neighbors[n] == <span style="color:#00d;font-weight:bold">1</span>])
+</span></span><span style="display:flex;"><span>model.N = Set(initialize=[n <span style="color:#080;font-weight:bold">for</span> n <span style="color:#080">in</span> <span style="color:#038">self</span>.neighbors <span style="color:#080;font-weight:bold">if</span> <span style="color:#038">self</span>.neighbors[n] == <span style="color:#00d;font-weight:bold">1</span>])
 </span></span></code></pre></div><p>No we can write the main inequality constraint, i.e. cell \(p\) is not an end-point:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">x_lb_c</span>(model, i, j, k):
 </span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> (i, j, k) <span style="color:#080">not</span> <span style="color:#080">in</span> model.L:
@@ -364,7 +377,7 @@ $$</p>
 </span></span><span style="display:flex;"><span>model.x_ub_c = Constraint(model.I, model.J, model.K, rule=x_ub_c)
 </span></span></code></pre></div><p>Additionally, we create a helper index for the given path start- and end-points, which allows us to formulate the
 corresponding constraint for numberlink edges concise:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model.L = Set(initialize=[(i, j, k) <span style="color:#080;font-weight:bold">for</span> (i, j), k <span style="color:#080">in</span> self.links.items()])
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model.L = Set(initialize=[(i, j, k) <span style="color:#080;font-weight:bold">for</span> (i, j), k <span style="color:#080">in</span> <span style="color:#038">self</span>.links.items()])
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">x_fixed_c</span>(model, i, j, k):
 </span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> (i, j, k) <span style="color:#080">in</span> model.L:
@@ -375,10 +388,10 @@ corresponding constraint for numberlink edges concise:</p>
 <h3 id="11-x-11">11 x 11</h3>
 <p>Running the model against this 11x11 puzzle <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> was easy for CBC on 6 cores on my virtual machine. The solution
 took less then 1s.</p>
-<figure class="center"><img src="d_11x11_puzzle.png" width="100%"/>
+<figure class="center"><img src="/numberlink-puzzle/d_11x11_puzzle.png" width="100%">
 </figure>
 
-<figure class="center"><img src="d_11x11.png" width="100%"/>
+<figure class="center"><img src="/numberlink-puzzle/d_11x11.png" width="100%">
 </figure>
 
 <h3 id="15-x-15">15 x 15</h3>
@@ -388,12 +401,12 @@ took less then 1s.</p>
 <li>Number of variables : 2700</li>
 <li>Duration: 00:00:40</li>
 </ul>
-<figure class="center"><img src="d_15x15.png" width="100%"/>
+<figure class="center"><img src="/numberlink-puzzle/d_15x15.png" width="100%">
 </figure>
 
 <h3 id="20-x-20">20 x 20</h3>
 <p>Going for a bigger prize <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> however did not result in a solution with CBC. After 12h I stopped the calculation.</p>
-<figure class="center"><img src="d_20x20_puzzle.png" width="100%"/>
+<figure class="center"><img src="/numberlink-puzzle/d_20x20_puzzle.png" width="100%">
 </figure>
 
 <p>Here the difference between Open Source and commercial solver becomes obvious. With a commercial solver (e.g. CPLEX, Gurobi) the problem can be solved within 43min:</p>
@@ -402,7 +415,7 @@ took less then 1s.</p>
 <li>Number of variables : 10000</li>
 <li>Duration: 00:42:47</li>
 </ul>
-<figure class="center"><img src="d_20x20.png" width="100%"/>
+<figure class="center"><img src="/numberlink-puzzle/d_20x20.png" width="100%">
 </figure>
 
 <h2 id="summary">Summary</h2>
@@ -425,11 +438,11 @@ took less then 1s.</p>
 </content>
 <p>
   
-  <a href="/blog/python/">#python</a>
+  <a href="/blog/python/">#Python</a>
   
-  <a href="/blog/optimization/">#optimization</a>
+  <a href="/blog/optimization/">#Optimization</a>
   
-  <a href="/blog/pyomo/">#pyomo</a>
+  <a href="/blog/pyomo/">#Pyomo</a>
   
 </p>
 

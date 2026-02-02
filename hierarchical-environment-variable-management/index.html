@@ -12,28 +12,37 @@
 <meta name="keywords" content="software development,rust," />
 
 
-<meta property="og:title" content="Hierarchical Environment Variable Management" />
-<meta property="og:description" content="Hierarchical Environment Management in Software Development" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/hierarchical-environment-variable-management/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2023-08-31T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-08-31T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+<meta property="og:url" content="/hierarchical-environment-variable-management/">
+  <meta property="og:site_name" content="sysid blog">
+  <meta property="og:title" content="Hierarchical Environment Variable Management">
+  <meta property="og:description" content="Hierarchical Environment Management in Software Development">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2023-08-31T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-08-31T00:00:00+00:00">
+    <meta property="article:tag" content="Software Development">
+    <meta property="article:tag" content="Rust">
+    <meta property="og:image" content="/images/share.png">
 
 
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="images/share.png"/>
 
-<meta name="twitter:title" content="Hierarchical Environment Variable Management"/>
-<meta name="twitter:description" content="Hierarchical Environment Management in Software Development"/>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/images/share.png">
+  <meta name="twitter:title" content="Hierarchical Environment Variable Management">
+  <meta name="twitter:description" content="Hierarchical Environment Management in Software Development">
 
 
 
-<meta itemprop="name" content="Hierarchical Environment Variable Management">
-<meta itemprop="description" content="Hierarchical Environment Management in Software Development"><meta itemprop="datePublished" content="2023-08-31T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-08-31T00:00:00+00:00" />
-<meta itemprop="wordCount" content="759"><meta itemprop="image" content="images/share.png"/>
-<meta itemprop="keywords" content="software development,rust," />
+
+  <meta itemprop="name" content="Hierarchical Environment Variable Management">
+  <meta itemprop="description" content="Hierarchical Environment Management in Software Development">
+  <meta itemprop="datePublished" content="2023-08-31T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-08-31T00:00:00+00:00">
+  <meta itemprop="wordCount" content="759">
+  <meta itemprop="image" content="/images/share.png">
+  <meta itemprop="keywords" content="Software Development,Rust">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <style>
@@ -210,17 +219,20 @@
 
 </style>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-8VH574W51S', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8VH574W51S');
+        }
+      </script>
 
 </head>
 
@@ -260,19 +272,19 @@ results in an extensive array of environment variables.</p>
 <p>Small errors can lead to subtle bugs and tedious debug sessions.</p>
 <h2 id="problem-to-solve">Problem To Solve</h2>
 <p>How to manage the set of environment variables without duplication and synchronization.</p>
-<h2 id="solution-rs-envhttpsgithubcomsysidrs-env">Solution: <a href="https://github.com/sysid/rs-env">rs-env</a></h2>
+<h2 id="solution-rs-env">Solution: <a href="https://github.com/sysid/rs-env">rs-env</a></h2>
 <p><a href="https://github.com/sysid/rs-env">rs-env</a> crafts a definitive variable set for each environment.</p>
 <p>By utilizing different definition files, it prevents duplication and sync errors. It starts with global variables, gradually augmenting and refining the set for each level of specification.</p>
 <h2 id="demonstration">Demonstration</h2>
 <p>Given a set of files which declare variables on various levels, the files can be linked and the resulting set is read
 from top to bottom. Hereby overwrite later variable definitions earlier ones.</p>
 <!--![example](example.png)-->
-<figure class="center"><img src="example.png" width="50%"/>
+<figure class="center"><img src="/hierarchical-environment-variable-management/example.png" width="50%">
 </figure>
 
 <p>This set of files is being linked together:</p>
 <!--![hierarchy](hierarchy.png)-->
-<figure class="center"><img src="hierarchy.png" width="50%"/>
+<figure class="center"><img src="/hierarchical-environment-variable-management/hierarchy.png" width="50%">
 </figure>
 
 <p>The resulting variable set then would be:</p>
@@ -350,9 +362,9 @@ up-to-date, less headache.</p>
 </content>
 <p>
   
-  <a href="/blog/software-development/">#software development</a>
+  <a href="/blog/software-development/">#Software Development</a>
   
-  <a href="/blog/rust/">#rust</a>
+  <a href="/blog/rust/">#Rust</a>
   
 </p>
 

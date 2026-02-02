@@ -12,28 +12,37 @@
 <meta name="keywords" content="python,work," />
 
 
-<meta property="og:title" content="Software Architecture 2022" />
-<meta property="og:description" content="From CRUD over DDD to CQRS to Event Sourcing and further..." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/software-architecture-2022/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2021-12-31T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-12-31T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+<meta property="og:url" content="/software-architecture-2022/">
+  <meta property="og:site_name" content="sysid blog">
+  <meta property="og:title" content="Software Architecture 2022">
+  <meta property="og:description" content="From CRUD over DDD to CQRS to Event Sourcing and further...">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2021-12-31T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-12-31T00:00:00+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Work">
+    <meta property="og:image" content="/images/share.png">
 
 
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="images/share.png"/>
 
-<meta name="twitter:title" content="Software Architecture 2022"/>
-<meta name="twitter:description" content="From CRUD over DDD to CQRS to Event Sourcing and further..."/>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/images/share.png">
+  <meta name="twitter:title" content="Software Architecture 2022">
+  <meta name="twitter:description" content="From CRUD over DDD to CQRS to Event Sourcing and further...">
 
 
 
-<meta itemprop="name" content="Software Architecture 2022">
-<meta itemprop="description" content="From CRUD over DDD to CQRS to Event Sourcing and further..."><meta itemprop="datePublished" content="2021-12-31T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-12-31T00:00:00+00:00" />
-<meta itemprop="wordCount" content="664"><meta itemprop="image" content="images/share.png"/>
-<meta itemprop="keywords" content="python,work," />
+
+  <meta itemprop="name" content="Software Architecture 2022">
+  <meta itemprop="description" content="From CRUD over DDD to CQRS to Event Sourcing and further...">
+  <meta itemprop="datePublished" content="2021-12-31T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-12-31T00:00:00+00:00">
+  <meta itemprop="wordCount" content="664">
+  <meta itemprop="image" content="/images/share.png">
+  <meta itemprop="keywords" content="Python,Work">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <style>
@@ -210,17 +219,20 @@
 
 </style>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-8VH574W51S', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8VH574W51S');
+        }
+      </script>
 
 </head>
 
@@ -259,7 +271,7 @@ if (!doNotTrack) {
 <li>works as expected. Limits known, e.g. modelling complex business domains</li>
 </ul>
 <h2 id="ddd-and-clean-architecture">DDD and Clean Architecture</h2>
-<figure class="center"><img src="layered.png" width="100%"/>
+<figure class="center"><img src="/software-architecture-2022/layered.png" width="100%">
 </figure>
 
 <ul>
@@ -267,14 +279,14 @@ if (!doNotTrack) {
 <li><strong>ubiquitous language</strong> as common communication ground for developer and business</li>
 <li>concepts like <strong>Aggregate</strong> and <strong>UnitOfWork</strong> provide clear consistency and concurrency model. Facilitates communication.</li>
 <li>Clean Architecture and DI is conducive to structured and decoupled code (SRP)
-<a href="https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749"><figure class="center"><img src="hexagon.png" width="100%"/>
+<a href="https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749"><figure class="center"><img src="/software-architecture-2022/hexagon.png" width="100%">
 </figure>
 </a>
-<a href="https://medium.com/gdplabs/clean-architecture-a8b5d93d0944"><figure class="center"><img src="clean_architecture.png" width="100%"/>
+<a href="https://medium.com/gdplabs/clean-architecture-a8b5d93d0944"><figure class="center"><img src="/software-architecture-2022/clean_architecture.png" width="100%">
 </figure>
 </a></li>
 </ul>
-<p><a href="https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html"><figure class="center"><img src="dep_vs_flow.png" width="100%"/>
+<p><a href="https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html"><figure class="center"><img src="/software-architecture-2022/dep_vs_flow.png" width="100%">
 </figure>
 </a>
 Every system has these two kind of arrows:
@@ -282,12 +294,12 @@ the dotted-green one showing the flow of control (or the flow of data in your sy
 <p>Usually, both of them are pointing in the same direction.
 However, with the dependency inversion principle, we can invert the red arrow (the dependency arrow) every time we want.
 Everywhere we need it.
-<a href="https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html"><figure class="center"><img src="dep_vs_flow_inversed.png" width="100%"/>
+<a href="https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html"><figure class="center"><img src="/software-architecture-2022/dep_vs_flow_inversed.png" width="100%">
 </figure>
 </a></p>
 <p>Thanks to the power of polymorphism.</p>
 <h2 id="ddd-cqrs-and-event-sourcing">DDD, CQRS and Event Sourcing</h2>
-<p><a href="https://danielwhittaker.me/2020/02/20/cqrs-step-step-guide-flow-typical-application/"><figure class="center"><img src="cqrs.png" width="100%"/>
+<p><a href="https://danielwhittaker.me/2020/02/20/cqrs-step-step-guide-flow-typical-application/"><figure class="center"><img src="/software-architecture-2022/cqrs.png" width="100%">
 </figure>
 </a></p>
 <ul>
@@ -302,7 +314,7 @@ Everywhere we need it.
 <li>USP: temporal queries, branching in history for what if scenarios, state time travel</li>
 </ul>
 <p>Modelling flexibility is my favorite:
-<a href="https://www.eventmodeling.org"><figure class="center"><img src="event_modeling.png" width="100%"/>
+<a href="https://www.eventmodeling.org"><figure class="center"><img src="/software-architecture-2022/event_modeling.png" width="100%">
 </figure>
 </a></p>
 <p>It is a bold promise which I &ndash; due to limited experience &ndash; cannot comment on.</p>
@@ -323,7 +335,7 @@ Notification, Command, &hellip;</p>
 at an interesting conclusion:</p>
 <p><strong>?! The Domain Model Fallacy !?</strong></p>
 <p>Or is it more &ldquo;Back to the Future&rdquo;: <a href="https://martinfowler.com/bliki/MultipleCanonicalModels.html">multiple canonical models</a>.</p>
-<p><a href="https://ralfw.de/food-truck-architecture-its-all-about-events/"><figure class="center"><img src="food_truck.png" width="100%"/>
+<p><a href="https://ralfw.de/food-truck-architecture-its-all-about-events/"><figure class="center"><img src="/software-architecture-2022/food_truck.png" width="100%">
 </figure>
 </a></p>
 <p><a href="https://ralfw.de/food-truck-architecture-its-all-about-events/">The Food Truck Architecture</a>
@@ -335,7 +347,7 @@ cooks interesting thought food.</p>
 <p><a href="https://ralfw.de/food-truck-architecture-its-all-about-events/">It is all about events</a> was intriguing enough for me
 to refine the provided C# example into a <a href="https://github.com/sysid/food_truck">Python model</a> for experimentation and insight.</p>
 <p>One pipeline rules all:
-<figure class="center"><img src="pipeline.png" width="100%"/>
+<figure class="center"><img src="/software-architecture-2022/pipeline.png" width="100%">
 </figure>
 </p>
 <p>For every message a bespoke model (projection) is being created and passed to the processor.
@@ -373,9 +385,9 @@ https://www.eventmodeling.org/posts/what-is-event-modeling/
 </content>
 <p>
   
-  <a href="/blog/python/">#python</a>
+  <a href="/blog/python/">#Python</a>
   
-  <a href="/blog/work/">#work</a>
+  <a href="/blog/work/">#Work</a>
   
 </p>
 

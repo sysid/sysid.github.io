@@ -12,28 +12,38 @@
 <meta name="keywords" content="python,optimization,pyomo," />
 
 
-<meta property="og:title" content="Maximal Overlap of Rectangles" />
-<meta property="og:description" content="Find the maximal complete overlap of a set of rectangles" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/maximal-overlap-of-rectangles/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2021-02-07T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-02-07T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+<meta property="og:url" content="/maximal-overlap-of-rectangles/">
+  <meta property="og:site_name" content="sysid blog">
+  <meta property="og:title" content="Maximal Overlap of Rectangles">
+  <meta property="og:description" content="Find the maximal complete overlap of a set of rectangles">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2021-02-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-02-07T00:00:00+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Optimization">
+    <meta property="article:tag" content="Pyomo">
+    <meta property="og:image" content="/images/share.png">
 
 
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="images/share.png"/>
 
-<meta name="twitter:title" content="Maximal Overlap of Rectangles"/>
-<meta name="twitter:description" content="Find the maximal complete overlap of a set of rectangles"/>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/images/share.png">
+  <meta name="twitter:title" content="Maximal Overlap of Rectangles">
+  <meta name="twitter:description" content="Find the maximal complete overlap of a set of rectangles">
 
 
 
-<meta itemprop="name" content="Maximal Overlap of Rectangles">
-<meta itemprop="description" content="Find the maximal complete overlap of a set of rectangles"><meta itemprop="datePublished" content="2021-02-07T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-02-07T00:00:00+00:00" />
-<meta itemprop="wordCount" content="570"><meta itemprop="image" content="images/share.png"/>
-<meta itemprop="keywords" content="python,optimization,pyomo," />
+
+  <meta itemprop="name" content="Maximal Overlap of Rectangles">
+  <meta itemprop="description" content="Find the maximal complete overlap of a set of rectangles">
+  <meta itemprop="datePublished" content="2021-02-07T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-02-07T00:00:00+00:00">
+  <meta itemprop="wordCount" content="570">
+  <meta itemprop="image" content="/images/share.png">
+  <meta itemprop="keywords" content="Python,Optimization,Pyomo">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <style>
@@ -210,17 +220,20 @@
 
 </style>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-8VH574W51S', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8VH574W51S');
+        }
+      </script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-alpha.1/es5/tex-mml-chtml.js"></script>
 
@@ -265,7 +278,7 @@ if (!doNotTrack) {
 </p>
 
 <content>
-  <figure class="center"><img src="start_pic.png" width="100%"/>
+  <figure class="center"><img src="/maximal-overlap-of-rectangles/start_pic.png" width="100%">
 </figure>
 
 <blockquote>
@@ -384,7 +397,7 @@ $$</p>
 </span></span><span style="display:flex;"><span>model.objective = Objective(rule=obj_profit, sense=maximize)
 </span></span></code></pre></div><h2 id="solution">Solution</h2>
 <h3 id="example-1">Example 1</h3>
-<figure class="center"><img src="example.png" width="100%"/>
+<figure class="center"><img src="/maximal-overlap-of-rectangles/example.png" width="100%">
 </figure>
 
 <h4 id="configuration">Configuration</h4>
@@ -405,11 +418,11 @@ $$</p>
 </ul>
 <p>The black rectangle is the area of maximal overlap. The two filled rectangles are selected as constributors to the
 overlap:</p>
-<figure class="center"><img src="solution_test2.png" width="100%"/>
+<figure class="center"><img src="/maximal-overlap-of-rectangles/solution_test2.png" width="100%">
 </figure>
 
 <h3 id="example-2">Example 2</h3>
-<figure class="center"><img src="test4.png" width="100%"/>
+<figure class="center"><img src="/maximal-overlap-of-rectangles/test4.png" width="100%">
 </figure>
 
 <h4 id="configuration-1">Configuration</h4>
@@ -432,7 +445,7 @@ overlap:</p>
 <li>Number of variables : 21</li>
 <li>Duration: 00:00:00</li>
 </ul>
-<figure class="center"><img src="solution_test5.png" width="100%"/>
+<figure class="center"><img src="/maximal-overlap-of-rectangles/solution_test5.png" width="100%">
 </figure>
 
 <p>The solver CBC does not have a problem and solves the model in a split second.</p>
@@ -440,11 +453,11 @@ overlap:</p>
 </content>
 <p>
   
-  <a href="/blog/python/">#python</a>
+  <a href="/blog/python/">#Python</a>
   
-  <a href="/blog/optimization/">#optimization</a>
+  <a href="/blog/optimization/">#Optimization</a>
   
-  <a href="/blog/pyomo/">#pyomo</a>
+  <a href="/blog/pyomo/">#Pyomo</a>
   
 </p>
 

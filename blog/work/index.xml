@@ -1,103 +1,76 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>work on sysid blog</title>
+    <title>Work on sysid blog</title>
     <link>/blog/work/</link>
-    <description>Recent content in work on sysid blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Work on sysid blog</description>
+    <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Mon, 11 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="/blog/work/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/blog/work/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elegant Developer Environment Management</title>
+      <link>/elegant-developer-environment-management/</link>
+      <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>/elegant-developer-environment-management/</guid>
+      <description>&lt;h1 id=&#34;taming-developer-environment-chaos&#34;&gt;Taming Developer Environment Chaos&lt;/h1&gt;&#xA;&lt;p&gt;In modern software, we have perfected the art of &amp;ldquo;Infrastructure as Code&amp;rdquo; and&#xA;&amp;ldquo;Containerization,&amp;rdquo; yet the local developer environment remains a surprisingly messy frontier. Ask&#xA;any senior engineer about their local setup, and you might find a &amp;ldquo;messy workbench&amp;rdquo;: a&#xA;collection of patched &lt;code&gt;docker-compose.yaml&lt;/code&gt; files, local class overrides, and &lt;code&gt;.env&lt;/code&gt; files that are&#xA;one accidental &lt;code&gt;git add .&lt;/code&gt; away from a security incident.&lt;/p&gt;&#xA;&lt;p&gt;This is a developer&amp;rsquo;s paradox: we need bespoke local configurations to be productive, but we need&#xA;the repository to remain clean and standardized.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>bkmr reborn</title>
       <link>/bkmr-reborn/</link>
       <pubDate>Mon, 11 Aug 2025 00:00:00 +0000</pubDate>
-      
       <guid>/bkmr-reborn/</guid>
-      <description>Streamlining Developer Productivity Store it, find it, act on it.
-Developers know the struggle: You&amp;rsquo;re deep into concentration when suddenly you need that specific command, website, or snippet you used weeks ago.
-However, what should have been a quick retrieval turns into a disruptive search.
-There are many tools, which individually address this issue. But rarely provide a holistic solution.
-The Challenge We face a common set of challenges when working with information:</description>
+      <description>&lt;h1 id=&#34;streamlining-developer-productivity&#34;&gt;Streamlining Developer Productivity&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Store it, find it, act on it.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Developers know the struggle: You&amp;rsquo;re deep into concentration when suddenly you need that&#xA;specific command, website, or snippet you used weeks ago.&lt;/p&gt;&#xA;&lt;p&gt;However, what should have been a quick retrieval turns into a disruptive search.&lt;/p&gt;&#xA;&lt;p&gt;There are many tools, which individually address this issue. But rarely provide a holistic solution.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-challenge&#34;&gt;The Challenge&lt;/h2&gt;&#xA;&lt;p&gt;We face a common set of challenges when working with information:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>developer&#39;s learnings</title>
       <link>/developers-learnings/</link>
       <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
-      
       <guid>/developers-learnings/</guid>
-      <description>Simple is not given. It takes constant work! There is no pride in managing or understanding complexity. Typed languages are essential on teams with mixed experience levels. Java is a great language because it&amp;rsquo;s boring! Objects are extremely good at what they&amp;rsquo;re good at. Blind devotion to functional is dumb. Engineering is about communication. If I think something is easy, that&amp;rsquo;s a sure sign I don&amp;rsquo;t understand it. Very few abstractions exist in general application development.</description>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Typed languages are essential on teams with mixed experience levels.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Java is a great language because it&amp;rsquo;s boring!&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Objects are extremely good at what they&amp;rsquo;re good at. Blind devotion to functional is dumb.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Monoliths remain pretty good.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Micro-services require justification (they&amp;rsquo;ve increasingly just become assumed).&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;The “best tool for the job” is often the “least-worst &lt;strong&gt;tool across many&lt;/strong&gt; jobs”. Operating a zoo is the real tax.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Engineering is about communication.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Rewriting a Vim Plugin in Rust: vimania-uri-rs</title>
       <link>/rewriting-a-vim-plugin-in-rust-vimania-uri-rs/</link>
       <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
-      
       <guid>/rewriting-a-vim-plugin-in-rust-vimania-uri-rs/</guid>
-      <description>Advanced URI Handling for the Modern Vim User
-Why? Vim&amp;rsquo;s native gx command is somehow limited in its flexibility and capabilities. I wanted more powerful URI handling capabilities, which led me to create vimania-uri, a Vim plugin designed to provide advanced URI management within Vim.
-However, while the plugin achieved its goal in terms of functionality, it came with a performance penalty: the initial loading of the plugin&amp;rsquo;s Python dependencies severely impacted Vim&amp;rsquo;s startup times.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Advanced URI Handling for the Modern Vim User&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;why&#34;&gt;Why?&lt;/h2&gt;&#xA;&lt;p&gt;Vim&amp;rsquo;s native &lt;code&gt;gx&lt;/code&gt; command is somehow limited in its flexibility and capabilities. I wanted more powerful URI handling capabilities, which led me to create &lt;a href=&#34;https://github.com/sysid/vimania-uri&#34;&gt;vimania-uri&lt;/a&gt;, a Vim plugin designed to provide advanced URI management within Vim.&lt;/p&gt;&#xA;&lt;p&gt;However, while the plugin achieved its goal in terms of functionality, it came with a performance penalty: the initial loading of the plugin&amp;rsquo;s Python dependencies severely impacted Vim&amp;rsquo;s startup times. The plugin relied on dependencies such as &lt;code&gt;beautifulsoup4&lt;/code&gt; (bs4) and &lt;code&gt;lxml&lt;/code&gt;, which are known for substantial size and complexity. As a result, the plugin introduced noticeable delays during Vim startup, with load times sporadically exceeding 3 seconds &amp;ndash; painful for a vim user.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Select Points</title>
       <link>/select-points/</link>
       <pubDate>Sun, 30 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>/select-points/</guid>
-      <description>Given multiple sets of data points. Select one point per set so that the distances between the points is minimal.1
-Model Non-convex MIQP Model $$ \min \sum_{i,j| ok_{i,j}} dist_{i,j} \cdot x_i \cdot x_j \\ \sum_{i|group_{i,g}} x_i = 1 \forall g \\ x_i \in {0,1} $$
-Linear MIP Model To linearize the model a standard procedure can be applied:
-Let&amp;rsquo;s introduce a new binary variable, $z_{i,j}$, that represents the product of the binary variables $\color{darkred}x_i$ and $\color{darkred}x_j$.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Given multiple sets of data points. Select one point per set so that the distances between the points is minimal.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/select-points/full2.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;h2 id=&#34;model&#34;&gt;Model&lt;/h2&gt;&#xA;&lt;h3 id=&#34;non-convex-miqp-model&#34;&gt;Non-convex MIQP Model&lt;/h3&gt;&#xA;&lt;p&gt;$$&#xA;\min \sum_{i,j| ok_{i,j}} dist_{i,j} \cdot x_i \cdot x_j  \\&#xA;\sum_{i|group_{i,g}} x_i = 1 \forall g \\&#xA;x_i \in {0,1}&#xA;$$&lt;/p&gt;&#xA;&lt;h3 id=&#34;linear-mip-model&#34;&gt;Linear MIP Model&lt;/h3&gt;&#xA;&lt;p&gt;To linearize the model a standard procedure can be applied:&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s introduce a new binary variable, $z_{i,j}$, that represents the product of the binary variables $\color{darkred}x_i$ and $\color{darkred}x_j$.&#xA;This new variable will replace the nonlinear term in the objective function, making the model linear.&#xA;We will also add constraints to link the new variable $z_{i,j}$ with the original variables $\color{darkred}x_i$ and $\color{darkred}x_j$.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>vimania-uri</title>
       <link>/vimania-uri/</link>
       <pubDate>Mon, 19 Dec 2022 00:00:00 +0000</pubDate>
-      
       <guid>/vimania-uri/</guid>
-      <description>Double-click-&amp;gt;Open. But for VIM. No mouse.
-Key Features Open URIs, html, docx, pptx, jpg, png, mp3, &amp;hellip; Handle almost any URI Paste URLs with human-friendly description vimania-uri
-Why? One magic power of OS UI is the capability of opening URIs by just double-clicking. As CLI worker using a mouse does not cut it.
-Markdown Plugin To deal with markdown a plugin is helpful, e.g. plasticboy&amp;rsquo;s plugin.
-It allows to create new files by adding a link [topic](topic) and then jump to it by typing ge while the cursor is on the link.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Double-click-&amp;gt;Open. But for VIM. No mouse.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h1 id=&#34;key-features&#34;&gt;Key Features&lt;/h1&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Open URIs, html, docx, pptx, jpg, png, mp3, &amp;hellip;&lt;/li&gt;&#xA;&lt;li&gt;Handle almost any URI&lt;/li&gt;&#xA;&lt;li&gt;Paste URLs with human-friendly description&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/vimania-uri/vimania-uri-demo.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;a href=&#34;https://github.com/sysid/vimania-uri&#34;&gt;vimania-uri&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;why&#34;&gt;Why?&lt;/h2&gt;&#xA;&lt;p&gt;One magic power of OS UI is the capability of opening URIs by just double-clicking.&#xA;As CLI worker using a mouse does not cut it.&lt;/p&gt;&#xA;&lt;h4 id=&#34;markdown-plugin&#34;&gt;Markdown Plugin&lt;/h4&gt;&#xA;&lt;p&gt;To deal with markdown a plugin is helpful, e.g. &lt;a href=&#34;https://github.com/plasticboy/vim-markdown&#34;&gt;plasticboy&amp;rsquo;s plugin&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;It allows to create new files by adding a link &lt;code&gt;[topic](topic)&lt;/code&gt; and then jump to it by typing &lt;code&gt;ge&lt;/code&gt; while the cursor is on the link.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Software Architecture 2022</title>
       <link>/software-architecture-2022/</link>
       <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>/software-architecture-2022/</guid>
-      <description>A refresher in software architecture philosophies with Perseverance, Patience and Python.
-This is a high-speed overflight over current approaches with an occasional deep dive.
-CRUD, MVC simple concepts and therefore effective communication in dev teams works as expected. Limits known, e.g. modelling complex business domains DDD and Clean Architecture structure of software logic reflects business processes ubiquitous language as common communication ground for developer and business concepts like Aggregate and UnitOfWork provide clear consistency and concurrency model.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;A refresher in software architecture philosophies with Perseverance, Patience and Python.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This is a high-speed overflight over current approaches with an occasional deep dive.&lt;/p&gt;&#xA;&lt;h2 id=&#34;crud-mvc&#34;&gt;CRUD, MVC&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;simple concepts and therefore effective communication in dev teams&lt;/li&gt;&#xA;&lt;li&gt;works as expected. Limits known, e.g. modelling complex business domains&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;ddd-and-clean-architecture&#34;&gt;DDD and Clean Architecture&lt;/h2&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/software-architecture-2022/layered.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;structure of software logic reflects business processes&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;ubiquitous language&lt;/strong&gt; as common communication ground for developer and business&lt;/li&gt;&#xA;&lt;li&gt;concepts like &lt;strong&gt;Aggregate&lt;/strong&gt; and &lt;strong&gt;UnitOfWork&lt;/strong&gt; provide clear consistency and concurrency model. Facilitates communication.&lt;/li&gt;&#xA;&lt;li&gt;Clean Architecture and DI is conducive to structured and decoupled code (SRP)&#xA;&lt;a href=&#34;https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749&#34;&gt;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/software-architecture-2022/hexagon.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&lt;/a&gt;&#xA;&lt;a href=&#34;https://medium.com/gdplabs/clean-architecture-a8b5d93d0944&#34;&gt;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/software-architecture-2022/clean_architecture.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html&#34;&gt;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/software-architecture-2022/dep_vs_flow.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&lt;/a&gt;&#xA;Every system has these two kind of arrows:&#xA;the dotted-green one showing the flow of control (or the flow of data in your system) and the red one showing the source code dependency.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Job Shop Scheduling Problem</title>
       <link>/job-shop-scheduling-problem/</link>
       <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>/job-shop-scheduling-problem/</guid>
-      <description>The Job Shop Scheduling Problem (JSSP) is an NP-hard problem. 1
-The JSSP is defined by a set of jobs that must be executed by a set of machines in a specific order for each job. Each job has a defined execution time for each machine and a defined processing order of machines. Also, each job must use each machine only once. The machines can only execute a job at a time and once started, the machine cannot be interrupted until the completion of the assigned job.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;The Job Shop Scheduling Problem (JSSP) is an NP-hard problem. &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;The JSSP is defined by a set of jobs that must be executed by&#xA;a set of machines in a specific order for each job. Each job has a defined execution time for each machine and&#xA;a defined processing order of machines. Also, each job must use each machine only once.&#xA;The machines can only execute a job at a time and once started, the machine cannot be interrupted until the completion of the assigned job.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Dispersion</title>
       <link>/dispersion/</link>
       <pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate>
-      
       <guid>/dispersion/</guid>
-      <description>Find 10 points out of 50 with maximum distance from each other.1
-This problem can modelled as a max-min model where we maximize the smallest distance of 10 points.
-Model $$ \max \Delta\\ s.t.\\ \Delta \le d_{i,j} + M(1- x_i x_j), \forall i \lt j \\ \sum_i x_i = k\\ x_i \in {0,1}\\ $$
-M is an upper bound on the distances: $$ M = \max_{i\le j} d_{i,j}\\ $$</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Find 10 points out of 50 with maximum distance from each other.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;/dispersion/points.png&#34; width=&#34;100%&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;This problem can modelled as a &lt;strong&gt;max-min&lt;/strong&gt; model where we maximize the smallest distance of 10 points.&lt;/p&gt;&#xA;&lt;h2 id=&#34;model&#34;&gt;Model&lt;/h2&gt;&#xA;&lt;p&gt;$$&#xA;\max \Delta\\&#xA;s.t.\\&#xA;\Delta \le d_{i,j} + M(1- x_i x_j), \forall i \lt j \\&#xA;\sum_i x_i = k\\&#xA;x_i \in {0,1}\\&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;M is an upper bound on the distances:&#xA;$$&#xA;M = \max_{i\le j} d_{i,j}\\&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;The quadratic part \(x_i x_j\) of the constraint can be linearized:&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

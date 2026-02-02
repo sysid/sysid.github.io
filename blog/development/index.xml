@@ -1,62 +1,48 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>development on sysid blog</title>
+    <title>Development on sysid blog</title>
     <link>/blog/development/</link>
-    <description>Recent content in development on sysid blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Development on sysid blog</description>
+    <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Sat, 15 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="/blog/development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/blog/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elegant Developer Environment Management</title>
+      <link>/elegant-developer-environment-management/</link>
+      <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>/elegant-developer-environment-management/</guid>
+      <description>&lt;h1 id=&#34;taming-developer-environment-chaos&#34;&gt;Taming Developer Environment Chaos&lt;/h1&gt;&#xA;&lt;p&gt;In modern software, we have perfected the art of &amp;ldquo;Infrastructure as Code&amp;rdquo; and&#xA;&amp;ldquo;Containerization,&amp;rdquo; yet the local developer environment remains a surprisingly messy frontier. Ask&#xA;any senior engineer about their local setup, and you might find a &amp;ldquo;messy workbench&amp;rdquo;: a&#xA;collection of patched &lt;code&gt;docker-compose.yaml&lt;/code&gt; files, local class overrides, and &lt;code&gt;.env&lt;/code&gt; files that are&#xA;one accidental &lt;code&gt;git add .&lt;/code&gt; away from a security incident.&lt;/p&gt;&#xA;&lt;p&gt;This is a developer&amp;rsquo;s paradox: we need bespoke local configurations to be productive, but we need&#xA;the repository to remain clean and standardized.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Rust’s Strategic Advantage</title>
       <link>/rusts-strategic-advantage/</link>
       <pubDate>Sat, 15 Nov 2025 00:00:00 +0000</pubDate>
-      
       <guid>/rusts-strategic-advantage/</guid>
-      <description>The Unexpected Trifecta Three independent forces are reshaping software development, each following its own logic, each seemingly unrelated.
-1. Security:
-70% of critical vulnerabilities in major platforms stem from memory safety issues, costing billions.
-2. Economics:
-Data center energy consumption is growing at 12% annually, heading toward 3% of global electricity by 2030, while water consumption for cooling threatens to double or quadruple by 2028.
-3. GenAI:
-The rise of AI code generation, where training data quality increasingly determines model performance.</description>
+      <description>&lt;h2 id=&#34;the-unexpected--trifecta&#34;&gt;The Unexpected  Trifecta&lt;/h2&gt;&#xA;&lt;p&gt;Three independent forces are reshaping software development, each following its own logic, each&#xA;seemingly unrelated.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;1. Security:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;70% of critical vulnerabilities in major platforms stem from memory safety issues,&#xA;costing billions.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;2. Economics:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Data center energy consumption is growing at 12% annually, heading toward 3% of global electricity&#xA;by 2030, while water consumption for cooling threatens to double or quadruple by 2028.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;3. GenAI:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;The rise of AI code generation, where training data quality increasingly determines model&#xA;performance.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>bkmr reborn</title>
       <link>/bkmr-reborn/</link>
       <pubDate>Mon, 11 Aug 2025 00:00:00 +0000</pubDate>
-      
       <guid>/bkmr-reborn/</guid>
-      <description>Streamlining Developer Productivity Store it, find it, act on it.
-Developers know the struggle: You&amp;rsquo;re deep into concentration when suddenly you need that specific command, website, or snippet you used weeks ago.
-However, what should have been a quick retrieval turns into a disruptive search.
-There are many tools, which individually address this issue. But rarely provide a holistic solution.
-The Challenge We face a common set of challenges when working with information:</description>
+      <description>&lt;h1 id=&#34;streamlining-developer-productivity&#34;&gt;Streamlining Developer Productivity&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Store it, find it, act on it.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Developers know the struggle: You&amp;rsquo;re deep into concentration when suddenly you need that&#xA;specific command, website, or snippet you used weeks ago.&lt;/p&gt;&#xA;&lt;p&gt;However, what should have been a quick retrieval turns into a disruptive search.&lt;/p&gt;&#xA;&lt;p&gt;There are many tools, which individually address this issue. But rarely provide a holistic solution.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-challenge&#34;&gt;The Challenge&lt;/h2&gt;&#xA;&lt;p&gt;We face a common set of challenges when working with information:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How Claude Code Saved My Weekend</title>
       <link>/how-claude-code-saved-my-weekend/</link>
       <pubDate>Sat, 26 Jul 2025 00:00:00 +0000</pubDate>
-      
       <guid>/how-claude-code-saved-my-weekend/</guid>
-      <description>If you want something done right, automate it.
-Modern Open-Source Maintenance As the maintainer of sse-starlette, my GitHub notifications rarely bring me joy on a lazy Saturday afternoon.
-This weekend, I decided to push Claude Code a little bit, hoping to save precious summer time.
-Issue #140 didn&amp;rsquo;t just look interesting; it appeared non-trivial, touching on asyncio intricacies, multi-threading, and event-loop handling—elements that typically guarantee headaches.
-Rather than my usual deep-dive session of debugging and refactoring, I handed the reins to Claude Code, eager to see if it could manage the problem.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;If you want something done right, automate it.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;modern-open-source-maintenance&#34;&gt;Modern Open-Source Maintenance&lt;/h2&gt;&#xA;&lt;p&gt;As the maintainer of &lt;a href=&#34;https://github.com/sysid/sse-starlette&#34;&gt;sse-starlette&lt;/a&gt;, my GitHub notifications rarely bring me joy on a lazy Saturday afternoon.&lt;/p&gt;&#xA;&lt;p&gt;This weekend, I decided to push &lt;a href=&#34;https://www.anthropic.com/claude-code&#34;&gt;Claude Code&lt;/a&gt; a little bit, hoping to save precious summer time.&lt;/p&gt;&#xA;&lt;p&gt;Issue &lt;a href=&#34;https://github.com/sysid/sse-starlette/issues/140&#34;&gt;#140&lt;/a&gt; didn&amp;rsquo;t just look interesting; it appeared non-trivial, touching on asyncio intricacies, multi-threading, and event-loop handling—elements that typically guarantee headaches.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;issue140.png&#34; alt=&#34;issue140.png&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Rather than my usual deep-dive session of debugging and refactoring, I handed the reins to Claude Code, eager to see if it could manage the problem.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>developer&#39;s learnings</title>
       <link>/developers-learnings/</link>
       <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
-      
       <guid>/developers-learnings/</guid>
-      <description>Simple is not given. It takes constant work! There is no pride in managing or understanding complexity. Typed languages are essential on teams with mixed experience levels. Java is a great language because it&amp;rsquo;s boring! Objects are extremely good at what they&amp;rsquo;re good at. Blind devotion to functional is dumb. Engineering is about communication. If I think something is easy, that&amp;rsquo;s a sure sign I don&amp;rsquo;t understand it. Very few abstractions exist in general application development.</description>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Typed languages are essential on teams with mixed experience levels.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Java is a great language because it&amp;rsquo;s boring!&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Objects are extremely good at what they&amp;rsquo;re good at. Blind devotion to functional is dumb.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Monoliths remain pretty good.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Micro-services require justification (they&amp;rsquo;ve increasingly just become assumed).&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;The “best tool for the job” is often the “least-worst &lt;strong&gt;tool across many&lt;/strong&gt; jobs”. Operating a zoo is the real tax.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Engineering is about communication.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

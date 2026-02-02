@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>oss on sysid blog</title>
+    <title>Oss on sysid blog</title>
     <link>/blog/oss/</link>
-    <description>Recent content in oss on sysid blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Oss on sysid blog</description>
+    <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Sat, 26 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="/blog/oss/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/blog/oss/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How Claude Code Saved My Weekend</title>
       <link>/how-claude-code-saved-my-weekend/</link>
       <pubDate>Sat, 26 Jul 2025 00:00:00 +0000</pubDate>
-      
       <guid>/how-claude-code-saved-my-weekend/</guid>
-      <description>If you want something done right, automate it.
-Modern Open-Source Maintenance As the maintainer of sse-starlette, my GitHub notifications rarely bring me joy on a lazy Saturday afternoon.
-This weekend, I decided to push Claude Code a little bit, hoping to save precious summer time.
-Issue #140 didn&amp;rsquo;t just look interesting; it appeared non-trivial, touching on asyncio intricacies, multi-threading, and event-loop handling—elements that typically guarantee headaches.
-Rather than my usual deep-dive session of debugging and refactoring, I handed the reins to Claude Code, eager to see if it could manage the problem.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;If you want something done right, automate it.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;modern-open-source-maintenance&#34;&gt;Modern Open-Source Maintenance&lt;/h2&gt;&#xA;&lt;p&gt;As the maintainer of &lt;a href=&#34;https://github.com/sysid/sse-starlette&#34;&gt;sse-starlette&lt;/a&gt;, my GitHub notifications rarely bring me joy on a lazy Saturday afternoon.&lt;/p&gt;&#xA;&lt;p&gt;This weekend, I decided to push &lt;a href=&#34;https://www.anthropic.com/claude-code&#34;&gt;Claude Code&lt;/a&gt; a little bit, hoping to save precious summer time.&lt;/p&gt;&#xA;&lt;p&gt;Issue &lt;a href=&#34;https://github.com/sysid/sse-starlette/issues/140&#34;&gt;#140&lt;/a&gt; didn&amp;rsquo;t just look interesting; it appeared non-trivial, touching on asyncio intricacies, multi-threading, and event-loop handling—elements that typically guarantee headaches.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;issue140.png&#34; alt=&#34;issue140.png&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Rather than my usual deep-dive session of debugging and refactoring, I handed the reins to Claude Code, eager to see if it could manage the problem.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

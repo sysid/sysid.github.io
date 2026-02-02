@@ -12,28 +12,39 @@
 <meta name="keywords" content="python,optimization,puzzle,pyomo," />
 
 
-<meta property="og:title" content="Square Tiling" />
-<meta property="og:description" content="Tiling puzzle solved with Mixed Integer Programming." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/square-tiling/" /><meta property="og:image" content="images/share.png"/><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2020-05-02T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-05-02T00:00:00+00:00" /><meta property="og:site_name" content="sysid blog" />
+<meta property="og:url" content="/square-tiling/">
+  <meta property="og:site_name" content="sysid blog">
+  <meta property="og:title" content="Square Tiling">
+  <meta property="og:description" content="Tiling puzzle solved with Mixed Integer Programming.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2020-05-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2020-05-02T00:00:00+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Optimization">
+    <meta property="article:tag" content="Puzzle">
+    <meta property="article:tag" content="Pyomo">
+    <meta property="og:image" content="/images/share.png">
 
 
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="images/share.png"/>
 
-<meta name="twitter:title" content="Square Tiling"/>
-<meta name="twitter:description" content="Tiling puzzle solved with Mixed Integer Programming."/>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/images/share.png">
+  <meta name="twitter:title" content="Square Tiling">
+  <meta name="twitter:description" content="Tiling puzzle solved with Mixed Integer Programming.">
 
 
 
-<meta itemprop="name" content="Square Tiling">
-<meta itemprop="description" content="Tiling puzzle solved with Mixed Integer Programming."><meta itemprop="datePublished" content="2020-05-02T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-05-02T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1229"><meta itemprop="image" content="images/share.png"/>
-<meta itemprop="keywords" content="python,optimization,puzzle,pyomo," />
+
+  <meta itemprop="name" content="Square Tiling">
+  <meta itemprop="description" content="Tiling puzzle solved with Mixed Integer Programming.">
+  <meta itemprop="datePublished" content="2020-05-02T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2020-05-02T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1229">
+  <meta itemprop="image" content="/images/share.png">
+  <meta itemprop="keywords" content="Python,Optimization,Puzzle,Pyomo">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <style>
@@ -210,17 +221,20 @@
 
 </style>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-8VH574W51S', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8VH574W51S');
+        }
+      </script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-alpha.1/es5/tex-mml-chtml.js"></script>
 
@@ -265,7 +279,7 @@ if (!doNotTrack) {
 </p>
 
 <content>
-  <figure class="center"><img src="5_5.png"/>
+  <figure class="center"><img src="/square-tiling/5_5.png">
 </figure>
 
 <blockquote>
@@ -273,22 +287,22 @@ if (!doNotTrack) {
 </blockquote>
 <p>The picture above consists of the following set of tiles:</p>
 <table>
-<thead>
-<tr>
-<th>length</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>count</td>
-<td>4</td>
-<td>3</td>
-<td>2</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>length</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>count</td>
+          <td>4</td>
+          <td>3</td>
+          <td>2</td>
+      </tr>
+  </tbody>
 </table>
 <p>8 out of the 9 given tiles can be used to form the resulting (5x5) square. One (3x3) tile cannot be used.
 With the given set this is the larges square area we can fill.</p>
@@ -318,7 +332,7 @@ y_{p&rsquo;,q&rsquo;} =
 \end{cases}
 $$
 This is a variable, because the area is shrinking during the solution process.</p>
-<figure class="center"><img src="main_idea.png"/>
+<figure class="center"><img src="/square-tiling/main_idea.png">
 </figure>
 
 <p>Here we have a tile at \((6,3)\) which conforms to the covering constraint (CC), i.e. lies within the viable squared area
@@ -342,41 +356,41 @@ $$</p>
 <p>However, the resulting square can be significantly smaller than this upper bound.
 Example for this given set:</p>
 <table>
-<thead>
-<tr>
-<th>length</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>count</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>length</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+          <th>9</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>count</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+      </tr>
+  </tbody>
 </table>
 <p>We could expect to fill a square of size:
 $$
 P = floor(\sqrt{285}) = 16
 $$</p>
 <p>Here we can only use the (9x9) tile:</p>
-<figure class="center"><img src="16_9.png" width="100%"/>
+<figure class="center"><img src="/square-tiling/16_9.png" width="100%">
 </figure>
 
 <p>All other tile combinations of that set do not result in a square area.</p>
@@ -489,33 +503,33 @@ $$</p>
 <h1 id="result">Result</h1>
 <p>Given set:</p>
 <table>
-<thead>
-<tr>
-<th>length</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>count</td>
-<td>7</td>
-<td>6</td>
-<td>5</td>
-<td>4</td>
-<td>3</td>
-<td>2</td>
-<td>1</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>length</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>count</td>
+          <td>7</td>
+          <td>6</td>
+          <td>5</td>
+          <td>4</td>
+          <td>3</td>
+          <td>2</td>
+          <td>1</td>
+      </tr>
+  </tbody>
 </table>
 <p>Resulting square area:
-<figure class="center"><img src="18_18.png" width="100%"/>
+<figure class="center"><img src="/square-tiling/18_18.png" width="100%">
 </figure>
 </p>
 <p>It is noted in <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> that the binary variable \(y_{p,q}\) can be relaxed to \(y_{p,q} \in [0,1]\).
@@ -523,31 +537,31 @@ However, for me this constraint relaxation of \(y\) increased the solution time 
 An unexpected observation which I have no explanation for (ideas welcome).</p>
 <p>Here another result after 26min running on 6 cores:</p>
 <table>
-<thead>
-<tr>
-<th>length</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>9</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>count</td>
-<td>10</td>
-<td>10</td>
-<td>8</td>
-<td>5</td>
-<td>4</td>
-<td>1</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>length</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>9</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>count</td>
+          <td>10</td>
+          <td>10</td>
+          <td>8</td>
+          <td>5</td>
+          <td>4</td>
+          <td>1</td>
+      </tr>
+  </tbody>
 </table>
 <p>Total area is 383, which results in a theoretical maximum square width of 19.</p>
-<figure class="center"><img src="inv_max2_sv_26min.png" width="100%"/>
+<figure class="center"><img src="/square-tiling/inv_max2_sv_26min.png" width="100%">
 </figure>
 
 <p>Here 2 (1x1) tiles and one (2x2) tile could not be used for the solution, however this is very close to perfection.
@@ -572,13 +586,13 @@ his work.</p>
 </content>
 <p>
   
-  <a href="/blog/python/">#python</a>
+  <a href="/blog/python/">#Python</a>
   
-  <a href="/blog/optimization/">#optimization</a>
+  <a href="/blog/optimization/">#Optimization</a>
   
-  <a href="/blog/puzzle/">#puzzle</a>
+  <a href="/blog/puzzle/">#Puzzle</a>
   
-  <a href="/blog/pyomo/">#pyomo</a>
+  <a href="/blog/pyomo/">#Pyomo</a>
   
 </p>
 
