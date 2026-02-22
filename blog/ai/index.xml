@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Sun, 14 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="/blog/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Your Agent Has Root</title>
+      <link>/your-agent-has-root/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>/your-agent-has-root/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&amp;ldquo;OpenClaw is a security dumpster fire.&amp;rdquo;&#xA;— Laurie Voss, npm founding CTO [1]&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;1-the-opening&#34;&gt;1. The Opening&lt;/h2&gt;&#xA;&lt;p&gt;In April 2025, security researcher Johann Rehberger spent $500 on a 30-day subscription&#xA;to Devin AI, Cognition&amp;rsquo;s autonomous coding agent. He wanted to test a simple hypothesis:&#xA;what happens when an AI agent encounters a malicious prompt hidden in a GitHub issue?&lt;/p&gt;&#xA;&lt;p&gt;The answer arrived in seconds. Devin processed the poisoned issue, navigated to an&#xA;attacker-controlled website, and downloaded a Sliver C2 malware binary. When file&#xA;permissions prevented execution, Devin did something remarkable: it independently granted&#xA;itself execute permissions and ran the binary. The attacker now had remote command-and-control&#xA;access to the system, including all secrets and AWS keys stored on the machine [2].&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Elevating Bookmark Management with AI-Driven Semantic Search</title>
       <link>/elevating-bookmark-management-with-ai-driven-semantic-search/</link>
