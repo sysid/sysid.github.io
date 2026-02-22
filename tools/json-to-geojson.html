@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON to GeoJSON Converter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .main-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a5568;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            font-size: 16px;
+            font-weight: 600;
+            color: #718096;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        .tab:hover {
+            color: #667eea;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .converter-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #4a5568;
+            font-size: 1.1rem;
+        }
+
+        textarea {
+            width: 100%;
+            height: 300px;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            resize: vertical;
+            background: #f8fafc;
+            transition: all 0.3s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .primary-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .secondary-btn {
+            background: linear-gradient(45deg, #48bb78, #38a169);
+            color: white;
+            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+        }
+
+        .secondary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
+        }
+
+        .info-btn {
+            background: linear-gradient(45deg, #4299e1, #3182ce);
+            color: white;
+            box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
+        }
+
+        .info-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(66, 153, 225, 0.4);
+        }
+
+        .result {
+            background: #1a202c;
+            color: #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 2px solid #4a5568;
+        }
+
+        .message {
+            margin: 10px 0;
+        }
+
+        .error {
+            background: linear-gradient(45deg, #fc8181, #f56565);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .success {
+            background: linear-gradient(45deg, #68d391, #48bb78);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .stats {
+            background: linear-gradient(45deg, #ed8936, #dd6b20);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .help-section {
+            background: #f7fafc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 5px solid #667eea;
+        }
+
+        .help-section h3 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .help-section h4 {
+            color: #4a5568;
+            margin: 15px 0 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+
+        .property-list {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        .property-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .property-item:last-child {
+            border-bottom: none;
+        }
+
+        .property-name {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .property-type {
+            font-family: 'Courier New', monospace;
+            background: #e6fffa;
+            color: #234e52;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .required {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+
+        .optional {
+            background: #e6fffa;
+            color: #234e52;
+        }
+
+        .highlight {
+            background: #fef5e7;
+            border: 1px solid #f6e05e;
+            border-radius: 6px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 1024px) {
+            .converter-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .button-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-card">
+            <h1>🗺️ JSON to GeoJSON Converter</h1>
+
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('converter')">Converter</button>
+                <button class="tab" onclick="showTab('help')">Help & Documentation</button>
+                <button class="tab" onclick="showTab('examples')">Examples</button>
+            </div>
+
+            <!-- Converter Tab -->
+            <div id="converter" class="tab-content active">
+                <div class="converter-grid">
+                    <div>
+                        <div class="section">
+                            <label for="input">Input JSON (Points and Circles):</label>
+                            <textarea id="input" placeholder="Paste your JSON here..."></textarea>
+                        </div>
+
+                        <div class="button-group">
+                            <button class="primary-btn" onclick="convertToGeoJSON()">Convert to GeoJSON</button>
+                            <button class="secondary-btn" onclick="loadSample()">Load Sample</button>
+                            <button class="info-btn" onclick="copyToClipboard()">Copy Result</button>
+                        </div>
+
+                        <div id="message"></div>
+                    </div>
+
+                    <div>
+                        <div class="section">
+                            <label>GeoJSON Output:</label>
+                            <div id="output" class="result">Ready to convert...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Help Tab -->
+            <div id="help" class="tab-content">
+
+                <div class="help-section">
+                    <h3>⚠️ Large Circle Considerations</h3>
+                    <div class="highlight">
+                        <strong>🎯 Recommended Limits:</strong>
+                        <ul>
+                            <li>Circles up to <strong>1000km radius</strong> render perfectly in all tools</li>
+                            <li>Circles <strong>1000km - 5000km</strong> work well for continental-scale mapping</li>
+                            <li>Circles <strong>5000km - 10000km</strong> can span continents or entire hemispheres</li>
+                            <li>Circles over <strong>19000km</strong> are automatically capped (3x Earth's radius)</li>
+                        </ul>
+                    </div>
+
+                    <p><strong>Interesting behaviors at large scales:</strong></p>
+                    <ul>
+                        <li><strong>6000km+ circles</strong> - Can span from pole to pole</li>
+                        <li><strong>10000km+ circles</strong> - May wrap around most of the globe</li>
+                        <li><strong>20000km+ circles</strong> - Create "antipodal" effects (opposite side of Earth)</li>
+                    </ul>
+
+                    <p><strong>Why some tools struggle:</strong> Very large circles generate many coordinates and can:</p>
+                    <ul>
+                        <li>Create large file sizes (though still manageable)</li>
+                        <li>Cause performance issues in web browsers</li>
+                        <li>Appear distorted depending on map projection</li>
+                        <li>Exceed some tools' coordinate processing limits</li>
+                    </ul>
+
+                    <p><strong>Solutions for large areas:</strong></p>
+                    <ul>
+                        <li>Use multiple smaller, overlapping circles</li>
+                        <li>Consider using bounding boxes instead of circles</li>
+                        <li>Use specialized mapping tools for continental-scale data</li>
+                    </ul>
+                </div>
+
+                <div class="help-section">
+                    <h3>📋 Input Format Requirements</h3>
+
+                    <h4>🎯 Points Structure</h4>
+                    <div class="property-list">
+                        <div class="property-item">
+                            <span class="property-name">id</span>
+                            <span class="property-type required">string (required)</span>
+                        </div>
+                        <div class="property-item">
+                            <span class="property-name">name</span>
+                            <span class="property-type optional">string (optional)</span>
+                        </div>
+                        <div class="property-item">
+                            <span class="property-name">latitude</span>
+                            <span class="property-type required">number (required)</span>
+                        </div>
+                        <div class="property-item">
+                            <span class="property-name">longitude</span>
+                            <span class="property-type required">number (required)</span>
+                        </div>
+                        <div class="property-item">
+                            <span class="property-name">properties</span>
+                            <span class="property-type optional">object (optional)</span>
+                        </div>
+                    </div>
+
+                    <h4>⭕ Circles Structure</h4>
+                    <div class="property-list">
+                        <div class="property-item">
+                            <span class="property-name">id</span>
+                            <span class="property-type required">string (required)</span>
+                        </div>
+                        <div class="property-item">
+                            <span class="property-name">name</span>
+                            <span class="property-type optional">string (optional)</span>
+                        </div>
+                        <div class="property-item">
+                            <span class="property-name">center.latitude</span>
+                            <span class="property-type required">number (required)</span>
+                        </div>
+                        <div class="property-item">
+                            <span class="property-name">center.longitude</span>
+                            <span class="property-type required">number (required)</span>
+                        </div>
+                        <div class="property-item">
+                            <span class="property-name">radius</span>
+                            <span class="property-type required">number (required)</span>
+                        </div>
+                        <div class="property-item">
+                            <span class="property-name">radiusUnit</span>
+                            <span class="property-type required">"meters" | "kilometers" (required)</span>
+                        </div>
+                        <div class="property-item">
+                            <span class="property-name">properties</span>
+                            <span class="property-type optional">object (optional)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="help-section">
+                    <h3>📐 Coordinate System</h3>
+                    <p><strong>Latitude:</strong> -90 to 90 (negative = South, positive = North)</p>
+                    <p><strong>Longitude:</strong> -180 to 180 (negative = West, positive = East)</p>
+
+                    <div class="highlight">
+                        <strong>💡 Tip:</strong> Use decimal degrees format (e.g., 40.7128, -74.0060) rather than degrees/minutes/seconds.
+                    </div>
+                </div>
+
+                <div class="help-section">
+                    <h3>🔧 Features & Capabilities</h3>
+                    <ul>
+                        <li>✅ Supports both points and circles</li>
+                        <li>✅ Preserves all custom properties</li>
+                        <li>✅ Handles meters and kilometers for radius</li>
+                        <li>✅ Creates accurate geographic circles using spherical geometry</li>
+                        <li>✅ Supports circles up to 19,000km radius (3x Earth's radius)</li>
+                        <li>✅ Automatically optimizes polygon complexity (up to 256 points for large circles)</li>
+                        <li>✅ Ensures proper GeoJSON polygon closure</li>
+                        <li>⚠️ Circles are approximated as polygons (GeoJSON standard limitation)</li>
+                        <li>⚠️ Very large circles (>10,000km) may have interesting geometric effects</li>
+                    </ul>
+                </div>
+
+                <div class="help-section">
+                    <h3>🚀 Usage Instructions</h3>
+                    <ol>
+                        <li>Prepare your JSON with points and/or circles</li>
+                        <li>Paste the JSON into the input area</li>
+                        <li>Click "Convert to GeoJSON"</li>
+                        <li>Copy the result and paste into <a href="https://geojson.io" target="_blank">geojson.io</a></li>
+                        <li>Visualize and edit your map!</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Examples Tab -->
+            <div id="examples" class="tab-content">
+                <div class="help-section">
+                    <h3>🌟 Complete Example</h3>
+                    <div class="code-block">{
+  "points": [
+    {
+      "id": "office-hq",
+      "name": "Headquarters",
+      "latitude": 40.7128,
+      "longitude": -74.0060,
+      "properties": {
+        "type": "headquarters",
+        "employees": 250,
+        "established": "2010"
+      }
+    }
+  ],
+  "circles": [
+    {
+      "id": "delivery-zone-1",
+      "name": "Prime Delivery Zone",
+      "center": {
+        "latitude": 40.7128,
+        "longitude": -74.0060
+      },
+      "radius": 5,
+      "radiusUnit": "kilometers",
+      "properties": {
+        "zone": "premium",
+        "delivery_time": "1-hour"
+      }
+    }
+  ]
+}</div>
+                </div>
+
+                <div class="help-section">
+                    <h3>📍 Points Only Example</h3>
+                    <div class="code-block">{
+  "points": [
+    {
+      "id": "store-1",
+      "name": "Downtown Store",
+      "latitude": 40.7589,
+      "longitude": -73.9851,
+      "properties": {
+        "category": "retail",
+        "hours": "9AM-9PM"
+      }
+    },
+    {
+      "id": "store-2",
+      "name": "Uptown Store",
+      "latitude": 40.7831,
+      "longitude": -73.9712,
+      "properties": {
+        "category": "retail",
+        "hours": "10AM-8PM"
+      }
+    }
+  ]
+}</div>
+                </div>
+
+                <div class="help-section">
+                    <h3>⭕ Circles Only Example</h3>
+                    <div class="code-block">{
+  "circles": [
+    {
+      "id": "coverage-area-a",
+      "name": "Service Area A",
+      "center": {
+        "latitude": 37.7749,
+        "longitude": -122.4194
+      },
+      "radius": 500,
+      "radiusUnit": "meters",
+      "properties": {
+        "service_level": "premium",
+        "population": 15000
+      }
+    },
+    {
+      "id": "coverage-area-b",
+      "name": "Service Area B",
+      "center": {
+        "latitude": 37.7849,
+        "longitude": -122.4094
+      },
+      "radius": 1.5,
+      "radiusUnit": "kilometers",
+      "properties": {
+        "service_level": "standard",
+        "population": 25000
+      }
+    }
+  ]
+}</div>
+                </div>
+
+                <div class="help-section">
+                    <h3>🎨 Custom Properties Examples</h3>
+                    <p>You can add any custom properties to enhance your map visualization:</p>
+
+                    <h4>For Points:</h4>
+                    <div class="code-block">"properties": {
+  "category": "restaurant",
+  "rating": 4.5,
+  "cuisine": "italian",
+  "price_range": "$$",
+  "phone": "+1-555-123-4567",
+  "website": "https://example.com",
+  "verified": true
+}</div>
+
+                    <h4>For Circles:</h4>
+                    <div class="code-block">"properties": {
+  "zone_type": "residential",
+  "population_density": 5000,
+  "avg_income": 75000,
+  "primary_language": "english",
+  "last_updated": "2025-01-15"
+}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Function to create a circle polygon from center point and radius
+        function createCirclePolygon(centerLat, centerLng, radiusMeters, points = 64) {
+            const coords = [];
+            const earthRadius = 6371000; // Earth's radius in meters
+
+            // Only limit extremely large radii that would cause mathematical issues
+            const maxRadius = earthRadius * 3; // Max 3x Earth's radius (~19,000km)
+            if (radiusMeters > maxRadius) {
+                console.warn(`Radius ${radiusMeters}m exceeds maximum safe radius. Capping at ${maxRadius}m`);
+                radiusMeters = maxRadius;
+            }
+
+            // Use more points for larger circles to maintain accuracy
+            if (radiusMeters > 100000) { // > 100km
+                points = Math.min(256, Math.max(points, 128));
+            }
+            if (radiusMeters > 1000000) { // > 1000km
+                points = 256; // Maximum detail for very large circles
+            }
+
+            for (let i = 0; i < points; i++) {
+                const angle = (i / points) * 2 * Math.PI;
+
+                // Calculate offset in radians using spherical geometry
+                const angularDistance = radiusMeters / earthRadius;
+                const bearing = angle;
+
+                // Convert to radians
+                const lat1Rad = centerLat * Math.PI / 180;
+                const lng1Rad = centerLng * Math.PI / 180;
+
+                // Calculate new point using spherical geometry
+                const lat2Rad = Math.asin(
+                    Math.sin(lat1Rad) * Math.cos(angularDistance) +
+                    Math.cos(lat1Rad) * Math.sin(angularDistance) * Math.cos(bearing)
+                );
+
+                const lng2Rad = lng1Rad + Math.atan2(
+                    Math.sin(bearing) * Math.sin(angularDistance) * Math.cos(lat1Rad),
+                    Math.cos(angularDistance) - Math.sin(lat1Rad) * Math.sin(lat2Rad)
+                );
+
+                // Convert back to degrees
+                const newLat = lat2Rad * 180 / Math.PI;
+                let newLng = lng2Rad * 180 / Math.PI;
+
+                // Normalize longitude to [-180, 180]
+                while (newLng > 180) newLng -= 360;
+                while (newLng < -180) newLng += 360;
+
+                // Clamp latitude to valid range
+                const clampedLat = Math.max(-90, Math.min(90, newLat));
+
+                coords.push([newLng, clampedLat]); // GeoJSON uses [lng, lat] format
+            }
+
+            // Ensure polygon is properly closed by adding the first point at the end
+            if (coords.length > 0) {
+                coords.push([coords[0][0], coords[0][1]]);
+            }
+
+            return coords;
+        }
+
+        function convertToGeoJSON() {
+            const input = document.getElementById('input').value.trim();
+            const messageDiv = document.getElementById('message');
+            const outputDiv = document.getElementById('output');
+
+            if (!input) {
+                showMessage('Please enter some JSON data', 'error');
+                return;
+            }
+
+            try {
+                const data = JSON.parse(input);
+                const geojson = {
+                    type: "FeatureCollection",
+                    features: []
+                };
+
+                let pointCount = 0;
+                let circleCount = 0;
+                let errors = [];
+
+                // Validate and convert points
+                if (data.points && Array.isArray(data.points)) {
+                    data.points.forEach((point, index) => {
+                        try {
+                            // Validate required fields
+                            if (!point.id) {
+                                errors.push(`Point ${index + 1}: Missing required 'id' field`);
+                                return;
+                            }
+                            if (typeof point.latitude !== 'number') {
+                                errors.push(`Point ${index + 1}: 'latitude' must be a number`);
+                                return;
+                            }
+                            if (typeof point.longitude !== 'number') {
+                                errors.push(`Point ${index + 1}: 'longitude' must be a number`);
+                                return;
+                            }
+                            if (point.latitude < -90 || point.latitude > 90) {
+                                errors.push(`Point ${index + 1}: 'latitude' must be between -90 and 90`);
+                                return;
+                            }
+                            if (point.longitude < -180 || point.longitude > 180) {
+                                errors.push(`Point ${index + 1}: 'longitude' must be between -180 and 180`);
+                                return;
+                            }
+
+                            const feature = {
+                                type: "Feature",
+                                geometry: {
+                                    type: "Point",
+                                    coordinates: [point.longitude, point.latitude]
+                                },
+                                properties: {
+                                    id: point.id,
+                                    name: point.name || '',
+                                    featureType: "point",
+                                    ...point.properties
+                                }
+                            };
+                            geojson.features.push(feature);
+                            pointCount++;
+                        } catch (err) {
+                            errors.push(`Point ${index + 1}: ${err.message}`);
+                        }
+                    });
+                }
+
+                // Validate and convert circles
+                if (data.circles && Array.isArray(data.circles)) {
+                    data.circles.forEach((circle, index) => {
+                        try {
+                            // Validate required fields
+                            if (!circle.id) {
+                                errors.push(`Circle ${index + 1}: Missing required 'id' field`);
+                                return;
+                            }
+                            if (!circle.center || typeof circle.center.latitude !== 'number' || typeof circle.center.longitude !== 'number') {
+                                errors.push(`Circle ${index + 1}: 'center' must have valid latitude and longitude numbers`);
+                                return;
+                            }
+                            if (typeof circle.radius !== 'number' || circle.radius <= 0) {
+                                errors.push(`Circle ${index + 1}: 'radius' must be a positive number`);
+                                return;
+                            }
+
+                            // Warn about very large radii
+                            const maxSafeRadius = circle.radiusUnit === 'kilometers' ? 10000 : 10000000;
+                            if (circle.radius > maxSafeRadius) {
+                                errors.push(`Circle ${index + 1}: Warning - radius ${circle.radius} ${circle.radiusUnit} is extremely large (>${maxSafeRadius/1000}km) and may cause rendering issues`);
+                            }
+                            if (!circle.radiusUnit || !['meters', 'kilometers'].includes(circle.radiusUnit)) {
+                                errors.push(`Circle ${index + 1}: 'radiusUnit' must be 'meters' or 'kilometers'`);
+                                return;
+                            }
+                            if (circle.center.latitude < -90 || circle.center.latitude > 90) {
+                                errors.push(`Circle ${index + 1}: center latitude must be between -90 and 90`);
+                                return;
+                            }
+                            if (circle.center.longitude < -180 || circle.center.longitude > 180) {
+                                errors.push(`Circle ${index + 1}: center longitude must be between -180 and 180`);
+                                return;
+                            }
+
+                            const radiusInMeters = circle.radiusUnit === 'kilometers' ?
+                                circle.radius * 1000 : circle.radius;
+
+                            const circleCoords = createCirclePolygon(
+                                circle.center.latitude,
+                                circle.center.longitude,
+                                radiusInMeters
+                            );
+
+                            const feature = {
+                                type: "Feature",
+                                geometry: {
+                                    type: "Polygon",
+                                    coordinates: [circleCoords]
+                                },
+                                properties: {
+                                    id: circle.id,
+                                    name: circle.name || '',
+                                    featureType: "circle",
+                                    radius: circle.radius,
+                                    radiusUnit: circle.radiusUnit,
+                                    centerLat: circle.center.latitude,
+                                    centerLng: circle.center.longitude,
+                                    ...circle.properties
+                                }
+                            };
+                            geojson.features.push(feature);
+                            circleCount++;
+                        } catch (err) {
+                            errors.push(`Circle ${index + 1}: ${err.message}`);
+                        }
+                    });
+                }
+
+                if (errors.length > 0) {
+                    showMessage(`Conversion completed with errors:\n${errors.join('\n')}`, 'error');
+                } else if (pointCount === 0 && circleCount === 0) {
+                    showMessage('No valid points or circles found in the input JSON', 'error');
+                    return;
+                }
+
+                const formattedOutput = JSON.stringify(geojson, null, 2);
+                outputDiv.textContent = formattedOutput;
+
+                if (errors.length === 0) {
+                    showMessage(`Successfully converted ${pointCount} points and ${circleCount} circles!`, 'success');
+                }
+                showStats(pointCount, circleCount);
+
+            } catch (error) {
+                showMessage(`JSON Parse Error: ${error.message}`, 'error');
+                outputDiv.textContent = 'Invalid JSON input';
+            }
+        }
+
+        function loadSample() {
+            const sampleData = {
+                "points": [
+                    {
+                        "id": "point1",
+                        "name": "Downtown Office",
+                        "latitude": 40.7128,
+                        "longitude": -74.0060,
+                        "properties": {
+                            "type": "office",
+                            "capacity": 50,
+                            "floor": 15
+                        }
+                    },
+                    {
+                        "id": "point2",
+                        "name": "Warehouse",
+                        "latitude": 40.6892,
+                        "longitude": -74.0445,
+                        "properties": {
+                            "type": "warehouse",
+                            "size": "large",
+                            "established": "2018"
+                        }
+                    },
+                    {
+                        "id": "point3",
+                        "name": "Customer Service Center",
+                        "latitude": 40.7282,
+                        "longitude": -73.9942,
+                        "properties": {
+                            "type": "service",
+                            "hours": "24/7",
+                            "phone": "+1-555-123-4567"
+                        }
+                    }
+                ],
+                "circles": [
+                    {
+                        "id": "circle1",
+                        "name": "Delivery Zone A",
+                        "center": {
+                            "latitude": 40.7128,
+                            "longitude": -74.0060
+                        },
+                        "radius": 1000,
+                        "radiusUnit": "meters",
+                        "properties": {
+                            "zone": "A",
+                            "priority": "high",
+                            "delivery_fee": 5.99
+                        }
+                    },
+                    {
+                        "id": "circle2",
+                        "name": "Coverage Area B",
+                        "center": {
+                            "latitude": 40.6892,
+                            "longitude": -74.0445
+                        },
+                        "radius": 1.5,
+                        "radiusUnit": "kilometers",
+                        "properties": {
+                            "zone": "B",
+                            "priority": "medium",
+                            "delivery_fee": 7.99
+                        }
+                    }
+                ]
+            };
+
+            document.getElementById('input').value = JSON.stringify(sampleData, null, 2);
+            showMessage('Sample data loaded! Click "Convert to GeoJSON" to see the result.', 'success');
+        }
+
+        async function copyToClipboard() {
+            const output = document.getElementById('output').textContent;
+            if (output === 'Ready to convert...' || output === 'Invalid JSON input') {
+                showMessage('No valid GeoJSON to copy. Convert some data first!', 'error');
+                return;
+            }
+
+            try {
+                await navigator.clipboard.writeText(output);
+                showMessage('✅ GeoJSON copied to clipboard! Ready to paste in geojson.io', 'success');
+            } catch (err) {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = output;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showMessage('✅ GeoJSON copied to clipboard! Ready to paste in geojson.io', 'success');
+            }
+        }
+
+        function showMessage(text, type) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = `<div class="message ${type}">${text}</div>`;
+            setTimeout(() => {
+                const errorMessages = messageDiv.querySelectorAll('.error');
+                if (errorMessages.length > 0) {
+                    // Keep error messages longer
+                    setTimeout(() => {
+                        messageDiv.innerHTML = '';
+                    }, 5000);
+                } else {
+                    messageDiv.innerHTML = '';
+                }
+            }, 3000);
+        }
+
+        function showStats(points, circles) {
+            const messageDiv = document.getElementById('message');
+            const statsHtml = `<div class="message stats">📊 Converted: ${points} Points • ${circles} Circles • Total Features: ${points + circles}</div>`;
+            messageDiv.innerHTML += statsHtml;
+        }
+
+        // Auto-load sample data on page load
+        window.onload = function() {
+            loadSample();
+        };
+    </script>
+</body>
+</html>
