@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Sun, 22 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Is Breaking and Remaking Software Teams</title>
+      <link>/ai-is-breaking-and-remaking-software-teams/</link>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>/ai-is-breaking-and-remaking-software-teams/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Execution Is Cheap, Judgment Is Scarce: The Real Shift in Software Engineering&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;the-fracture-point&#34;&gt;The Fracture Point&lt;/h2&gt;&#xA;&lt;p&gt;Something fundamental is breaking in software engineering — not the tools, not the languages, but the&#xA;organizational assumptions that have governed how teams build software for over two decades.&lt;/p&gt;&#xA;&lt;p&gt;Scrum ceremonies, story points, sprint planning, and the careful separation of Product Owner, Developer,&#xA;Tester, and Scrum Master were all designed for a world where writing code was the primary&#xA;bottleneck.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Your Agent Has Root</title>
       <link>/your-agent-has-root/</link>

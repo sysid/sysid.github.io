@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/images/favicon.png" />
+<title>AI Is Breaking and Remaking Software Teams | sysid blog</title>
+<meta name="title" content="AI Is Breaking and Remaking Software Teams" />
+<meta name="description" content="Execution Is Cheap, Judgment Is Scarce: The Real Shift in Software Engineering" />
+<meta name="keywords" content="development,ai," />
+
+
+<meta property="og:url" content="/ai-is-breaking-and-remaking-software-teams/">
+  <meta property="og:site_name" content="sysid blog">
+  <meta property="og:title" content="AI Is Breaking and Remaking Software Teams">
+  <meta property="og:description" content="Execution Is Cheap, Judgment Is Scarce: The Real Shift in Software Engineering">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2026-03-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-03-01T00:00:00+00:00">
+    <meta property="article:tag" content="Development">
+    <meta property="article:tag" content="Ai">
+    <meta property="og:image" content="/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/images/share.png">
+  <meta name="twitter:title" content="AI Is Breaking and Remaking Software Teams">
+  <meta name="twitter:description" content="Execution Is Cheap, Judgment Is Scarce: The Real Shift in Software Engineering">
+
+
+
+
+  <meta itemprop="name" content="AI Is Breaking and Remaking Software Teams">
+  <meta itemprop="description" content="Execution Is Cheap, Judgment Is Scarce: The Real Shift in Software Engineering">
+  <meta itemprop="datePublished" content="2026-03-01T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-03-01T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1708">
+  <meta itemprop="image" content="/images/share.png">
+  <meta itemprop="keywords" content="Development,Ai">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8VH574W51S');
+        }
+      </script>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+<a href="/tools">Tools</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>AI Is Breaking and Remaking Software Teams</h1>
+<p>
+  <i>
+    <time datetime='2026-03-01' pubdate>
+      01 Mar, 2026
+    </time>
+  </i>
+</p>
+
+<content>
+  <blockquote>
+<p>Execution Is Cheap, Judgment Is Scarce: The Real Shift in Software Engineering</p>
+</blockquote>
+<h2 id="the-fracture-point">The Fracture Point</h2>
+<p>Something fundamental is breaking in software engineering — not the tools, not the languages, but the
+organizational assumptions that have governed how teams build software for over two decades.</p>
+<p>Scrum ceremonies, story points, sprint planning, and the careful separation of Product Owner, Developer,
+Tester, and Scrum Master were all designed for a world where writing code was the primary
+bottleneck.</p>
+<p>AI has made code cheap. And in doing so, it has exposed everything else.</p>
+<p>This shift is often mis-characterized as a simple productivity boost. Headlines focus on
+five-times gains, smaller teams shipping faster, or AI “replacing” developers.</p>
+<p>The reality is more
+nuanced. For every team experiencing dramatic acceleration, others are drowning
+in pull requests, review backlogs, and systems that no one truly understands.</p>
+<h3 id="the-immutable-value-of-fundamentals">The Immutable Value of Fundamentals</h3>
+<p>Counterintuitively, the AI era does not erase the need for engineering rigor; it aggressively
+rewards it. AI is like a mirror, it amplifies whatever it &lsquo;sees&rsquo;.</p>
+<p>Test-driven development, clean architecture, well-defined interfaces, and comprehensive
+documentation make AI agents exponentially more effective and their output more reliable. Teams
+with strong discipline see compounding returns from AI, while teams with poor discipline might
+drift into chaos.</p>
+<p>Stripe’s internal “minions” system, for example, demonstrates that agent performance depends less
+on raw model intelligence (still very importatnt) than on reproducible development environments, fast deterministic tests,
+and strict conventions embedded into tooling and workflows.</p>
+<p>Where context is clean and constraints
+are explicit, agents perform reliably. Where they are not, failure modes multiply.</p>
+<h4 id="amdahls-law-and-the-productivity-paradox">Amdahl’s Law and the Productivity Paradox</h4>
+<p>Making coding exponentially faster yields only a marginal improvement in overall delivery speed. If
+writing code historically constituted about 20% of the delivery cycle, optimizing it to near-zero
+time quickly exposes the true bottlenecks.</p>
+<p>The friction now concentrates at the <strong>human-gated</strong> stages:
+Requirements gathering, code review, rigorous testing, security audits, and deployment.</p>
+<p>The result is a familiar but intensified pathology. Senior engineers become review bottlenecks,
+spending their time debugging enormous AI-generated pull requests instead of designing systems.
+Review queues grow. Cognitive load explodes. The system jams.</p>
+<p>The wrong answer is loosening review standards to unblock the pipeline.
+This simply translates artificial speed into production incidents.</p>
+<h4 id="the-acceleration-of-cognitive-debt">The Acceleration of Cognitive Debt</h4>
+<p>Programming is fundamentally an exercise in theory building. &ldquo;Cognitive debt&rdquo; is the erosion of
+this shared understanding: how the system works, what invariants matter, and where the sharp edges
+are.</p>
+<p>AI does not necessarily write worse code than humans; but it compresses time drastically.</p>
+<p>Teams are hitting the natural complexity limits of their architecture in a matter of weeks instead of years. Without
+proper comprehension of the underlying design choices, a team eventually becomes paralyzed.</p>
+<p>Cognitive debt will spike unless human comprehension is actively managed.</p>
+<h4 id="the-collapse-of-predictability-and-the-story-point-fallacy">The Collapse of Predictability and the Story Point Fallacy</h4>
+<p>Agile methodologies rely on the assumption that effort is at least loosely predictable. Story
+points, velocity tracking, and sprint commitments all depend on this premise.</p>
+<p>AI breaks it.</p>
+<p>An agent can complete a complex, historically “five-point” feature in minutes, then spend hours
+looping on a trivial dependency issue that would be a “one-point” task for a human. Effort becomes
+non-linear and highly variable. Velocity ceases to be meaningful.</p>
+<h4 id="handoffs-stop-making-sense">Handoffs Stop Making Sense</h4>
+<p>As code generation approaches zero marginal cost, the valuable work shifts decisively upstream and
+downstream: problem framing, system integration, operational reliability, and product judgment.</p>
+<p>That work does not map cleanly onto siloed handoffs from product manager to designer to engineer to
+QA to SRE. Each translation step introduces latency and distortion.</p>
+<p>The separation of responsibilities vanishes because rapid iteration requires tighter loops and
+fewer translation steps.</p>
+<h2 id="the-momentum-of-change-patterns-from-the-frontier">The Momentum of Change: Patterns from the Frontier</h2>
+<p>To get an idea of the trajectory of AI-native engineering, we can look at some &ldquo;high-performing&rdquo; teams:</p>
+<ul>
+<li><strong>Agent-Friendly Infrastructure:</strong> At <a href="https://www.google.com/search?q=%5Bhttps://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2%5D(https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2)">Stripe</a>,
+unattended coding &ldquo;minions&rdquo; run in standardized dev environments, execute workflows orchestrated by
+deterministic blueprints, and integrate with internal tools via the Model Context Protocol (MCP).
+This demonstrates that agent performance relies less on raw model intelligence and more on
+engineering hygiene: reproducible environments, fast tests, and safe tooling boundaries.</li>
+<li><strong>The Durable vs. Disposable Divide:</strong> Teams must explicitly split their codebases. In the
+<em>disposable</em> domain (prototypes, scripts), speed dominates and maintenance expectations are low.
+In the <em>durable</em> domain (systems of record, safety-critical services), trust is earned through
+tests, observability, and disciplined change control. As highlighted by <a href="https://www.google.com/search?q=%5Bhttps://www.honeycomb.io/blog/disposable-code-is-here-to-stay%5D(https://www.honeycomb.io/blog/disposable-code-is-here-to-stay)">Honeycomb</a>,
+AI makes disposable code dramatically cheaper while raising the premium on rigor for durable code.</li>
+<li><strong>Context Engineering:</strong> AI-heavy developers are moving toward <a href="https://www.google.com/search?q=%5Bhttps://www.cjroth.com/blog/2026-02-18-building-an-elite-engineering-culture%5D(https://www.cjroth.com/blog/2026-02-18-building-an-elite-engineering-culture)">Spec-Driven Development</a>.
+Specifications, repository rule files, and structural conventions are treated as first-class
+artecfacts that agents consume.</li>
+</ul>
+<h2 id="defining-the-shift-a-spectrum-of-maturity">Defining the Shift: A Spectrum of Maturity</h2>
+<p>For meaningful discussion we need well defined semantics:</p>
+<ul>
+<li><strong>AI-Assisted:</strong> The organization gives developers coding assistants but leaves workflows, team
+structures, and ceremonies unchanged.</li>
+<li><strong>AI-Augmented:</strong> AI is embedded into testing, documentation, and code review. Processes begin to
+adapt — sprints shorten, review standards adjust — but traditional team topologies and handoffs
+largely persist.</li>
+<li><strong>AI-Native:</strong> The organization is redesigned from first principles. The operating model involves
+small teams, collapsed role boundaries, spec-driven development,
+and agent orchestration where humans direct and review far more than they implement.</li>
+</ul>
+<p>Moving from assisted to augmented is a tooling change; moving from augmented to native is an
+organizational transformation that fundamentally alters the identity of a software engineer.</p>
+<h2 id="from-scrum-to-ai-native-cells">From SCRUM to AI-Native Cells</h2>
+<p>For existing organizations, transformation will be staged:</p>
+<h3 id="stage-1-stabilization-and-gating-must-haves">Stage 1: Stabilization and Gating (Must-Haves)</h3>
+<p><em>The objective is to integrate AI coding tools while aggressively protecting codebase durability.</em></p>
+<ul>
+<li>Leaders must invest in clearing <strong>non-code</strong> chokepoints: review bandwidth, testing velocity, deployment confidence, and decision latency.</li>
+<li>Begin documenting architectural decisions and domain context in machine-readable formats, i.e.
+create your foundational set of project invariants, style guides, and instructions</li>
+<li>Maintain strict human review requirements: require that at least one human developer fully comprehends both the <em>mechanics</em> and the <em>why</em> behind every AI-generated commit before it merges.</li>
+<li><em>Trap to avoid:</em> Do not get distracted by tooling or custom agent development at this stage; focus relentlessly on getting your context and testing foundations solid. MCP is mostly distraction.</li>
+</ul>
+<h3 id="stage-2-structural-redesign-and-spec-driven-workflows">Stage 2: Structural Redesign and Spec-Driven Workflows</h3>
+<p><em>This stage dismantles legacy Agile and restructures teams to match AI&rsquo;s operational cadence.</em></p>
+<ul>
+<li><strong>Transition to Micro-Teams:</strong> Disband large departments into small, highly autonomous cells of cross-functional (PO-)engineers who own an entire vertical slice of the product.</li>
+<li><strong>Adopt Spec-Driven Development (SDD):</strong> Teams act as &ldquo;context engineers,&rdquo; writing dense, deterministic specifications and sign-off criteria (e.g., test cases) rather than writing the implementation code directly.</li>
+<li><strong>Implement Stacked PRs:</strong> Replace massive, multi-day PRs with chains of tiny, independent diffs (under 200 lines) that humans can review in minutes.</li>
+<li><strong>Shift to Cycle Time Metrics:</strong> Eradicate story points. Measure success by cycle time (idea conception to production deployment) and revenue impact per engineer (this is still research realm)</li>
+</ul>
+<p>This is where the transformation becomes personally consequential. The traditional separation
+between product owner, developer, and tester dissolves. The Scrum Master role expands into a
+floating coach serving multiple cells. Engineers who thrive with broad ownership will flourish.
+Engineers who have built careers around deep single-discipline specialisation may struggle. Leaders
+must provide genuine support — retraining, mentoring, and alternative career paths — rather than
+simply announcing the new structure.</p>
+<h3 id="stage-3-autonomous-orchestration-">Stage 3: Autonomous Orchestration (?)</h3>
+<p>The final frontier might involve designing infrastructure specifically for non-human entities. Deploy
+agent-friendly &ldquo;devboxes&rdquo; — isolated, predictable sandboxes where AI agents can iterate and fail
+safely without risking production data. Redefine the daily workflow along the lines of what Bloch
+calls the 10 AM rule: engineers spend mornings defining objective functions and aligning context,
+allowing agents to execute throughout the day and night.</p>
+<p>But this is pretty much uncharted territory&hellip;.</p>
+<h2 id="the-risks">The Risks</h2>
+<p>The risks are real and demand honest acknowledgment:</p>
+<ul>
+<li><strong>The Cognitive Debt :</strong> Speed without comprehension is a fatal liability. Teams that ship faster without investing in shared understanding will build unmaintainable systems in weeks.</li>
+<li><strong>The Talent Polarization Problem:</strong> AI-proficient engineers will pull dramatically ahead while others stagnate. Leaders have an ethical obligation to invest in retraining and provide genuine pathways for adaptation, not merely optimize for the highest performers.</li>
+<li><strong>The Measurement Trap:</strong> Output metrics such as lines of code or PRs merged are actively harmful. Cycle time, defect escape rate, and revenue per engineer are imperfect but directionally better.</li>
+<li><strong>The Incumbent&rsquo;s Dilemma:</strong> Legacy systems and cultural habits slow change. Waiting for certainty is itself a risk.</li>
+<li><strong>YOLO</strong>: Don&rsquo;t get lost in tooling, MCP integrations, framework churn, etc. Focus on first principles, focus on what gets into your agent&rsquo;s context.</li>
+</ul>
+<h3 id="for-us-developers">For us Developers</h3>
+<p>For us engineers, the value proposition is shifting rapidly. Generating syntax is no
+longer a specialized profession; it is becoming a general business competency.</p>
+<p>Career longevity depends on mastering the domains where AI struggles. Build on your expertise
+toward architectural design and the maintenance of Durable Code. While
+an AI can write a microservice from scratch, it lacks the contextual judgment to execute massive
+database migrations safely, conduct deep incident analysis during an outage, or design nuanced
+system observability.</p>
+<p>The developers who thrive will not be the fastest typists; they will
+be the most rigorous editors, the best context engineers, and the clearest thinkers.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>The transformation is profound and unavoidable and involves genuine risk to existing structures,
+career paths, and professional identities. It demands investment in engineering hygiene as much as
+in new LLM tooling.</p>
+<p>Most importantly, it requires leaders who can hold two truths simultaneously: the organizational
+change is profound and absolutely necessary, yet the human beings navigating this shift deserve
+support, retraining, and dignity throughout the process.</p>
+<p>The future belongs to teams that are small, autonomous, spec-driven, and intensely focused on
+judgment over execution. Arriving there responsibly is the defining engineering challenge of our
+time.</p>
+<hr>
+<h3 id="references">References</h3>
+<ul>
+<li><a href="https://www.cjroth.com/blog/2026-02-18-building-an-elite-engineering-culture">Building An Elite AI Engineering Culture In 2026 | Chris Roth</a></li>
+<li><a href="https://newsletter.eng-leadership.com/p/how-to-build-ai-native-engineering">How to Build AI-Native Engineering Teams | Gregor Ojstersek</a></li>
+<li><a href="https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2">Minions: Stripe’s one-shot, end-to-end coding agents—Part 2 | Stripe Dot Dev Blog</a></li>
+<li><a href="https://www.honeycomb.io/blog/disposable-code-is-here-to-stay">Disposable Code Is Here to Stay, but Durable Code Is What Runs the World | Charity Majors</a></li>
+<li><a href="https://michaelxbloch.substack.com/p/no-coding-before-10am">No Coding Before 10am | Michael Bloch</a></li>
+<li><a href="https://pages.cs.wisc.edu/~remzi/Naur.pdf">Programming as Theory Building | Peter Naur</a></li>
+</ul>
+<ul>
+<li><a href="https://news.mit.edu/2025/can-ai-really-code-study-maps-roadblocks-to-autonomous-software-engineering-0716">Can AI really code? Study maps the roadblocks to autonomous software engineering” — MIT News (July 16, 2025)</a></li>
+<li>others I forgot to bookmark..</li>
+</ul>
+
+</content>
+<p>
+  
+  <a href="/blog/development/">#Development</a>
+  
+  <a href="/blog/ai/">#Ai</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>
