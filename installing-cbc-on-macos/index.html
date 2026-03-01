@@ -222,7 +222,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
         var doNotTrack = false;
-        if ( true ) {
+        if ( false ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -261,7 +261,7 @@
 </p>
 
 <content>
-  <h4 id="update-may-2022-using-the-coinbrew-approach-as-documented-here-works-now-out-of-the-box">Update May 2022: Using the coinbrew approach as documented <a href="https://github.com/coin-or/Cbc#using-coinbrew">here</a> works now out of the box.</h4>
+  <h4 id="update-may-2022-using-the-coinbrew-approach-as-documented-herehttpsgithubcomcoin-orcbcusing-coinbrew-works-now-out-of-the-box">Update May 2022: Using the coinbrew approach as documented <a href="https://github.com/coin-or/Cbc#using-coinbrew">here</a> works now out of the box.</h4>
 <p>Today I needed to install <a href="https://github.com/coin-or/Cbc">CBC</a> on MacOS and it was not a walk in the park, unfortunately.</p>
 <p>Yes, there is a <em>brew</em> package which makes installation trivial. However, this only installs a single-threaded version
 of CBC. Not good!</p>
@@ -269,7 +269,7 @@ of CBC. Not good!</p>
 tasks in MIP programming.</p>
 <h3 id="tldr">TLDR</h3>
 <p>I will save you all the searching and try-and-error and give you the recipe straight:</p>
-<h3 id="use-coinbrew-to-build-cbc-yourself">Use <a href="https://coin-or.github.io/coinbrew/"><code>coinbrew</code></a> to build CBC yourself</h3>
+<h3 id="use-coinbrewhttpscoin-orgithubiocoinbrew-to-build-cbc-yourself">Use <a href="https://coin-or.github.io/coinbrew/"><code>coinbrew</code></a> to build CBC yourself</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#888"># Get Build Environment</span>
 </span></span><span style="display:flex;"><span>wget https://raw.githubusercontent.com/coin-or/coinbrew/master/coinbrew
 </span></span><span style="display:flex;"><span>chmod <span style="color:#00d;font-weight:bold">755</span> coinbrew

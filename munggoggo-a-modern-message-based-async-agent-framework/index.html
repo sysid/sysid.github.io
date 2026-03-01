@@ -267,7 +267,7 @@ Github: https://github.com/sysid/munggoggo">
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
         var doNotTrack = false;
-        if ( true ) {
+        if ( false ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -319,23 +319,23 @@ receiving ping messages to/from other agents.</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Agent</span>(Core):
 </span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">PingBehav</span>(Behaviour):
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">async</span> <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">setup</span>(<span style="color:#038">self</span>):
-</span></span><span style="display:flex;"><span>            <span style="color:#038">self</span>.counter = <span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">async</span> <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">setup</span>(self):
+</span></span><span style="display:flex;"><span>            self.counter = <span style="color:#00d;font-weight:bold">0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">async</span> <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">run</span>(<span style="color:#038">self</span>):
-</span></span><span style="display:flex;"><span>            <span style="color:#038">self</span>.counter += <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>            msg = <span style="color:#080;font-weight:bold">await</span> <span style="color:#038">self</span>.receive()
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">async</span> <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">run</span>(self):
+</span></span><span style="display:flex;"><span>            self.counter += <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>            msg = <span style="color:#080;font-weight:bold">await</span> self.receive()
 </span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> msg:
-</span></span><span style="display:flex;"><span>                <span style="color:#038">print</span>(<span style="color:#d20;background-color:#fff0f0">f</span><span style="color:#d20;background-color:#fff0f0">&#34;</span><span style="color:#33b;background-color:#fff0f0">{</span><span style="color:#038">self</span>.name<span style="color:#33b;background-color:#fff0f0">}</span><span style="color:#d20;background-color:#fff0f0">: Message received: </span><span style="color:#33b;background-color:#fff0f0">{</span>msg.body.decode()<span style="color:#33b;background-color:#fff0f0">}</span><span style="color:#d20;background-color:#fff0f0">&#34;</span>)
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">await</span> <span style="color:#038">self</span>.publish(<span style="color:#038">str</span>(<span style="color:#038">self</span>.counter), <span style="color:#d20;background-color:#fff0f0">&#39;ping&#39;</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#038">print</span>(<span style="color:#d20;background-color:#fff0f0">f</span><span style="color:#d20;background-color:#fff0f0">&#34;</span><span style="color:#33b;background-color:#fff0f0">{</span>self.name<span style="color:#33b;background-color:#fff0f0">}</span><span style="color:#d20;background-color:#fff0f0">: Message received: </span><span style="color:#33b;background-color:#fff0f0">{</span>msg.body.decode()<span style="color:#33b;background-color:#fff0f0">}</span><span style="color:#d20;background-color:#fff0f0">&#34;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">await</span> self.publish(<span style="color:#038">str</span>(self.counter), <span style="color:#d20;background-color:#fff0f0">&#39;ping&#39;</span>)
 </span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">await</span> asyncio.sleep(<span style="color:#00d;font-weight:bold">0.9</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">async</span> <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">setup</span>(<span style="color:#038">self</span>) -&gt; <span style="color:#080;font-weight:bold">None</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">async</span> <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">setup</span>(self) -&gt; <span style="color:#080;font-weight:bold">None</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#d20;background-color:#fff0f0">&#34;&#34;&#34; Register behaviour and subscribe to &#39;ping&#39; topic &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">await</span> <span style="color:#038">self</span>.add_runtime_dependency(<span style="color:#038">self</span>.PingBehav(<span style="color:#038">self</span>, binding_keys=[<span style="color:#d20;background-color:#fff0f0">&#39;ping&#39;</span>]))
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">await</span> self.add_runtime_dependency(self.PingBehav(self, binding_keys=[<span style="color:#d20;background-color:#fff0f0">&#39;ping&#39;</span>]))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">if</span> <span style="color:#369">__name__</span> == <span style="color:#d20;background-color:#fff0f0">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">if</span> __name__ == <span style="color:#d20;background-color:#fff0f0">&#39;__main__&#39;</span>:
 </span></span><span style="display:flex;"><span>    Worker(Agent(identity=<span style="color:#d20;background-color:#fff0f0">&#39;AgentIdentity&#39;</span>), loglevel=<span style="color:#d20;background-color:#fff0f0">&#34;info&#34;</span>).execute_from_commandline()
 </span></span></code></pre></div><br/>
 <p>Documentation: <a href="https://munggoggo.readthedocs.io/en/latest/">https://munggoggo.readthedocs.io/en/latest/</a><br>

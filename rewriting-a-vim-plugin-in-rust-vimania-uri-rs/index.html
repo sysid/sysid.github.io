@@ -224,7 +224,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
         var doNotTrack = false;
-        if ( true ) {
+        if ( false ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -269,7 +269,7 @@
 <h2 id="why">Why?</h2>
 <p>Vim&rsquo;s native <code>gx</code> command is somehow limited in its flexibility and capabilities. I wanted more powerful URI handling capabilities, which led me to create <a href="https://github.com/sysid/vimania-uri">vimania-uri</a>, a Vim plugin designed to provide advanced URI management within Vim.</p>
 <p>However, while the plugin achieved its goal in terms of functionality, it came with a performance penalty: the initial loading of the plugin&rsquo;s Python dependencies severely impacted Vim&rsquo;s startup times. The plugin relied on dependencies such as <code>beautifulsoup4</code> (bs4) and <code>lxml</code>, which are known for substantial size and complexity. As a result, the plugin introduced noticeable delays during Vim startup, with load times sporadically exceeding 3 seconds &ndash; painful for a vim user.</p>
-<h2 id="the-new-plugin-vimania-uri-rs">The new Plugin: <a href="https://github.com/sysid/vimania-uri-rs"><code>vimania-uri-rs</code></a></h2>
+<h2 id="the-new-plugin-vimania-uri-rshttpsgithubcomsysidvimania-uri-rs">The new Plugin: <a href="https://github.com/sysid/vimania-uri-rs"><code>vimania-uri-rs</code></a></h2>
 <h3 id="key-features">Key Features</h3>
 <ol>
 <li><strong>Open URIs and Various File Types</strong>: Seamlessly open URIs, HTML files, DOCX, PPTX, JPG, PNG, MP3, and more.</li>
@@ -279,8 +279,12 @@
 <li><strong>Bookmark Manager Integration</strong>: Load your URIs into Rust based CLI Bookmark Manager <a href="https://github.com/sysid/bkmr"><code>bkmr</code></a>.</li>
 </ol>
 <p><img src="vimania-uri-rs-demo.png" alt="vimania-uri-rs Demo"></p>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/JLaN6cIAIY8?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/JLaN6cIAIY8?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
     </div>
 
 <p><a href="https://github.com/sysid/vimania-uri-rs">vimania-uri-rs</a></p>

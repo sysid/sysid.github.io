@@ -223,7 +223,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
         var doNotTrack = false;
-        if ( true ) {
+        if ( false ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -356,24 +356,24 @@ $$</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#888"># 2b only one of these variables can be non-zero</span>
 </span></span><span style="display:flex;"><span>        model.inv_backlog_excl_c1 = Constraint(
-</span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.inv[t] &lt;= <span style="color:#038">self</span>.invCap * model.delta[t]
+</span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.inv[t] &lt;= self.invCap * model.delta[t]
 </span></span><span style="display:flex;"><span>        )
 </span></span><span style="display:flex;"><span>        model.inv_backlog_excl_c2 = Constraint(
 </span></span><span style="display:flex;"><span>            model.H,
 </span></span><span style="display:flex;"><span>            rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.backlog[t]
-</span></span><span style="display:flex;"><span>            &lt;= <span style="color:#038">self</span>.maxBackLogged * (<span style="color:#00d;font-weight:bold">1</span> - model.delta[t]),
+</span></span><span style="display:flex;"><span>            &lt;= self.maxBackLogged * (<span style="color:#00d;font-weight:bold">1</span> - model.delta[t]),
 </span></span><span style="display:flex;"><span>        )
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#888"># 3. detect low inventory</span>
 </span></span><span style="display:flex;"><span>        model.low_inv_c1 = Constraint(
 </span></span><span style="display:flex;"><span>            model.H,
 </span></span><span style="display:flex;"><span>            rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.inv[t]
-</span></span><span style="display:flex;"><span>            &lt;= model.r + <span style="color:#038">self</span>.invCap * (<span style="color:#00d;font-weight:bold">1</span> - model.low[t]),
+</span></span><span style="display:flex;"><span>            &lt;= model.r + self.invCap * (<span style="color:#00d;font-weight:bold">1</span> - model.low[t]),
 </span></span><span style="display:flex;"><span>        )
 </span></span><span style="display:flex;"><span>        model.low_inv_c2 = Constraint(
 </span></span><span style="display:flex;"><span>            model.H,
 </span></span><span style="display:flex;"><span>            rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.inv[t]
-</span></span><span style="display:flex;"><span>            &gt;= model.r + <span style="color:#00d;font-weight:bold">1</span> - (<span style="color:#038">self</span>.invCap + <span style="color:#00d;font-weight:bold">1</span>) * model.low[t],
+</span></span><span style="display:flex;"><span>            &gt;= model.r + <span style="color:#00d;font-weight:bold">1</span> - (self.invCap + <span style="color:#00d;font-weight:bold">1</span>) * model.low[t],
 </span></span><span style="display:flex;"><span>        )
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#888"># 4. reorder event detection</span>
@@ -397,17 +397,17 @@ $$</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#888"># 5. inventory replenishment takes place after an order was placed and when the lead time passed.</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">repl_c1</span>(model, t):
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> t &lt;= <span style="color:#038">self</span>.leadTime:
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> t &lt;= self.leadTime:
 </span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> model.repl[t] == <span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> model.repl[t] &lt;= <span style="color:#038">self</span>.maxQ * model.order[t - <span style="color:#038">self</span>.leadTime]
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> model.repl[t] &lt;= self.maxQ * model.order[t - self.leadTime]
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        model.repl_c1 = Constraint(model.H, rule=repl_c1)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">repl_c2</span>(model, t):
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> t &lt;= <span style="color:#038">self</span>.leadTime:
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> t &lt;= self.leadTime:
 </span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> model.repl[t] == <span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> model.repl[t] &gt;= model.q - <span style="color:#038">self</span>.maxQ * (
-</span></span><span style="display:flex;"><span>                <span style="color:#00d;font-weight:bold">1</span> - model.order[t - <span style="color:#038">self</span>.leadTime]
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> model.repl[t] &gt;= model.q - self.maxQ * (
+</span></span><span style="display:flex;"><span>                <span style="color:#00d;font-weight:bold">1</span> - model.order[t - self.leadTime]
 </span></span><span style="display:flex;"><span>            )
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        model.repl_c2 = Constraint(model.H, rule=repl_c2)
@@ -416,16 +416,16 @@ $$</p>
 </span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.repl[t] &lt;= model.q
 </span></span><span style="display:flex;"><span>        )
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        model.q_c = Constraint(rule=<span style="color:#080;font-weight:bold">lambda</span> model: model.q &lt;= <span style="color:#038">self</span>.maxQ)
-</span></span><span style="display:flex;"><span>        model.r_c = Constraint(rule=<span style="color:#080;font-weight:bold">lambda</span> model: model.r &lt;= <span style="color:#038">self</span>.invCap)
+</span></span><span style="display:flex;"><span>        model.q_c = Constraint(rule=<span style="color:#080;font-weight:bold">lambda</span> model: model.q &lt;= self.maxQ)
+</span></span><span style="display:flex;"><span>        model.r_c = Constraint(rule=<span style="color:#080;font-weight:bold">lambda</span> model: model.r &lt;= self.invCap)
 </span></span><span style="display:flex;"><span>        model.inv_c = Constraint(
-</span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.inv[t] &lt;= <span style="color:#038">self</span>.invCap
+</span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.inv[t] &lt;= self.invCap
 </span></span><span style="display:flex;"><span>        )
 </span></span><span style="display:flex;"><span>        model.backlog_c = Constraint(
-</span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.backlog[t] &lt;= <span style="color:#038">self</span>.maxBackLogged
+</span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.backlog[t] &lt;= self.maxBackLogged
 </span></span><span style="display:flex;"><span>        )
 </span></span><span style="display:flex;"><span>        model.repl_c = Constraint(
-</span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.repl[t] &lt;= <span style="color:#038">self</span>.maxQ
+</span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.repl[t] &lt;= self.maxQ
 </span></span><span style="display:flex;"><span>        )
 </span></span></code></pre></div><p>Translating the MIP Model into Pyomo code is straight-forward.
 It really is a 1:1 translation of equations and constraints into Pyomo expressions.</p>

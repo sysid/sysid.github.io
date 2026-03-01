@@ -224,7 +224,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
         var doNotTrack = false;
-        if ( true ) {
+        if ( false ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -315,8 +315,8 @@ With this set and using Pyomo&rsquo;s decorator syntax the model looks compact:<
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#555">@m.Param</span>(m.Ok)
 </span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">distance</span>(model, i, j):
-</span></span><span style="display:flex;"><span>            p = Point(*<span style="color:#038">self</span>.points[i])
-</span></span><span style="display:flex;"><span>            q = Point(*<span style="color:#038">self</span>.points[j])
+</span></span><span style="display:flex;"><span>            p = Point(*self.points[i])
+</span></span><span style="display:flex;"><span>            q = Point(*self.points[j])
 </span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> sqrt((p.x - q.x) ** <span style="color:#00d;font-weight:bold">2</span> + (p.y - q.y) ** <span style="color:#00d;font-weight:bold">2</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        m.groups = pyo.Param(m.G, initialize=group(config))

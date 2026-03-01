@@ -222,7 +222,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
         var doNotTrack = false;
-        if ( true ) {
+        if ( false ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -272,7 +272,7 @@ results in an extensive array of environment variables.</p>
 <p>Small errors can lead to subtle bugs and tedious debug sessions.</p>
 <h2 id="problem-to-solve">Problem To Solve</h2>
 <p>How to manage the set of environment variables without duplication and synchronization.</p>
-<h2 id="solution-rs-env">Solution: <a href="https://github.com/sysid/rs-env">rs-env</a></h2>
+<h2 id="solution-rs-envhttpsgithubcomsysidrs-env">Solution: <a href="https://github.com/sysid/rs-env">rs-env</a></h2>
 <p><a href="https://github.com/sysid/rs-env">rs-env</a> crafts a definitive variable set for each environment.</p>
 <p>By utilizing different definition files, it prevents duplication and sync errors. It starts with global variables, gradually augmenting and refining the set for each level of specification.</p>
 <h2 id="demonstration">Demonstration</h2>

