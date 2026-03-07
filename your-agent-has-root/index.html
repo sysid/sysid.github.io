@@ -42,7 +42,7 @@
   <meta itemprop="description" content="On recklessness, professional abdication, and an opinionated approach to agentic coding security">
   <meta itemprop="datePublished" content="2026-02-22T00:00:00+00:00">
   <meta itemprop="dateModified" content="2026-02-22T00:00:00+00:00">
-  <meta itemprop="wordCount" content="3631">
+  <meta itemprop="wordCount" content="3646">
   <meta itemprop="image" content="/images/share.png">
   <meta itemprop="keywords" content="Security,Ai,Development,Agents">
 <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -554,6 +554,9 @@ corruption — expand the surface faster than defenses can cover it.</p>
 opinionated, specific, and has its limitations. It addresses two of the three
 structural problems identified above: the heterogeneity trap and the sandbox gap. It
 does not claim to solve prompt injection but it makes compromise and exfiltration significantly harder.</p>
+<p>For the <a href="https://github.com/badlogic/pi-mono">pi coding agent</a>, a ready-to-use
+implementation is available as an npm package:
+<a href="https://www.npmjs.com/package/@sysid/pi-sandbox-extended">@sysid/pi-sandbox-extended</a>.</p>
 <h3 id="two-layers-two-enforcement-points">Two Layers, Two Enforcement Points</h3>
 <p>The architecture separates enforcement into two complementary layers:</p>
 <pre tabindex="0"><code>Layer 1 (OS):   SRT sandbox — kernel-level deny
