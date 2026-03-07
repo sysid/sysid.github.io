@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/images/favicon.png" />
+<title>KISS my A.... | sysid blog</title>
+<meta name="title" content="KISS my A...." />
+<meta name="description" content="Keep your agent setup simple, you just do not need all of it." />
+<meta name="keywords" content="ai,development,agents," />
+
+
+<meta property="og:url" content="/kiss-my-a..../">
+  <meta property="og:site_name" content="sysid blog">
+  <meta property="og:title" content="KISS my A....">
+  <meta property="og:description" content="Keep your agent setup simple, you just do not need all of it.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2026-03-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-03-07T00:00:00+00:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Development">
+    <meta property="article:tag" content="Agents">
+    <meta property="og:image" content="/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/images/share.png">
+  <meta name="twitter:title" content="KISS my A....">
+  <meta name="twitter:description" content="Keep your agent setup simple, you just do not need all of it.">
+
+
+
+
+  <meta itemprop="name" content="KISS my A....">
+  <meta itemprop="description" content="Keep your agent setup simple, you just do not need all of it.">
+  <meta itemprop="datePublished" content="2026-03-07T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-03-07T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1086">
+  <meta itemprop="image" content="/images/share.png">
+  <meta itemprop="keywords" content="Ai,Development,Agents">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8VH574W51S');
+        }
+      </script>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+<a href="/tools">Tools</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>KISS my A....</h1>
+<p>
+  <i>
+    <time datetime='2026-03-07' pubdate>
+      07 Mar, 2026
+    </time>
+  </i>
+</p>
+
+<content>
+  <blockquote>
+<p>Keep the agent setup simple, stupid.</p>
+</blockquote>
+<p>We are navigating a Cambrian explosion of AI developer tools. No week without new
+framework, bespoke agent harness, another MCP server, or a library of
+specialized &ldquo;skills&rdquo; designed to supercharge our workflows. For us developers,
+the temptation to jump this train is real. After all, building and
+mastering complex systems is what we do.</p>
+<p>But frameworks don’t just add capability; they freeze assumptions.</p>
+<p>They define how planning should look, where tools must be registered, how memory is stored, how
+skills are selected, how messages are routed. That’s fine when those assumptions match the model’s
+needs. It becomes harmful when the model no longer needs them.</p>
+<p>At that point, the framework stops being leverage and starts being constraint:</p>
+<ul>
+<li>you conform your workflow to the framework,</li>
+<li>you shape your context to fit its abstractions,</li>
+<li>you inherit lock-in to its conventions.</li>
+</ul>
+<p>The irony is that the “reliability layer” often becomes the largest source of fragility.</p>
+<p>Look at the coding agents from the major AI labs. Strip away the branding, and
+they are remarkably similar. Most converge toward the same interaction model, and many are just
+chasing Claude Code as the gold standard.</p>
+<p>This convergence is not a coincidence — it reflects the
+natural gravity of what actually works for a frontier model to operate autonomously inside a
+codebase.</p>
+<h2 id="if-its-truly-valuable-the-agent-will-absorb-it">If it’s truly valuable, the agent will absorb it</h2>
+<p>Planning mode, task lists, structured iteration, workspace awareness, terminal multiplexing. These
+aren’t niche tricks; they are general productivity primitives. When a primitive is broadly useful,
+it migrates into the core product.</p>
+<p>We see this pattern. Workflows that required third-party tooling show up as first-class
+features (workspaces, tmux integration, multi-file navigation, instruction adherence).
+External tools become prosthetics.</p>
+<p>The pattern is clear — if a workflow pattern genuinely provides value, the agent absorbs it.
+Hand-rolled scaffolding becomes dead weight.</p>
+<p>If you really need tools, use them. But treat them as disposable, not foundational.</p>
+<h2 id="the-chaos-of-skills-and-mcps">The Chaos of Skills and MCPs</h2>
+<p>We are enamored with &ldquo;skills&rdquo; and complex Model Context Protocols (MCPs). Marketed as ways to give
+superpowers, these tools often achieve the opposite.</p>
+<p>At their core, skills are merely syntactic sugar for intent recognition. They are abstractions
+designed to map a user&rsquo;s prompt to a specific function execution. But when you equip an agent with
+dozens of interconnected skills and MCPs, you create a massive routing problem. The agent is forced
+to expend its cognitive bandwidth deciding which tool is the appropriate one to use in a given
+scenario.</p>
+<p>The agent struggles to understand the nuances of its bloated toolkit, resulting in a frustrating loop of corrections.
+Furthermore, these tools inject data into the context window without oversight.</p>
+<p>In agentic development, losing control of the context window is fatal.  The dead sin.</p>
+<p>I have seen it. The developers who stack the most tools are rarely the most productive.
+They are the most busy — which is a different thing.</p>
+<h2 id="first-principles-context-is-everything">First Principles: Context Is Everything</h2>
+<p>If we discard bloated toolchains, what are we left with? First principles. Keep It Simple, Stupid (KISS).</p>
+<p>Strip the problem down to its core and what remains is simple. An agent is a language model
+operating within a context window. Everything it knows, everything it can reason about, everything
+it decides to do flows from what is in that window. The quality of your output is bounded by the
+quality of your context.</p>
+<p>This means the highest-leverage activity is not configuring more tools.</p>
+<p>It is managing your context with precision. Clear instructions. Well-structured rules files.
+Thoughtful progressive disclosure — not through a framework, but through explicit direction.</p>
+<p>&ldquo;<em>Read the architecture doc in /docs/arch.md before making changes to the API layer.</em>&rdquo;</p>
+<p>That&rsquo;s it. No skills engine required. No intent-recognition layer. Just a sentence that puts the right
+information in front of the agent at the right time.</p>
+<p>I need full control of my context window. Every MCP, every skill, every extension is something that
+competes for space in that window and introduces decisions I did not make. When I tell the agent
+exactly what to read, use, and apply, there is no ambiguity. There is no routing logic to
+second-guess. The agent gets precisely the context it needs, nothing else.</p>
+<p>Instead of relying on a complex vector database integration or an MCP to fetch documentation, rely
+on the simplest and most robust technology available: plain text.</p>
+<h3 id="the-only-durable-control-surface-is-the-context-window">The only durable control surface is the context window</h3>
+<p>Everything an agent does is a function of context:</p>
+<ul>
+<li>my rules,</li>
+<li>the repository state,</li>
+<li>the relevant docs,</li>
+<li>the constraints,</li>
+<li>and the tool outputs it has seen.</li>
+</ul>
+<p>That is the first principle. It does not change when frameworks or agents change.</p>
+<p>Instead of pre-loading an agent with a dozen external tools, write clean, structured Markdown artifacts.</p>
+<p>The quality of these artefacts is what really matters! Here you need to spend your energy!</p>
+<ul>
+<li>strict, minimal instructions with clear precedence,</li>
+<li>explicit references to artifacts instead of implicit “skills,”</li>
+<li>avoidance of “just-in-case” information.</li>
+</ul>
+<h3 id="the-golden-rule">The Golden Rule</h3>
+<p>No fix until you can precisely name the recurring failure it fixes.
+A concrete failure. A measurable friction point. A repeated cost.</p>
+<p>Then add the smallest possible mechanism to address that one issue. Most of the time this is just
+adding a simple instruction to your AGENTS.md.</p>
+<h2 id="resist-the-paralysis">Resist the Paralysis</h2>
+<p>The number of tools out there creates a real risk of analysis paralysis. It&rsquo;s easy to spend days
+evaluating MCP servers, comparing skills frameworks, and reading blog posts about the &ldquo;ultimate
+agentic setup.&rdquo;</p>
+<p>None of that ships features. None of that fixes bugs.</p>
+<p>YAGNI exists for a reason. Do not add tooling until the absence of it is a proven, repeated
+bottleneck in your actual workflow — not a hypothetical one you read about on Hacker News. And when
+you do hit a genuine bottleneck, check first whether the next agent release already solves it. Odds
+are decent that it does, or will soon.</p>
+<h2 id="keep-it-simple">Keep It Simple</h2>
+<p>The developers who are most effective with coding agents are not the ones with the most elaborate
+setups. They are the ones who understand the fundamentals:</p>
+<ul>
+<li>context is king</li>
+<li>instructions are the primary interface</li>
+<li>and simplicity compounds.</li>
+</ul>
+<p>Treat the agent’s context window as the most precious resource in the workflow. Keep the setup
+ruthlessly simple, rely on plain-text instructions, and let the base models do the heavy lifting.</p>
+<p>Resist the urge to abstract what does not need abstracting.</p>
+<p>Keep it simple. Put your attention where it compounds:</p>
+<p><strong>Context!</strong></p>
+<p>If you control the context window, you control the agent. Everything else is noise.</p>
+
+</content>
+<p>
+  
+  <a href="/blog/ai/">#Ai</a>
+  
+  <a href="/blog/development/">#Development</a>
+  
+  <a href="/blog/agents/">#Agents</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>
