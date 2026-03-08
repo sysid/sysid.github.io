@@ -41,7 +41,7 @@
   <meta itemprop="description" content="Keep your agent setup simple, you just do not need all of it.">
   <meta itemprop="datePublished" content="2026-03-07T00:00:00+00:00">
   <meta itemprop="dateModified" content="2026-03-07T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1086">
+  <meta itemprop="wordCount" content="1034">
   <meta itemprop="image" content="/images/share.png">
   <meta itemprop="keywords" content="Ai,Development,Agents">
 <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -265,17 +265,14 @@
 </p>
 
 <content>
-  <blockquote>
-<p>Keep the agent setup simple, stupid.</p>
-</blockquote>
+  <h2 id="keep-it-simple-my-agent">Keep It Simple my Agent</h2>
 <p>We are navigating a Cambrian explosion of AI developer tools. No week without new
-framework, bespoke agent harness, another MCP server, or a library of
+framework, bespoke agent harness, MCP server, or library of
 specialized &ldquo;skills&rdquo; designed to supercharge our workflows. For us developers,
 the temptation to jump this train is real. After all, building and
 mastering complex systems is what we do.</p>
 <p>But frameworks don’t just add capability; they freeze assumptions.</p>
-<p>They define how planning should look, where tools must be registered, how memory is stored, how
-skills are selected, how messages are routed. That’s fine when those assumptions match the model’s
+<p>That’s fine when those assumptions match the model’s
 needs. It becomes harmful when the model no longer needs them.</p>
 <p>At that point, the framework stops being leverage and starts being constraint:</p>
 <ul>
@@ -283,7 +280,7 @@ needs. It becomes harmful when the model no longer needs them.</p>
 <li>you shape your context to fit its abstractions,</li>
 <li>you inherit lock-in to its conventions.</li>
 </ul>
-<p>The irony is that the “reliability layer” often becomes the largest source of fragility.</p>
+<p>It&rsquo;s an irony that the <em>reliability layer</em> often becomes the source of fragility.</p>
 <p>Look at the coding agents from the major AI labs. Strip away the branding, and
 they are remarkably similar. Most converge toward the same interaction model, and many are just
 chasing Claude Code as the gold standard.</p>
@@ -294,9 +291,9 @@ codebase.</p>
 <p>Planning mode, task lists, structured iteration, workspace awareness, terminal multiplexing. These
 aren’t niche tricks; they are general productivity primitives. When a primitive is broadly useful,
 it migrates into the core product.</p>
-<p>We see this pattern. Workflows that required third-party tooling show up as first-class
-features (workspaces, tmux integration, multi-file navigation, instruction adherence).
-External tools become prosthetics.</p>
+<p>Workflows that required third-party tooling show up as first-class
+features (workspaces, tmux integration, todo lists).
+External tools become prosthetic.</p>
 <p>The pattern is clear — if a workflow pattern genuinely provides value, the agent absorbs it.
 Hand-rolled scaffolding becomes dead weight.</p>
 <p>If you really need tools, use them. But treat them as disposable, not foundational.</p>
@@ -308,58 +305,58 @@ designed to map a user&rsquo;s prompt to a specific function execution. But when
 dozens of interconnected skills and MCPs, you create a massive routing problem. The agent is forced
 to expend its cognitive bandwidth deciding which tool is the appropriate one to use in a given
 scenario.</p>
-<p>The agent struggles to understand the nuances of its bloated toolkit, resulting in a frustrating loop of corrections.
+<p>The agent struggles to understand the nuances of its bloated toolkit.
 Furthermore, these tools inject data into the context window without oversight.</p>
 <p>In agentic development, losing control of the context window is fatal.  The dead sin.</p>
-<p>I have seen it. The developers who stack the most tools are rarely the most productive.
+<p>The developers who stack the most tools are rarely the most productive. I have seen it.
 They are the most busy — which is a different thing.</p>
 <h2 id="first-principles-context-is-everything">First Principles: Context Is Everything</h2>
-<p>If we discard bloated toolchains, what are we left with? First principles. Keep It Simple, Stupid (KISS).</p>
+<p>If we discard bloated toolchains, what are we left with? First principles. Keep It Simple, Stupid
+(KISS).</p>
 <p>Strip the problem down to its core and what remains is simple. An agent is a language model
 operating within a context window. Everything it knows, everything it can reason about, everything
 it decides to do flows from what is in that window. The quality of your output is bounded by the
 quality of your context.</p>
-<p>This means the highest-leverage activity is not configuring more tools.</p>
-<p>It is managing your context with precision. Clear instructions. Well-structured rules files.
+<p>This means the highest-leverage activity is managing context with precision. Not managing more tools.</p>
+<p>Clear instructions. Well-structured rules files.
 Thoughtful progressive disclosure — not through a framework, but through explicit direction.</p>
-<p>&ldquo;<em>Read the architecture doc in /docs/arch.md before making changes to the API layer.</em>&rdquo;</p>
-<p>That&rsquo;s it. No skills engine required. No intent-recognition layer. Just a sentence that puts the right
-information in front of the agent at the right time.</p>
+<p><em>Read the architecture doc in /docs/arch.md before making changes to the API layer.</em></p>
+<p>That&rsquo;s it. No skills engine required. No intent-recognition layer. Just a sentence that puts the
+right information in front of the agent at the right time.</p>
 <p>I need full control of my context window. Every MCP, every skill, every extension is something that
 competes for space in that window and introduces decisions I did not make. When I tell the agent
 exactly what to read, use, and apply, there is no ambiguity. There is no routing logic to
-second-guess. The agent gets precisely the context it needs, nothing else.</p>
-<p>Instead of relying on a complex vector database integration or an MCP to fetch documentation, rely
-on the simplest and most robust technology available: plain text.</p>
+second-guess. The agent gets precisely the context it needs.</p>
+<p>Instead of relying on a complex vector database integration or MCP servers to fetch documentation,
+rely on the simplest and most robust technology available: plain text.</p>
 <h3 id="the-only-durable-control-surface-is-the-context-window">The only durable control surface is the context window</h3>
 <p>Everything an agent does is a function of context:</p>
 <ul>
-<li>my rules,</li>
+<li>rules,</li>
 <li>the repository state,</li>
 <li>the relevant docs,</li>
-<li>the constraints,</li>
 <li>and the tool outputs it has seen.</li>
 </ul>
 <p>That is the first principle. It does not change when frameworks or agents change.</p>
 <p>Instead of pre-loading an agent with a dozen external tools, write clean, structured Markdown artifacts.</p>
-<p>The quality of these artefacts is what really matters! Here you need to spend your energy!</p>
+<p>The quality of these artifacts is what really matters! Here you should spend your energy!</p>
 <ul>
 <li>strict, minimal instructions with clear precedence,</li>
 <li>explicit references to artifacts instead of implicit “skills,”</li>
 <li>avoidance of “just-in-case” information.</li>
 </ul>
 <h3 id="the-golden-rule">The Golden Rule</h3>
-<p>No fix until you can precisely name the recurring failure it fixes.
+<p>No fix until I can precisely name the recurring failure it fixes.
 A concrete failure. A measurable friction point. A repeated cost.</p>
-<p>Then add the smallest possible mechanism to address that one issue. Most of the time this is just
-adding a simple instruction to your AGENTS.md.</p>
-<h2 id="resist-the-paralysis">Resist the Paralysis</h2>
-<p>The number of tools out there creates a real risk of analysis paralysis. It&rsquo;s easy to spend days
-evaluating MCP servers, comparing skills frameworks, and reading blog posts about the &ldquo;ultimate
+<p>Then I add the smallest possible mechanism to address that one issue. Most of the time this is just
+adding a simple instruction to the <code>AGENTS.md</code>.</p>
+<h2 id="resist-paralysis">Resist Paralysis</h2>
+<p>The number of tools out there creates a risk of analysis paralysis. It&rsquo;s easy to spend days
+evaluating MCP servers, comparing frameworks, and reading blog posts about the &ldquo;ultimate
 agentic setup.&rdquo;</p>
-<p>None of that ships features. None of that fixes bugs.</p>
+<p>None of this ships features. None of that fixes bugs.</p>
 <p>YAGNI exists for a reason. Do not add tooling until the absence of it is a proven, repeated
-bottleneck in your actual workflow — not a hypothetical one you read about on Hacker News. And when
+bottleneck in the actual workflow — not a hypothetical one you read about on Hacker News. And when
 you do hit a genuine bottleneck, check first whether the next agent release already solves it. Odds
 are decent that it does, or will soon.</p>
 <h2 id="keep-it-simple">Keep It Simple</h2>
@@ -368,7 +365,7 @@ setups. They are the ones who understand the fundamentals:</p>
 <ul>
 <li>context is king</li>
 <li>instructions are the primary interface</li>
-<li>and simplicity compounds.</li>
+<li>simplicity compounds.</li>
 </ul>
 <p>Treat the agent’s context window as the most precious resource in the workflow. Keep the setup
 ruthlessly simple, rely on plain-text instructions, and let the base models do the heavy lifting.</p>
