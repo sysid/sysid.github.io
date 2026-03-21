@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Sat, 07 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="/blog/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cheap Code, Expensive Confusion</title>
+      <link>/cheap-code-expensive-confusion/</link>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>/cheap-code-expensive-confusion/</guid>
+      <description>&lt;p&gt;AI has made it absurdly easy to generate software-like artifacts. But, that is not the same as&#xA;generating value.&lt;/p&gt;&#xA;&lt;p&gt;Daily we are flooded with shallow POCs,&#xA;demos and agent integrations that solve little, but create the appearance of innovation. The&#xA;barrier to producing something that looks like software has collapsed. The barrier to sound&#xA;judgment not. In fact, judgment matters more than ever because the lever becomes more powerful by&#xA;the day.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>KISS my A....</title>
       <link>/kiss-my-a..../</link>
