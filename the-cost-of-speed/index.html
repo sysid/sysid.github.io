@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/images/favicon.png" />
+<title>The Cost of Speed | sysid blog</title>
+<meta name="title" content="The Cost of Speed" />
+<meta name="description" content="Why engineering practices now being dismissed as friction exist — and the risk to ignore them." />
+<meta name="keywords" content="ai,development,agents," />
+
+
+<meta property="og:url" content="/the-cost-of-speed/">
+  <meta property="og:site_name" content="sysid blog">
+  <meta property="og:title" content="The Cost of Speed">
+  <meta property="og:description" content="Why engineering practices now being dismissed as friction exist — and the risk to ignore them.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2026-03-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-03-28T00:00:00+00:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Development">
+    <meta property="article:tag" content="Agents">
+    <meta property="og:image" content="/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/images/share.png">
+  <meta name="twitter:title" content="The Cost of Speed">
+  <meta name="twitter:description" content="Why engineering practices now being dismissed as friction exist — and the risk to ignore them.">
+
+
+
+
+  <meta itemprop="name" content="The Cost of Speed">
+  <meta itemprop="description" content="Why engineering practices now being dismissed as friction exist — and the risk to ignore them.">
+  <meta itemprop="datePublished" content="2026-03-28T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-03-28T00:00:00+00:00">
+  <meta itemprop="wordCount" content="2235">
+  <meta itemprop="image" content="/images/share.png">
+  <meta itemprop="keywords" content="Ai,Development,Agents">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8VH574W51S');
+        }
+      </script>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+<a href="/tools">Tools</a>
+
+
+<a href="/blog">Blog</a>
+
+
+<a href="/about">About</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>The Cost of Speed</h1>
+<p>
+  <i>
+    <time datetime='2026-03-28' pubdate>
+      28 Mar, 2026
+    </time>
+  </i>
+</p>
+
+<content>
+  <blockquote>
+<p>The Practices We&rsquo;re Throwing Away — They Matter</p>
+</blockquote>
+<p>Agentic coding has made writing software close to free. Claude Code, Codex, Gemini CLI — these tools
+generate prototypes, migrations, refactors, and tests at a pace that would have seemed absurd two
+years ago. Acceleration is real.</p>
+<p>But a strange asymmetry has developed in the public conversation.</p>
+<p>For a certain class of builder, it changed everything: the solo developer, the
+founder racing to validate an idea, the engineer building a personal tool over a weekend. In those
+environments, the cost of failure is bounded. A bug means annoyance, not a regulatory
+incident. A bad abstraction means refactoring next week, not a 3 AM escalation across three
+continents.</p>
+<p>They are not wrong about the speed. They are describing a real change.</p>
+<p>But they are not representing capital-P products [1].</p>
+<p>There is this other side: teams operating systems used by millions, the ones carrying on-call
+rotations, production databases, payment flows, healthcare records, identity systems, and logistics
+infrastructure. They know that the hard part
+of software was never the physical act of typing code. It was building enough shared understanding
+around the code that the system could survive change.</p>
+<p>They know what happens when speed outruns comprehension because they have the scar tissue.</p>
+<p>This matters because a solo developer working with an agent is a fundamentally different situation
+from an engineering team working with agents. When you build alone, the only person who needs to
+understand the code is you.</p>
+<p>In a team, every agent-generated change must be comprehensible to the
+people who will review it, debug it at 3 AM, extend it six months later, and explain it when it
+breaks.</p>
+<p>These days, proven engineering practices — shared understanding, disciplined review, architectural
+assessments — are increasingly dismissed as friction and overhead. The argument is that
+agents make these practices obsolete: why review code carefully when the agent can review it?
+Why invest in shared understanding when the agent can explain the code on demand?</p>
+<p>These are valid questions which I am going to reflect in the following.</p>
+<h2 id="ai-code-hits-production">AI Code Hits Production</h2>
+<p>A analysis highlighted by Stack Overflow, based on CodeRabbit’s review of 470 repositories
+and pull requests, found that AI-generated code produced substantially more issues than
+human-written code overall, including higher rates of logic and correctness problems, security
+issues, excessive I/O, concurrency bugs, and readability problems. Even allowing for the incentives
+of a vendor-backed report, the pattern is difficult to dismiss: the problem is not that AI cannot
+generate working code. It is that it can generate plausible code faster than teams can reliably validate
+it [2].</p>
+<p>In March 2026, Amazon experienced a six-hour shopping outage
+attributed to a faulty AI-assisted deployment [3], followed by a thirteen-hour outage after an
+autonomous agent deleted and attempted to recreate a production environment [4]. Amazon&rsquo;s response:
+A new requirement for senior engineer sign-off on all AI-assisted code changes.</p>
+<h2 id="structural-limits">Structural Limits</h2>
+<p>A common response to these problems: the next model will fix it. Larger context windows,
+better training data, more capable reasoning. This might not be fully true, however.</p>
+<h3 id="the-recall-problem">The Recall Problem</h3>
+<p>When an agent works in a codebase, it must <em>find</em> the relevant existing code before it can make a
+good decision. This is the recall problem: the agent&rsquo;s ability to retrieve the right context from
+the existing codebase. The bigger the codebase, the lower the recall. Low recall means the agent
+misses existing code, duplicates functionality, and introduces inconsistencies.</p>
+<p>The most common counter-argument is that larger context windows will solve this. Maybe not, for
+three reasons:</p>
+<p>First, research on context degradation shows that models achieve 85 to 95 percent
+accuracy on information at the start and end of their context, but drop to 76 to 82 percent on
+information in the middle — the &ldquo;lost in the middle&rdquo; effect [5]. Cramming more code into the window
+makes the retrieval problem worse, not better.</p>
+<p>Second, effective capacity is not advertised
+capacity: a model claiming 200,000 tokens typically becomes unreliable around 130,000, with sudden
+performance drops rather than gradual degradation.</p>
+<p>Third, and most fundamentally, this is a search
+problem, not a storage problem. Even with a million-token window, the agent must identify which of
+thousands of files, functions, and conventions are relevant to the current change. Adding more hay
+does not help find the needle. 65 percent of enterprise AI failures in 2025 were attributed to
+context drift or memory loss during multi-step reasoning — not to running out of context [6].</p>
+<p>The result: agents&rsquo; decisions are always some kind of local. This leads to code duplication, abstractions for
+abstractions&rsquo; sake, and inconsistencies that compound silently.</p>
+<p>That does not mean every generated abstraction is wrong. It means the system often cannot distinguish a
+pattern that is popular from one that is justified.</p>
+<h3 id="cargo-cult-architecture">Cargo-Cult Architecture</h3>
+<p>Agents reproduce patterns that are statistically common in their training data, regardless of
+whether those patterns are appropriate for a given situation. This is cargo-cult programming at
+machine speed.</p>
+<p>An ACM study on software reuse in the generative AI era explicitly
+identifies AI-assisted code generation as &ldquo;a new form of cargo cult programming — inclusion of code
+that originates from external sources without consideration or adequate understanding of relevance
+or side-effects&rdquo; [7]. Sonar&rsquo;s analysis of AI-accelerated codebases shows consistently higher
+cyclomatic complexity — code that is structurally harder to understand and maintain [8].</p>
+<p>An agent over-engineers because the training
+data is full of over-engineering, and it has no &ldquo;taste&rdquo; to distinguish signal from noise.</p>
+<h3 id="the-context-observability-gap">The Context Observability Gap</h3>
+<p>When agents make decisions, those decisions are invisible. No one challenges the intermediate
+reasoning. The context that led to an architectural choice vanishes after the generation is
+complete. In production systems, this means the &ldquo;why&rdquo; behind decisions is lost — not as
+a side effect, but as a structural property of how agents work [9].</p>
+<h3 id="complexity-trap">Complexity Trap</h3>
+<p>Improvement in code
+generation speed gets consumed by the increased complexity of the software we choose to build.</p>
+<p>Or in practical terms: &ldquo;it&rsquo;s easier to write software, so we write much more of it, so the
+complexity goes up and not down, which means things break in more interesting ways, which means
+more incidents, more on call&hellip; all the improvements in the tooling will be canceled by this
+ever-growing complexity&rdquo; [11].</p>
+<h2 id="what-speed-destroys">What Speed Destroys</h2>
+<p>The most insidious cost of acceleration is not bad code. It is lost understanding.</p>
+<p>Cognitive debt is not technical debt. Technical debt lives in the code — messy implementations,
+poor abstractions, shortcuts that will need fixing later. Cognitive debt lives in developers'
+minds: the erosion of the shared mental model of what the software does, how it works, and why
+specific decisions were made.</p>
+<p>AI does not create more confusion per unit of work than human programming does. It compresses the
+timeline. The shock is the speed, not a unique pathology of AI code.</p>
+<p>Margaret-Anne Storey
+documented this dynamic in an educational setting: a student team building a software product
+was paralysed by week seven or eight [12]. They could no longer make even simple changes without
+breaking something unexpected. They initially blamed technical debt, but the real problem was that
+nobody on the team could explain why design decisions had been made. The shared theory of the
+system had fragmented.</p>
+<p>Peter Naur observed in 1985 that a program is not its source code — it is a theory in the minds of
+its developers, capturing what the program does, how intentions are implemented, and how it can be
+changed [13].</p>
+<p>This shared metaphor lets developers working in parallel make
+accurate guesses about each other&rsquo;s work. When ten programmers work simultaneously, each making
+design decisions, the theory binding their work becomes less coherent with every addition — unless
+they share a common mental model.</p>
+<p>&ldquo;Clean code&rdquo; is really about how easily the reader can build a coherent theory of the system. This
+is what accelerated AI coding destroys: the shared theory.</p>
+<h2 id="the-practices-under-threat--and-why-they-existed">The Practices Under Threat — and Why They Existed</h2>
+<p><strong>Code review</strong> is the primary
+mechanism by which teams build a shared mental model. When one human reviews another&rsquo;s code,
+knowledge transfers. The reviewer absorbs context. The author clarifies intent. Both update their
+theory of the system. When an agent generates code and another agent reviews it, nobody learns
+anything. The code may be correct. The shared theory still erodes. And when the 3 AM incident
+happens, no human has the mental model to diagnose it.</p>
+<p><strong>Disciplined architecture</strong> is where the recall problem meets practice.
+Human understanding helps fixing the recall problem. If you know the codebase
+— its conventions, its invariants, its sharp edges — you can guide the agent past its locality
+limits. You can, because
+you carry the theory. Without that understanding, you are flying blind at ten times the speed.</p>
+<p><strong>Taking time</strong> is itself an engineering practice. Armin Ronacher makes the case directly: &ldquo;There&rsquo;s
+a reason we have cooling-off periods for some important decisions in one&rsquo;s life. We recognize that
+people need time to think about what they&rsquo;re doing, and that doing something right once doesn&rsquo;t
+mean much because you need to be able to do it over a longer period of time&rdquo; [14].</p>
+<p><strong>Specifications</strong> are necessary but not sufficient. A common response to all of the above is: &ldquo;the
+solution is better specifications — write a sufficiently detailed spec and the agent will produce
+correct code.&rdquo;</p>
+<p>Gabriel Gonzalez tested this claim rigorously [15]. His finding: even extremely
+detailed, well-known specifications — like the YAML spec, which is exhaustive and widely
+implemented — still produce unreliable implementations when given to agents.
+Specifications matter. They are indispensable. But they are
+lossy representations of intent, unwritten invariants, and operational realities.</p>
+<p>To be fair, certain engineering discipline in our trade really are compensating for human
+limitations and accumulated debt.</p>
+<p>AI definitely can <em>reduce</em> cognitive debt through enforced encapsulation, rapid large-scale
+refactoring, and targeted test suites [16]. The answer is not to reject AI. It is to use
+it with the discipline the situation demands.</p>
+<p>The problem is, assuming that because generation got cheaper, understanding became optional.</p>
+<h2 id="what-the-best-teams-actually-do">What the Best Teams Actually Do</h2>
+<p>In fact, the signal from leading AI organizations is revealing.</p>
+<p>Anthropic hires the Bun creator, Jarred Sumner. OpenAI acquires Astral — the team behind uv, ruff,
+and ty.</p>
+<p>These are the organisations with the most advanced agentic capabilities on earth, and they
+are hiring the best human domain experts they can find. They have the best agents. They still want
+the best humans. That tells you something about how much they trust agents alone.</p>
+<p>Technical depth and execution speed used to correlate. They no longer do. You can now get high
+speed with low depth by delegating thinking to the tool. That can look senior on dashboards and in
+weekly updates. It is not senior if the output is brittle, unobservable, and expensive to maintain.</p>
+<p>The best teams invest not in generating more code faster, but in the infrastructure that makes
+generated code trustworthy: deterministic test suites, clear module boundaries, co-located
+documentation, fast feedback loops. Their job is to design environments where iteration converges
+toward correctness instead plausible nonsense. They treat specifications as
+first-class artifacts — while understanding that specs are inherently incomplete and human judgment
+must bridge the gap.</p>
+<h2 id="the-bet">The Bet</h2>
+<p>Practices increasingly being frowned upon as friction were never about preserving the dignity of
+manual typing.</p>
+<p>They exist because software is a coordination problem not a
+code-generation problem.</p>
+<p>They exist because the cost of wrong code scales with the number of people
+who depend on it.</p>
+<p>They exist because teams need shared theory, not just output.</p>
+<p>They existed because in production environments, the thing that fails is rarely syntax. It is
+understanding.</p>
+<p>The acceleration is real and irreversible. Nobody is arguing for going back.</p>
+<p>But there is a difference between moving fast with comprehension and moving fast without it.</p>
+<p>We need to listen to the veterans who know what a
+thirteen-hour production outage feels like. They know that &ldquo;the agent will fix it&rdquo; might not be a
+reliable incident response plan but rather an expensive bet.</p>
+<hr>
+<h2 id="references">References</h2>
+<p>[1] D. Breunig, &ldquo;Two Things I Believe About Coding Agents,&rdquo; Feb. 2026. <a href="https://www.dbreunig.com/2026/02/25/two-things-i-believe-about-coding-agents.html">https://www.dbreunig.com/2026/02/25/two-things-i-believe-about-coding-agents.html</a></p>
+<p>[2] D. Loker, &ldquo;Are Bugs and Incidents Inevitable with AI Coding Agents?,&rdquo; Stack Overflow Blog, Jan. 2026. <a href="https://stackoverflow.blog/2026/01/28/are-bugs-and-incidents-inevitable-with-ai-coding-agents/">https://stackoverflow.blog/2026/01/28/are-bugs-and-incidents-inevitable-with-ai-coding-agents/</a></p>
+<p>[3] OECD.AI, &ldquo;Amazon AI-Assisted Code Changes Cause Major Outages,&rdquo; Mar. 2026. <a href="https://oecd.ai/en/incidents/2026-03-10-01aa">https://oecd.ai/en/incidents/2026-03-10-01aa</a></p>
+<p>[4] Fortune, &ldquo;An AI Agent Destroyed This Coder&rsquo;s Entire Database. He&rsquo;s Not the Only One with a Horror Story,&rdquo; Mar. 2026. <a href="https://fortune.com/2026/03/18/ai-coding-risks-amazon-agents-enterprise/">https://fortune.com/2026/03/18/ai-coding-risks-amazon-agents-enterprise/</a></p>
+<p>[5] Chroma Research, &ldquo;Context Rot: How Increasing Input Tokens Impacts LLM Performance.&rdquo; <a href="https://research.trychroma.com/context-rot">https://research.trychroma.com/context-rot</a></p>
+<p>[6] Zylos Research, &ldquo;AI Agent Context Compression: Strategies for Long-Running Sessions,&rdquo; Feb. 2026. <a href="https://zylos.ai/research/2026-02-28-ai-agent-context-compression-strategies">https://zylos.ai/research/2026-02-28-ai-agent-context-compression-strategies</a></p>
+<p>[7] ACM, &ldquo;Software Reuse in the Generative AI Era: From Cargo Cult Towards Systematic Practices,&rdquo; Proc. 16th Int. Conf. on Internetware, 2025. <a href="https://dl.acm.org/doi/10.1145/3755881.3755981">https://dl.acm.org/doi/10.1145/3755881.3755981</a></p>
+<p>[8] Sonar, &ldquo;The Inevitable Rise of Poor Code Quality in AI-Accelerated Codebases,&rdquo; 2026. <a href="https://www.sonarsource.com/blog/the-inevitable-rise-of-poor-code-quality-in-ai-accelerated-codebases/">https://www.sonarsource.com/blog/the-inevitable-rise-of-poor-code-quality-in-ai-accelerated-codebases/</a></p>
+<p>[9] rockoder, &ldquo;The Context Observability Gap: Why &lsquo;Magic&rsquo; Agents Fail in Production.&rdquo; <a href="https://www.rockoder.com/blog/the-context-observability-gap/">https://www.rockoder.com/blog/the-context-observability-gap/</a></p>
+<p>[10] H. Sutter, &ldquo;Software Taketh Away Faster than Hardware Giveth,&rdquo; Dec. 2025. <a href="https://herbsutter.com/2025/12/30/software-taketh-away-faster-than-hardware-giveth/">https://herbsutter.com/2025/12/30/software-taketh-away-faster-than-hardware-giveth/</a></p>
+<p>[11] M. Zechner, &ldquo;Thoughts on Slowing the Fuck Down,&rdquo; Mar. 2026. <a href="https://mariozechner.at/posts/2026-03-25-thoughts-on-slowing-the-fuck-down/">https://mariozechner.at/posts/2026-03-25-thoughts-on-slowing-the-fuck-down/</a></p>
+<p>[12] M.-A. Storey, &ldquo;How Generative and Agentic AI Shift Concern from Technical Debt to Cognitive Debt,&rdquo; Feb. 2026. <a href="https://margaretstorey.com/blog/2026/02/09/cognitive-debt/">https://margaretstorey.com/blog/2026/02/09/cognitive-debt/</a></p>
+<p>[13] P. Naur, &ldquo;Programming as Theory Building,&rdquo; 1985. <a href="https://pages.cs.wisc.edu/~remzi/Naur.pdf">https://pages.cs.wisc.edu/~remzi/Naur.pdf</a></p>
+<p>[14] A. Ronacher, &ldquo;Some Things Just Take Time,&rdquo; Mar. 2026. <a href="https://lucumr.pocoo.org/2026/3/20/some-things-just-take-time/">https://lucumr.pocoo.org/2026/3/20/some-things-just-take-time/</a></p>
+<p>[15] G. Gonzalez, &ldquo;A Sufficiently Detailed Spec Is Code,&rdquo; Haskell for All, Mar. 2026. <a href="https://haskellforall.com/2026/03/a-sufficiently-detailed-spec-is-code">https://haskellforall.com/2026/03/a-sufficiently-detailed-spec-is-code</a></p>
+<p>[16] N. Meyvis, &ldquo;On Cognitive Debt.&rdquo; <a href="https://www.natemeyvis.com/on-cognitive-debt/">https://www.natemeyvis.com/on-cognitive-debt/</a></p>
+
+</content>
+<p>
+  
+  <a href="/blog/ai/">#Ai</a>
+  
+  <a href="/blog/development/">#Development</a>
+  
+  <a href="/blog/agents/">#Agents</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

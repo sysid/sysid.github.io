@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Sat, 21 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 28 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="/blog/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Cost of Speed</title>
+      <link>/the-cost-of-speed/</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>/the-cost-of-speed/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;The Practices We&amp;rsquo;re Throwing Away — They Matter&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Agentic coding has made writing software close to free. Claude Code, Codex, Gemini CLI — these tools&#xA;generate prototypes, migrations, refactors, and tests at a pace that would have seemed absurd two&#xA;years ago. Acceleration is real.&lt;/p&gt;&#xA;&lt;p&gt;But a strange asymmetry has developed in the public conversation.&lt;/p&gt;&#xA;&lt;p&gt;For a certain class of builder, it changed everything: the solo developer, the&#xA;founder racing to validate an idea, the engineer building a personal tool over a weekend. In those&#xA;environments, the cost of failure is bounded. A bug means annoyance, not a regulatory&#xA;incident. A bad abstraction means refactoring next week, not a 3 AM escalation across three&#xA;continents.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Cheap Code, Expensive Confusion</title>
       <link>/cheap-code-expensive-confusion/</link>
@@ -70,7 +77,7 @@
       <link>/developers-learnings/</link>
       <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
       <guid>/developers-learnings/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Typed languages are essential on teams with mixed experience levels.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Java is a great language because it&amp;rsquo;s boring!&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Objects are extremely good at what they&amp;rsquo;re good at. Blind devotion to functional is dumb.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Monoliths remain pretty good.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Micro-services require justification (they&amp;rsquo;ve increasingly just become assumed).&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;The “best tool for the job” is often the “least-worst &lt;strong&gt;tool across many&lt;/strong&gt; jobs”. Operating a zoo is the real tax.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Engineering is about communication.&lt;/p&gt;</description>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Engineering is about communication.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Slop is something that takes more human effort to consume than it took to produce.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Typed languages are essential on teams with mixed experience levels.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Java is a great language because it&amp;rsquo;s boring! So is Postgres.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Monoliths remain pretty good.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Micro-services require justification (they&amp;rsquo;ve increasingly just become assumed).&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;The “best tool for the job” is often the “least-worst &lt;strong&gt;tool across many&lt;/strong&gt; jobs”. Operating a zoo is the real tax.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
