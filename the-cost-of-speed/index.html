@@ -41,7 +41,7 @@
   <meta itemprop="description" content="Why engineering practices now being dismissed as friction exist — and the risk to ignore them.">
   <meta itemprop="datePublished" content="2026-03-28T00:00:00+00:00">
   <meta itemprop="dateModified" content="2026-03-28T00:00:00+00:00">
-  <meta itemprop="wordCount" content="2235">
+  <meta itemprop="wordCount" content="2266">
   <meta itemprop="image" content="/images/share.png">
   <meta itemprop="keywords" content="Ai,Development,Agents">
 <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -243,11 +243,9 @@
 </a>
 <nav><a href="/">Home</a>
 
-<a href="/tools">Tools</a>
-
-
 <a href="/blog">Blog</a>
 
+<a href="/tools">Tools</a>
 
 <a href="/about">About</a>
 
@@ -306,10 +304,12 @@ generate working code. It is that it can generate plausible code faster than tea
 it [2].</p>
 <p>In March 2026, Amazon experienced a six-hour shopping outage
 attributed to a faulty AI-assisted deployment [3], followed by a thirteen-hour outage after an
-autonomous agent deleted and attempted to recreate a production environment [4]. Amazon&rsquo;s response:
+autonomous agent deleted and attempted to recreate a production environment [4].</p>
+<p>Amazon&rsquo;s response:
 A new requirement for senior engineer sign-off on all AI-assisted code changes.</p>
+<p>The stories are anecdotal, but they are not absent.</p>
 <h2 id="structural-limits">Structural Limits</h2>
-<p>A common response to these problems: the next model will fix it. Larger context windows,
+<p>The common response: the next model will fix it. Larger context windows,
 better training data, more capable reasoning. This might not be fully true, however.</p>
 <h3 id="the-recall-problem">The Recall Problem</h3>
 <p>When an agent works in a codebase, it must <em>find</em> the relevant existing code before it can make a
@@ -387,15 +387,19 @@ knowledge transfers. The reviewer absorbs context. The author clarifies intent. 
 theory of the system. When an agent generates code and another agent reviews it, nobody learns
 anything. The code may be correct. The shared theory still erodes. And when the 3 AM incident
 happens, no human has the mental model to diagnose it.</p>
-<p><strong>Disciplined architecture</strong> is where the recall problem meets practice.
-Human understanding helps fixing the recall problem. If you know the codebase
+<p><strong>Disciplined architecture</strong> is the foundation of building to last.
+Agents tend to overfit to short-term utility rather than long-term architecture and sustainability.
+This can be mitigated by an experienced developer controlling the agent, but it requires skill,
+consideration and thinking time.</p>
+<p>Human understanding also helps fixing the recall problem. If you know the codebase
 — its conventions, its invariants, its sharp edges — you can guide the agent past its locality
 limits. You can, because
-you carry the theory. Without that understanding, you are flying blind at ten times the speed.</p>
+you carry the theory.</p>
+<p>Without that understanding, you are flying blind - at ten times the speed.</p>
 <p><strong>Taking time</strong> is itself an engineering practice. Armin Ronacher makes the case directly: &ldquo;There&rsquo;s
 a reason we have cooling-off periods for some important decisions in one&rsquo;s life. We recognize that
 people need time to think about what they&rsquo;re doing, and that doing something right once doesn&rsquo;t
-mean much because you need to be able to do it over a longer period of time&rdquo; [14].</p>
+mean much, because you need to be able to do it over a long period of time&rdquo; [14].</p>
 <p><strong>Specifications</strong> are necessary but not sufficient. A common response to all of the above is: &ldquo;the
 solution is better specifications — write a sufficiently detailed spec and the agent will produce
 correct code.&rdquo;</p>
@@ -407,13 +411,12 @@ lossy representations of intent, unwritten invariants, and operational realities
 <p>To be fair, certain engineering discipline in our trade really are compensating for human
 limitations and accumulated debt.</p>
 <p>AI definitely can <em>reduce</em> cognitive debt through enforced encapsulation, rapid large-scale
-refactoring, and targeted test suites [16]. The answer is not to reject AI. It is to use
-it with the discipline the situation demands.</p>
-<p>The problem is, assuming that because generation got cheaper, understanding became optional.</p>
+refactoring, and targeted test suites [16]. As with any tool it matters, who is wielding it.</p>
+<p>The answer is not to reject AI. It is to use it with the discipline the situation demands.</p>
 <h2 id="what-the-best-teams-actually-do">What the Best Teams Actually Do</h2>
 <p>In fact, the signal from leading AI organizations is revealing.</p>
-<p>Anthropic hires the Bun creator, Jarred Sumner. OpenAI acquires Astral — the team behind uv, ruff,
-and ty.</p>
+<p>Anthropic hires the <a href="https://bun.com/">Bun</a> creator, Jarred Sumner. OpenAI acquires
+<a href="https://astral.sh/">Astral</a> — the team behind uv, ruff, and ty.</p>
 <p>These are the organisations with the most advanced agentic capabilities on earth, and they
 are hiring the best human domain experts they can find. They have the best agents. They still want
 the best humans. That tells you something about how much they trust agents alone.</p>
@@ -427,7 +430,7 @@ toward correctness instead plausible nonsense. They treat specifications as
 first-class artifacts — while understanding that specs are inherently incomplete and human judgment
 must bridge the gap.</p>
 <h2 id="the-bet">The Bet</h2>
-<p>Practices increasingly being frowned upon as friction were never about preserving the dignity of
+<p>Best Practices increasingly being frowned upon as friction were never about preserving the dignity of
 manual typing.</p>
 <p>They exist because software is a coordination problem not a
 code-generation problem.</p>
@@ -438,9 +441,8 @@ who depend on it.</p>
 understanding.</p>
 <p>The acceleration is real and irreversible. Nobody is arguing for going back.</p>
 <p>But there is a difference between moving fast with comprehension and moving fast without it.</p>
-<p>We need to listen to the veterans who know what a
-thirteen-hour production outage feels like. They know that &ldquo;the agent will fix it&rdquo; might not be a
-reliable incident response plan but rather an expensive bet.</p>
+<p>We must not forget what a thirteen-hour production outage feels like.
+&ldquo;The agent will fix it&rdquo; is not (yet?) a reliable incident response plan - rather an expensive bet.</p>
 <hr>
 <h2 id="references">References</h2>
 <p>[1] D. Breunig, &ldquo;Two Things I Believe About Coding Agents,&rdquo; Feb. 2026. <a href="https://www.dbreunig.com/2026/02/25/two-things-i-believe-about-coding-agents.html">https://www.dbreunig.com/2026/02/25/two-things-i-believe-about-coding-agents.html</a></p>

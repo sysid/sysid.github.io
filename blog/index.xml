@@ -73,13 +73,6 @@
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;If you want something done right, automate it.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;modern-open-source-maintenance&#34;&gt;Modern Open-Source Maintenance&lt;/h2&gt;&#xA;&lt;p&gt;As the maintainer of &lt;a href=&#34;https://github.com/sysid/sse-starlette&#34;&gt;sse-starlette&lt;/a&gt;, my GitHub notifications rarely bring me joy on a lazy Saturday afternoon.&lt;/p&gt;&#xA;&lt;p&gt;This weekend, I decided to push &lt;a href=&#34;https://www.anthropic.com/claude-code&#34;&gt;Claude Code&lt;/a&gt; a little bit, hoping to save precious summer time.&lt;/p&gt;&#xA;&lt;p&gt;Issue &lt;a href=&#34;https://github.com/sysid/sse-starlette/issues/140&#34;&gt;#140&lt;/a&gt; didn&amp;rsquo;t just look interesting; it appeared non-trivial, touching on asyncio intricacies, multi-threading, and event-loop handling—elements that typically guarantee headaches.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;issue140.png&#34; alt=&#34;issue140.png&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Rather than my usual deep-dive session of debugging and refactoring, I handed the reins to Claude Code, eager to see if it could manage the problem.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>developer&#39;s learnings</title>
-      <link>/developers-learnings/</link>
-      <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>/developers-learnings/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Engineering is about communication.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Slop is something that takes more human effort to consume than it took to produce.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Typed languages are essential on teams with mixed experience levels.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Java is a great language because it&amp;rsquo;s boring! So is Postgres.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Monoliths remain pretty good.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Micro-services require justification (they&amp;rsquo;ve increasingly just become assumed).&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;The “best tool for the job” is often the “least-worst &lt;strong&gt;tool across many&lt;/strong&gt; jobs”. Operating a zoo is the real tax.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Rewriting a Vim Plugin in Rust: vimania-uri-rs</title>
       <link>/rewriting-a-vim-plugin-in-rust-vimania-uri-rs/</link>
       <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
