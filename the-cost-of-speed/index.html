@@ -41,7 +41,7 @@
   <meta itemprop="description" content="Why engineering practices now being dismissed as friction exist — and the risk to ignore them.">
   <meta itemprop="datePublished" content="2026-03-28T00:00:00+00:00">
   <meta itemprop="dateModified" content="2026-03-28T00:00:00+00:00">
-  <meta itemprop="wordCount" content="2266">
+  <meta itemprop="wordCount" content="2230">
   <meta itemprop="image" content="/images/share.png">
   <meta itemprop="keywords" content="Ai,Development,Agents">
 <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -299,11 +299,10 @@ Why invest in shared understanding when the agent can explain the code on demand
 <h2 id="ai-code-hits-production">AI Code Hits Production</h2>
 <p>A analysis highlighted by Stack Overflow, based on CodeRabbit’s review of 470 repositories
 and pull requests, found that AI-generated code produced substantially more issues than
-human-written code overall, including higher rates of logic and correctness problems, security
-issues, excessive I/O, concurrency bugs, and readability problems. Even allowing for the incentives
-of a vendor-backed report, the pattern is difficult to dismiss: the problem is not that AI cannot
-generate working code. It is that it can generate plausible code faster than teams can reliably validate
-it [2].</p>
+human-written code overall.
+Even allowing for the incentives
+of a vendor-backed report, there seems to be a pattern:
+Agents can generate plausible code faster than it can reliably be validated [2].</p>
 <p>In March 2026, Amazon experienced a six-hour shopping outage
 attributed to a faulty AI-assisted deployment [3], followed by a thirteen-hour outage after an
 autonomous agent deleted and attempted to recreate a production environment [4].</p>
@@ -311,14 +310,14 @@ autonomous agent deleted and attempted to recreate a production environment [4].
 A new requirement for senior engineer sign-off on all AI-assisted code changes.</p>
 <p>The stories are anecdotal, but they are not absent.</p>
 <h2 id="structural-limits">Structural Limits</h2>
-<p>The common response: the next model will fix it. Larger context windows,
+<p>A common response: the next model will fix it. Larger context windows,
 better training data, more capable reasoning. This might not be fully true, however.</p>
 <h3 id="the-recall-problem">The Recall Problem</h3>
 <p>When an agent works in a codebase, it must <em>find</em> the relevant existing code before it can make a
 good decision. This is the recall problem: the agent&rsquo;s ability to retrieve the right context from
 the existing codebase. The bigger the codebase, the lower the recall. Low recall means the agent
 misses existing code, duplicates functionality, and introduces inconsistencies.</p>
-<p>The most common counter-argument is that larger context windows will solve this. Maybe not, for
+<p>Larger context windows will probably not solve this, for
 three reasons:</p>
 <p>First, research on context degradation shows that models achieve 85 to 95 percent
 accuracy on information at the start and end of their context, but drop to 76 to 82 percent on
@@ -334,7 +333,7 @@ does not help find the needle. 65 percent of enterprise AI failures in 2025 were
 context drift or memory loss during multi-step reasoning — not to running out of context [6].</p>
 <p>The result: agents&rsquo; decisions are always some kind of local. This leads to code duplication, abstractions for
 abstractions&rsquo; sake, and inconsistencies that compound silently.</p>
-<p>That does not mean every generated abstraction is wrong. It means the system often cannot distinguish a
+<p>It does not mean every generated abstraction is wrong. It means the system often cannot distinguish a
 pattern that is popular from one that is justified.</p>
 <h3 id="cargo-cult-architecture">Cargo-Cult Architecture</h3>
 <p>Agents reproduce patterns that are statistically common in their training data, regardless of
