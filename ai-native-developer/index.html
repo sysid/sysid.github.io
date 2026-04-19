@@ -41,7 +41,7 @@
   <meta itemprop="description" content="How does our developr role evolve driven by AI?">
   <meta itemprop="datePublished" content="2026-04-19T00:00:00+00:00">
   <meta itemprop="dateModified" content="2026-04-19T00:00:00+00:00">
-  <meta itemprop="wordCount" content="3004">
+  <meta itemprop="wordCount" content="2960">
   <meta itemprop="image" content="/images/share.png">
   <meta itemprop="keywords" content="Ai,Development,Agents">
 <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -223,7 +223,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
         var doNotTrack = false;
-        if ( true ) {
+        if ( false ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -271,15 +271,15 @@
 implementation detail. After lunch, you would review design choices with the team. In the
 afternoon, you would merge code, answer questions, and move on to the next change.</p>
 <p>The visible work and the valuable work were usually strongly correlated.</p>
-<p>While it looks similar on a calendar, it is different in substance.</p>
+<p>While it looks similar today on the calendar, it is different in substance.</p>
 <p>In the morning, you tighten an agent instruction file, add a lint rule, or refine an invariant
 that the model keeps violating. After lunch, you review several generated changes
 to find where the system is drifting away from intent. The most
 leveraged thing you merge may not be implementation at all. It may be a harness, an eval,
 or a permission boundary.</p>
-<p>The point is not about shipping faster. It is that work became different.</p>
 <p>The temptation in boardrooms is to read this as the same role at higher throughput — same
 engineer, more PRs, finally the productivity numbers roll over. It is not.</p>
+<p>The point here is not about shipping faster. The work has changed.</p>
 <p>The AI-native developer is a different role from a traditional developer
 — not just the faster version of one. Leverage no longer comes from typing code but from specifying
 intent, designing feedback loops, bounding agent autonomy, and holding responsibility no model can
@@ -322,41 +322,41 @@ selection. It can filter for people who are good at producing activity and miss 
 good at constraining systems, designing reliable feedback loops, and catching plausible nonsense
 before it enters production.</p>
 <h2 id="the-hands-on-reversal-for-senior-ics">The Hands-On Reversal for Senior ICs</h2>
-<p>A most counter-intuitive shift is for senior individual contributors.</p>
-<p>For the last decade, one common story about staff and principal engineers was that they scale
+<p>A most counter-intuitive shift is for senior individual contributors and tech-leads.</p>
+<p>For the last decade, common wisdom about staff and principal engineers was that they scale
 through influence, architecture, and mentorship. They should not disappear entirely from
 implementation, but the center of gravity moved upward and outward. Stay out of the weeds. Think
 bigger. Multiply others.</p>
-<p>Paula Muldoon argues that this default no longer holds cleanly. Her formulation is direct: 2026 is
+<p>This default no longer holds cleanly. 2026 is
 the year staff-plus engineers need to get hands-on again [5].</p>
 <p>That is not a nostalgic plea for craftsmanship. It is a claim about where leverage now sits.</p>
 <p>The agent’s ceiling is the spec, the harness, and the feedback loop around it. Designing those well
 requires the deepest mental model in the room.</p>
-<p>In practice, that often means the senior IC has to
-move closer to the work, not further from it. Not because they must hand-write everything, but
+<p>In practice, that often means the senior IC has to move closer to the work, not further from it. Not because they must hand-write everything, but
 because the parts that most determine quality now sit around the generation loop, and those parts
 are too important to delegate blindly. It is best done by the people who hold the deepest mental model of the system,
 because that model is what the harness has to encode.</p>
 <p>The inverted pitch — seniors as airborne reviewers, agents as the new junior cohort — has been
-quietly tried at enough companies in the last two years to draw a curve. The seniors who delegated
+quietly tried enough in the last two years to draw a curve. The seniors who delegated
 execution and stayed out of the loop went blind in a short time. They could no longer tell
 when an agent had produced a plausibly-shaped solution that missed the actual constraint. They lost
 the felt sense of where the system pushes back. The mental model that made them senior was built on
-friction with the code, but the friction had been removed.</p>
+friction with the code, but the friction is gone.</p>
 <p>Mario Zechner names the underlying thing well: be in the code, because the act of writing it — or
 watching it being built up step by step — is what tells you what you are actually building [6]. His
-bridge-engineer analogy is more useful than it gets credit for. The bridge engineer does not lay
+bridge-engineer analogy is an apt metaphor. The bridge engineer does not lay
 the bricks. They are also not in the office reviewing photos of the bridge. They are on site,
 watching, asking the wrong questions on purpose, refusing to sign the certificate until the
 inspection regime has actually caught something.</p>
-<p>The &ldquo;AI lets seniors stop coding&rdquo; pitch is not a new idea. It is the old no-code pitch with a different
-uniform. It landed successful again this time because the demos are better and the executives wanted to hear
-it. Seniors who take it at face value will spend 2026 catching up.</p>
+<p>The <em>&ldquo;AI lets seniors stop coding&rdquo;</em> pitch is not a new idea. It is the old no-code pitch with a different
+uniform. It landed successful again this time because the demos are better and executives want to hear
+it.</p>
+<p>Seniors who take it at face value will spend 2026 catching up.</p>
 <h2 id="the-new-skill-stack">The New Skill Stack</h2>
-<p>The honest answer to &ldquo;what does the new role look like on a Tuesday morning&rdquo; is more administrative
-than the marketing suggests. Five things make up most of it.</p>
+<p>The honest answer to <em>&ldquo;what does the new role look like on a Tuesday morning&rdquo;</em> is more administrative
+than marketing suggests. Five things make up most of it.</p>
 <p><strong>Constraint architecture.</strong></p>
-<p>The most leveraged commit a senior makes today is maybe a lint rule,
+<p>The most leveraged commit a senior makes today is likely a lint rule,
 a CI check, or a guardrail in an agent configuration file. Ernie Miller&rsquo;s line — &ldquo;the model didn&rsquo;t
 get better, the loop got tighter&rdquo; — captures the move [7]. Telling the agent what to do in prose is the
 weakest form of instruction. Encoding the rule in something the agent cannot ignore is the strong
@@ -366,16 +366,16 @@ form. Linters do not sleep. CI does not have a bad week.</p>
 has so far stuck: the harness is <em>guides</em> (feedforward — context, prompts, examples, docs) and
 <em>sensors</em> (feedback — tests, evals, telemetry, lint) [8]. The senior engineer&rsquo;s product surface is now
 the harness, not just the application.
-Everything that narrows the space of acceptable output before the model has the chance to be “creative.”</p>
+Everything that focuses the space of acceptable output before the model has the chance to be too “creative.”</p>
 <p>The point is not elegance. It is convergence.</p>
 <p><strong>Evaluation as a first-class deliverable.</strong></p>
 <p>Golden sets, regression suites, behavioral evals —
-first-class artefacts owned by the engineer. Kent Beck has been clear
+first-class artifacts owned by the engineer. Kent Beck has been clear
 about why TDD becomes a superpower in agentic settings: tests are the spec the agent cannot
 subvert. However, he has also documented agents <em>deleting tests to make them pass</em>, which is the kind of
-detail that should be printed in large type above every CI dashboard [9].</p>
+detail that an AI engineer must never forget [9].</p>
 <p>An agent will optimize against whatever can be checked. If the checks are
-weak, the system will drift. If the checks are strong, the loop becomes effective.</p>
+weak, the system will drift. If the checks are strong, the loop becomes incredible effective.</p>
 <p><strong>Bounding agent autonomy.</strong></p>
 <p>Isolation, scoped permissions, reversible operations, auditability, and rollback are no longer side
 concerns. Often this is still discussed too
@@ -384,14 +384,14 @@ not whether an agent can act. It is under what conditions, with which blast radi
 regains control when the action is wrong.</p>
 <p>The discipline is closer to running a small team of fast, eager, occasionally dishonest
 junior contractors than to using a tool. Nobody who has run that team for more than a month
-believes the marketing.</p>
+believes the marketing&rsquo;s happy world utopia any more.</p>
 <p><strong>Holding responsibility no model can hold.</strong></p>
 <p>ASCE Policy Statement 573 says it without ornament:
 <em>&ldquo;AI cannot be held accountable, nor can it replace the training, experience, and judgement of a
 professional engineer.&rdquo;</em> [10] The UK Financial Reporting Council was even shorter: <em>&ldquo;You can&rsquo;t blame it
 on the box.&rdquo;</em> [11] That line should sit under every enterprise AI discussion.</p>
 <p>This is probably the least glamorous skill and the least replaceable one.</p>
-<p>The composite picture is unromantic. The senior IC is becoming part platform engineer, part tech
+<p>The composite picture is unromantic. A senior IC is becoming part platform engineer, part tech
 lead, part hostage negotiator. The work is real engineering. It is not the work that fits in a
 keynote.</p>
 <h2 id="the-talent-pipeline">The Talent Pipeline</h2>
@@ -411,22 +411,21 @@ shrinking.</p>
 30% from 2023, with 57% of hiring managers stating they trust AI work over the work of interns and
 recent graduates. The platform&rsquo;s own line reads like a sigh: if you don&rsquo;t hire junior developers,
 you&rsquo;ll someday never have senior developers [13]. This is not an argument anyone should have had to
-write down in 2026. The fact that it had to be written down firmly suggests something about the
+write down in 2026. The fact that it had to be written down loudly suggests something about the
 quality of the strategic thinking happening in some of the rooms.</p>
 <p>The uncomfortable implication is that a pipeline optimized for short-term output is quietly
 starving the next generation of the exact thing that makes senior engineers valuable.</p>
 <p>How does taste get built when execution is delegated? Nobody knows yet.</p>
-<p>The candidate hypotheses —
-rotation through harness, eval, and guardrail work; explicit reading of senior engineers&rsquo; mental
-models as artefacts; protected agent-off exercises early in the career — are speculation.</p>
-<p>None of this is well validated. There is no serious longitudinal study yet on how the
+<p>Rotation through harness, eval, and guardrail work? Explicit reading of senior engineers&rsquo; mental
+models as artifacts? Protected agent-off exercises?</p>
+<p>None of this is validated. There is no serious longitudinal study yet on how the
 junior-to-senior pipeline changes under heavy AI mediation. University curricula have not adapted
 in any obvious way. This is a known unknown, and the industry is not funding it proportionally to
 its importance.</p>
 <h2 id="missing-voices">Missing Voices</h2>
 <p>The discourse on the AI-native developer role has a missing-voice problem, and it cuts in one
 direction.
-The engineers maintaining payments rails, clinical systems, avionics, telco cores, energy ICS, and defence
+Engineers maintaining payments solutions, clinical systems, avionics, telco cores, energy, and defence
 software are mostly silent in public.</p>
 <p>That absence is not random. It
 reflects constraint. It reflects policy. It reflects accountability structures that make casual
@@ -440,31 +439,31 @@ It does not make AI irrelevant. But it does make a some popular agent workflow r
 software is already framing the problem in lifecycle terms [15]. NIST’s new critical infrastructure
 profile work is doing the same [16].</p>
 <p>The case law is still thin to nonexistent. The regulatory direction is not.</p>
-<p>The second reason for the silence is on the rest of us. The discourse, as it exists, is not a
+<p>Another reason for the silence might be simply, that the discourse, as it exists, is not a
 productive room for an engineer at a payments processor or a teaching hospital to enter. It is
 dominated by people selling agent products and people using agents on weekend projects, and
 conversations with both quickly reveal that neither group is interested in answers that contain the
 word <em>no</em>.</p>
-<p>So the voices that ought to be the most informative are not entering the conversation.
+<p>So voices that ought to be most informative are not entering the conversation.
 The empirical absence of regulated-industry first-person writing is itself the data.</p>
-<p>The role description currently being normalised rests on assumptions that do not hold for systems with
+<p>The role description for the AI developer currently being normalised rests on assumptions that might not hold for systems with
 external accountability. Importing it wholesale into critical environments is not a tactical
 mistake. It is a category error.</p>
 <h2 id="identity-grief-and-the-professional-posture">Identity, Grief, and the Professional Posture</h2>
-<p>There is also a personal layer to all of this that is easy to dismiss but unwise to ignore.</p>
+<p>There is also a personal layer.</p>
 <p>Some developers grieve the loss of craft. Others grieve the loss of context. Others simply grieve
 certainty.
 Sean Goedecke’s honesty matters here: “It sucks. I miss feeling like my job was secure.” [20]</p>
 <p>Different people feel different losses because
 they valued different parts of the work [18]. Thomas Vilhena’s version is more detached and
-maybe more useful: most software work was never cathedral-building. Much of it was digital
+maybe realistic: most software work was never cathedral-building. Much of it was digital
 plumbing [19].</p>
 <p>But that observation should not be read as contempt. It is part of what makes the moment emotionally
 complicated. Some of the drudgery really is drudgery. And still,
 something meaningful shifts when the center of professional value moves away from direct
-construction, a moment of creation and creativity. My ego suffers.</p>
+construction, a moment of creation and creativity.</p>
 <p>The honest reading of the personal layer is this: The engineers most disoriented by the shift are
-usually the ones whose self-worth is built on the act of writing code well. They need to
+usually the ones whose self-worth is strongly built on the act of writing code well. They need to
 re-calibrate.</p>
 <p>The mature posture is: Writing code has become commodity.</p>
 <p>It is the recognition that taste, judgment, and the ability to know when

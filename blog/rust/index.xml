@@ -31,6 +31,13 @@
       <description>&lt;h1 id=&#34;streamlining-developer-productivity&#34;&gt;Streamlining Developer Productivity&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Store it, find it, act on it.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Developers know the struggle: You&amp;rsquo;re deep into concentration when suddenly you need that&#xA;specific command, website, or snippet you used weeks ago.&lt;/p&gt;&#xA;&lt;p&gt;However, what should have been a quick retrieval turns into a disruptive search.&lt;/p&gt;&#xA;&lt;p&gt;There are many tools, which individually address this issue. But rarely provide a holistic solution.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-challenge&#34;&gt;The Challenge&lt;/h2&gt;&#xA;&lt;p&gt;We face a common set of challenges when working with information:&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Rewriting a Vim Plugin in Rust: vimania-uri-rs</title>
+      <link>/rewriting-a-vim-plugin-in-rust-vimania-uri-rs/</link>
+      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>/rewriting-a-vim-plugin-in-rust-vimania-uri-rs/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Advanced URI Handling for the Modern Vim User&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;why&#34;&gt;Why?&lt;/h2&gt;&#xA;&lt;p&gt;Vim&amp;rsquo;s native &lt;code&gt;gx&lt;/code&gt; command is somehow limited in its flexibility and capabilities. I wanted more powerful URI handling capabilities, which led me to create &lt;a href=&#34;https://github.com/sysid/vimania-uri&#34;&gt;vimania-uri&lt;/a&gt;, a Vim plugin designed to provide advanced URI management within Vim.&lt;/p&gt;&#xA;&lt;p&gt;However, while the plugin achieved its goal in terms of functionality, it came with a performance penalty: the initial loading of the plugin&amp;rsquo;s Python dependencies severely impacted Vim&amp;rsquo;s startup times. The plugin relied on dependencies such as &lt;code&gt;beautifulsoup4&lt;/code&gt; (bs4) and &lt;code&gt;lxml&lt;/code&gt;, which are known for substantial size and complexity. As a result, the plugin introduced noticeable delays during Vim startup, with load times sporadically exceeding 3 seconds &amp;ndash; painful for a vim user.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Elevating Bookmark Management with AI-Driven Semantic Search</title>
       <link>/elevating-bookmark-management-with-ai-driven-semantic-search/</link>
       <pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate>
