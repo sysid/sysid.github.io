@@ -1,0 +1,333 @@
+---
+title: "AI native developer"
+date: "2026-04-19"
+description: "xxx"
+tags: ["ai", "development", "agents"]
+draft: true
+---
+
+# The AI-Native Developer: A Different Role, Not a Faster One
+
+A staff engineer’s day used to be easy to describe. 
+
+In the morning, they would work through a hard
+implementation detail. After lunch, they would review design choices with the team. In the
+afternoon, they would merge code, answer questions, and move on to the next change. 
+
+The visible work and the valuable work were usually strongly correlated.
+
+Now it looks similar on a calendar while being different in substance.
+In the morning, they tighten an agent instruction file, add a lint rule, or refine an invariant
+that the model keeps violating. After lunch, they review several generated changes
+to find where the system is drifting away from intent. The most
+leveraged thing they merge may not be implementation at all. It may be a check, a harness, an eval,
+or a permission boundary.
+
+The point is not shipping faster. It is that work became different.
+
+The temptation in the boardroom is to read this as the same role at higher throughput — same
+engineer, more PRs, finally the productivity numbers roll over. It is not. 
+
+The AI-native developer is a different role from the traditional developer
+— not just the faster version of one. Leverage no longer comes from typing code but from specifying
+intent, designing feedback loops, bounding agent autonomy, and holding responsibility no model can
+hold.
+
+Nobody knows where this lands.
+
+What follows is a description of how the role is actually changing, viewed from the engineering
+side rather than the vendor side. None of it is settled. Most of the loud claims about it are
+wrong. A few are wrong on purpose.
+
+## The two-axis split is an evaluation failure
+## II. The Split
+
+For a long time, technical depth and execution speed were correlated. The engineers who understood
+the system best were often the ones who shipped fastest, because they saw the path more clearly.
+They knew where the sharp edges were. They made fewer wrong turns. They could move quickly without
+getting lost.
+
+That correlation made existing evaluation systems tolerable.
+
+PR count was noisy, but it often tracked real contribution. Delivery pace was imperfect, but not
+absurd. Code volume was a bad metric, but not always a fatal one, because depth and speed
+tended to move together.
+
+That is no longer true.
+
+Coding agents broke that correlation in eighteen months. Speed is now available without depth,
+because the typing is rented. The artefact — code that compiles, passes its own tests, merges
+before lunch — has stopped being a reliable signal of the engineering underneath. Marco
+Marcosomma's framing of two skill axes that no longer move together is the polite version. The
+blunt version is that seniors, in the last quarter, watched a less
+experienced engineer outship them on the dashboard while quietly knowing the bill would arrive
+later.
+
+Agents can now produce speed without corresponding depth, and most dashboards cannot tell the difference.
+
+Charity Majors wrote, well before the agent wave, that being a senior engineer is not primarily a
+function of your ability to write code. 
+
+Gergely Orosz, watching the same shift across the engineering organisations he
+tracks, calls it the move "from how to what" — and notes, less cheerfully, that less-adept
+engineers are upleveling on the dashboard while generating prodigious volumes of "AI slop". 
+
+The
+2025 DORA report on AI-assisted development, drawing on five thousand practitioners, names the
+mechanism without ornament: AI is an amplifier. Without robust controls, it warns, more change
+leads to more instability — which is a polite way of saying that organisations using output volume
+as a leveling signal are now industrialising the production of incidents.
+
+So PR throughput, story-point velocity, and lines shipped are no longer just imperfect signals.
+They are increasingly misleading ones. They flatter shallow work and discount the exact judgment
+that has become scarce. They reward the developer whose agent is loudest, not the one whose system
+survives.
+
+That matters for hiring and promotion. A funnel built around visible output now risks inverted
+selection. It can filter for people who are good at producing activity and miss the people who are
+good at constraining systems, designing reliable feedback loops, and catching plausible nonsense
+before it enters production.
+
+## "AI lets seniors think strategically" is the no-code pitch with a new uniform
+## III. The Hands-On Reversal for Senior ICs
+
+The most counter-intuitive shift is for senior individual contributors.
+
+For the last decade, one default story about staff and principal engineers was that they scale
+through influence, architecture, and mentorship. They should not disappear entirely from
+implementation, but the center of gravity moved upward and outward. Stay out of the weeds. Think
+bigger. Multiply others.
+
+Paula Muldoon argues that this default no longer holds cleanly. Her formulation is direct: 2026 is
+the year staff-plus engineers need to get hands-on again.[4]
+
+That is not a nostalgic plea for craftsmanship. It is a claim about where leverage now sits.
+
+The agent’s ceiling is the spec, the harness, and the feedback loop around it. Designing those well
+requires the deepest mental model in the room. In practice, that often means the senior IC has to
+move closer to the work, not further from it. Not because they must hand-write everything, but
+because the parts that most determine quality now sit around the generation loop, and those parts
+are too important to delegate blindly. It is best done by the people who hold the deepest mental model of the system,
+because that model is what the harness has to encode.
+
+The inverted pitch — seniors as airborne reviewers, agents as the new junior cohort — has been
+quietly tried at enough companies in the last two years to draw a curve. The seniors who delegated
+execution and stayed out of the loop went blind in a short time. They could no longer tell
+when an agent had produced a plausibly-shaped solution that missed the actual constraint. They lost
+the felt sense of where the system pushes back. The mental model that made them senior was built on
+friction with the code, and the friction had been removed.
+
+Mario Zechner names the underlying thing well: be in the code, because the act of writing it — or
+watching it being built up step by step — is what tells you what you are actually building. His
+bridge-engineer analogy is more useful than it gets credit for. The bridge engineer does not lay
+the bricks. They are also not in the office reviewing photos of the bridge. They are on site,
+watching, asking the wrong questions on purpose, refusing to sign the certificate until the
+inspection regime has actually caught something.
+
+The "AI lets seniors stop coding" pitch is not a new idea. It is the no-code pitch with a different
+uniform. It landed harder this time because the demos are better and the executives wanted to hear
+it. The seniors who took it at face value will spend 2026 catching up.
+
+## What the work actually looks like, less glamorous than advertised
+## IV. The New Skill Stack
+
+The honest answer to "what does the new role look like on a Tuesday morning" is more administrative
+than the marketing suggests. Five things make up most of it.
+
+**Constraint architecture.** 
+
+The most leveraged commit a senior makes today is probably a lint rule,
+a CI check, or a guardrail in an agent configuration file. Ernie Miller's line — "the model didn't
+get better, the loop got tighter" — captures the move. Telling the agent what to do in prose is the
+weakest form of instruction. Encoding the rule in something the agent cannot ignore is the strong
+form. Linters do not sleep. CI does not have a bad week.
+
+**Harness engineering.** 
+
+Birgitta Böckeler at Thoughtworks has proposed the cleanest taxonomy that
+has so far stuck: the harness is *guides* (feedforward — context, prompts, examples, docs) and
+*sensors* (feedback — tests, evals, telemetry, lint). The senior engineer's product surface is now
+the harness, not just the application. 
+Something that narrows the space of acceptable output before the model has the chance to be “creative.” The
+point is not elegance. It is convergence.
+
+**Evaluation as an first-class deliverable.** 
+
+Golden sets, regression suites, behavioural evals —
+first-class artefacts owned by the engineer, not handed to QA at the end. Kent Beck has been clear
+about why TDD becomes a superpower in agentic settings: tests are the spec the agent cannot
+subvert. He has also documented agents *deleting tests to make them pass*, which is the kind of
+detail that should be printed in large type above every CI dashboard.
+An agent will optimize against whatever can be checked. If the checks are
+weak, the system will drift. If the checks are strong, the loop becomes effective.
+
+**Bounding agent autonomy.** 
+
+Isolation, scoped permissions, reversible operations, auditability, and rollback are no longer side
+concerns. They are designed properties. Often this is still discussed too
+casually, as if more capable models will dissolve the problem. They will not. The core question is
+not whether an agent can act. It is under what conditions, with which blast radius, and how a human
+regains control when the action is wrong.
+
+The discipline is closer to running a small team of fast, eager, occasionally dishonest
+junior contractors than to using a tool. Nobody who has run that team for more than a month
+believes the marketing.
+
+**Holding responsibility no model can hold.** 
+
+ASCE Policy Statement 573 says it without ornament:
+*"AI cannot be held accountable, nor can it replace the training, experience, and judgement of a
+professional engineer."* The UK Financial Reporting Council was even shorter: *"You can't blame it
+on the box."* That line should sit under every enterprise AI discussion.
+
+This is the least glamorous skill and the least replaceable one.
+
+The composite picture is unromantic. The senior IC is becoming part platform engineer, part tech
+lead, part hostage negotiator. The work is real engineering. It is not the work that fits in a
+keynote.
+
+## The juniors data is not ambiguous
+## The juniors data is not ambiguous
+
+If the role demands judgment and tacit knowledge — and if execution, the substrate juniors
+traditionally built those on, has been outsourced to a model — the pipeline question stops being
+abstract.
+
+The Stanford Digital Economy Lab study by Brynjolfsson, Chandar and Chen (*Canaries in the Coal
+Mine*) is the empirical anchor anyone working on this should have read. Drawing on ADP payroll
+microdata covering millions of workers, the authors document a divergence that is hard to
+misinterpret: software developers aged 22–25 saw employment fall roughly 20% from a late-2022 peak
+through July 2025. Workers 30 and over in the same high-AI-exposure category *grew* 6–13% over the
+same window. The authors offer the careful interpretation that tacit knowledge defends older
+workers. The uncareful interpretation, also supported by the data, is that companies have decided
+juniors are optional and are betting they can hire from a pool that has not yet noticed it is
+shrinking.
+
+The supporting picture is consistent. Stack Overflow's 2025 analysis reports tech internships down
+30% from 2023, and 57% of hiring managers stating they trust AI work over the work of interns and
+recent graduates. The platform's own line reads like a sigh: if you don't hire junior developers,
+you'll someday never have senior developers. This is not an argument anyone should have had to
+write down in 2026. The fact that it had to be written down loudly suggests something about the
+quality of the strategic thinking happening in some of the rooms.
+
+The uncomfortable implication is that a pipeline optimized for short-term output is quietly
+starving the next generation of the exact thing that makes senior engineers valuable.[11]
+
+How does taste get built when execution is delegated? Nobody knows yet. 
+
+The candidate hypotheses —
+rotation through harness, eval, and guardrail work; explicit reading of senior engineers' mental
+models as artefacts; protected agent-off exercises early in the career — are speculation, not
+evidence. 
+
+None of this is well validated. There is no serious longitudinal study yet on how the
+junior-to-senior pipeline changes under heavy AI mediation. University curricula have not adapted
+in any obvious way. This is a known unknown, and the industry is not funding it proportionally to
+its importance.
+
+## The missing voices are missing for two reasons, and one of them is on us
+## VI. The Missing Voices
+
+The discourse on the AI-native developer role has a missing-voice problem, and it cuts in one
+direction. The loudest current accounts come from contexts where the blast radius of failure is
+bounded: small products, side projects, consulting prototypes, agent demos. The engineers
+maintaining payments rails, clinical systems, avionics, telco cores, energy ICS, and defence
+software are mostly silent in public.
+
+That absence is not random. It
+reflects constraint. It reflects policy. It reflects accountability structures that make casual
+claims hard to publish and harder to operationalize.
+
+Where those voices do appear, they sound different.
+
+In aerospace, Andrew Longhurst’s discussion of DO-178C is clarifying precisely because it is so
+concrete: traceability, independent review, deterministic verification, approved standards.[12]
+That is what accountability looks like in a regulated shop. It does not make AI irrelevant. But it
+does make a large fraction of popular agent workflow rhetoric sound unserious.
+
+The same asymmetry appears in regulation. The FDA’s 2025 draft guidance on AI-enabled device
+software is already framing the problem in lifecycle terms.[13] NIST’s new critical infrastructure
+profile work is doing the same.[14] 
+
+The EU's revised
+Defective Products Directive (2024/2853), effective 9 December 2026, treats software and AI systems
+as products for strict-liability purposes — the legal floor under every CTO conversation in the
+European market just dropped a story.
+
+The case law is still thin to nonexistent. The regulatory direction is not.
+
+There is also a quieter supply-chain point. Regulated shops do not need to use every trendy
+workflow directly to inherit its consequences. If insecure or weakly understood AI-generated code
+enters dependencies upstream, it still arrives downstream. That is one reason the recent Georgia
+Tech vulnerability work drew attention.[16] Even if the exact counts move around, the signal is
+enough to matter.
+
+The second reason for the silence is on the rest of us. The discourse, as it exists, is not a
+productive room for an engineer at a payments processor or a teaching hospital to enter. It is
+dominated by people selling agent products and people using agents on weekend projects, and
+conversations with both quickly reveal that neither group is interested in answers that contain the
+word *no*. 
+
+So the voices that ought to be the most informative are not entering the conversation.
+The empirical absence of regulated-industry first-person writing is itself the data. 
+
+The role
+description currently being normalised rests on assumptions that do not hold for systems with
+external accountability. Importing it wholesale into critical environments is not a tactical
+mistake. It is a category error.
+
+## Identity, taste, and the posture worth holding
+## VII. Identity, Grief, and the Professional Posture
+
+There is also a personal layer to all of this that is easy to dismiss and unwise to ignore.
+
+Some developers grieve the loss of craft. Others grieve the loss of context. Others simply grieve
+certainty. Les Orchard captured the split cleanly: different people feel different losses because
+they valued different parts of the work.[17] Thomas Vilhena’s version is more detached and
+maybe more useful: most software work was never cathedral-building. Much of it was digital
+plumbing.[18]
+
+That observation should not be read as contempt. It is part of what makes the moment emotionally
+complicated. The tools are genuinely useful. Some of the drudgery really is drudgery. And still,
+something meaningful shifts when the center of professional value moves away from direct
+construction.
+
+Sean Goedecke’s honesty matters here: “It sucks. I miss feeling like my job was secure.”[19] That
+is not a theory. It is a professional reaction to uncertainty. Baldur Bjarnason’s critique sharpens
+it: even where the technology has not changed as much as the rhetoric suggests, the industry
+response has hardened.[20]
+
+The honest reading of the personal layer is this. The engineers most disoriented by the shift are
+usually the ones whose self-worth was built on the act of writing code well. They are not wrong to
+be disoriented. They are also conflating two different losses — the role of typing as the central
+activity, and the social respect that came with being a person who could type fluently. The first
+is gone. The second is renegotiable, but only by admitting the renegotiation is happening.
+
+The mature posture is harder than the slogans about it. It is not "embrace the change". It is not
+"AI is just another tool". It is the recognition that taste, judgment, and the ability to know when
+to stop — the things that used to make senior engineers valuable *on top of* their execution speed
+— are now the only things that make them valuable. 
+
+
+## Conclusion
+
+Our role is changing, and the unknowns inside the change are real. 
+
+The honest response, for staff
+engineers and for the executives funding their work, is to describe what is happening in the
+language of engineering rather than the language of marketing. 
+
+Stop measuring output volume. 
+
+The senior IC needs to be in the code, not above it. 
+
+The harness is the leveraged investment; the agent is the commodity. 
+
+The juniors who are not being hired today are the seniors who will not exist in 2031.
+
+The engineers who actually run critical systems should be in the discourse, and the discourse
+should be a place where their answers are welcome.
+Their silence must not be misinterpreted as agreement.
+
+None of this is theoretical. It is what the work is. The question is not how fast the new AI developer
+ships. The question is who they are when the system breaks at 3am — and who taught them what to do.

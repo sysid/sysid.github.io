@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Sat, 28 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI native developer</title>
+      <link>/ai-native-developer/</link>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>/ai-native-developer/</guid>
+      <description>&lt;h1 id=&#34;a-different-role-not-a-faster-one&#34;&gt;A Different Role, Not a Faster One&lt;/h1&gt;&#xA;&lt;p&gt;A staff engineer’s day used to be easy to describe.&lt;/p&gt;&#xA;&lt;p&gt;In the morning, you would work through a hard&#xA;implementation detail. After lunch, you would review design choices with the team. In the&#xA;afternoon, you would merge code, answer questions, and move on to the next change.&lt;/p&gt;&#xA;&lt;p&gt;The visible work and the valuable work were usually strongly correlated.&lt;/p&gt;&#xA;&lt;p&gt;While it looks similar on a calendar, it is different in substance.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>The Cost of Speed</title>
       <link>/the-cost-of-speed/</link>
