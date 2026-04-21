@@ -8,14 +8,14 @@
 <link rel="shortcut icon" href="/images/favicon.png" />
 <title>AI native developer | sysid blog</title>
 <meta name="title" content="AI native developer" />
-<meta name="description" content="How does our developr role evolve driven by AI?" />
+<meta name="description" content="The AI-native developer is a different role, not a faster one" />
 <meta name="keywords" content="ai,development,agents," />
 
 
 <meta property="og:url" content="/ai-native-developer/">
   <meta property="og:site_name" content="sysid blog">
   <meta property="og:title" content="AI native developer">
-  <meta property="og:description" content="How does our developr role evolve driven by AI?">
+  <meta property="og:description" content="The AI-native developer is a different role, not a faster one">
   <meta property="og:locale" content="en_US">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -32,16 +32,16 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="/images/share.png">
   <meta name="twitter:title" content="AI native developer">
-  <meta name="twitter:description" content="How does our developr role evolve driven by AI?">
+  <meta name="twitter:description" content="The AI-native developer is a different role, not a faster one">
 
 
 
 
   <meta itemprop="name" content="AI native developer">
-  <meta itemprop="description" content="How does our developr role evolve driven by AI?">
+  <meta itemprop="description" content="The AI-native developer is a different role, not a faster one">
   <meta itemprop="datePublished" content="2026-04-19T00:00:00+00:00">
   <meta itemprop="dateModified" content="2026-04-19T00:00:00+00:00">
-  <meta itemprop="wordCount" content="2960">
+  <meta itemprop="wordCount" content="2936">
   <meta itemprop="image" content="/images/share.png">
   <meta itemprop="keywords" content="Ai,Development,Agents">
 <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -307,11 +307,11 @@ later.</p>
 <p>Agents can now produce speed without corresponding depth, and most dashboards cannot tell the difference.</p>
 <p>Gergely Orosz, watching the same shift across the engineering organisations he
 tracks, calls it the move &ldquo;from how to what&rdquo; — and notes, less cheerfully, that less-adept
-engineers are upleveling on the dashboard while generating prodigious volumes of &ldquo;AI slop&rdquo; [3].</p>
+engineers are upleveling on the dashboard while generating prodigious volumes of &ldquo;AI slop&rdquo; [2].</p>
 <p>The
 2025 DORA report on AI-assisted development, drawing on five thousand practitioners, names the
 mechanism without ornament: AI is an amplifier. Without robust controls, it warns, more change
-leads to more instability [4] — which is a polite way of saying that organisations using output volume
+leads to more instability [3] — which is a polite way of saying that organisations using output volume
 as a leveling signal are industrialising the production of incidents.</p>
 <p>So PR throughput, story-point velocity, and lines shipped are no longer just imperfect signals.
 They are increasingly misleading ones. They flatter shallow work and discount the exact judgment
@@ -328,7 +328,7 @@ through influence, architecture, and mentorship. They should not disappear entir
 implementation, but the center of gravity moved upward and outward. Stay out of the weeds. Think
 bigger. Multiply others.</p>
 <p>This default no longer holds cleanly. 2026 is
-the year staff-plus engineers need to get hands-on again [5].</p>
+the year staff-plus engineers need to get hands-on again [4].</p>
 <p>That is not a nostalgic plea for craftsmanship. It is a claim about where leverage now sits.</p>
 <p>The agent’s ceiling is the spec, the harness, and the feedback loop around it. Designing those well
 requires the deepest mental model in the room.</p>
@@ -343,7 +343,7 @@ when an agent had produced a plausibly-shaped solution that missed the actual co
 the felt sense of where the system pushes back. The mental model that made them senior was built on
 friction with the code, but the friction is gone.</p>
 <p>Mario Zechner names the underlying thing well: be in the code, because the act of writing it — or
-watching it being built up step by step — is what tells you what you are actually building [6]. His
+watching it being built up step by step — is what tells you what you are actually building [5]. His
 bridge-engineer analogy is an apt metaphor. The bridge engineer does not lay
 the bricks. They are also not in the office reviewing photos of the bridge. They are on site,
 watching, asking the wrong questions on purpose, refusing to sign the certificate until the
@@ -358,13 +358,13 @@ than marketing suggests. Five things make up most of it.</p>
 <p><strong>Constraint architecture.</strong></p>
 <p>The most leveraged commit a senior makes today is likely a lint rule,
 a CI check, or a guardrail in an agent configuration file. Ernie Miller&rsquo;s line — &ldquo;the model didn&rsquo;t
-get better, the loop got tighter&rdquo; — captures the move [7]. Telling the agent what to do in prose is the
+get better, the loop got tighter&rdquo; — captures the move [6]. Telling the agent what to do in prose is the
 weakest form of instruction. Encoding the rule in something the agent cannot ignore is the strong
 form. Linters do not sleep. CI does not have a bad week.</p>
 <p><strong>Harness engineering.</strong></p>
 <p>Birgitta Böckeler at Thoughtworks has proposed the cleanest taxonomy that
 has so far stuck: the harness is <em>guides</em> (feedforward — context, prompts, examples, docs) and
-<em>sensors</em> (feedback — tests, evals, telemetry, lint) [8]. The senior engineer&rsquo;s product surface is now
+<em>sensors</em> (feedback — tests, evals, telemetry, lint) [7]. The senior engineer&rsquo;s product surface is now
 the harness, not just the application.
 Everything that focuses the space of acceptable output before the model has the chance to be too “creative.”</p>
 <p>The point is not elegance. It is convergence.</p>
@@ -373,9 +373,9 @@ Everything that focuses the space of acceptable output before the model has the 
 first-class artifacts owned by the engineer. Kent Beck has been clear
 about why TDD becomes a superpower in agentic settings: tests are the spec the agent cannot
 subvert. However, he has also documented agents <em>deleting tests to make them pass</em>, which is the kind of
-detail that an AI engineer must never forget [9].</p>
+detail that an AI engineer must never forget [8].</p>
 <p>An agent will optimize against whatever can be checked. If the checks are
-weak, the system will drift. If the checks are strong, the loop becomes incredible effective.</p>
+weak, the system will drift. If the checks are strong, the loop becomes incredibly effective.</p>
 <p><strong>Bounding agent autonomy.</strong></p>
 <p>Isolation, scoped permissions, reversible operations, auditability, and rollback are no longer side
 concerns. Often this is still discussed too
@@ -388,8 +388,8 @@ believes the marketing&rsquo;s happy world utopia any more.</p>
 <p><strong>Holding responsibility no model can hold.</strong></p>
 <p>ASCE Policy Statement 573 says it without ornament:
 <em>&ldquo;AI cannot be held accountable, nor can it replace the training, experience, and judgement of a
-professional engineer.&rdquo;</em> [10] The UK Financial Reporting Council was even shorter: <em>&ldquo;You can&rsquo;t blame it
-on the box.&rdquo;</em> [11] That line should sit under every enterprise AI discussion.</p>
+professional engineer.&rdquo;</em> [9] The UK Financial Reporting Council was even shorter: <em>&ldquo;You can&rsquo;t blame it
+on the box.&rdquo;</em> [10] That line should sit under every enterprise AI discussion.</p>
 <p>This is probably the least glamorous skill and the least replaceable one.</p>
 <p>The composite picture is unromantic. A senior IC is becoming part platform engineer, part tech
 lead, part hostage negotiator. The work is real engineering. It is not the work that fits in a
@@ -399,7 +399,7 @@ keynote.</p>
 traditionally built those on, has been outsourced to a model — the pipeline question stops being
 abstract.</p>
 <p>The Stanford Digital Economy Lab study (<em>Canaries in the Coal
-Mine</em>) is the empirical anchor anyone working on this should have read [12]. Drawing on ADP payroll
+Mine</em>) is the empirical anchor anyone working on this should have read [11]. Drawing on ADP payroll
 microdata covering millions of workers, the authors document a divergence that is hard to
 misinterpret: software developers aged 22–25 saw employment fall roughly 20% from a late-2022 peak
 through July 2025. Workers 30 and over in the same high-AI-exposure category <em>grew</em> 6–13% over the
@@ -410,7 +410,7 @@ shrinking.</p>
 <p>The supporting picture is consistent. Stack Overflow&rsquo;s 2025 analysis reports tech internships down
 30% from 2023, with 57% of hiring managers stating they trust AI work over the work of interns and
 recent graduates. The platform&rsquo;s own line reads like a sigh: if you don&rsquo;t hire junior developers,
-you&rsquo;ll someday never have senior developers [13]. This is not an argument anyone should have had to
+you&rsquo;ll someday never have senior developers [12]. This is not an argument anyone should have had to
 write down in 2026. The fact that it had to be written down loudly suggests something about the
 quality of the strategic thinking happening in some of the rooms.</p>
 <p>The uncomfortable implication is that a pipeline optimized for short-term output is quietly
@@ -432,12 +432,12 @@ reflects constraint. It reflects policy. It reflects accountability structures t
 claims hard to publish and harder to operationalize.</p>
 <p>Where those voices do appear, they sound different.</p>
 <p>In aerospace, Andrew Longhurst’s discussion of DO-178C is clarifying precisely because it is so
-concrete: traceability, independent review, deterministic verification, approved standards [14].
+concrete: traceability, independent review, deterministic verification, approved standards [13].
 That is what accountability looks like in a regulated shop, where incidents can make the news.
 It does not make AI irrelevant. But it does make a some popular agent workflow rhetoric sound unserious.</p>
 <p>The same asymmetry appears in regulation. The FDA’s 2025 draft guidance on AI-enabled device
-software is already framing the problem in lifecycle terms [15]. NIST’s new critical infrastructure
-profile work is doing the same [16].</p>
+software is already framing the problem in lifecycle terms [14]. NIST’s new critical infrastructure
+profile work is doing the same [15].</p>
 <p>The case law is still thin to nonexistent. The regulatory direction is not.</p>
 <p>Another reason for the silence might be simply, that the discourse, as it exists, is not a
 productive room for an engineer at a payments processor or a teaching hospital to enter. It is
@@ -453,11 +453,11 @@ mistake. It is a category error.</p>
 <p>There is also a personal layer.</p>
 <p>Some developers grieve the loss of craft. Others grieve the loss of context. Others simply grieve
 certainty.
-Sean Goedecke’s honesty matters here: “It sucks. I miss feeling like my job was secure.” [20]</p>
+Sean Goedecke’s honesty matters here: “It sucks. I miss feeling like my job was secure.” [18]</p>
 <p>Different people feel different losses because
-they valued different parts of the work [18]. Thomas Vilhena’s version is more detached and
+they valued different parts of the work [16]. Thomas Vilhena’s version is more detached and
 maybe realistic: most software work was never cathedral-building. Much of it was digital
-plumbing [19].</p>
+plumbing [17].</p>
 <p>But that observation should not be read as contempt. It is part of what makes the moment emotionally
 complicated. Some of the drudgery really is drudgery. And still,
 something meaningful shifts when the center of professional value moves away from direct
@@ -490,25 +490,23 @@ whose system still tells the truth about itself after the model has been working
 months.</p>
 <h2 id="references">References</h2>
 <p>[1] M. Somma, &ldquo;The Old Seniority Definition Is Collapsing,&rdquo; DEV Community. <a href="https://dev.to/marcosomma/the-old-seniority-definition-is-collapsing-12lj">https://dev.to/marcosomma/the-old-seniority-definition-is-collapsing-12lj</a></p>
-<p>[3] G. Orosz, &ldquo;The Impact of AI on Software Engineers in 2026,&rdquo; The Pragmatic Engineer. <a href="https://newsletter.pragmaticengineer.com/p/the-impact-of-ai-on-software-engineers-2026">https://newsletter.pragmaticengineer.com/p/the-impact-of-ai-on-software-engineers-2026</a></p>
-<p>[4] DORA, &ldquo;2025 State of AI-assisted Software Development,&rdquo; Google Cloud / DORA, 2025. <a href="https://dora.dev/research/2025/dora-report/">https://dora.dev/research/2025/dora-report/</a></p>
-<p>[5] P. Muldoon, &ldquo;2026 Staff Engineers Need to Get Hands-On Again,&rdquo; Mar. 2026. <a href="https://paulamuldoon.com/2026/03/10/2026-staff-engineers-need-to-get-hands-on-again/">https://paulamuldoon.com/2026/03/10/2026-staff-engineers-need-to-get-hands-on-again/</a></p>
-<p>[6] M. Zechner, &ldquo;Thoughts on Slowing the Fuck Down,&rdquo; Mar. 2026. <a href="https://mariozechner.at/posts/2026-03-25-thoughts-on-slowing-the-fuck-down/">https://mariozechner.at/posts/2026-03-25-thoughts-on-slowing-the-fuck-down/</a></p>
-<p>[7] E. Miller, &ldquo;The Feedback Loop Is All You Need.&rdquo; <a href="https://zernie.com/blog/feedback-loop-is-all-you-need/">https://zernie.com/blog/feedback-loop-is-all-you-need/</a></p>
-<p>[8] B. Böckeler, &ldquo;Harness Engineering for Coding Agent Users,&rdquo; martinfowler.com. <a href="https://martinfowler.com/articles/exploring-gen-ai/harness-engineering.html">https://martinfowler.com/articles/exploring-gen-ai/harness-engineering.html</a></p>
-<p>[9] K. Beck with G. Orosz, &ldquo;TDD, AI Agents and Coding with Kent Beck,&rdquo; The Pragmatic Engineer. <a href="https://newsletter.pragmaticengineer.com/p/tdd-ai-agents-and-coding-with-kent">https://newsletter.pragmaticengineer.com/p/tdd-ai-agents-and-coding-with-kent</a></p>
-<p>[10] ASCE, &ldquo;Policy Statement 573: Artificial Intelligence and Engineering Responsibility,&rdquo; Jul. 2024. <a href="https://www.asce.org/advocacy/policy-statements/ps573---artificial-intelligence-and-engineering-responsibility">https://www.asce.org/advocacy/policy-statements/ps573---artificial-intelligence-and-engineering-responsibility</a></p>
-<p>[11] &ldquo;Who is Liable When AI Agents Go Wrong in Business?,&rdquo; The Register, Apr. 2026. <a href="https://www.theregister.com/2026/04/05/ai_agents_liability/">https://www.theregister.com/2026/04/05/ai_agents_liability/</a></p>
-<p>[12] E. Brynjolfsson, B. Chandar, R. Chen, &ldquo;Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of AI,&rdquo; Stanford Digital Economy Lab, 2025. <a href="https://digitaleconomy.stanford.edu/publications/canaries-in-the-coal-mine/">https://digitaleconomy.stanford.edu/publications/canaries-in-the-coal-mine/</a></p>
-<p>[13] Stack Overflow, &ldquo;AI vs Gen Z: How AI Has Changed the Career Pathway for Junior Developers,&rdquo; Dec. 2025. <a href="https://stackoverflow.blog/2025/12/26/ai-vs-gen-z/">https://stackoverflow.blog/2025/12/26/ai-vs-gen-z/</a></p>
-<p>[14] A. Longhurst, &ldquo;Using AI to Write Aerospace Software: Navigating the DO-178C Landscape,&rdquo; Aerospace Global News. <a href="https://aerospaceglobalnews.com/opinion/ai-aerospace-software-do-178c-certification/">https://aerospaceglobalnews.com/opinion/ai-aerospace-software-do-178c-certification/</a></p>
-<p>[15] FDA, &ldquo;Artificial Intelligence-Enabled Device Software Functions: Lifecycle Management and Marketing Submission Recommendations (Draft Guidance),&rdquo; Jan. 2025. <a href="https://www.federalregister.gov/documents/2025/01/07/2024-31543/artificial-intelligence-enabled-device-software-functions-lifecycle-management-and-marketing">https://www.federalregister.gov/documents/2025/01/07/2024-31543/artificial-intelligence-enabled-device-software-functions-lifecycle-management-and-marketing</a></p>
-<p>[16] NIST, &ldquo;Concept Note: AI RMF Profile on Trustworthy AI in Critical Infrastructure,&rdquo; Apr. 2026. <a href="https://www.nist.gov/programs-projects/concept-note-ai-rmf-profile-trustworthy-ai-critical-infrastructure">https://www.nist.gov/programs-projects/concept-note-ai-rmf-profile-trustworthy-ai-critical-infrastructure</a></p>
-<p>[17] &ldquo;AI Coding Assistants Not More Secure, Study Finds,&rdquo; The Register, Mar. 2026. <a href="https://www.theregister.com/2026/03/26/ai_coding_assistant_not_more_secure/">https://www.theregister.com/2026/03/26/ai_coding_assistant_not_more_secure/</a></p>
-<p>[18] L. Orchard, &ldquo;Grief and the AI Split,&rdquo; Mar. 2026. <a href="https://blog.lmorchard.com/2026/03/11/grief-and-the-ai-split/">https://blog.lmorchard.com/2026/03/11/grief-and-the-ai-split/</a></p>
-<p>[19] T. Vilhena, &ldquo;Craftsmanship Coding and the Five Stages of Grief,&rdquo; Feb. 2026. <a href="https://thomasvilhena.com/2026/02/craftsmanship-coding-five-stages-of-grief">https://thomasvilhena.com/2026/02/craftsmanship-coding-five-stages-of-grief</a></p>
-<p>[20] S. Goedecke, &ldquo;I Don&rsquo;t Know If My Job Will Still Exist in Ten Years.&rdquo; <a href="https://www.seangoedecke.com/will-my-job-still-exist/">https://www.seangoedecke.com/will-my-job-still-exist/</a></p>
-<p>[21] B. Bjarnason, &ldquo;Have I Hardened Against LLMs?,&rdquo; 2026. <a href="https://www.baldurbjarnason.com/2026/have-i-hardened-against-ai/">https://www.baldurbjarnason.com/2026/have-i-hardened-against-ai/</a></p>
+<p>[2] G. Orosz, &ldquo;The Impact of AI on Software Engineers in 2026,&rdquo; The Pragmatic Engineer. <a href="https://newsletter.pragmaticengineer.com/p/the-impact-of-ai-on-software-engineers-2026">https://newsletter.pragmaticengineer.com/p/the-impact-of-ai-on-software-engineers-2026</a></p>
+<p>[3] DORA, &ldquo;2025 State of AI-assisted Software Development,&rdquo; Google Cloud / DORA, 2025. <a href="https://dora.dev/research/2025/dora-report/">https://dora.dev/research/2025/dora-report/</a></p>
+<p>[4] P. Muldoon, &ldquo;2026 Staff Engineers Need to Get Hands-On Again,&rdquo; Mar. 2026. <a href="https://paulamuldoon.com/2026/03/10/2026-staff-engineers-need-to-get-hands-on-again/">https://paulamuldoon.com/2026/03/10/2026-staff-engineers-need-to-get-hands-on-again/</a></p>
+<p>[5] M. Zechner, &ldquo;Thoughts on Slowing the Fuck Down,&rdquo; Mar. 2026. <a href="https://mariozechner.at/posts/2026-03-25-thoughts-on-slowing-the-fuck-down/">https://mariozechner.at/posts/2026-03-25-thoughts-on-slowing-the-fuck-down/</a></p>
+<p>[6] E. Miller, &ldquo;The Feedback Loop Is All You Need.&rdquo; <a href="https://zernie.com/blog/feedback-loop-is-all-you-need/">https://zernie.com/blog/feedback-loop-is-all-you-need/</a></p>
+<p>[7] B. Böckeler, &ldquo;Harness Engineering for Coding Agent Users,&rdquo; martinfowler.com. <a href="https://martinfowler.com/articles/exploring-gen-ai/harness-engineering.html">https://martinfowler.com/articles/exploring-gen-ai/harness-engineering.html</a></p>
+<p>[8] K. Beck with G. Orosz, &ldquo;TDD, AI Agents and Coding with Kent Beck,&rdquo; The Pragmatic Engineer. <a href="https://newsletter.pragmaticengineer.com/p/tdd-ai-agents-and-coding-with-kent">https://newsletter.pragmaticengineer.com/p/tdd-ai-agents-and-coding-with-kent</a></p>
+<p>[9] ASCE, &ldquo;Policy Statement 573: Artificial Intelligence and Engineering Responsibility,&rdquo; Jul. 2024. <a href="https://www.asce.org/advocacy/policy-statements/ps573---artificial-intelligence-and-engineering-responsibility">https://www.asce.org/advocacy/policy-statements/ps573---artificial-intelligence-and-engineering-responsibility</a></p>
+<p>[10] &ldquo;Who is Liable When AI Agents Go Wrong in Business?,&rdquo; The Register, Apr. 2026. <a href="https://www.theregister.com/2026/04/05/ai_agents_liability/">https://www.theregister.com/2026/04/05/ai_agents_liability/</a></p>
+<p>[11] E. Brynjolfsson, B. Chandar, R. Chen, &ldquo;Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of AI,&rdquo; Stanford Digital Economy Lab, 2025. <a href="https://digitaleconomy.stanford.edu/publications/canaries-in-the-coal-mine/">https://digitaleconomy.stanford.edu/publications/canaries-in-the-coal-mine/</a></p>
+<p>[12] Stack Overflow, &ldquo;AI vs Gen Z: How AI Has Changed the Career Pathway for Junior Developers,&rdquo; Dec. 2025. <a href="https://stackoverflow.blog/2025/12/26/ai-vs-gen-z/">https://stackoverflow.blog/2025/12/26/ai-vs-gen-z/</a></p>
+<p>[13] A. Longhurst, &ldquo;Using AI to Write Aerospace Software: Navigating the DO-178C Landscape,&rdquo; Aerospace Global News. <a href="https://aerospaceglobalnews.com/opinion/ai-aerospace-software-do-178c-certification/">https://aerospaceglobalnews.com/opinion/ai-aerospace-software-do-178c-certification/</a></p>
+<p>[14] FDA, &ldquo;Artificial Intelligence-Enabled Device Software Functions: Lifecycle Management and Marketing Submission Recommendations (Draft Guidance),&rdquo; Jan. 2025. <a href="https://www.federalregister.gov/documents/2025/01/07/2024-31543/artificial-intelligence-enabled-device-software-functions-lifecycle-management-and-marketing">https://www.federalregister.gov/documents/2025/01/07/2024-31543/artificial-intelligence-enabled-device-software-functions-lifecycle-management-and-marketing</a></p>
+<p>[15] NIST, &ldquo;Concept Note: AI RMF Profile on Trustworthy AI in Critical Infrastructure,&rdquo; Apr. 2026. <a href="https://www.nist.gov/programs-projects/concept-note-ai-rmf-profile-trustworthy-ai-critical-infrastructure">https://www.nist.gov/programs-projects/concept-note-ai-rmf-profile-trustworthy-ai-critical-infrastructure</a></p>
+<p>[16] L. Orchard, &ldquo;Grief and the AI Split,&rdquo; Mar. 2026. <a href="https://blog.lmorchard.com/2026/03/11/grief-and-the-ai-split/">https://blog.lmorchard.com/2026/03/11/grief-and-the-ai-split/</a></p>
+<p>[17] T. Vilhena, &ldquo;Craftsmanship Coding and the Five Stages of Grief,&rdquo; Feb. 2026. <a href="https://thomasvilhena.com/2026/02/craftsmanship-coding-five-stages-of-grief">https://thomasvilhena.com/2026/02/craftsmanship-coding-five-stages-of-grief</a></p>
+<p>[18] S. Goedecke, &ldquo;I Don&rsquo;t Know If My Job Will Still Exist in Ten Years.&rdquo; <a href="https://www.seangoedecke.com/will-my-job-still-exist/">https://www.seangoedecke.com/will-my-job-still-exist/</a></p>
 
 </content>
 <p>
