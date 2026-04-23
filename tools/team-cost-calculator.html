@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Team Cost Calculator</title>
+    <style>
+        body {
+            font-family: Helvetica, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+            color: #333;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+        h1 + p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        .panel {
+            background: #f3f1ec;
+            border-radius: 12px;
+            padding: 28px 32px;
+        }
+        .control {
+            margin-bottom: 22px;
+        }
+        .control:last-of-type {
+            margin-bottom: 0;
+        }
+        .control-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 15px;
+        }
+        .control-value {
+            font-weight: 600;
+            color: #222;
+        }
+        input[type="range"] {
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 4px;
+            background: #d7d4cd;
+            border-radius: 2px;
+            outline: none;
+            margin: 6px 0;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #1f1f1f;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 1px #1f1f1f;
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #1f1f1f;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 1px #1f1f1f;
+        }
+        .divider {
+            border: none;
+            border-top: 1px solid #d7d4cd;
+            margin: 26px 0 22px;
+        }
+        .results {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        @media (min-width: 640px) {
+            .results {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 18px 16px;
+            text-align: center;
+        }
+        .card-label {
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #8a8a8a;
+            margin-bottom: 10px;
+        }
+        .card-value {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: #1f1f1f;
+        }
+        .assumptions {
+            margin-top: 18px;
+            font-size: 13px;
+            color: #888;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Feature Team Cost Calculator</h1>
+    <p>Estimate the cost of a development feature team and its cost per story point.</p>
+
+    <div class="panel">
+        <div class="control">
+            <div class="control-header">
+                <span>Team size (engineers)</span>
+                <span class="control-value" id="team-size-value">8</span>
+            </div>
+            <input type="range" id="team-size" min="1" max="30" step="1" value="8">
+        </div>
+
+        <div class="control">
+            <div class="control-header">
+                <span>Cost per engineer per year (€)</span>
+                <span class="control-value" id="cost-per-engineer-value">€130,000</span>
+            </div>
+            <input type="range" id="cost-per-engineer" min="30000" max="300000" step="5000" value="130000">
+        </div>
+
+        <div class="control">
+            <div class="control-header">
+                <span>Average velocity (story points per sprint)</span>
+                <span class="control-value" id="velocity-value">40</span>
+            </div>
+            <input type="range" id="velocity" min="1" max="200" step="1" value="40">
+        </div>
+
+        <hr class="divider">
+
+        <div class="results">
+            <div class="card">
+                <div class="card-label">Annual Cost</div>
+                <div class="card-value" id="annual-cost">€1,040,000</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Monthly Cost</div>
+                <div class="card-value" id="monthly-cost">€86,667</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Daily Cost</div>
+                <div class="card-value" id="daily-cost">€4,000</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Cost / Story Point</div>
+                <div class="card-value" id="cost-per-sp">€1,000</div>
+            </div>
+        </div>
+
+        <p class="assumptions">
+            Assumptions: 230 working days per year, 2-week sprints (26 sprints/year).
+            Cost per story point = annual cost ÷ (velocity × sprints per year).
+        </p>
+    </div>
+
+    <script>
+        const WORKING_DAYS_PER_YEAR = 230;
+        const SPRINTS_PER_YEAR = 26;
+
+        const teamSize = document.getElementById('team-size');
+        const costPerEngineer = document.getElementById('cost-per-engineer');
+        const velocity = document.getElementById('velocity');
+
+        const teamSizeValue = document.getElementById('team-size-value');
+        const costPerEngineerValue = document.getElementById('cost-per-engineer-value');
+        const velocityValue = document.getElementById('velocity-value');
+
+        const annualCostEl = document.getElementById('annual-cost');
+        const monthlyCostEl = document.getElementById('monthly-cost');
+        const dailyCostEl = document.getElementById('daily-cost');
+        const costPerSpEl = document.getElementById('cost-per-sp');
+
+        const euro = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'EUR',
+            maximumFractionDigits: 0
+        });
+
+        function recalc() {
+            const size = parseInt(teamSize.value, 10);
+            const perEng = parseInt(costPerEngineer.value, 10);
+            const vel = parseInt(velocity.value, 10);
+
+            const annual = size * perEng;
+            const monthly = annual / 12;
+            const daily = annual / WORKING_DAYS_PER_YEAR;
+            const perSp = annual / (vel * SPRINTS_PER_YEAR);
+
+            teamSizeValue.textContent = size;
+            costPerEngineerValue.textContent = euro.format(perEng);
+            velocityValue.textContent = vel;
+
+            annualCostEl.textContent = euro.format(annual);
+            monthlyCostEl.textContent = euro.format(monthly);
+            dailyCostEl.textContent = euro.format(daily);
+            costPerSpEl.textContent = euro.format(perSp);
+        }
+
+        [teamSize, costPerEngineer, velocity].forEach(el => {
+            el.addEventListener('input', recalc);
+        });
+
+        recalc();
+    </script>
+</body>
+</html>
