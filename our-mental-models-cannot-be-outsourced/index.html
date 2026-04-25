@@ -40,7 +40,7 @@
   <meta itemprop="description" content="The Mental Model of a Software System is critical to maintain.">
   <meta itemprop="datePublished" content="2026-04-25T00:00:00+00:00">
   <meta itemprop="dateModified" content="2026-04-25T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1900">
+  <meta itemprop="wordCount" content="1801">
   <meta itemprop="image" content="/images/share.png">
   <meta itemprop="keywords" content="Development,Ai">
 <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -222,7 +222,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
         var doNotTrack = false;
-        if ( true ) {
+        if ( false ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -293,83 +293,75 @@ edges and corners.</p>
  -->
 <p>When the team works well, these polygons approximate the ground truth. Where one person&rsquo;s edge cuts a corner,
 another&rsquo;s covers it.</p>
-<h2 id="why-it-matters">Why It Matters</h2>
+<h3 id="why-it-matters">Why It Matters</h3>
 <p>It is what Kent Beck and Peter Naur point at when they talk about a <strong>shared metaphor</strong>:
 The closer each person&rsquo;s guess is to
 their teammates&rsquo; guesses, the more coherent the resulting design. With ten developers working
 in parallel, a shared metaphor is what prevents the codebase from drifting into chaos.</p>
-<p>Without it:</p>
-<ul>
-<li>Handovers fail — the new team has the code but not the understanding</li>
-<li>Legacy systems become untouchable — nobody can predict the effects of change</li>
-<li>Onboarding takes months instead of weeks</li>
-<li>A small experienced team outperforms a larger new team</li>
-<li>&ldquo;Just document it&rdquo; proves insufficient — documentation is lossy by nature</li>
-</ul>
 <p>A system remains <strong>alive</strong> while its team possesses the mental model. It <strong>dies</strong> when that
 knowledge disappears — even if the software still runs and the documentation still exists.</p>
 <h2 id="the-jagged-intelligence-problem">The Jagged Intelligence Problem</h2>
 <p>An LLM agent&rsquo;s competence is <strong>not shaped like a human&rsquo;s</strong>. A senior developer&rsquo;s understanding
-is a polygon — uneven, but bounded, convex, and roughly the size of the system. An agent&rsquo;s
+resembles a circle or polygon — uneven, but bounded, convex, and roughly the size of the system. An agent&rsquo;s
 competence is jagged like a <strong>star</strong>: spectacularly long spikes in some directions, deep concave gaps
 between them.</p>
 <p style="text-align: center;"><img src="mental-model-agent.png" alt="mental-model-agent" style="width: 40%;"></p>
 <p>Along a spike, the agent outperforms any human on the team. It has read more code than
 anyone alive, recalls obscure APIs instantly, drafts plausible implementations in seconds.</p>
 <p>In the gaps between — the agent spectacularly fails and baffles us with incompetence.
-It is oblivious to a critical, undocumented business invariant which every team member
-holds as tacit common knowledge.</p>
+For example it is oblivious to critical, undocumented business invariant, which every team member
+hold as tacit common knowledge.</p>
 <p>This is <strong>jagged intelligence</strong>: brilliant in places, blind in adjacent places, and — the
 critical part — <strong>the agent cannot tell the difference</strong>. There is no internal signal that
 says &ldquo;I am on a spike&rdquo; or &ldquo;I am in a gap.&rdquo; The output looks equally confident either way.</p>
-<p>Nobody knows where these gaps are — it is an unknown unknown, which makes it
+<p>Nobody knows where the gaps are — it is an unknown unknown, which makes it
 potentially very dangerous.</p>
-<p>The team&rsquo;s polygons cover the full system complexity.
+<p>The team&rsquo;s polygons cover full system complexity.
 The agent&rsquo;s star covers parts brilliantly, while leaving entire
 regions untouched — yet because its visible spikes are so impressive, it is easy
 to be fooled to believe the model has got everything under control.</p>
-<p><strong>This is a trap.</strong> A powerful agent can lull a team into delegating not just the typing,
+<p>It is a trap. A powerful agent can lull a team into delegating not just the typing,
 but the understanding. The polygons start to shrink: developers stop building the parts of
 the model the agent seems to handle. Over time the team&rsquo;s coverage hollows out, and what
 remains is the agent&rsquo;s star — sharp where it is sharp, empty where it is empty, and nobody
 left who can tell which is which.</p>
 <p>The danger is not that agents are wrong. The danger is that they are <strong>right often enough,
 along the visible spikes, that we stop verifying the gaps!</strong></p>
-<h2 id="why-it-matters-now--agentic-software-development">Why It Matters <em>Now</em> — Agentic Software Development</h2>
+<h2 id="why-it-matters-now">Why It Matters <em>Now</em></h2>
 <p>AI coding agents have dramatically accelerated code generation. This acceleration is real.
 But it introduces a structural problem: <strong>agents produce code without transferring
 understanding</strong>.</p>
 <table>
   <thead>
       <tr>
-          <th>Traditional Development</th>
-          <th>Agentic Development</th>
+          <th style="text-align: left">Traditional Development</th>
+          <th style="text-align: left">Agentic Development</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>Developer writes code and <em>understands</em> it</td>
-          <td>Agent generates code, developer <em>reviews</em> it</td>
+          <td style="text-align: left">Developer writes code and <em>understands</em> it</td>
+          <td style="text-align: left">Agent generates code, developer <em>reviews</em> it</td>
       </tr>
       <tr>
-          <td>Design reasoning is in the developer&rsquo;s head</td>
-          <td>Agent&rsquo;s reasoning vanishes after generation</td>
+          <td style="text-align: left">Design reasoning is in the developer&rsquo;s head</td>
+          <td style="text-align: left">Agent&rsquo;s reasoning vanishes after generation</td>
       </tr>
       <tr>
-          <td>Code review transfers knowledge bidirectionally</td>
-          <td>Agent-to-agent review transfers nothing to humans</td>
+          <td style="text-align: left">Code review transfers knowledge bidirectionally</td>
+          <td style="text-align: left">Agent-to-agent review transfers nothing to humans</td>
       </tr>
       <tr>
-          <td>Speed limited by comprehension</td>
-          <td>Speed decoupled from comprehension</td>
+          <td style="text-align: left">Speed limited by comprehension</td>
+          <td style="text-align: left">Speed decoupled from comprehension</td>
       </tr>
   </tbody>
 </table>
 <p>The concrete risks of a missing comprehensive mental model:</p>
 <ul>
 <li><strong>The Recall Problem</strong>: Agents struggle to find and reuse existing code in large codebases.
-They reinvent rather than integrate, fragmenting the architecture (this is not a context window
-size problem but a search problem)</li>
+They reinvent rather than integrate, fragmenting the architecture. This is not a context window
+size problem but a search problem.</li>
 <li><strong>Cargo-Cult Patterns</strong>: Agents reproduce statistically common patterns from training data
 regardless of whether they fit <em>this</em> system&rsquo;s design.</li>
 <li><strong>The Context Observability Gap</strong>: The <em>why</em> behind agent decisions is lost — not as a side
@@ -385,8 +377,8 @@ team&rsquo;s heads. It is invisible until something breaks.</p>
 on the team could explain why design decisions had been made. The shared theory of the
 system had fragmented.  — Margaret-Anne Storey</p>
 </blockquote>
-<h2 id="what-is-the-mental-model">What is the Mental Model?</h2>
-<p>The mental model is not a single stack of knowledge. It has multiple dimensions that a
+<h2 id="what-is-our-mental-model">What is our Mental Model?</h2>
+<p>Our mental model is not a single stack of knowledge. It has multiple dimensions that a
 developer builds up simultaneously. Some are technical, some are social, some are intuitive.</p>
 <p><img src="mm-dimensions.png" alt="mm-dimension"></p>
 <h3 id="technical-knowledge--what-the-system-is">Technical Knowledge — <em>What the system is</em></h3>
@@ -420,9 +412,9 @@ the half-finished migration that nobody talks about?</li>
 bold in others. It is the hardest knowledge to transfer and the first to be lost when
 people leave.</p>
 <hr>
-<p>A developer who only holds technical knowledge at the craft level can write code (as any agent).</p>
+<p>A developer who only holds technical knowledge at the craft level can write code - as any agent.</p>
 <p>A developer who holds all three dimensions can <em>make the right decisions</em> — because they
-understand not just the system, but the people, the history, and the risk.</p>
+understand not just the system, but the business, people, history, and the risk.</p>
 <h2 id="how-is-the-mental-model-built-and-maintained">How is the Mental Model Built and Maintained</h2>
 <p>The mental model cannot be installed. It must be <em>constructed</em> in each developer&rsquo;s mind
 through active engagement.</p>
@@ -445,7 +437,7 @@ assumptions were wrong, where the real dependencies are, where the documentation
 <p>Good documentation helps the next developer <em>rebuild</em> a mental model. It cannot replace one.</p>
 <p>The most effective documentation captures metaphors, component purposes, and interaction
 diagrams — just enough to bootstrap understanding, not exhaustive specifications that
-immediately fall behind.</p>
+immediately become outdated.</p>
 <h2 id="my-claim">My Claim</h2>
 <p><strong>Agentic coding must not kill the team&rsquo;s mental model of the total system.</strong></p>
 <p>Agents are fast, fluent, and impressively right along
@@ -453,10 +445,7 @@ their spikes. It is tempting to treat them as the carrier of understanding — t
 team&rsquo;s polygons shrink and trust the star to cover the rest.</p>
 <p>This is risky! The gaps cannot
 be measured from the outside, because the agent&rsquo;s confidence does not vary across them.</p>
-<p>A team has no way to know which of today&rsquo;s outputs landed on a spike and which landed
-in a gap until something breaks in production — by which point the humans who could have
-caught it no longer hold the model needed to fix it.</p>
-<p>Used well, today&rsquo;s agents extend a developer&rsquo;s polygon — drafts, suggestions, recall, tireless boilerplate. Used
+<p>Used well, today&rsquo;s agents can extend a developer&rsquo;s polygon — drafts, suggestions, recall, tireless boilerplate. Used
 badly, they replace the polygons with a star, and the team loses the ability to see its
 own system.</p>
 <h2 id="implications">Implications</h2>
