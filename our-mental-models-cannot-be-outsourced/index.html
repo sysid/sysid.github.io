@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/images/favicon.png" />
+<title>Our Mental Models Cannot Be Outsourced | sysid blog</title>
+<meta name="title" content="Our Mental Models Cannot Be Outsourced" />
+<meta name="description" content="The Mental Model of a Software System is critical to maintain." />
+<meta name="keywords" content="development,ai," />
+
+
+<meta property="og:url" content="/our-mental-models-cannot-be-outsourced/">
+  <meta property="og:site_name" content="sysid blog">
+  <meta property="og:title" content="Our Mental Models Cannot Be Outsourced">
+  <meta property="og:description" content="The Mental Model of a Software System is critical to maintain.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2026-04-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-04-25T00:00:00+00:00">
+    <meta property="article:tag" content="Development">
+    <meta property="article:tag" content="Ai">
+    <meta property="og:image" content="/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/images/share.png">
+  <meta name="twitter:title" content="Our Mental Models Cannot Be Outsourced">
+  <meta name="twitter:description" content="The Mental Model of a Software System is critical to maintain.">
+
+
+
+
+  <meta itemprop="name" content="Our Mental Models Cannot Be Outsourced">
+  <meta itemprop="description" content="The Mental Model of a Software System is critical to maintain.">
+  <meta itemprop="datePublished" content="2026-04-25T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-04-25T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1900">
+  <meta itemprop="image" content="/images/share.png">
+  <meta itemprop="keywords" content="Development,Ai">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8VH574W51S');
+        }
+      </script>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+<a href="/blog">Blog</a>
+
+<a href="/agentic">Agentic</a>
+
+<a href="/tools">Tools</a>
+
+<a href="/about">About</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Our Mental Models Cannot Be Outsourced</h1>
+<p>
+  <i>
+    <time datetime='2026-04-25' pubdate>
+      25 Apr, 2026
+    </time>
+  </i>
+</p>
+
+<content>
+  <blockquote>
+<p>A program is not its source code — it is a theory in the minds of its developers.
+— Peter Naur, 1985</p>
+</blockquote>
+<h2 id="definition">Definition</h2>
+<p>The <strong>mental model</strong> of a software product is the shared understanding that a development team
+holds about:</p>
+<ol>
+<li><strong>What</strong> the system does — its purpose, behavior, and boundaries</li>
+<li><strong>Why</strong> it is structured the way it is — the reasoning behind design decisions</li>
+<li><strong>How</strong> its parts interact — data flows, dependencies, failure modes</li>
+<li><strong>How to change it safely</strong> — where changes are safe, where they are dangerous, what breaks</li>
+</ol>
+<p>This understanding is <em>practical knowledge</em> — not documentation, not source code, not
+architecture diagrams. Those artifacts help transmit the mental model, but they are not the
+model itself. The model lives in the heads of the people who build and maintain the system.</p>
+<h2 id="the-teams-mental-model">The Team&rsquo;s Mental Model</h2>
+<p>No individual developer holds the <em>absolute</em> truth about a non-trivial system. Each person
+carries a partial, slightly-distorted approximation — shaped by what they have built, what
+they have debugged, and where they have been burned.</p>
+<p>Think of the true system as a circle. Each developer&rsquo;s understanding is a different polygon
+<em>inscribed around</em> it: roughly the right shape, roughly the right size, but with their own
+edges and corners.</p>
+<p><img src="mental-model-team.png" alt="mental-model-team"></p>
+<!-- <figure class="center"><img src="/our-mental-models-cannot-be-outsourced/mental-model-team.png" width="100%">
+</figure>
+ -->
+<p>When the team works well, these polygons approximate the ground truth. Where one person&rsquo;s edge cuts a corner,
+another&rsquo;s covers it.</p>
+<h2 id="why-it-matters">Why It Matters</h2>
+<p>It is what Kent Beck and Peter Naur point at when they talk about a <strong>shared metaphor</strong>:
+The closer each person&rsquo;s guess is to
+their teammates&rsquo; guesses, the more coherent the resulting design. With ten developers working
+in parallel, a shared metaphor is what prevents the codebase from drifting into chaos.</p>
+<p>Without it:</p>
+<ul>
+<li>Handovers fail — the new team has the code but not the understanding</li>
+<li>Legacy systems become untouchable — nobody can predict the effects of change</li>
+<li>Onboarding takes months instead of weeks</li>
+<li>A small experienced team outperforms a larger new team</li>
+<li>&ldquo;Just document it&rdquo; proves insufficient — documentation is lossy by nature</li>
+</ul>
+<p>A system remains <strong>alive</strong> while its team possesses the mental model. It <strong>dies</strong> when that
+knowledge disappears — even if the software still runs and the documentation still exists.</p>
+<h2 id="the-jagged-intelligence-problem">The Jagged Intelligence Problem</h2>
+<p>An LLM agent&rsquo;s competence is <strong>not shaped like a human&rsquo;s</strong>. A senior developer&rsquo;s understanding
+is a polygon — uneven, but bounded, convex, and roughly the size of the system. An agent&rsquo;s
+competence is jagged like a <strong>star</strong>: spectacularly long spikes in some directions, deep concave gaps
+between them.</p>
+<p style="text-align: center;"><img src="mental-model-agent.png" alt="mental-model-agent" style="width: 40%;"></p>
+<p>Along a spike, the agent outperforms any human on the team. It has read more code than
+anyone alive, recalls obscure APIs instantly, drafts plausible implementations in seconds.</p>
+<p>In the gaps between — the agent spectacularly fails and baffles us with incompetence.
+It is oblivious to a critical, undocumented business invariant which every team member
+holds as tacit common knowledge.</p>
+<p>This is <strong>jagged intelligence</strong>: brilliant in places, blind in adjacent places, and — the
+critical part — <strong>the agent cannot tell the difference</strong>. There is no internal signal that
+says &ldquo;I am on a spike&rdquo; or &ldquo;I am in a gap.&rdquo; The output looks equally confident either way.</p>
+<p>Nobody knows where these gaps are — it is an unknown unknown, which makes it
+potentially very dangerous.</p>
+<p>The team&rsquo;s polygons cover the full system complexity.
+The agent&rsquo;s star covers parts brilliantly, while leaving entire
+regions untouched — yet because its visible spikes are so impressive, it is easy
+to be fooled to believe the model has got everything under control.</p>
+<p><strong>This is a trap.</strong> A powerful agent can lull a team into delegating not just the typing,
+but the understanding. The polygons start to shrink: developers stop building the parts of
+the model the agent seems to handle. Over time the team&rsquo;s coverage hollows out, and what
+remains is the agent&rsquo;s star — sharp where it is sharp, empty where it is empty, and nobody
+left who can tell which is which.</p>
+<p>The danger is not that agents are wrong. The danger is that they are <strong>right often enough,
+along the visible spikes, that we stop verifying the gaps!</strong></p>
+<h2 id="why-it-matters-now--agentic-software-development">Why It Matters <em>Now</em> — Agentic Software Development</h2>
+<p>AI coding agents have dramatically accelerated code generation. This acceleration is real.
+But it introduces a structural problem: <strong>agents produce code without transferring
+understanding</strong>.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Traditional Development</th>
+          <th>Agentic Development</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Developer writes code and <em>understands</em> it</td>
+          <td>Agent generates code, developer <em>reviews</em> it</td>
+      </tr>
+      <tr>
+          <td>Design reasoning is in the developer&rsquo;s head</td>
+          <td>Agent&rsquo;s reasoning vanishes after generation</td>
+      </tr>
+      <tr>
+          <td>Code review transfers knowledge bidirectionally</td>
+          <td>Agent-to-agent review transfers nothing to humans</td>
+      </tr>
+      <tr>
+          <td>Speed limited by comprehension</td>
+          <td>Speed decoupled from comprehension</td>
+      </tr>
+  </tbody>
+</table>
+<p>The concrete risks of a missing comprehensive mental model:</p>
+<ul>
+<li><strong>The Recall Problem</strong>: Agents struggle to find and reuse existing code in large codebases.
+They reinvent rather than integrate, fragmenting the architecture (this is not a context window
+size problem but a search problem)</li>
+<li><strong>Cargo-Cult Patterns</strong>: Agents reproduce statistically common patterns from training data
+regardless of whether they fit <em>this</em> system&rsquo;s design.</li>
+<li><strong>The Context Observability Gap</strong>: The <em>why</em> behind agent decisions is lost — not as a side
+effect, but as a structural property of how agents work.</li>
+<li><strong>Complexity Acceleration</strong>: Easier code generation leads to more code, not simpler systems.
+Complexity goes up, not down.</li>
+</ul>
+<p>The result is <strong>cognitive debt</strong> — the gap between what the code does and what the team
+understands. Unlike technical debt, which lives in the code, cognitive debt lives in the
+team&rsquo;s heads. It is invisible until something breaks.</p>
+<blockquote>
+<p>Student teams using AI assistants became paralyzed by week seven or eight because nobody
+on the team could explain why design decisions had been made. The shared theory of the
+system had fragmented.  — Margaret-Anne Storey</p>
+</blockquote>
+<h2 id="what-is-the-mental-model">What is the Mental Model?</h2>
+<p>The mental model is not a single stack of knowledge. It has multiple dimensions that a
+developer builds up simultaneously. Some are technical, some are social, some are intuitive.</p>
+<p><img src="mm-dimensions.png" alt="mm-dimension"></p>
+<h3 id="technical-knowledge--what-the-system-is">Technical Knowledge — <em>What the system is</em></h3>
+<p><img src="mm-layer.png" alt="mm-layer"></p>
+<p>This is the dimension that documentation and code can partially capture. An agent can
+operate here — but mostly at the lower layers.</p>
+<h3 id="social-knowledge--who-knows-what-and-how-we-work-together">Social Knowledge — <em>Who knows what, and how we work together</em></h3>
+<ul>
+<li><strong>Team topology in your head</strong>: Who owns which service? Who is the person who remembers
+why we chose Kafka? Who do I pull in when the payment flow breaks at 2 AM?</li>
+<li><strong>Trust calibration</strong>: Which tests actually catch regressions? Which documentation is
+current? Which alerts are real vs. noise? Which component is solid, which is held
+together with tape?</li>
+<li><strong>Process reality</strong>: Not the official workflow on Confluence, but how code actually moves
+from idea to production. Who needs to approve what. What is the real deploy cadence.</li>
+<li><strong>Communication patterns</strong>: How this team makes decisions. Where the real discussions
+happen (PR comments? Slack? hallway?). What needs an RFC vs. what you just do.</li>
+</ul>
+<p>This dimension is invisible to agents and nearly impossible to document. It transfers
+through <em>working together</em> — pairing, reviewing, debugging side by side.</p>
+<h3 id="temporal-knowledge--how-we-got-here-and-what-to-fear">Temporal Knowledge — <em>How we got here and what to fear</em></h3>
+<ul>
+<li><strong>History and scar tissue</strong>: Why does this weird pattern exist? What was tried before
+and failed? What&rsquo;s the workaround that nobody documented but everyone knows?</li>
+<li><strong>Risk intuition</strong>: The gut feeling that &ldquo;this area is fragile&rdquo; or &ldquo;don&rsquo;t touch this
+before a release.&rdquo; Pattern-matched from experience, not derivable from reading code.</li>
+<li><strong>Evolution trajectory</strong>: Where is the system going? What&rsquo;s being deprecated? What&rsquo;s
+the half-finished migration that nobody talks about?</li>
+</ul>
+<p>This dimension explains why experienced developers are cautious in specific places and
+bold in others. It is the hardest knowledge to transfer and the first to be lost when
+people leave.</p>
+<hr>
+<p>A developer who only holds technical knowledge at the craft level can write code (as any agent).</p>
+<p>A developer who holds all three dimensions can <em>make the right decisions</em> — because they
+understand not just the system, but the people, the history, and the risk.</p>
+<h2 id="how-is-the-mental-model-built-and-maintained">How is the Mental Model Built and Maintained</h2>
+<p>The mental model cannot be installed. It must be <em>constructed</em> in each developer&rsquo;s mind
+through active engagement.</p>
+<h3 id="code-review">Code Review</h3>
+<p>The primary mechanism. When one human reviews another&rsquo;s code, knowledge transfers
+bidirectionally. The reviewer absorbs context. The author clarifies intent. Both update
+their theory of the system. Agent-to-agent review bypasses this entirely.</p>
+<h3 id="shared-metaphors">Shared Metaphors</h3>
+<p>A unifying metaphor acts as a high-bandwidth shortcut for aligning decisions across a team.</p>
+<p>The value of a shared metaphor <em>increases</em> with team size: it is what keeps ten parallel
+polygons aligned instead of drifting. Agents do not generate metaphors; they consume them
+when given, and ignore them when not.</p>
+<h3 id="incidents-and-post-mortems">Incidents and Post-Mortems</h3>
+<p>Nothing updates the mental model faster than production failures. The team learns where
+assumptions were wrong, where the real dependencies are, where the documentation lied.</p>
+<h3 id="pair-programming-and-collaboration">Pair Programming and Collaboration</h3>
+<p>Direct, synchronous work transfers tacit knowledge that no document can capture — the
+&ldquo;why didn&rsquo;t we do X&rdquo; and &ldquo;watch out for Y&rdquo; that experienced developers carry.</p>
+<h3 id="documentation--necessary-but-insufficient">Documentation — Necessary but Insufficient</h3>
+<p>Good documentation helps the next developer <em>rebuild</em> a mental model. It cannot replace one.</p>
+<p>The most effective documentation captures metaphors, component purposes, and interaction
+diagrams — just enough to bootstrap understanding, not exhaustive specifications that
+immediately fall behind.</p>
+<h2 id="my-claim">My Claim</h2>
+<p><strong>Agentic coding must not kill the team&rsquo;s mental model of the total system.</strong></p>
+<p>Agents are fast, fluent, and impressively right along
+their spikes. It is tempting to treat them as the carrier of understanding — to let the
+team&rsquo;s polygons shrink and trust the star to cover the rest.</p>
+<p>This is risky! The gaps cannot
+be measured from the outside, because the agent&rsquo;s confidence does not vary across them.</p>
+<p>A team has no way to know which of today&rsquo;s outputs landed on a spike and which landed
+in a gap until something breaks in production — by which point the humans who could have
+caught it no longer hold the model needed to fix it.</p>
+<p>Used well, today&rsquo;s agents extend a developer&rsquo;s polygon — drafts, suggestions, recall, tireless boilerplate. Used
+badly, they replace the polygons with a star, and the team loses the ability to see its
+own system.</p>
+<h2 id="implications">Implications</h2>
+<ol>
+<li>
+<p><strong>Speed without comprehension creates fragile systems.</strong> Moving fast with understanding
+and moving fast without it are fundamentally different activities, even when the commit
+rate looks identical.</p>
+</li>
+<li>
+<p><strong>Human code review remains non-negotiable.</strong> It is not a bottleneck — it is the
+primary mechanism by which the team maintains its shared theory. Agent-generated code
+requires <em>more</em> review, not less: the developer did not write it, so the understanding
+has to be built somewhere, and review is where.</p>
+</li>
+<li>
+<p><strong>Invest in what makes generated code trustworthy</strong>: deterministic test suites, clear
+module boundaries, co-located documentation, fast feedback loops. These are the rails
+that keep the agent on its spikes, instead falling into the gaps.</p>
+</li>
+<li>
+<p><strong>Team continuity is an engineering decision, not an HR one.</strong> When experienced
+developers leave, the mental model degrades. The agent does not absorb what they took
+with them.</p>
+</li>
+<li>
+<p><strong>&ldquo;The agent will fix it&rdquo; is not an incident response plan.</strong> Recovery from production
+failures requires the kind of deep understanding only humans with a mental model can
+provide. The agent may find a plausible root cause, but it will fail in the murky
+waters of recovery, stakeholder management, and the judgment calls that follow.</p>
+</li>
+</ol>
+<p>The agent is a powerful collaborator. It is not a substitute for the theory in the team&rsquo;s
+heads — and treating it as one trades a measurable cost (slower coding) for an
+unmeasurable risk (a system nobody understands).</p>
+
+</content>
+<p>
+  
+  <a href="/blog/development/">#Development</a>
+  
+  <a href="/blog/ai/">#Ai</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

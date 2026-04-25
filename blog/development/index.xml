@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Sun, 19 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="/blog/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Our Mental Models Cannot Be Outsourced</title>
+      <link>/our-mental-models-cannot-be-outsourced/</link>
+      <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>/our-mental-models-cannot-be-outsourced/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;A program is not its source code — it is a theory in the minds of its developers.&#xA;— Peter Naur, 1985&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;strong&gt;mental model&lt;/strong&gt; of a software product is the shared understanding that a development team&#xA;holds about:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;What&lt;/strong&gt; the system does — its purpose, behavior, and boundaries&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Why&lt;/strong&gt; it is structured the way it is — the reasoning behind design decisions&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;How&lt;/strong&gt; its parts interact — data flows, dependencies, failure modes&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;How to change it safely&lt;/strong&gt; — where changes are safe, where they are dangerous, what breaks&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;This understanding is &lt;em&gt;practical knowledge&lt;/em&gt; — not documentation, not source code, not&#xA;architecture diagrams. Those artifacts help transmit the mental model, but they are not the&#xA;model itself. The model lives in the heads of the people who build and maintain the system.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>AI native developer</title>
       <link>/ai-native-developer/</link>
