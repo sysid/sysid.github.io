@@ -223,7 +223,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -357,7 +357,7 @@ $$</p>
 <h2 id="1-solving-the-mip-problem">1. Solving the MIP problem</h2>
 <p>The implementation with <a href="http://www.pyomo.org/">Pyomo</a> is close to the mathematical problem formulation and therefore straight forward.
 However, testing and debugging the resource consumption constraint proved to be more involved than expected.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#888"># resource consumption contraint:</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#888"># resource consumption contraint:</span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">resource_c</span>(model, t, r):
 </span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> t == <span style="color:#038">len</span>(model.T):
 </span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> Constraint.Skip

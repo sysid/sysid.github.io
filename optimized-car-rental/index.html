@@ -223,7 +223,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -456,7 +456,7 @@ engineering and mathematical disciplines.</p>
 $$
 \sum_{jk} 0.9P_{ji}Q_kx_{jt-k} + \sum_j y_{jit-1} + r_{it-1} + u^e_{it-1} = u_{it}
 $$</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#888"># Total number of undamaged cars into i on t</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#888"># Total number of undamaged cars into i on t</span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">u_in_c</span>(model, d, i):
 </span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> model.u[d, i] == \
 </span></span><span style="display:flex;"><span>           <span style="color:#038">sum</span>(
@@ -468,7 +468,7 @@ $$</p>
 </span></span><span style="display:flex;"><span>           model.ue[(d - <span style="color:#00d;font-weight:bold">1</span> + <span style="color:#00d;font-weight:bold">6</span>) % <span style="color:#00d;font-weight:bold">6</span>, i]
 </span></span></code></pre></div><h3 id="objective-function">Objective Function</h3>
 <p>The objective function looks like:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">obj_profit</span>(model):
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">obj_profit</span>(model):
 </span></span><span style="display:flex;"><span>    rental_profit = <span style="color:#038">sum</span>(
 </span></span><span style="display:flex;"><span>        model.return_dist[i, j] *
 </span></span><span style="display:flex;"><span>        model.rental_dist[k] *
@@ -489,7 +489,7 @@ $$</p>
 <p>To allow for a cyclical model (steady state) it is necessary to find a proper indexing schema for <a href="http://www.pyomo.org/">Pyomo</a>.</p>
 <p>Monday corresponds to &lsquo;1&rsquo;, Saturday to &lsquo;0&rsquo;. This schema allows to use the modulo operator in order to index
 the business days in a closed cycle withouth having to worry about negative indices (see above formulas).</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>d = <span style="color:#00d;font-weight:bold">1</span>  <span style="color:#888"># Monday</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>d = <span style="color:#00d;font-weight:bold">1</span>  <span style="color:#888"># Monday</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#888"># day before Monday (1) == Saturday (0)</span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">assert</span> (d - <span style="color:#00d;font-weight:bold">1</span> + <span style="color:#00d;font-weight:bold">6</span>) % <span style="color:#00d;font-weight:bold">6</span> == <span style="color:#00d;font-weight:bold">0</span>

@@ -225,7 +225,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -312,7 +312,7 @@ often. The second solution is an optimal one, where jobs execute in parallel. Th
 <li>Once a machine starts a job, it must be completed without interruptions.</li>
 <li>every job can onlye run once per machine</li>
 </ul>
-<h3 id="solution-alternatives-4">Solution Alternatives <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></h3>
+<h3 id="solution-alternatives">Solution Alternatives <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></h3>
 <h4 id="discrete-time-using-time-slots">Discrete time using time slots.</h4>
 <p>This leads to binary variables:
 $$
@@ -412,7 +412,7 @@ makespan \ge 0\\
 $$</p>
 <h1 id="implementation">Implementation</h1>
 <p>Using <a href="http://www.pyomo.org/">Pyomo</a> as modelling framework results in the following Python code for the constraints:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">start_order_c</span>(model, j, s):
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">start_order_c</span>(model, j, s):
 </span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> s == <span style="color:#00d;font-weight:bold">1</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> Constraint.Skip
 </span></span><span style="display:flex;"><span>    o = model.machine_steps[j, s]

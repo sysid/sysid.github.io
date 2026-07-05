@@ -238,7 +238,7 @@ finding the fish (thanks Nathaniel Shimoni for annotating) centering rotatating 
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -321,13 +321,13 @@ denoted vector variables and caps matrices.</p>
 <h2 id="1-finding-the-fish">1. Finding the Fish</h2>
 <p>I used the annotations from labels produced by Nathaniel Shimoni and published on Kaggle (thanks for the great work!).</p>
 <p>Using only fish with head and tail annotated, it was possible to get the vector representation of a fish as:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>p_heads = np.array((img_data[<span style="color:#d20;background-color:#fff0f0">&#39;annotations&#39;</span>][<span style="color:#00d;font-weight:bold">0</span>][<span style="color:#d20;background-color:#fff0f0">&#39;x&#39;</span>], img_data[<span style="color:#d20;background-color:#fff0f0">&#39;annotations&#39;</span>][<span style="color:#00d;font-weight:bold">0</span>][<span style="color:#d20;background-color:#fff0f0">&#39;y&#39;</span>]))
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>p_heads = np.array((img_data[<span style="color:#d20;background-color:#fff0f0">&#39;annotations&#39;</span>][<span style="color:#00d;font-weight:bold">0</span>][<span style="color:#d20;background-color:#fff0f0">&#39;x&#39;</span>], img_data[<span style="color:#d20;background-color:#fff0f0">&#39;annotations&#39;</span>][<span style="color:#00d;font-weight:bold">0</span>][<span style="color:#d20;background-color:#fff0f0">&#39;y&#39;</span>]))
 </span></span><span style="display:flex;"><span>p_tails = np.array((img_data[<span style="color:#d20;background-color:#fff0f0">&#39;annotations&#39;</span>][<span style="color:#00d;font-weight:bold">1</span>][<span style="color:#d20;background-color:#fff0f0">&#39;x&#39;</span>], img_data[<span style="color:#d20;background-color:#fff0f0">&#39;annotations&#39;</span>][<span style="color:#00d;font-weight:bold">1</span>][<span style="color:#d20;background-color:#fff0f0">&#39;y&#39;</span>]))
 </span></span><span style="display:flex;"><span>p_middle = (p_heads + p_tails)/<span style="color:#00d;font-weight:bold">2</span>
 </span></span><span style="display:flex;"><span>v_fish = p_heads - p_tails
 </span></span></code></pre></div><h2 id="2-centering">2. Centering</h2>
 <p>Centering fish is a basic translation in the 2-dim space.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#888"># translate to center of img</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#888"># translate to center of img</span>
 </span></span><span style="display:flex;"><span>    img_center = np.array([img_height/<span style="color:#00d;font-weight:bold">2</span>, img_width/<span style="color:#00d;font-weight:bold">2</span>])
 </span></span><span style="display:flex;"><span>    t = img_center - p_middle  <span style="color:#888"># translation vector</span>
 </span></span><span style="display:flex;"><span>    t = np.reshape(t, (<span style="color:#00d;font-weight:bold">2</span>,<span style="color:#00d;font-weight:bold">1</span>))  <span style="color:#888"># generate the 2x3 affine transformation matrix</span>
@@ -339,7 +339,7 @@ denoted vector variables and caps matrices.</p>
 <h2 id="3-rotating">3. Rotating</h2>
 <p>First I needed to find the angle for rotation. I wanted to have the fish oriented parallel to the x-axis with the head always being on the right. The dot-product of two vectors provides the
 angle in between, so I had to &lsquo;dot-product&rsquo; my fish vector with the x-axis:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">unit_vector</span>(vector):
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">unit_vector</span>(vector):
 </span></span><span style="display:flex;"><span>    <span style="color:#d20;background-color:#fff0f0">&#34;&#34;&#34; Returns the unit vector of the vector.&#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> vector / np.linalg.norm(vector)
 </span></span><span style="display:flex;"><span>
@@ -361,7 +361,7 @@ angle in between, so I had to &lsquo;dot-product&rsquo; my fish vector with the 
 </span></span></code></pre></div><p>Conveniently CV2 provides a function to find the necessary transformation matrix (cv2.getRotationMatrix2D).</p>
 <p>A challenge was to find out, that the rotation angle returned always is between 0-180°, so the following conditional differentiation was necessary
 (rotation counter clockwise vs clockwise). It basically differentiates between the case that the head is above or below the tail:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#888"># get the Affine transformation matrix</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#888"># get the Affine transformation matrix</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> p_heads[<span style="color:#00d;font-weight:bold">1</span>] &gt; p_tails[<span style="color:#00d;font-weight:bold">1</span>]:  <span style="color:#888"># head is above tail</span>
 </span></span><span style="display:flex;"><span>        M = cv2.getRotationMatrix2D((p_middle[<span style="color:#00d;font-weight:bold">0</span>], p_middle[<span style="color:#00d;font-weight:bold">1</span>]), angle, <span style="color:#00d;font-weight:bold">1</span>)
 </span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">else</span>:
@@ -377,7 +377,7 @@ following steps were necesary (combination of two affine transformations):</p>
 <li>return the first two rows of R</li>
 </ul>
 <p>So RR was my final transformation matrix.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#888"># compinte affine transform: make them 3x3</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#888"># compinte affine transform: make them 3x3</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#888"># http://stackoverflow.com/questions/13557066/built-in-function-to-combine-affine-transforms-in-opencv</span>
 </span></span><span style="display:flex;"><span>    A1 = np.identity(<span style="color:#00d;font-weight:bold">3</span>)
 </span></span><span style="display:flex;"><span>    A2 = np.identity(<span style="color:#00d;font-weight:bold">3</span>)
@@ -387,7 +387,7 @@ following steps were necesary (combination of two affine transformations):</p>
 </span></span><span style="display:flex;"><span>    R = A1<span style="color:#555">@A2</span>
 </span></span><span style="display:flex;"><span>    RR = R[:<span style="color:#00d;font-weight:bold">2</span>]
 </span></span></code></pre></div><p>Getting the transformed image is now straightforward:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    dst = cv2.warpAffine(img, RR, (img_height, img_width))
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    dst = cv2.warpAffine(img, RR, (img_height, img_width))
 </span></span></code></pre></div><p>The nice thing with this approach is that once you have got the final transformation matrix, all other points of interest can be transformed by this matrix,
 e.g. the head and tail annotations are transformed by the same matrix.</p>
 <h2 id="result">Result</h2>

@@ -260,7 +260,7 @@ Recipe:" />
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -448,7 +448,7 @@ Because normalization greatly reduces the ability of a small number of outlying 
 <li>1 - Can approximate any function that contains a continuous mapping from one finite space to another.</li>
 <li>2 - Can represent an arbitrary decision boundary to arbitrary accuracy with rational activation functions and can approximate any smooth mapping to any accuracy.</li>
 </ul>
-<h3 id="ensembleshttpcs231ngithubioneural-networks-3gradcheck"><a href="http://cs231n.github.io/neural-networks-3/#gradcheck">Ensembles</a></h3>
+<h3 id="ensembles"><a href="http://cs231n.github.io/neural-networks-3/#gradcheck">Ensembles</a></h3>
 <ul>
 <li>Train multiple independent models, and at test time average their predictions. As the number of models in the ensemble increases, the performance typically monotonically improves (though with diminishing returns). The improvements are more dramatic with higher model variety in the ensemble.</li>
 </ul>
@@ -577,7 +577,7 @@ model learns the 32 floats to be semantically significant
 embeddings can be passed, not entire models (pretrained word embeddings)
 word2vec (Google) vs. glove</p>
 <h3 id="model-examples">Model Examples</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#888">### Keras 2.0 Merge</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#888">### Keras 2.0 Merge</span>
 </span></span><span style="display:flex;"><span><span style="color:#888"># Custom Merge: https://stackoverflow.com/questions/43160181/keras-merge-layer-warning</span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">euclid_dist</span>(v):
 </span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> (v[<span style="color:#00d;font-weight:bold">0</span>] - v[<span style="color:#00d;font-weight:bold">1</span>])**<span style="color:#00d;font-weight:bold">2</span>
@@ -639,7 +639,7 @@ word2vec (Google) vs. glove</p>
 <ul>
 <li>selects the successive components that explain the maximum variance in the signal.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    pca = decomposition.PCA()
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    pca = decomposition.PCA()
 </span></span><span style="display:flex;"><span>    pca.fit(X)
 </span></span><span style="display:flex;"><span>    <span style="color:#038">print</span>(pca.explained_variance_)
 </span></span><span style="display:flex;"><span>
