@@ -41,7 +41,7 @@
   <meta itemprop="description" content="Treat Agents Like Infrastructure">
   <meta itemprop="datePublished" content="2026-07-07T00:00:00+00:00">
   <meta itemprop="dateModified" content="2026-07-07T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1655">
+  <meta itemprop="wordCount" content="1656">
   <meta itemprop="image" content="/images/share.png">
   <meta itemprop="keywords" content="Ai,Development,Agents">
 <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -292,13 +292,13 @@ on a schedule.</p>
 │  self-contained scripts)   │                                        │
 └────────────────────────────┘                                        ▼
                                                           kernel sandbox (SRT)
-                                                          memory (bkmr, neutral)
+                                                          memory (bkmr)
 </code></pre><p>Rules:</p>
 <ul>
 <li>Never hand-edit the right-hand side.</li>
-<li>Edit intent on the left, run <code>apply</code>, and verify with <code>diff</code>.</li>
+<li>Only edit intent on the left, then run <code>apply</code>, and verify with <code>diff</code>.</li>
 </ul>
-<p>If that sounds like Terraform, that is precisely the point — the same reasons we
+<p>If that sounds similar to Terraform, that is the point — the same reasons we
 stopped hand-editing servers apply to hand-editing agent configs: silent drift, unreviewable state,
 and no way to answer &ldquo;why is this different on my other machine?&rdquo;</p>
 <h2 id="the-dimensions">The Dimensions</h2>
