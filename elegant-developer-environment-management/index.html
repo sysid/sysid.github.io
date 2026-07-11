@@ -300,11 +300,11 @@ sync the moment someone forgets to update one copy.</p>
 than a list. It introduces the concept of parent-child relationships between environment files.</p>
 <p><strong>Point in Case:</strong>
 Instead of duplicating twenty variables, your <code>dev.env</code> simply starts with a link:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#888"># rsenv: ./base.env</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#888"># rsenv: ./base.env</span>
 </span></span><span style="display:flex;"><span><span style="color:#369">DATABASE_URL</span>=localhost:5432
 </span></span><span style="display:flex;"><span><span style="color:#888"># (Only overrides or additions follow)</span>
 </span></span></code></pre></div><p><strong>The Diagram: Inheritance in Action</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>      [ global.env ]          &lt;-- Shared across the whole company
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>      [ global.env ]          &lt;-- Shared across the whole company
 </span></span><span style="display:flex;"><span>            |
 </span></span><span style="display:flex;"><span>      [ project.env ]         &lt;-- Shared across the team
 </span></span><span style="display:flex;"><span>       /          \
@@ -345,7 +345,7 @@ mock server or adding a debug class.</p>
 swapping to make such overrides explicit and reversible.</p>
 <p>Swapping is the temporary counterpart to guarding. You maintain a development version of a file in
 the vault and swap it into your project when you start work:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rsenv swap in config/application.yml    <span style="color:#888"># start of day</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rsenv swap in config/application.yml    <span style="color:#888"># start of day</span>
 </span></span><span style="display:flex;"><span><span style="color:#888"># ... develop with local config ...</span>
 </span></span><span style="display:flex;"><span>rsenv swap out config/application.yml   <span style="color:#888"># before committing</span>
 </span></span></code></pre></div><p>The original file is backed up in the vault during the swap. <a href="https://github.com/sysid/rs-env/wiki">rsenv</a> tracks swap state per

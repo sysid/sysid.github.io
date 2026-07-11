@@ -286,7 +286,7 @@ They define a protocol that is invisible to the HTTP layer, and does not  disrup
 It also alerts the browser that it should expose each piece to the code as it arrives,
 and not wait for the full request, much like WebSocket’s frames<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
 <p>On the browser this is implemented with the easy-to-use <code>EventSource</code> interface in client side code:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">var</span> source = <span style="color:#080;font-weight:bold">new</span> EventSource(<span style="color:#d20;background-color:#fff0f0">&#39;updates.cgi&#39;</span>);
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">var</span> source = <span style="color:#080;font-weight:bold">new</span> EventSource(<span style="color:#d20;background-color:#fff0f0">&#39;updates.cgi&#39;</span>);
 </span></span><span style="display:flex;"><span>source.onmessage = <span style="color:#080;font-weight:bold">function</span> (event) {
 </span></span><span style="display:flex;"><span>  alert(event.data);
 </span></span><span style="display:flex;"><span>}
@@ -318,7 +318,7 @@ To protect against that, you can include a comment line (one starting with a ‘
 webserver you can use just use the Response type: <a href="https://github.com/sysid/sse-starlette">EventSourceResponse</a>.</p>
 <p>It implements the <a href="https://en.wikipedia.org/wiki/Server-sent_events">SSE protocol</a> for Starlette and takes care of the
 proxy thing:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">asyncio</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">asyncio</span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">uvicorn</span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">starlette.applications</span> <span style="color:#080;font-weight:bold">import</span> Starlette
 </span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">starlette.routing</span> <span style="color:#080;font-weight:bold">import</span> Route

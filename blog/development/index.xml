@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Sat, 25 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="/blog/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent IAC</title>
+      <link>/agent-iac/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>/agent-iac/</guid>
+      <description>&lt;h1 id=&#34;treat-agents-like-infrastructure&#34;&gt;Treat Agents Like Infrastructure&lt;/h1&gt;&#xA;&lt;p&gt;As developer in 2026, you are probably not using &lt;em&gt;one&lt;/em&gt; AI coding agent:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Claude Code for personal projects&lt;/li&gt;&#xA;&lt;li&gt;GitHub Copilot CLI because your employer sanctions it&lt;/li&gt;&#xA;&lt;li&gt;maybe a third harness for its ergonomics (e.g. Pi).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Each of them wants its own instruction file, its own skills directory, its own MCP server config, its own permission model — in its own format, in its own location, evolving on its own schedule.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Our Mental Models Cannot Be Outsourced</title>
       <link>/our-mental-models-cannot-be-outsourced/</link>

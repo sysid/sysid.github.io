@@ -339,7 +339,7 @@ $$</p>
 <h1 id="implementation">Implementation</h1>
 <p>Using <a href="http://www.pyomo.org/">Pyomo</a> as modelling framework results in the following Python code for the constraints.</p>
 <p>The numbers in the code comments match the constraint numbering in the MIP model above.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>        <span style="color:#888"># 2a inventory balance equation:</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>        <span style="color:#888"># 2a inventory balance equation:</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">inv_balance_c</span>(model, t):
 </span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> t == <span style="color:#00d;font-weight:bold">1</span>:
 </span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> (

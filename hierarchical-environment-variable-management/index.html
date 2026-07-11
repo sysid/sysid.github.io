@@ -291,7 +291,7 @@ from top to bottom. Hereby overwrite later variable definitions earlier ones.</p
 </figure>
 
 <p>The resulting variable set then would be:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#888"># final variable set</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#888"># final variable set</span>
 </span></span><span style="display:flex;"><span><span style="color:#038">export</span> <span style="color:#369">VAR_1</span>=var_11
 </span></span><span style="display:flex;"><span><span style="color:#038">export</span> <span style="color:#369">VAR_2</span>=var_21
 </span></span><span style="display:flex;"><span><span style="color:#038">export</span> <span style="color:#369">VAR_3</span>=var_31
@@ -338,7 +338,7 @@ Options:
   -h, --help                  Print help
   -V, --version               Print version
 </code></pre><p>Activate a set of variable definitions using:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#038">source</span> &lt;(rsenv build &lt;path-to-leaf.env&gt;)
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#038">source</span> &lt;(rsenv build &lt;path-to-leaf.env&gt;)
 </span></span></code></pre></div><h2 id="seamless-integrations">Seamless Integrations</h2>
 <h3 id="direnv">direnv</h3>
 <p><a href="https://direnv.net/">direnv</a> is a gem for environment activation. It seamlessly toggles variable activation without side-effects and remains my go-to tool for environment management. Pairing it with <a href="https://github.com/sysid/rs-env">rs-env</a> seems to be an excellent idea.</p>

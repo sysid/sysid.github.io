@@ -370,7 +370,7 @@ $$</p>
 like <code>if..else</code>, the formulation of boundary conditions which involves trailing or leading time intervals feels very
 natural for a software developer.</p>
 <p>Again, the implementation of the constraints is straight forward:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">flow_balance_in_c</span>(model, ii):
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">flow_balance_in_c</span>(model, ii):
 </span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> ii == <span style="color:#00d;font-weight:bold">1</span>:  <span style="color:#888"># source/chap1</span>
 </span></span><span style="display:flex;"><span>        b = <span style="color:#00d;font-weight:bold">1</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">elif</span> ii == <span style="color:#038">self</span>.N:  <span style="color:#888"># sink/dummy chapter</span>

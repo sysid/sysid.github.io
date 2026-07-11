@@ -273,7 +273,7 @@ tasks in MIP programming.</p>
 <h3 id="tldr">TLDR</h3>
 <p>I will save you all the searching and try-and-error and give you the recipe straight:</p>
 <h3 id="use-coinbrew-to-build-cbc-yourself">Use <a href="https://coin-or.github.io/coinbrew/"><code>coinbrew</code></a> to build CBC yourself</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#888"># Get Build Environment</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#888"># Get Build Environment</span>
 </span></span><span style="display:flex;"><span>wget https://raw.githubusercontent.com/coin-or/coinbrew/master/coinbrew
 </span></span><span style="display:flex;"><span>chmod <span style="color:#00d;font-weight:bold">755</span> coinbrew
 </span></span><span style="display:flex;"><span>
@@ -283,7 +283,7 @@ tasks in MIP programming.</p>
 </span></span><span style="display:flex;"><span>./coinbrew install Cbc
 </span></span></code></pre></div><p>Note the <code>--enable-cbc-parallel</code> flag. If you forget it you will end up with another singe-threaded version.</p>
 <p>Now you are settled. Just make sure that CBC is in your path and you set the library paths accordingly:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#038">export</span> <span style="color:#369">PATH</span>=<span style="color:#369">$PATH</span>:/path/to/cbc/bin
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#038">export</span> <span style="color:#369">PATH</span>=<span style="color:#369">$PATH</span>:/path/to/cbc/bin
 </span></span><span style="display:flex;"><span><span style="color:#038">export</span> <span style="color:#369">LD_LIBRARY_PATH</span>=/path/to/cbc/lib
 </span></span><span style="display:flex;"><span><span style="color:#038">export</span> <span style="color:#369">DYLD_LIBRARY_PATH</span>=/path/to/cbc/lib
 </span></span></code></pre></div><h3 id="summary">Summary</h3>

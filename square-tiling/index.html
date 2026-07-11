@@ -490,7 +490,7 @@ y_{p&rsquo;,q&rsquo;} \ge \delta_{p&rsquo;} + \delta_{q&rsquo;} -q\\
 $$</p>
 <h2 id="pyomo-implementation">Pyomo Implementation</h2>
 <p>The Pyomo implementation is close to the mathematical model. Here an example for the constraint definition:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#888"># tile can be placed max once:</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#888"># tile can be placed max once:</span>
 </span></span><span style="display:flex;"><span>    model.tile_c = Constraint(
 </span></span><span style="display:flex;"><span>        model.K,
 </span></span><span style="display:flex;"><span>        rule=<span style="color:#080;font-weight:bold">lambda</span> model, k: <span style="color:#038">sum</span>(model.x[k, i, j] <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080">in</span> model.I <span style="color:#080;font-weight:bold">for</span> j <span style="color:#080">in</span> model.J) &lt;= <span style="color:#00d;font-weight:bold">1</span>

@@ -312,7 +312,7 @@ We will also add constraints to link the new variable $z_{i,j}$ with the origina
 <h2 id="implementation">Implementation</h2>
 <p>Calculating the sparse $ok_{i,j}$ set is key for a simple <a href="http://www.pyomo.org/">Pyomo</a> implementation of the model.
 With this set and using Pyomo&rsquo;s decorator syntax the model looks compact:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>        m.I = pyo.RangeSet(config[<span style="color:#d20;background-color:#fff0f0">&#39;N&#39;</span>])
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>        m.I = pyo.RangeSet(config[<span style="color:#d20;background-color:#fff0f0">&#39;N&#39;</span>])
 </span></span><span style="display:flex;"><span>        m.G = pyo.RangeSet(config[<span style="color:#d20;background-color:#fff0f0">&#39;G&#39;</span>])
 </span></span><span style="display:flex;"><span>        m.Ok = pyo.Set(initialize=Ok(config).ok)
 </span></span><span style="display:flex;"><span>

@@ -577,7 +577,7 @@ model learns the 32 floats to be semantically significant
 embeddings can be passed, not entire models (pretrained word embeddings)
 word2vec (Google) vs. glove</p>
 <h3 id="model-examples">Model Examples</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#888">### Keras 2.0 Merge</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#888">### Keras 2.0 Merge</span>
 </span></span><span style="display:flex;"><span><span style="color:#888"># Custom Merge: https://stackoverflow.com/questions/43160181/keras-merge-layer-warning</span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">euclid_dist</span>(v):
 </span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> (v[<span style="color:#00d;font-weight:bold">0</span>] - v[<span style="color:#00d;font-weight:bold">1</span>])**<span style="color:#00d;font-weight:bold">2</span>
@@ -639,7 +639,7 @@ word2vec (Google) vs. glove</p>
 <ul>
 <li>selects the successive components that explain the maximum variance in the signal.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    pca = decomposition.PCA()
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    pca = decomposition.PCA()
 </span></span><span style="display:flex;"><span>    pca.fit(X)
 </span></span><span style="display:flex;"><span>    <span style="color:#038">print</span>(pca.explained_variance_)
 </span></span><span style="display:flex;"><span>

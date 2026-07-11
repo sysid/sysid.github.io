@@ -374,7 +374,7 @@ $$</p>
 <h3 id="implementation">Implementation</h3>
 <p>After calculating the potential covering sets \((i,j) \in S\) the formulation of the constraints is very close to the mathematical
 model:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model.element_cover_c = Constraint(
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model.element_cover_c = Constraint(
 </span></span><span style="display:flex;"><span>    model.K,
 </span></span><span style="display:flex;"><span>    rule=<span style="color:#080;font-weight:bold">lambda</span> model, k: <span style="color:#038">sum</span>(model.x[i, j] <span style="color:#080;font-weight:bold">for</span> (i, j) <span style="color:#080">in</span> model.S <span style="color:#080;font-weight:bold">if</span> i &lt;= k &lt;= j) == <span style="color:#00d;font-weight:bold">1</span>
 </span></span><span style="display:flex;"><span>)

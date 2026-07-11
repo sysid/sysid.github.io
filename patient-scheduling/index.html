@@ -415,7 +415,7 @@ $$</p>
 <h2 id="pyomo-implementation">Pyomo Implementation</h2>
 <p>Since a lot of the required logic for selecting time slots and ensuring that patient sessions are compact and non-overlapping
 is already encoded into the parameter-set \(cover\), the resulting Pyomo implementation is basically three lines of code (LOC):</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#888"># This will find all variables start(c,p,tt) that potentially cover the slot (c,t)</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#888"># This will find all variables start(c,p,tt) that potentially cover the slot (c,t)</span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">chair_c</span>(model, c, t):
 </span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> <span style="color:#038">sum</span>(model.start[c, pp, tt] <span style="color:#080;font-weight:bold">for</span> (pp, tt, ttt) <span style="color:#080">in</span> model.Cover <span style="color:#080;font-weight:bold">if</span> ttt == t) &lt;= model.usechair[c]
 </span></span><span style="display:flex;"><span>

@@ -373,7 +373,7 @@ $$</p>
 <p>\(M\) has been set to 100.</p>
 <h2 id="implementation">Implementation</h2>
 <p>By using the bespoke index \(ok_{i,j}\) the Pyomo formulation of the constraints are compact:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">all_jobs_assigned_c</span>(model, i):
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">all_jobs_assigned_c</span>(model, i):
 </span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> <span style="color:#038">sum</span>(model.x[ii, jj] <span style="color:#080;font-weight:bold">for</span> (ii, jj) <span style="color:#080">in</span> model.ok <span style="color:#080;font-weight:bold">if</span> ii == i) == <span style="color:#00d;font-weight:bold">1</span>
 </span></span><span style="display:flex;"><span>model.all_jobs_assigned_c = Constraint(model.I, rule=all_jobs_assigned_c)
 </span></span><span style="display:flex;"><span>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/images/favicon.png" />
+<title>Agent IAC | sysid blog</title>
+<meta name="title" content="Agent IAC" />
+<meta name="description" content="Treat Agents Like Infrastructure" />
+<meta name="keywords" content="ai,development,agents," />
+
+
+<meta property="og:url" content="/agent-iac/">
+  <meta property="og:site_name" content="sysid blog">
+  <meta property="og:title" content="Agent IAC">
+  <meta property="og:description" content="Treat Agents Like Infrastructure">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2026-07-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-07-07T00:00:00+00:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Development">
+    <meta property="article:tag" content="Agents">
+    <meta property="og:image" content="/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/images/share.png">
+  <meta name="twitter:title" content="Agent IAC">
+  <meta name="twitter:description" content="Treat Agents Like Infrastructure">
+
+
+
+
+  <meta itemprop="name" content="Agent IAC">
+  <meta itemprop="description" content="Treat Agents Like Infrastructure">
+  <meta itemprop="datePublished" content="2026-07-07T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-07-07T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1655">
+  <meta itemprop="image" content="/images/share.png">
+  <meta itemprop="keywords" content="Ai,Development,Agents">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8VH574W51S');
+        }
+      </script>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+<a href="/blog">Blog</a>
+
+<a href="/agentic">Agentic</a>
+
+<a href="/tools">Tools</a>
+
+<a href="/about">About</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Agent IAC</h1>
+<p>
+  <i>
+    <time datetime='2026-07-07' pubdate>
+      07 Jul, 2026
+    </time>
+  </i>
+</p>
+
+<content>
+  <h1 id="treat-agents-like-infrastructure">Treat Agents Like Infrastructure</h1>
+<p>As developer in 2026, you are probably not using <em>one</em> AI coding agent:</p>
+<ul>
+<li>Claude Code for personal projects</li>
+<li>GitHub Copilot CLI because your employer sanctions it</li>
+<li>maybe a third harness for its ergonomics (e.g. Pi).</li>
+</ul>
+<p>Each of them wants its own instruction file, its own skills directory, its own MCP server config, its own permission model — in its own format, in its own location, evolving on its own schedule.</p>
+<p>How to manage this heterogeneity without getting mad?</p>
+<p>Treat agent configuration like infrastructure — canonical
+sources in git, deterministic compilation into whatever each individual harness expects, and drift detection
+on a schedule.</p>
+<p>After five months I can say: It works for me and helps my sanity.</p>
+<p>This article covers the approach.</p>
+<h2 id="the-core-idea">The core idea</h2>
+<pre tabindex="0"><code>   INTENT (git, human-edited)              COMPILERS              MATERIALIZED
+┌────────────────────────────┐        ┌──────────────┐        ┌────────────────┐
+│ capability config (TOML)   │──────▶ │ twagent      │──────▶ │ ~/.claude      │
+│ instruction template (J2)  │        │ apply / diff │        │ ~/.copilot     │
+│                            │        └──────────────┘        │ ~/.pi          │
+│ security rules (JSON)      │        ┌──────────────┐        │ (skills, MCP,  │
+│ bash deny/ask lists        │──────▶ │ twsrt        │──────▶ │  instructions, │
+│                            │        │ generate/diff│        │  permissions)  │
+│ skill content (SKILL.md +  │        └──────────────┘        └────────────────┘
+│  self-contained scripts)   │                                        │
+└────────────────────────────┘                                        ▼
+                                                          kernel sandbox (SRT)
+                                                          memory (bkmr, neutral)
+</code></pre><p>Rules:</p>
+<ul>
+<li>Never hand-edit the right-hand side.</li>
+<li>Edit intent on the left, run <code>apply</code>, and verify with <code>diff</code>.</li>
+</ul>
+<p>If that sounds like Terraform, that is precisely the point — the same reasons we
+stopped hand-editing servers apply to hand-editing agent configs: silent drift, unreviewable state,
+and no way to answer &ldquo;why is this different on my other machine?&rdquo;</p>
+<h2 id="the-dimensions">The Dimensions</h2>
+<p>A comprehensive agent setup is not just one problem:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Dimension</th>
+          <th>Tool</th>
+          <th>Source of truth</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Capabilities (skills, MCP, subagents, prompts)</td>
+          <td><a href="https://github.com/sysid/twagent">twagent</a> (<a href="https://pypi.org/project/twagent/">PyPI</a>)</td>
+          <td><code>config.toml</code></td>
+      </tr>
+      <tr>
+          <td>Security (permissions, firewall, bash policy)</td>
+          <td><a href="https://github.com/sysid/twsrt">twsrt</a> (<a href="https://pypi.org/project/twsrt/">PyPI</a>)</td>
+          <td><code>.srt-settings.json</code> + <code>bash-rules.json</code></td>
+      </tr>
+      <tr>
+          <td>Kernel-level sandboxing</td>
+          <td><a href="https://github.com/anthropic-experimental/sandbox-runtime">Anthropic&rsquo;s sandbox-runtime</a> (<a href="https://www.npmjs.com/package/@sysid/sandbox-runtime-improved">npm</a>)</td>
+          <td>OS enforcement, not config</td>
+      </tr>
+      <tr>
+          <td>Memory</td>
+          <td><a href="https://github.com/sysid/bkmr">bkmr</a></td>
+          <td>SQLite (FTS+embeddings)</td>
+      </tr>
+      <tr>
+          <td>Skill content</td>
+          <td><code>twskls</code> (private — 30+ personal skills, evals, review rules)</td>
+          <td>personal repo</td>
+      </tr>
+      <tr>
+          <td>Physical distribution</td>
+          <td>dotfiles repo (private), GNU Stow + a housekeeping script</td>
+          <td>personal repo</td>
+      </tr>
+  </tbody>
+</table>
+<p>The private repos are private for boring reasons (employer-specific skills, personal dotfiles), but
+their <em>mechanics</em> are what this article describes, and the two compilers that do the heavy lifting
+are open.</p>
+<h3 id="capabilities-profiles-compose-intent">Capabilities: Profiles compose intent</h3>
+<p>The heart of <code>twagent</code> is a <strong>registry + profiles</strong> model. Skills, MCP servers, and instruction
+templates are declared once; profiles bundle them; each agent names at least one global profile:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[profiles.core]
+</span></span><span style="display:flex;"><span>skills = [<span style="color:#d20;background-color:#fff0f0">&#34;twmux&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;skill-creator&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;bkmr-memory&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;tw-comprehend&#34;</span>, ...]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[profiles.work]            <span style="color:#888"># employer-specific bundle</span>
+</span></span><span style="display:flex;"><span>skills  = [<span style="color:#d20;background-color:#fff0f0">&#34;jira-creator&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;code-rationale&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;tw-aws-ecs-exec&#34;</span>, ...]
+</span></span><span style="display:flex;"><span>servers = [<span style="color:#d20;background-color:#fff0f0">&#34;mcp-atlassian&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[profiles.tw-claude]
+</span></span><span style="display:flex;"><span>extends = [<span style="color:#d20;background-color:#fff0f0">&#34;core&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;pr_review&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;web_research&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;java&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;rust&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;ideation&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[profiles.tw-copilot]
+</span></span><span style="display:flex;"><span>extends = [<span style="color:#d20;background-color:#fff0f0">&#34;core&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;pr_review&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;web_research&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;java&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;rust&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;work&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;ideation&#34;</span>]
+</span></span></code></pre></div><p>Note what this buys: Copilot CLI has employer skills and the Atlassian MCP server; Claude
+Code does not. That difference is not an accident of which directory I happened to edit — it is one
+word (<code>&quot;work&quot;</code>) in a reviewed, versioned file.</p>
+<p><code>twagent apply -G</code> materializes it; <code>twagent diff</code> tells when reality disagrees.</p>
+<p>A similar mechanism kills instruction-file duplication: <code>CLAUDE.md</code>, <code>copilot-instructions.md</code>, and
+Pi&rsquo;s <code>AGENTS.md</code> on my machine are three renders of <strong>one Jinja2 template</strong> — including harness specific quirks.</p>
+<h3 id="security-two-layers">Security: Two layers</h3>
+<p>This is the dimension most personal setups skip entirely, but it deserves rigor. The design is <strong>defense in depth</strong>:</p>
+<ul>
+<li><strong>Layer 1 (kernel):</strong>
+<a href="https://github.com/anthropic-experimental/sandbox-runtime">sandbox-runtime</a> enforces filesystem
+and network restrictions at the OS level. Bash commands run by the agent <strong>physically</strong> cannot read
+<code>~/.ssh</code> or call unapproved hosts.</li>
+<li><strong>Layer 2 (application):</strong> each harness&rsquo;s own permission model — deny rules for
+<code>Read</code>/<code>Write</code>/<code>Edit</code> on credential paths, <code>WebFetch</code> domain allowlists, bash deny/ask lists.</li>
+</ul>
+<p>Why two layers?</p>
+<p>In Claude Code&rsquo;s native sandbox mode — the kernel wraps <strong>each Bash command</strong>, but not the agent
+process, so built-in tools (Read/Write/Edit) bypass Layer 1 and Layer 2 is then the only wall
+between doom and me.</p>
+<p>One can invert this by launching the whole agent inside the sandbox — which extends kernel
+enforcement to built-in tools and to any stdio MCP servers the agent spawns.</p>
+<p>But it costs: the outer policy must be broader, e.g. the agent writes its own state, reaches its
+API, spawns MCP servers.</p>
+<p>An harness that sandboxes its own bash commands like claude-code now nests sandboxes, which the
+inner layer must weaken to survive (Claude Code ships an <code>enableWeakerNestedSandbox</code> setting for
+exactly this case).</p>
+<p>However, Layer 2 alone is not enough.</p>
+<p>Agent permission rules are best-effort — twsrt&rsquo;s threat model cites concrete Claude
+Code issues (#6631, #24846) where built-in-tool deny rules leaked. The layers are complementary,
+not redundant; <code>twsrt</code> compiles one canonical rule set into both, so they cannot drift apart.</p>
+<p>Does it work in practice?</p>
+<p>Twice during an <a href="https://www.anthropic.com/claude/fable">Fable</a> audit, my rules stopped the tooling: once
+writing a <code>.github/workflows/</code> file (CI files are code-execution-on-push — agents don&rsquo;t get to
+write them), once reading the canonical security rules. Both denials were correct. Fable was
+blocked.</p>
+<p>A secure policy feels like occasional, explainable friction. But this is a good thing!</p>
+<h3 id="memory-keep-it-out-of-the-vendor">Memory: Keep it out of the vendor</h3>
+<p>Cross-session memory is the stickiest lock-in surface an agent vendor has. My memory lives in
+<a href="https://github.com/sysid/bkmr">bkmr</a> — SQLite full-text search plus local embeddings, exposed to
+every harness through a skill and a passive logging hook. Switching harnesses costs me nothing
+memory-wise; the database is a file in a git repo.</p>
+<p>The memory is being used by agents and myself. I have been using it for knowledge management long
+before agents came along. Now I reap the benefit of this approach twice.</p>
+<h3 id="skills-the-rare-standard">Skills: the (rare) standard</h3>
+<p>Skills are markdown (<code>SKILL.md</code>) plus self-contained scripts — in my case often PEP 723 <code>uv run --script</code>
+artifacts that carry their own dependency declarations, so a skill directory is copy-portable to
+any harness that can run <code>uv</code>.</p>
+<p>The <a href="https://agentskills.io">Agent Skills format</a> is a rare standard in the agentic realm,
+consumed by multiple harnesses; the entire skill investment survives a vendor change.</p>
+<p>Shared code
+between skills is vendored byte-identical with a <code>make check-shared</code> gate that fails the build on
+drift — self-containment is the portability strategy, and the gate is what makes vendoring safe.</p>
+<p>This gives me shared libraries <strong>and</strong> self-contained, copy-able skills.</p>
+<h2 id="is-it-over-engineered">Is it over-engineered?</h2>
+<p>To judge whether any of this is over-engineering, look at what exists.
+The community is attacking agent-config sprawl from three directions:</p>
+<ol>
+<li><strong>Format standards.</strong> <a href="https://agents.md">AGENTS.md</a> gives many tools one instruction filename
+to read; the <a href="https://agentskills.io">Agent Skills spec</a> standardizes skill packaging;
+<a href="https://modelcontextprotocol.io">MCP</a> standardizes how tools are served. All valuable.
+However, MCP is the clearest illustration of the remaining gap: the <em>protocol</em> is standard,
+but every harness still declares its servers in a differently-shaped config file in a different
+location.</li>
+<li><strong>Vendor-native distribution.</strong> Claude Code&rsquo;s plugin marketplaces distribute skills, commands,
+and MCP wiring cleanly — <em>within its harness</em>. The better a vendor&rsquo;s native mechanism, the
+deeper the lock-in when your employer puts you in a second harness.</li>
+<li><strong>Content libraries.</strong> Collections like <a href="https://github.com/obra/superpowers">obra/superpowers</a>
+and <a href="https://github.com/anthropics/skills">anthropics/skills</a> solve <strong>what</strong> your agents should
+know, not <strong>how</strong> it reaches different harnesses and stays consistent there.</li>
+</ol>
+<p>None of that covers cross-harness <strong>deployment and drift</strong>. The nearest prior art outside the
+agent world: <a href="https://github.com/nix-community/home-manager">Nix home-manager</a> or
+<a href="https://github.com/twpayne/chezmoi">chezmoi</a> compile a declarative source into a user environment,
+and GitOps made &ldquo;continuously reconcile desired state against live state&rdquo; the defining discipline
+of modern operations.</p>
+<p>This approach is nothing more than those two ideas applied to the agent layer.</p>
+<h2 id="the-fable-audit">The Fable audit</h2>
+<p><strong>In any compile-based system, materialized state is not evidence of intent.</strong> Only the source
+configurations is canonical.</p>
+<h3 id="effectiveness">Effectiveness</h3>
+<p>One reviewed edit reaches every harness with intent preserved.
+The work/personal split is a one-word profile difference instead of divergent directories.
+The realistic alternatives: per-harness hand-editing, or vendor marketplaces that stop at the vendor boundary .</p>
+<h3 id="best-practice">Best Practice</h3>
+<p>Uses standards where the ecosystem is converging.
+Already implements the format standards <em>and</em> the deployment layer none of them covers.</p>
+<h3 id="simplicity">Simplicity</h3>
+<p>Unix philosophy: small, single-purpose, composable tools. Achieved at the tool level.</p>
+<h3 id="maintainability-future-proofness">Maintainability, Future-proofness</h3>
+<p>No lock-in: no vendor SDK in tooling, open formats at every boundary.
+Stack survives a vendor switch.
+However, any compiler chasing unstable targets inherits a maintenance treadmill — the same trade Terraform providers accept against cloud APIs.</p>
+<h2 id="drawbacks">Drawbacks</h2>
+<p>No free lunch!</p>
+<ol>
+<li><strong>I am on a schema treadmill.</strong> When Claude Code removed its <code>MultiEdit</code> tool, <code>twsrt</code> needed a
+release just to stop emitting rules for it. The compilers must track every harness&rsquo;s format
+forever; <code>diff</code> acts as the early-warning system, but the maintenance is real.</li>
+<li><strong>Upfront cost is significant.</strong> Two published CLI tools, a
+skills repo, dotfiles integration. If I used only one harness with default settings, this would
+be over-engineering.</li>
+<li><strong>Security rules will occasionally block you.</strong> That is the point, but it costs time
+and demands understanding before overriding.</li>
+</ol>
+<h2 id="what-i-have-learned">What I have learned</h2>
+<ol>
+<li><strong>One canonical source per dimension</strong> — capabilities, security, skills, memory each get exactly
+one home in git.</li>
+<li><strong>Compile, never copy.</strong> Hand-edited materialized config is drift waiting to happen.</li>
+<li><strong>Make <code>diff</code> a first-class verb</strong> with meaningful exit codes — then <em>put it on a clock</em>.
+Detection capability without scheduled execution found nothing for months.</li>
+<li><strong>Own subtrees, not entire files.</strong> Harness wstate or configuration files that &ldquo;merely also hold&rdquo; my config must
+survive my changes.</li>
+<li><strong>Bet on open formats</strong> — SKILL.md, MCP, markdown instructions — keep zero LLM-SDK imports
+in your tooling. Model choice belongs to the harness, not the infrastructure.
+still delivered the two that mattered.</li>
+</ol>
+<h2 id="closing">Closing</h2>
+<p>This is one practitioner&rsquo;s setup, sample size one, and parts of it exist only because my work and
+personal environments force a multi-harness life.</p>
+<p>But the underlying idea is battle tested — it is discipline we trust from Terraform and GitOps.</p>
+<p><em>If a system&rsquo;s correctness matters, its configuration belongs in version control, its
+deployment belongs to a machine, and its drift belongs to a scheduled check.</em></p>
+<p>Agents are becoming the primary interface to our craft. They deserve the same discipline we learned to give other infrastructure.</p>
+<p>The public pieces — <a href="https://github.com/sysid/twsrt">twsrt</a>, <a href="https://github.com/sysid/twagent">twagent</a>, <a href="https://github.com/sysid/bkmr">bkmr</a> — are there if you want to study or reuse the mechanics.</p>
+
+</content>
+<p>
+  
+  <a href="/blog/ai/">#Ai</a>
+  
+  <a href="/blog/development/">#Development</a>
+  
+  <a href="/blog/agents/">#Agents</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

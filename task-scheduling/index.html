@@ -359,7 +359,7 @@ explicitly the value of having data and results viewing capability out of the bo
 After that you are good to go with the entire Panda&rsquo;s ecosystem. Just cast the boilerplate logic into a template and you almost
 never need  additional brain cycles and context switches to view data at will.</p>
 <p>A generic solution could be something along these lines:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">for</span> var <span style="color:#080">in</span> instance.component_objects(Var, active=<span style="color:#080;font-weight:bold">True</span>):
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">for</span> var <span style="color:#080">in</span> instance.component_objects(Var, active=<span style="color:#080;font-weight:bold">True</span>):
 </span></span><span style="display:flex;"><span>    <span style="color:#038">self</span>.result[var.name] = {k: v <span style="color:#080;font-weight:bold">for</span> (k, v) <span style="color:#080">in</span> var.get_values().items()}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>df = pd.DataFrame({k: pd.Series(<span style="color:#038">self</span>.result[var_name]) <span style="color:#080;font-weight:bold">for</span> var_name <span style="color:#080">in</span> variables})
