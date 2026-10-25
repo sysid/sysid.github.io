@@ -47,179 +47,10 @@
   <meta itemprop="keywords" content="Python,Optimization,Puzzle,Pyomo">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
-  <style>
-  body {
-    font-family: Verdana, sans-serif;
-    margin: auto;
-    padding: 20px;
-    max-width: 720px;
-    text-align: left;
-    background-color: #fff;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    line-height: 1.5;
-    color: #444;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  strong,
-  b {
-    color: #222;
-  }
-
-  a {
-    color: #3273dc;
-     
-  }
-
-  .title {
-    text-decoration: none;
-    border: 0;
-  }
-
-  .title span {
-    font-weight: 400;
-  }
-
-  nav a {
-    margin-right: 10px;
-  }
-
-  textarea {
-    width: 100%;
-    font-size: 16px;
-  }
-
-  input {
-    font-size: 16px;
-  }
-
-  content {
-    line-height: 1.6;
-  }
-
-  table {
-    width: 100%;
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  code {
-    padding: 2px 5px;
-    background-color: #f2f2f2;
-  }
-
-  pre code {
-    color: #222;
-    display: block;
-    padding: 20px;
-    white-space: pre-wrap;
-    font-size: 14px;
-    overflow-x: auto;
-  }
-
-  div.highlight pre {
-    background-color: initial;
-    color: initial;
-  }
-
-  div.highlight code {
-    background-color: unset;
-    color: unset;
-  }
-
-  blockquote {
-    border-left: 1px solid #999;
-    color: #222;
-    padding-left: 20px;
-    font-style: italic;
-  }
-
-  footer {
-    padding: 25px;
-    text-align: center;
-  }
-
-  .helptext {
-    color: #777;
-    font-size: small;
-  }
-
-  .errorlist {
-    color: #eba613;
-    font-size: small;
-  }
-
-   
-  ul.blog-posts {
-    list-style-type: none;
-    padding: unset;
-  }
-
-  ul.blog-posts li {
-    display: flex;
-  }
-
-  ul.blog-posts li span {
-    flex: 0 0 130px;
-  }
-
-  ul.blog-posts li a:visited {
-    color: #8b6fcb;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: #333;
-      color: #ddd;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    strong,
-    b {
-      color: #eee;
-    }
-
-    a {
-      color: #8cc2dd;
-    }
-
-    code {
-      background-color: #777;
-    }
-
-    pre code {
-      color: #ddd;
-    }
-
-    blockquote {
-      color: #ccc;
-    }
-
-    textarea,
-    input {
-      background-color: #252525;
-      color: #ddd;
-    }
-
-    .helptext {
-      color: #aaa;
-    }
-  }
-
-</style>
+  <link rel="preload" href="/fonts/source-serif-4-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/sysid.min.166bd22928cd5a24883a6797aac8bbe13591acdc58df2e99c00b3ba9fe56d816.css" integrity="sha256-FmvSKSjNWiSIOmeXqsi74TWRrNxY3y6ZwAs7qf5W2BY=">
+<link rel="stylesheet" href="/css/chroma-light.min.458f0b209e7b32727c308bd91b27f7aefb4ae4b76b3f2032c2f83b3fd43f7352.css" integrity="sha256-RY8LIJ57MnJ8MIvZGyf3rvtK5LdrPyAywvg7P9Q/c1I=" media="not all and (prefers-color-scheme: dark)">
+<link rel="stylesheet" href="/css/chroma-dark.min.d8ad658c02e1ff4f154ed92513da0a2763959be0a25adfd74e26f37b64eee8fd.css" integrity="sha256-2K1ljALh/08VTtklE9oKJ2OVm&#43;CiWt/XTibze2Tu6P0=" media="(prefers-color-scheme: dark)">
 
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
@@ -235,7 +66,6 @@
           gtag('config', 'G-8VH574W51S');
         }
       </script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-alpha.1/es5/tex-mml-chtml.js"></script>
 
 
@@ -255,11 +85,8 @@
 </head>
 
 <body>
-  <header><a href="/" class="title">
-  <h2>sysid blog</h2>
-</a>
-<nav><a href="/">Home</a>
-
+  <header><a class="brand" href="/"><img src="/images/sheep.png" alt="" width="34" height="34"><span>sysid</span></a>
+<nav aria-label="Main">
 <a href="/blog">Blog</a>
 
 <a href="/agentic">Agentic</a>
@@ -273,12 +100,10 @@
   <main>
 
 <h1>Polyominos, Tetris</h1>
-<p>
-  <i>
-    <time datetime='2020-05-17' pubdate>
-      17 May, 2020
-    </time>
-  </i>
+<p class="meta">
+  <time datetime='2020-05-17'>17 May 2020</time>
+  <span>5 min read</span>
+  <span><a href="/blog/python/">python</a> · <a href="/blog/optimization/">optimization</a> · <a href="/blog/puzzle/">puzzle</a> · <a href="/blog/pyomo/">pyomo</a></span>
 </p>
 
 <content>
@@ -349,31 +174,31 @@ y_{i,j} \in {0,1}
 $$</p>
 <h1 id="implementation">Implementation</h1>
 <p>Implementing the model in Pyomo is straightforward and compact:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#888">### Sets</span>
-</span></span><span style="display:flex;"><span>model.K = Set(initialize=<span style="color:#038">self</span>.blocks.keys())
-</span></span><span style="display:flex;"><span>model.I = RangeSet(<span style="color:#038">self</span>.dimension)
-</span></span><span style="display:flex;"><span>model.J = RangeSet(<span style="color:#038">self</span>.dimension)
-</span></span><span style="display:flex;"><span>model.ok = Set(initialize=<span style="color:#038">self</span>.ok.keys())
-</span></span><span style="display:flex;"><span>model.cover = Set(initialize=<span style="color:#038">self</span>.cover.keys())
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">### Var</span>
-</span></span><span style="display:flex;"><span>model.x = Var(model.K, model.I, model.J, domain=Boolean, initialize=<span style="color:#00d;font-weight:bold">0</span>,
-</span></span><span style="display:flex;"><span>              doc=<span style="color:#d20;background-color:#fff0f0">&#39;if we place polyomino k at location (i,j)&#39;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>model.y = Var(model.I, model.J, domain=Boolean, initialize=<span style="color:#00d;font-weight:bold">0</span>,
-</span></span><span style="display:flex;"><span>              doc=<span style="color:#d20;background-color:#fff0f0">&#39;(i,j) is covered exactly once (allow infeasable solutions)&#39;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">### Constraints</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">overlap_c</span>(model, iii, jjj):
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> <span style="color:#038">sum</span>(
-</span></span><span style="display:flex;"><span>        model.x[k, i, j] <span style="color:#080;font-weight:bold">for</span> (k, i, j, ii, jj) <span style="color:#080">in</span> model.cover <span style="color:#080;font-weight:bold">if</span> ii == iii <span style="color:#080">and</span> jj == jjj
-</span></span><span style="display:flex;"><span>    ) == model.y[iii, jjj]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>model.overlap_c = Constraint(model.I, model.J, rule=overlap_c)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">### Objective</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">obj</span>(model):
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> <span style="color:#038">sum</span>(model.y[i, j] <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080">in</span> model.I <span style="color:#080;font-weight:bold">for</span> j <span style="color:#080">in</span> model.J)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">### Sets</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">K</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">I</span> <span class="o">=</span> <span class="n">RangeSet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dimension</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">J</span> <span class="o">=</span> <span class="n">RangeSet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dimension</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">ok</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ok</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">cover</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cover</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">### Var</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">K</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">I</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">J</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Boolean</span><span class="p">,</span> <span class="n">initialize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;if we place polyomino k at location (i,j)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">I</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">J</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Boolean</span><span class="p">,</span> <span class="n">initialize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;(i,j) is covered exactly once (allow infeasable solutions)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">### Constraints</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">overlap_c</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">iii</span><span class="p">,</span> <span class="n">jjj</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">ii</span><span class="p">,</span> <span class="n">jj</span><span class="p">)</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">cover</span> <span class="k">if</span> <span class="n">ii</span> <span class="o">==</span> <span class="n">iii</span> <span class="ow">and</span> <span class="n">jj</span> <span class="o">==</span> <span class="n">jjj</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span> <span class="o">==</span> <span class="n">model</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">iii</span><span class="p">,</span> <span class="n">jjj</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">overlap_c</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">I</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">J</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="n">overlap_c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">### Objective</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">obj</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">I</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">J</span><span class="p">)</span>
 </span></span></code></pre></div><h2 id="result">Result</h2>
 <p>To have a fix point with regard to the correctness of our solution we start with the setup from <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> which employs 5
 polyominos to fill a \((11x11)\) grid.</p>
@@ -466,20 +291,11 @@ translate into other domains like Data Science or even general software developm
 </div>
 
 </content>
-<p>
-  
-  <a href="/blog/python/">#Python</a>
-  
-  <a href="/blog/optimization/">#Optimization</a>
-  
-  <a href="/blog/puzzle/">#Puzzle</a>
-  
-  <a href="/blog/pyomo/">#Pyomo</a>
-  
-</p>
 
   </main>
-  <footer>
+  <footer><img src="/images/sheep.png" alt="" width="20" height="20">
+<span>Copyright © 2022, sysid.</span>
+
 </footer>
 
     

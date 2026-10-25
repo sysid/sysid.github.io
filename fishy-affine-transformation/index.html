@@ -61,179 +61,10 @@ finding the fish (thanks Nathaniel Shimoni for annotating) centering rotatating 
   <meta itemprop="keywords" content="Python,Math,Machine Learning,Ai">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
-  <style>
-  body {
-    font-family: Verdana, sans-serif;
-    margin: auto;
-    padding: 20px;
-    max-width: 720px;
-    text-align: left;
-    background-color: #fff;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    line-height: 1.5;
-    color: #444;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  strong,
-  b {
-    color: #222;
-  }
-
-  a {
-    color: #3273dc;
-     
-  }
-
-  .title {
-    text-decoration: none;
-    border: 0;
-  }
-
-  .title span {
-    font-weight: 400;
-  }
-
-  nav a {
-    margin-right: 10px;
-  }
-
-  textarea {
-    width: 100%;
-    font-size: 16px;
-  }
-
-  input {
-    font-size: 16px;
-  }
-
-  content {
-    line-height: 1.6;
-  }
-
-  table {
-    width: 100%;
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  code {
-    padding: 2px 5px;
-    background-color: #f2f2f2;
-  }
-
-  pre code {
-    color: #222;
-    display: block;
-    padding: 20px;
-    white-space: pre-wrap;
-    font-size: 14px;
-    overflow-x: auto;
-  }
-
-  div.highlight pre {
-    background-color: initial;
-    color: initial;
-  }
-
-  div.highlight code {
-    background-color: unset;
-    color: unset;
-  }
-
-  blockquote {
-    border-left: 1px solid #999;
-    color: #222;
-    padding-left: 20px;
-    font-style: italic;
-  }
-
-  footer {
-    padding: 25px;
-    text-align: center;
-  }
-
-  .helptext {
-    color: #777;
-    font-size: small;
-  }
-
-  .errorlist {
-    color: #eba613;
-    font-size: small;
-  }
-
-   
-  ul.blog-posts {
-    list-style-type: none;
-    padding: unset;
-  }
-
-  ul.blog-posts li {
-    display: flex;
-  }
-
-  ul.blog-posts li span {
-    flex: 0 0 130px;
-  }
-
-  ul.blog-posts li a:visited {
-    color: #8b6fcb;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: #333;
-      color: #ddd;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    strong,
-    b {
-      color: #eee;
-    }
-
-    a {
-      color: #8cc2dd;
-    }
-
-    code {
-      background-color: #777;
-    }
-
-    pre code {
-      color: #ddd;
-    }
-
-    blockquote {
-      color: #ccc;
-    }
-
-    textarea,
-    input {
-      background-color: #252525;
-      color: #ddd;
-    }
-
-    .helptext {
-      color: #aaa;
-    }
-  }
-
-</style>
+  <link rel="preload" href="/fonts/source-serif-4-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/sysid.min.166bd22928cd5a24883a6797aac8bbe13591acdc58df2e99c00b3ba9fe56d816.css" integrity="sha256-FmvSKSjNWiSIOmeXqsi74TWRrNxY3y6ZwAs7qf5W2BY=">
+<link rel="stylesheet" href="/css/chroma-light.min.458f0b209e7b32727c308bd91b27f7aefb4ae4b76b3f2032c2f83b3fd43f7352.css" integrity="sha256-RY8LIJ57MnJ8MIvZGyf3rvtK5LdrPyAywvg7P9Q/c1I=" media="not all and (prefers-color-scheme: dark)">
+<link rel="stylesheet" href="/css/chroma-dark.min.d8ad658c02e1ff4f154ed92513da0a2763959be0a25adfd74e26f37b64eee8fd.css" integrity="sha256-2K1ljALh/08VTtklE9oKJ2OVm&#43;CiWt/XTibze2Tu6P0=" media="(prefers-color-scheme: dark)">
 
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
@@ -249,7 +80,6 @@ finding the fish (thanks Nathaniel Shimoni for annotating) centering rotatating 
           gtag('config', 'G-8VH574W51S');
         }
       </script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-alpha.1/es5/tex-mml-chtml.js"></script>
 
 
@@ -269,11 +99,8 @@ finding the fish (thanks Nathaniel Shimoni for annotating) centering rotatating 
 </head>
 
 <body>
-  <header><a href="/" class="title">
-  <h2>sysid blog</h2>
-</a>
-<nav><a href="/">Home</a>
-
+  <header><a class="brand" href="/"><img src="/images/sheep.png" alt="" width="34" height="34"><span>sysid</span></a>
+<nav aria-label="Main">
 <a href="/blog">Blog</a>
 
 <a href="/agentic">Agentic</a>
@@ -287,12 +114,10 @@ finding the fish (thanks Nathaniel Shimoni for annotating) centering rotatating 
   <main>
 
 <h1>Fishy Affine Transformation</h1>
-<p>
-  <i>
-    <time datetime='2017-03-13' pubdate>
-      13 Mar, 2017
-    </time>
-  </i>
+<p class="meta">
+  <time datetime='2017-03-13'>13 March 2017</time>
+  <span>4 min read</span>
+  <span><a href="/blog/python/">python</a> · <a href="/blog/math/">math</a> · <a href="/blog/machine-learning/">machine learning</a> · <a href="/blog/ai/">ai</a></span>
 </p>
 
 <content>
@@ -321,17 +146,17 @@ denoted vector variables and caps matrices.</p>
 <h2 id="1-finding-the-fish">1. Finding the Fish</h2>
 <p>I used the annotations from labels produced by Nathaniel Shimoni and published on Kaggle (thanks for the great work!).</p>
 <p>Using only fish with head and tail annotated, it was possible to get the vector representation of a fish as:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>p_heads = np.array((img_data[<span style="color:#d20;background-color:#fff0f0">&#39;annotations&#39;</span>][<span style="color:#00d;font-weight:bold">0</span>][<span style="color:#d20;background-color:#fff0f0">&#39;x&#39;</span>], img_data[<span style="color:#d20;background-color:#fff0f0">&#39;annotations&#39;</span>][<span style="color:#00d;font-weight:bold">0</span>][<span style="color:#d20;background-color:#fff0f0">&#39;y&#39;</span>]))
-</span></span><span style="display:flex;"><span>p_tails = np.array((img_data[<span style="color:#d20;background-color:#fff0f0">&#39;annotations&#39;</span>][<span style="color:#00d;font-weight:bold">1</span>][<span style="color:#d20;background-color:#fff0f0">&#39;x&#39;</span>], img_data[<span style="color:#d20;background-color:#fff0f0">&#39;annotations&#39;</span>][<span style="color:#00d;font-weight:bold">1</span>][<span style="color:#d20;background-color:#fff0f0">&#39;y&#39;</span>]))
-</span></span><span style="display:flex;"><span>p_middle = (p_heads + p_tails)/<span style="color:#00d;font-weight:bold">2</span>
-</span></span><span style="display:flex;"><span>v_fish = p_heads - p_tails
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">p_heads</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">img_data</span><span class="p">[</span><span class="s1">&#39;annotations&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">img_data</span><span class="p">[</span><span class="s1">&#39;annotations&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;y&#39;</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl"><span class="n">p_tails</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">img_data</span><span class="p">[</span><span class="s1">&#39;annotations&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">img_data</span><span class="p">[</span><span class="s1">&#39;annotations&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;y&#39;</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl"><span class="n">p_middle</span> <span class="o">=</span> <span class="p">(</span><span class="n">p_heads</span> <span class="o">+</span> <span class="n">p_tails</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="n">v_fish</span> <span class="o">=</span> <span class="n">p_heads</span> <span class="o">-</span> <span class="n">p_tails</span>
 </span></span></code></pre></div><h2 id="2-centering">2. Centering</h2>
 <p>Centering fish is a basic translation in the 2-dim space.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#888"># translate to center of img</span>
-</span></span><span style="display:flex;"><span>    img_center = np.array([img_height/<span style="color:#00d;font-weight:bold">2</span>, img_width/<span style="color:#00d;font-weight:bold">2</span>])
-</span></span><span style="display:flex;"><span>    t = img_center - p_middle  <span style="color:#888"># translation vector</span>
-</span></span><span style="display:flex;"><span>    t = np.reshape(t, (<span style="color:#00d;font-weight:bold">2</span>,<span style="color:#00d;font-weight:bold">1</span>))  <span style="color:#888"># generate the 2x3 affine transformation matrix</span>
-</span></span><span style="display:flex;"><span>    T = np.concatenate((np.identity(<span style="color:#00d;font-weight:bold">2</span>), t), axis=<span style="color:#00d;font-weight:bold">1</span>)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="c1"># translate to center of img</span>
+</span></span><span class="line"><span class="cl">    <span class="n">img_center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">img_height</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">img_width</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">t</span> <span class="o">=</span> <span class="n">img_center</span> <span class="o">-</span> <span class="n">p_middle</span>  <span class="c1"># translation vector</span>
+</span></span><span class="line"><span class="cl">    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># generate the 2x3 affine transformation matrix</span>
+</span></span><span class="line"><span class="cl">    <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">t</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </span></span></code></pre></div><p>The respective transformation matrix is:</p>
 <figure class="center"><img src="/fishy-affine-transformation/fishy-affine-transformation-translation.png" width="100%">
 </figure>
@@ -339,33 +164,33 @@ denoted vector variables and caps matrices.</p>
 <h2 id="3-rotating">3. Rotating</h2>
 <p>First I needed to find the angle for rotation. I wanted to have the fish oriented parallel to the x-axis with the head always being on the right. The dot-product of two vectors provides the
 angle in between, so I had to &lsquo;dot-product&rsquo; my fish vector with the x-axis:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">unit_vector</span>(vector):
-</span></span><span style="display:flex;"><span>    <span style="color:#d20;background-color:#fff0f0">&#34;&#34;&#34; Returns the unit vector of the vector.&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> vector / np.linalg.norm(vector)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">angle_between</span>(v1, v2):
-</span></span><span style="display:flex;"><span>    <span style="color:#d20;background-color:#fff0f0">&#34;&#34;&#34; Returns the angle in radians between vectors &#39;v1&#39; and &#39;v2&#39;::
-</span></span></span><span style="display:flex;"><span><span style="color:#d20;background-color:#fff0f0">
-</span></span></span><span style="display:flex;"><span><span style="color:#d20;background-color:#fff0f0">            &gt;&gt;&gt; angle_between((1, 0, 0), (0, 1, 0))
-</span></span></span><span style="display:flex;"><span><span style="color:#d20;background-color:#fff0f0">            1.5707963267948966
-</span></span></span><span style="display:flex;"><span><span style="color:#d20;background-color:#fff0f0">            &gt;&gt;&gt; angle_between((1, 0, 0), (1, 0, 0))
-</span></span></span><span style="display:flex;"><span><span style="color:#d20;background-color:#fff0f0">            0.0
-</span></span></span><span style="display:flex;"><span><span style="color:#d20;background-color:#fff0f0">            &gt;&gt;&gt; angle_between((1, 0, 0), (-1, 0, 0))
-</span></span></span><span style="display:flex;"><span><span style="color:#d20;background-color:#fff0f0">            3.141592653589793
-</span></span></span><span style="display:flex;"><span><span style="color:#d20;background-color:#fff0f0">    &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    v1_u = unit_vector(v1)
-</span></span><span style="display:flex;"><span>    v2_u = unit_vector(v2)
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> np.arccos(np.clip(np.dot(v1_u, v2_u), -<span style="color:#00d;font-weight:bold">1.0</span>, <span style="color:#00d;font-weight:bold">1.0</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>angle = np.rad2deg(angle_between((<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">0</span>), v_fish))
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">unit_vector</span><span class="p">(</span><span class="n">vector</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34; Returns the unit vector of the vector.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">vector</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">angle_between</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34; Returns the angle in radians between vectors &#39;v1&#39; and &#39;v2&#39;::
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">            &gt;&gt;&gt; angle_between((1, 0, 0), (0, 1, 0))
+</span></span></span><span class="line"><span class="cl"><span class="s2">            1.5707963267948966
+</span></span></span><span class="line"><span class="cl"><span class="s2">            &gt;&gt;&gt; angle_between((1, 0, 0), (1, 0, 0))
+</span></span></span><span class="line"><span class="cl"><span class="s2">            0.0
+</span></span></span><span class="line"><span class="cl"><span class="s2">            &gt;&gt;&gt; angle_between((1, 0, 0), (-1, 0, 0))
+</span></span></span><span class="line"><span class="cl"><span class="s2">            3.141592653589793
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">v1_u</span> <span class="o">=</span> <span class="n">unit_vector</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">v2_u</span> <span class="o">=</span> <span class="n">unit_vector</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v1_u</span><span class="p">,</span> <span class="n">v2_u</span><span class="p">),</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">angle_between</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">v_fish</span><span class="p">))</span>
 </span></span></code></pre></div><p>Conveniently CV2 provides a function to find the necessary transformation matrix (cv2.getRotationMatrix2D).</p>
 <p>A challenge was to find out, that the rotation angle returned always is between 0-180°, so the following conditional differentiation was necessary
 (rotation counter clockwise vs clockwise). It basically differentiates between the case that the head is above or below the tail:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#888"># get the Affine transformation matrix</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> p_heads[<span style="color:#00d;font-weight:bold">1</span>] &gt; p_tails[<span style="color:#00d;font-weight:bold">1</span>]:  <span style="color:#888"># head is above tail</span>
-</span></span><span style="display:flex;"><span>        M = cv2.getRotationMatrix2D((p_middle[<span style="color:#00d;font-weight:bold">0</span>], p_middle[<span style="color:#00d;font-weight:bold">1</span>]), angle, <span style="color:#00d;font-weight:bold">1</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">else</span>:
-</span></span><span style="display:flex;"><span>        M = cv2.getRotationMatrix2D((p_middle[<span style="color:#00d;font-weight:bold">0</span>], p_middle[<span style="color:#00d;font-weight:bold">1</span>]), -angle, <span style="color:#00d;font-weight:bold">1</span>)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="c1"># get the Affine transformation matrix</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">p_heads</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">p_tails</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>  <span class="c1"># head is above tail</span>
+</span></span><span class="line"><span class="cl">        <span class="n">M</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">getRotationMatrix2D</span><span class="p">((</span><span class="n">p_middle</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p_middle</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">angle</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">M</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">getRotationMatrix2D</span><span class="p">((</span><span class="n">p_middle</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p_middle</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="o">-</span><span class="n">angle</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </span></span></code></pre></div><h2 id="putting-it-all-together">Putting it all together</h2>
 <p>Getting the resulting transformation from a translation and rotation mathematically translates to a matrix product and applying the resulting
 transformation matrix to the fish vector. To make the multiplication of a 2x3 tranlation matrix and a 2x3 rotation matrix possible the
@@ -377,17 +202,17 @@ following steps were necesary (combination of two affine transformations):</p>
 <li>return the first two rows of R</li>
 </ul>
 <p>So RR was my final transformation matrix.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#888"># compinte affine transform: make them 3x3</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#888"># http://stackoverflow.com/questions/13557066/built-in-function-to-combine-affine-transforms-in-opencv</span>
-</span></span><span style="display:flex;"><span>    A1 = np.identity(<span style="color:#00d;font-weight:bold">3</span>)
-</span></span><span style="display:flex;"><span>    A2 = np.identity(<span style="color:#00d;font-weight:bold">3</span>)
-</span></span><span style="display:flex;"><span>    R = np.identity(<span style="color:#00d;font-weight:bold">3</span>)
-</span></span><span style="display:flex;"><span>    A1[:<span style="color:#00d;font-weight:bold">2</span>] = T
-</span></span><span style="display:flex;"><span>    A2[:<span style="color:#00d;font-weight:bold">2</span>] = M
-</span></span><span style="display:flex;"><span>    R = A1<span style="color:#555">@A2</span>
-</span></span><span style="display:flex;"><span>    RR = R[:<span style="color:#00d;font-weight:bold">2</span>]
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="c1"># compinte affine transform: make them 3x3</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># http://stackoverflow.com/questions/13557066/built-in-function-to-combine-affine-transforms-in-opencv</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A1</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">T</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A2</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span>
+</span></span><span class="line"><span class="cl">    <span class="n">R</span> <span class="o">=</span> <span class="n">A1</span><span class="nd">@A2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">RR</span> <span class="o">=</span> <span class="n">R</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 </span></span></code></pre></div><p>Getting the transformed image is now straightforward:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    dst = cv2.warpAffine(img, RR, (img_height, img_width))
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="n">dst</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">warpAffine</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">RR</span><span class="p">,</span> <span class="p">(</span><span class="n">img_height</span><span class="p">,</span> <span class="n">img_width</span><span class="p">))</span>
 </span></span></code></pre></div><p>The nice thing with this approach is that once you have got the final transformation matrix, all other points of interest can be transformed by this matrix,
 e.g. the head and tail annotations are transformed by the same matrix.</p>
 <h2 id="result">Result</h2>
@@ -405,20 +230,11 @@ Other sources:
 <a href="https://www.kaggle.com/qiubit/the-nature-conservancy-fisheries-monitoring/crop-fish">https://www.kaggle.com/qiubit/the-nature-conservancy-fisheries-monitoring/crop-fish</a></p>
 
 </content>
-<p>
-  
-  <a href="/blog/python/">#Python</a>
-  
-  <a href="/blog/math/">#Math</a>
-  
-  <a href="/blog/machine-learning/">#Machine Learning</a>
-  
-  <a href="/blog/ai/">#Ai</a>
-  
-</p>
 
   </main>
-  <footer>
+  <footer><img src="/images/sheep.png" alt="" width="20" height="20">
+<span>Copyright © 2022, sysid.</span>
+
 </footer>
 
     

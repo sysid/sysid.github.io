@@ -46,179 +46,10 @@
   <meta itemprop="keywords" content="Python,Optimization,Pyomo">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
-  <style>
-  body {
-    font-family: Verdana, sans-serif;
-    margin: auto;
-    padding: 20px;
-    max-width: 720px;
-    text-align: left;
-    background-color: #fff;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    line-height: 1.5;
-    color: #444;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  strong,
-  b {
-    color: #222;
-  }
-
-  a {
-    color: #3273dc;
-     
-  }
-
-  .title {
-    text-decoration: none;
-    border: 0;
-  }
-
-  .title span {
-    font-weight: 400;
-  }
-
-  nav a {
-    margin-right: 10px;
-  }
-
-  textarea {
-    width: 100%;
-    font-size: 16px;
-  }
-
-  input {
-    font-size: 16px;
-  }
-
-  content {
-    line-height: 1.6;
-  }
-
-  table {
-    width: 100%;
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  code {
-    padding: 2px 5px;
-    background-color: #f2f2f2;
-  }
-
-  pre code {
-    color: #222;
-    display: block;
-    padding: 20px;
-    white-space: pre-wrap;
-    font-size: 14px;
-    overflow-x: auto;
-  }
-
-  div.highlight pre {
-    background-color: initial;
-    color: initial;
-  }
-
-  div.highlight code {
-    background-color: unset;
-    color: unset;
-  }
-
-  blockquote {
-    border-left: 1px solid #999;
-    color: #222;
-    padding-left: 20px;
-    font-style: italic;
-  }
-
-  footer {
-    padding: 25px;
-    text-align: center;
-  }
-
-  .helptext {
-    color: #777;
-    font-size: small;
-  }
-
-  .errorlist {
-    color: #eba613;
-    font-size: small;
-  }
-
-   
-  ul.blog-posts {
-    list-style-type: none;
-    padding: unset;
-  }
-
-  ul.blog-posts li {
-    display: flex;
-  }
-
-  ul.blog-posts li span {
-    flex: 0 0 130px;
-  }
-
-  ul.blog-posts li a:visited {
-    color: #8b6fcb;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: #333;
-      color: #ddd;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    strong,
-    b {
-      color: #eee;
-    }
-
-    a {
-      color: #8cc2dd;
-    }
-
-    code {
-      background-color: #777;
-    }
-
-    pre code {
-      color: #ddd;
-    }
-
-    blockquote {
-      color: #ccc;
-    }
-
-    textarea,
-    input {
-      background-color: #252525;
-      color: #ddd;
-    }
-
-    .helptext {
-      color: #aaa;
-    }
-  }
-
-</style>
+  <link rel="preload" href="/fonts/source-serif-4-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/sysid.min.166bd22928cd5a24883a6797aac8bbe13591acdc58df2e99c00b3ba9fe56d816.css" integrity="sha256-FmvSKSjNWiSIOmeXqsi74TWRrNxY3y6ZwAs7qf5W2BY=">
+<link rel="stylesheet" href="/css/chroma-light.min.458f0b209e7b32727c308bd91b27f7aefb4ae4b76b3f2032c2f83b3fd43f7352.css" integrity="sha256-RY8LIJ57MnJ8MIvZGyf3rvtK5LdrPyAywvg7P9Q/c1I=" media="not all and (prefers-color-scheme: dark)">
+<link rel="stylesheet" href="/css/chroma-dark.min.d8ad658c02e1ff4f154ed92513da0a2763959be0a25adfd74e26f37b64eee8fd.css" integrity="sha256-2K1ljALh/08VTtklE9oKJ2OVm&#43;CiWt/XTibze2Tu6P0=" media="(prefers-color-scheme: dark)">
 
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
@@ -234,7 +65,6 @@
           gtag('config', 'G-8VH574W51S');
         }
       </script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-alpha.1/es5/tex-mml-chtml.js"></script>
 
 
@@ -254,11 +84,8 @@
 </head>
 
 <body>
-  <header><a href="/" class="title">
-  <h2>sysid blog</h2>
-</a>
-<nav><a href="/">Home</a>
-
+  <header><a class="brand" href="/"><img src="/images/sheep.png" alt="" width="34" height="34"><span>sysid</span></a>
+<nav aria-label="Main">
 <a href="/blog">Blog</a>
 
 <a href="/agentic">Agentic</a>
@@ -272,12 +99,10 @@
   <main>
 
 <h1>Inventory Management</h1>
-<p>
-  <i>
-    <time datetime='2021-01-01' pubdate>
-      01 Jan, 2021
-    </time>
-  </i>
+<p class="meta">
+  <time datetime='2021-01-01'>1 January 2021</time>
+  <span>4 min read</span>
+  <span><a href="/blog/python/">python</a> · <a href="/blog/optimization/">optimization</a> · <a href="/blog/pyomo/">pyomo</a></span>
 </p>
 
 <content>
@@ -339,97 +164,97 @@ $$</p>
 <h1 id="implementation">Implementation</h1>
 <p>Using <a href="http://www.pyomo.org/">Pyomo</a> as modelling framework results in the following Python code for the constraints.</p>
 <p>The numbers in the code comments match the constraint numbering in the MIP model above.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>        <span style="color:#888"># 2a inventory balance equation:</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">inv_balance_c</span>(model, t):
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> t == <span style="color:#00d;font-weight:bold">1</span>:
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> (
-</span></span><span style="display:flex;"><span>                    model.inv[t] - model.backlog[t]
-</span></span><span style="display:flex;"><span>                    == -model.demand[t] + model.repl[t] + model.initInv[t]
-</span></span><span style="display:flex;"><span>                )
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> (
-</span></span><span style="display:flex;"><span>                model.inv[t] - model.backlog[t]
-</span></span><span style="display:flex;"><span>                == model.inv[t - <span style="color:#00d;font-weight:bold">1</span>]
-</span></span><span style="display:flex;"><span>                - model.backlog[t - <span style="color:#00d;font-weight:bold">1</span>]
-</span></span><span style="display:flex;"><span>                - model.demand[t]
-</span></span><span style="display:flex;"><span>                + model.repl[t]
-</span></span><span style="display:flex;"><span>                + model.initInv[t]
-</span></span><span style="display:flex;"><span>            )
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        model.inv_balance_c = Constraint(model.H, rule=inv_balance_c)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#888"># 2b only one of these variables can be non-zero</span>
-</span></span><span style="display:flex;"><span>        model.inv_backlog_excl_c1 = Constraint(
-</span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.inv[t] &lt;= <span style="color:#038">self</span>.invCap * model.delta[t]
-</span></span><span style="display:flex;"><span>        )
-</span></span><span style="display:flex;"><span>        model.inv_backlog_excl_c2 = Constraint(
-</span></span><span style="display:flex;"><span>            model.H,
-</span></span><span style="display:flex;"><span>            rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.backlog[t]
-</span></span><span style="display:flex;"><span>            &lt;= <span style="color:#038">self</span>.maxBackLogged * (<span style="color:#00d;font-weight:bold">1</span> - model.delta[t]),
-</span></span><span style="display:flex;"><span>        )
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#888"># 3. detect low inventory</span>
-</span></span><span style="display:flex;"><span>        model.low_inv_c1 = Constraint(
-</span></span><span style="display:flex;"><span>            model.H,
-</span></span><span style="display:flex;"><span>            rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.inv[t]
-</span></span><span style="display:flex;"><span>            &lt;= model.r + <span style="color:#038">self</span>.invCap * (<span style="color:#00d;font-weight:bold">1</span> - model.low[t]),
-</span></span><span style="display:flex;"><span>        )
-</span></span><span style="display:flex;"><span>        model.low_inv_c2 = Constraint(
-</span></span><span style="display:flex;"><span>            model.H,
-</span></span><span style="display:flex;"><span>            rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.inv[t]
-</span></span><span style="display:flex;"><span>            &gt;= model.r + <span style="color:#00d;font-weight:bold">1</span> - (<span style="color:#038">self</span>.invCap + <span style="color:#00d;font-weight:bold">1</span>) * model.low[t],
-</span></span><span style="display:flex;"><span>        )
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#888"># 4. reorder event detection</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">order_event_c1</span>(model, t):
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> t == <span style="color:#00d;font-weight:bold">1</span>:
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> Constraint.Skip
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> model.order[t] &lt;= <span style="color:#00d;font-weight:bold">1</span> - model.low[t - <span style="color:#00d;font-weight:bold">1</span>]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        model.order_event_c1 = Constraint(model.H, rule=order_event_c1)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">order_event_c2</span>(model, t):
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> t == <span style="color:#00d;font-weight:bold">1</span>:
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> Constraint.Skip
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> model.order[t] &gt;= model.low[t] - model.low[t - <span style="color:#00d;font-weight:bold">1</span>]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        model.order_event_c2 = Constraint(model.H, rule=order_event_c2)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        model.order_event_c3 = Constraint(
-</span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.order[t] &lt;= model.low[t]
-</span></span><span style="display:flex;"><span>        )
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#888"># 5. inventory replenishment takes place after an order was placed and when the lead time passed.</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">repl_c1</span>(model, t):
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> t &lt;= <span style="color:#038">self</span>.leadTime:
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> model.repl[t] == <span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> model.repl[t] &lt;= <span style="color:#038">self</span>.maxQ * model.order[t - <span style="color:#038">self</span>.leadTime]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        model.repl_c1 = Constraint(model.H, rule=repl_c1)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">repl_c2</span>(model, t):
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> t &lt;= <span style="color:#038">self</span>.leadTime:
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> model.repl[t] == <span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> model.repl[t] &gt;= model.q - <span style="color:#038">self</span>.maxQ * (
-</span></span><span style="display:flex;"><span>                <span style="color:#00d;font-weight:bold">1</span> - model.order[t - <span style="color:#038">self</span>.leadTime]
-</span></span><span style="display:flex;"><span>            )
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        model.repl_c2 = Constraint(model.H, rule=repl_c2)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        model.repl_c3 = Constraint(
-</span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.repl[t] &lt;= model.q
-</span></span><span style="display:flex;"><span>        )
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        model.q_c = Constraint(rule=<span style="color:#080;font-weight:bold">lambda</span> model: model.q &lt;= <span style="color:#038">self</span>.maxQ)
-</span></span><span style="display:flex;"><span>        model.r_c = Constraint(rule=<span style="color:#080;font-weight:bold">lambda</span> model: model.r &lt;= <span style="color:#038">self</span>.invCap)
-</span></span><span style="display:flex;"><span>        model.inv_c = Constraint(
-</span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.inv[t] &lt;= <span style="color:#038">self</span>.invCap
-</span></span><span style="display:flex;"><span>        )
-</span></span><span style="display:flex;"><span>        model.backlog_c = Constraint(
-</span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.backlog[t] &lt;= <span style="color:#038">self</span>.maxBackLogged
-</span></span><span style="display:flex;"><span>        )
-</span></span><span style="display:flex;"><span>        model.repl_c = Constraint(
-</span></span><span style="display:flex;"><span>            model.H, rule=<span style="color:#080;font-weight:bold">lambda</span> model, t: model.repl[t] &lt;= <span style="color:#038">self</span>.maxQ
-</span></span><span style="display:flex;"><span>        )
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">        <span class="c1"># 2a inventory balance equation:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">inv_balance_c</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">model</span><span class="o">.</span><span class="n">inv</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">model</span><span class="o">.</span><span class="n">backlog</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">==</span> <span class="o">-</span><span class="n">model</span><span class="o">.</span><span class="n">demand</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">repl</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">initInv</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="n">model</span><span class="o">.</span><span class="n">inv</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">model</span><span class="o">.</span><span class="n">backlog</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="o">==</span> <span class="n">model</span><span class="o">.</span><span class="n">inv</span><span class="p">[</span><span class="n">t</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="o">-</span> <span class="n">model</span><span class="o">.</span><span class="n">backlog</span><span class="p">[</span><span class="n">t</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="o">-</span> <span class="n">model</span><span class="o">.</span><span class="n">demand</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">repl</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">initInv</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">.</span><span class="n">inv_balance_c</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">H</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="n">inv_balance_c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 2b only one of these variables can be non-zero</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">.</span><span class="n">inv_backlog_excl_c1</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">model</span><span class="o">.</span><span class="n">H</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="k">lambda</span> <span class="n">model</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">inv</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">invCap</span> <span class="o">*</span> <span class="n">model</span><span class="o">.</span><span class="n">delta</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">.</span><span class="n">inv_backlog_excl_c2</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">model</span><span class="o">.</span><span class="n">H</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">rule</span><span class="o">=</span><span class="k">lambda</span> <span class="n">model</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">backlog</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxBackLogged</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">model</span><span class="o">.</span><span class="n">delta</span><span class="p">[</span><span class="n">t</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 3. detect low inventory</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">.</span><span class="n">low_inv_c1</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">model</span><span class="o">.</span><span class="n">H</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">rule</span><span class="o">=</span><span class="k">lambda</span> <span class="n">model</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">inv</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&lt;=</span> <span class="n">model</span><span class="o">.</span><span class="n">r</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">invCap</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">model</span><span class="o">.</span><span class="n">low</span><span class="p">[</span><span class="n">t</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">.</span><span class="n">low_inv_c2</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">model</span><span class="o">.</span><span class="n">H</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">rule</span><span class="o">=</span><span class="k">lambda</span> <span class="n">model</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">inv</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&gt;=</span> <span class="n">model</span><span class="o">.</span><span class="n">r</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">invCap</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">model</span><span class="o">.</span><span class="n">low</span><span class="p">[</span><span class="n">t</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 4. reorder event detection</span>
+</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">order_event_c1</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">Constraint</span><span class="o">.</span><span class="n">Skip</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">order</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">model</span><span class="o">.</span><span class="n">low</span><span class="p">[</span><span class="n">t</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">.</span><span class="n">order_event_c1</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">H</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="n">order_event_c1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">order_event_c2</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">Constraint</span><span class="o">.</span><span class="n">Skip</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">order</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">model</span><span class="o">.</span><span class="n">low</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">model</span><span class="o">.</span><span class="n">low</span><span class="p">[</span><span class="n">t</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">.</span><span class="n">order_event_c2</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">H</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="n">order_event_c2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">.</span><span class="n">order_event_c3</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">model</span><span class="o">.</span><span class="n">H</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="k">lambda</span> <span class="n">model</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">order</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">model</span><span class="o">.</span><span class="n">low</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 5. inventory replenishment takes place after an order was placed and when the lead time passed.</span>
+</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">repl_c1</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">leadTime</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">repl</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">repl</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxQ</span> <span class="o">*</span> <span class="n">model</span><span class="o">.</span><span class="n">order</span><span class="p">[</span><span class="n">t</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">leadTime</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">.</span><span class="n">repl_c1</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">H</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="n">repl_c1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">repl_c2</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">leadTime</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">repl</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">repl</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">model</span><span class="o">.</span><span class="n">q</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxQ</span> <span class="o">*</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="mi">1</span> <span class="o">-</span> <span class="n">model</span><span class="o">.</span><span class="n">order</span><span class="p">[</span><span class="n">t</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">leadTime</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">.</span><span class="n">repl_c2</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">H</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="n">repl_c2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">.</span><span class="n">repl_c3</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">model</span><span class="o">.</span><span class="n">H</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="k">lambda</span> <span class="n">model</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">repl</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">model</span><span class="o">.</span><span class="n">q</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">.</span><span class="n">q_c</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span><span class="n">rule</span><span class="o">=</span><span class="k">lambda</span> <span class="n">model</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">q</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxQ</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">.</span><span class="n">r_c</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span><span class="n">rule</span><span class="o">=</span><span class="k">lambda</span> <span class="n">model</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">r</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">invCap</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">.</span><span class="n">inv_c</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">model</span><span class="o">.</span><span class="n">H</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="k">lambda</span> <span class="n">model</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">inv</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">invCap</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">.</span><span class="n">backlog_c</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">model</span><span class="o">.</span><span class="n">H</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="k">lambda</span> <span class="n">model</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">backlog</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxBackLogged</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">.</span><span class="n">repl_c</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">model</span><span class="o">.</span><span class="n">H</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="k">lambda</span> <span class="n">model</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">repl</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxQ</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
 </span></span></code></pre></div><p>Translating the MIP Model into Pyomo code is straight-forward.
 It really is a 1:1 translation of equations and constraints into Pyomo expressions.</p>
 <p>As with any MIP modelling language
@@ -460,18 +285,11 @@ the form of a MIP, it is actually easy to solve it via Pyomo. To model the probl
 </div>
 
 </content>
-<p>
-  
-  <a href="/blog/python/">#Python</a>
-  
-  <a href="/blog/optimization/">#Optimization</a>
-  
-  <a href="/blog/pyomo/">#Pyomo</a>
-  
-</p>
 
   </main>
-  <footer>
+  <footer><img src="/images/sheep.png" alt="" width="20" height="20">
+<span>Copyright © 2022, sysid.</span>
+
 </footer>
 
     

@@ -39,179 +39,10 @@
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <link rel="alternate" type="application/rss+xml" href="/blog/development/index.xml" title="sysid blog" />
-  <style>
-  body {
-    font-family: Verdana, sans-serif;
-    margin: auto;
-    padding: 20px;
-    max-width: 720px;
-    text-align: left;
-    background-color: #fff;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    line-height: 1.5;
-    color: #444;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  strong,
-  b {
-    color: #222;
-  }
-
-  a {
-    color: #3273dc;
-     
-  }
-
-  .title {
-    text-decoration: none;
-    border: 0;
-  }
-
-  .title span {
-    font-weight: 400;
-  }
-
-  nav a {
-    margin-right: 10px;
-  }
-
-  textarea {
-    width: 100%;
-    font-size: 16px;
-  }
-
-  input {
-    font-size: 16px;
-  }
-
-  content {
-    line-height: 1.6;
-  }
-
-  table {
-    width: 100%;
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  code {
-    padding: 2px 5px;
-    background-color: #f2f2f2;
-  }
-
-  pre code {
-    color: #222;
-    display: block;
-    padding: 20px;
-    white-space: pre-wrap;
-    font-size: 14px;
-    overflow-x: auto;
-  }
-
-  div.highlight pre {
-    background-color: initial;
-    color: initial;
-  }
-
-  div.highlight code {
-    background-color: unset;
-    color: unset;
-  }
-
-  blockquote {
-    border-left: 1px solid #999;
-    color: #222;
-    padding-left: 20px;
-    font-style: italic;
-  }
-
-  footer {
-    padding: 25px;
-    text-align: center;
-  }
-
-  .helptext {
-    color: #777;
-    font-size: small;
-  }
-
-  .errorlist {
-    color: #eba613;
-    font-size: small;
-  }
-
-   
-  ul.blog-posts {
-    list-style-type: none;
-    padding: unset;
-  }
-
-  ul.blog-posts li {
-    display: flex;
-  }
-
-  ul.blog-posts li span {
-    flex: 0 0 130px;
-  }
-
-  ul.blog-posts li a:visited {
-    color: #8b6fcb;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: #333;
-      color: #ddd;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    strong,
-    b {
-      color: #eee;
-    }
-
-    a {
-      color: #8cc2dd;
-    }
-
-    code {
-      background-color: #777;
-    }
-
-    pre code {
-      color: #ddd;
-    }
-
-    blockquote {
-      color: #ccc;
-    }
-
-    textarea,
-    input {
-      background-color: #252525;
-      color: #ddd;
-    }
-
-    .helptext {
-      color: #aaa;
-    }
-  }
-
-</style>
+  <link rel="preload" href="/fonts/source-serif-4-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/sysid.min.166bd22928cd5a24883a6797aac8bbe13591acdc58df2e99c00b3ba9fe56d816.css" integrity="sha256-FmvSKSjNWiSIOmeXqsi74TWRrNxY3y6ZwAs7qf5W2BY=">
+<link rel="stylesheet" href="/css/chroma-light.min.458f0b209e7b32727c308bd91b27f7aefb4ae4b76b3f2032c2f83b3fd43f7352.css" integrity="sha256-RY8LIJ57MnJ8MIvZGyf3rvtK5LdrPyAywvg7P9Q/c1I=" media="not all and (prefers-color-scheme: dark)">
+<link rel="stylesheet" href="/css/chroma-dark.min.d8ad658c02e1ff4f154ed92513da0a2763959be0a25adfd74e26f37b64eee8fd.css" integrity="sha256-2K1ljALh/08VTtklE9oKJ2OVm&#43;CiWt/XTibze2Tu6P0=" media="(prefers-color-scheme: dark)">
 
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
@@ -231,12 +62,9 @@
 </head>
 
 <body>
-  <header><a href="/" class="title">
-  <h2>sysid blog</h2>
-</a>
-<nav><a href="/">Home</a>
-
-<a href="/blog">Blog</a>
+  <header><a class="brand" href="/"><img src="/images/sheep.png" alt="" width="34" height="34"><span>sysid</span></a>
+<nav aria-label="Main">
+<a href="/blog" aria-current="page">Blog</a>
 
 <a href="/agentic">Agentic</a>
 
@@ -249,174 +77,131 @@
   <main>
 <content>
   
-  <h3 style="margin-bottom:0">Filtering for "Development"</h3>
-  <small>
-    <a href="/blog">Remove filter</a>
-  </small>
+  <h1>Development</h1>
+  <p class="filter">Posts tagged “Development” · <a href="/blog">all posts</a></p>
   
   <ul class="blog-posts">
     
     <li>
-      <span>
-        <i>
-          <time datetime='2026-10-24' pubdate>
-            24 Oct, 2026
-          </time>
-        </i>
-      </span>
-      <a href="/while-rome-burns-we-orchestrate-agents/">While Rome Burns, We Orchestrate Agents</a>
+      <time datetime='2026-10-24'>24 Oct 2026</time>
+      <div>
+        <a href="/while-rome-burns-we-orchestrate-agents/">While Rome Burns, We Orchestrate Agents</a>
+        <span class="summary">A rant about organizations that loose focus on shipping to become AI-native, and the managers who let that happen.</span>
+      </div>
     </li>
     
     <li>
-      <span>
-        <i>
-          <time datetime='2026-08-28' pubdate>
-            28 Aug, 2026
-          </time>
-        </i>
-      </span>
-      <a href="/the-decisions-nobody-made/">The Decisions Nobody Made</a>
+      <time datetime='2026-08-28'>28 Aug 2026</time>
+      <div>
+        <a href="/the-decisions-nobody-made/">The Decisions Nobody Made</a>
+        <span class="summary">Coding agents have changed who writes software. They have not changed who is responsible when the software is wrong.</span>
+      </div>
     </li>
     
     <li>
-      <span>
-        <i>
-          <time datetime='2026-07-07' pubdate>
-            07 Jul, 2026
-          </time>
-        </i>
-      </span>
-      <a href="/agent-iac/">Agent IAC</a>
+      <time datetime='2026-07-07'>07 Jul 2026</time>
+      <div>
+        <a href="/agent-iac/">Agent IAC</a>
+        <span class="summary">Treat Agents Like Infrastructure</span>
+      </div>
     </li>
     
     <li>
-      <span>
-        <i>
-          <time datetime='2026-04-25' pubdate>
-            25 Apr, 2026
-          </time>
-        </i>
-      </span>
-      <a href="/our-mental-models-cannot-be-outsourced/">Our Mental Models Cannot Be Outsourced</a>
+      <time datetime='2026-04-25'>25 Apr 2026</time>
+      <div>
+        <a href="/our-mental-models-cannot-be-outsourced/">Our Mental Models Cannot Be Outsourced</a>
+        <span class="summary">The Mental Model of a Software System is critical to maintain.</span>
+      </div>
     </li>
     
     <li>
-      <span>
-        <i>
-          <time datetime='2026-04-19' pubdate>
-            19 Apr, 2026
-          </time>
-        </i>
-      </span>
-      <a href="/ai-native-developer/">AI native developer</a>
+      <time datetime='2026-04-19'>19 Apr 2026</time>
+      <div>
+        <a href="/ai-native-developer/">AI native developer</a>
+        <span class="summary">The AI-native developer is a different role, not a faster one</span>
+      </div>
     </li>
     
     <li>
-      <span>
-        <i>
-          <time datetime='2026-03-28' pubdate>
-            28 Mar, 2026
-          </time>
-        </i>
-      </span>
-      <a href="/the-cost-of-speed/">The Cost of Speed</a>
+      <time datetime='2026-03-28'>28 Mar 2026</time>
+      <div>
+        <a href="/the-cost-of-speed/">The Cost of Speed</a>
+        <span class="summary">Why engineering practices now being dismissed as friction exist, and the risk to ignore them.</span>
+      </div>
     </li>
     
     <li>
-      <span>
-        <i>
-          <time datetime='2026-03-21' pubdate>
-            21 Mar, 2026
-          </time>
-        </i>
-      </span>
-      <a href="/cheap-code-expensive-confusion/">Cheap Code, Expensive Confusion</a>
+      <time datetime='2026-03-21'>21 Mar 2026</time>
+      <div>
+        <a href="/cheap-code-expensive-confusion/">Cheap Code, Expensive Confusion</a>
+        <span class="summary">AI Democratization and the Risk of Organizational Waste</span>
+      </div>
     </li>
     
     <li>
-      <span>
-        <i>
-          <time datetime='2026-03-07' pubdate>
-            07 Mar, 2026
-          </time>
-        </i>
-      </span>
-      <a href="/kiss-my-a..../">KISS my A....</a>
+      <time datetime='2026-03-07'>07 Mar 2026</time>
+      <div>
+        <a href="/kiss-my-a..../">KISS my A....</a>
+        <span class="summary">Keep your agent setup simple, you just do not need all of it.</span>
+      </div>
     </li>
     
     <li>
-      <span>
-        <i>
-          <time datetime='2026-03-01' pubdate>
-            01 Mar, 2026
-          </time>
-        </i>
-      </span>
-      <a href="/ai-is-breaking-and-remaking-software-teams/">AI Is Breaking and Remaking Software Teams</a>
+      <time datetime='2026-03-01'>01 Mar 2026</time>
+      <div>
+        <a href="/ai-is-breaking-and-remaking-software-teams/">AI Is Breaking and Remaking Software Teams</a>
+        <span class="summary">Execution Is Cheap, Judgment Is Scarce: The Real Shift in Software Engineering</span>
+      </div>
     </li>
     
     <li>
-      <span>
-        <i>
-          <time datetime='2026-02-22' pubdate>
-            22 Feb, 2026
-          </time>
-        </i>
-      </span>
-      <a href="/your-agent-has-root/">Your Agent Has Root</a>
+      <time datetime='2026-02-22'>22 Feb 2026</time>
+      <div>
+        <a href="/your-agent-has-root/">Your Agent Has Root</a>
+        <span class="summary">On recklessness, professional abdication, and an opinionated approach to agentic coding security</span>
+      </div>
     </li>
     
     <li>
-      <span>
-        <i>
-          <time datetime='2026-02-02' pubdate>
-            02 Feb, 2026
-          </time>
-        </i>
-      </span>
-      <a href="/elegant-developer-environment-management/">Elegant Developer Environment Management</a>
+      <time datetime='2026-02-02'>02 Feb 2026</time>
+      <div>
+        <a href="/elegant-developer-environment-management/">Elegant Developer Environment Management</a>
+        <span class="summary">Streamlining Developer Productivity with rsenv</span>
+      </div>
     </li>
     
     <li>
-      <span>
-        <i>
-          <time datetime='2025-11-15' pubdate>
-            15 Nov, 2025
-          </time>
-        </i>
-      </span>
-      <a href="/rusts-strategic-advantage/">Rust’s Strategic Advantage</a>
+      <time datetime='2025-11-15'>15 Nov 2025</time>
+      <div>
+        <a href="/rusts-strategic-advantage/">Rust’s Strategic Advantage</a>
+        <span class="summary">Rust’s Strategic Advantage</span>
+      </div>
     </li>
     
     <li>
-      <span>
-        <i>
-          <time datetime='2025-08-11' pubdate>
-            11 Aug, 2025
-          </time>
-        </i>
-      </span>
-      <a href="/bkmr-reborn/">bkmr reborn</a>
+      <time datetime='2025-08-11'>11 Aug 2025</time>
+      <div>
+        <a href="/bkmr-reborn/">bkmr reborn</a>
+        <span class="summary">Streamlining Developer Productivity with bkmr</span>
+      </div>
     </li>
     
     <li>
-      <span>
-        <i>
-          <time datetime='2025-07-26' pubdate>
-            26 Jul, 2025
-          </time>
-        </i>
-      </span>
-      <a href="/how-claude-code-saved-my-weekend/">How Claude Code Saved My Weekend</a>
+      <time datetime='2025-07-26'>26 Jul 2025</time>
+      <div>
+        <a href="/how-claude-code-saved-my-weekend/">How Claude Code Saved My Weekend</a>
+        <span class="summary">OSS Developer Happiness</span>
+      </div>
     </li>
     
   </ul>
   
-  
 </content>
 
   </main>
-  <footer>
+  <footer><img src="/images/sheep.png" alt="" width="20" height="20">
+<span>Copyright © 2022, sysid.</span>
+
 </footer>
 
     

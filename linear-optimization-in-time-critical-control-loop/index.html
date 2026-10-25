@@ -47,179 +47,10 @@
   <meta itemprop="keywords" content="Python,Optimization,Pyomo,Rust">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
-  <style>
-  body {
-    font-family: Verdana, sans-serif;
-    margin: auto;
-    padding: 20px;
-    max-width: 720px;
-    text-align: left;
-    background-color: #fff;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    line-height: 1.5;
-    color: #444;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  strong,
-  b {
-    color: #222;
-  }
-
-  a {
-    color: #3273dc;
-     
-  }
-
-  .title {
-    text-decoration: none;
-    border: 0;
-  }
-
-  .title span {
-    font-weight: 400;
-  }
-
-  nav a {
-    margin-right: 10px;
-  }
-
-  textarea {
-    width: 100%;
-    font-size: 16px;
-  }
-
-  input {
-    font-size: 16px;
-  }
-
-  content {
-    line-height: 1.6;
-  }
-
-  table {
-    width: 100%;
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  code {
-    padding: 2px 5px;
-    background-color: #f2f2f2;
-  }
-
-  pre code {
-    color: #222;
-    display: block;
-    padding: 20px;
-    white-space: pre-wrap;
-    font-size: 14px;
-    overflow-x: auto;
-  }
-
-  div.highlight pre {
-    background-color: initial;
-    color: initial;
-  }
-
-  div.highlight code {
-    background-color: unset;
-    color: unset;
-  }
-
-  blockquote {
-    border-left: 1px solid #999;
-    color: #222;
-    padding-left: 20px;
-    font-style: italic;
-  }
-
-  footer {
-    padding: 25px;
-    text-align: center;
-  }
-
-  .helptext {
-    color: #777;
-    font-size: small;
-  }
-
-  .errorlist {
-    color: #eba613;
-    font-size: small;
-  }
-
-   
-  ul.blog-posts {
-    list-style-type: none;
-    padding: unset;
-  }
-
-  ul.blog-posts li {
-    display: flex;
-  }
-
-  ul.blog-posts li span {
-    flex: 0 0 130px;
-  }
-
-  ul.blog-posts li a:visited {
-    color: #8b6fcb;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: #333;
-      color: #ddd;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    strong,
-    b {
-      color: #eee;
-    }
-
-    a {
-      color: #8cc2dd;
-    }
-
-    code {
-      background-color: #777;
-    }
-
-    pre code {
-      color: #ddd;
-    }
-
-    blockquote {
-      color: #ccc;
-    }
-
-    textarea,
-    input {
-      background-color: #252525;
-      color: #ddd;
-    }
-
-    .helptext {
-      color: #aaa;
-    }
-  }
-
-</style>
+  <link rel="preload" href="/fonts/source-serif-4-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/sysid.min.166bd22928cd5a24883a6797aac8bbe13591acdc58df2e99c00b3ba9fe56d816.css" integrity="sha256-FmvSKSjNWiSIOmeXqsi74TWRrNxY3y6ZwAs7qf5W2BY=">
+<link rel="stylesheet" href="/css/chroma-light.min.458f0b209e7b32727c308bd91b27f7aefb4ae4b76b3f2032c2f83b3fd43f7352.css" integrity="sha256-RY8LIJ57MnJ8MIvZGyf3rvtK5LdrPyAywvg7P9Q/c1I=" media="not all and (prefers-color-scheme: dark)">
+<link rel="stylesheet" href="/css/chroma-dark.min.d8ad658c02e1ff4f154ed92513da0a2763959be0a25adfd74e26f37b64eee8fd.css" integrity="sha256-2K1ljALh/08VTtklE9oKJ2OVm&#43;CiWt/XTibze2Tu6P0=" media="(prefers-color-scheme: dark)">
 
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
@@ -235,7 +66,6 @@
           gtag('config', 'G-8VH574W51S');
         }
       </script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-alpha.1/es5/tex-mml-chtml.js"></script>
 
 
@@ -255,11 +85,8 @@
 </head>
 
 <body>
-  <header><a href="/" class="title">
-  <h2>sysid blog</h2>
-</a>
-<nav><a href="/">Home</a>
-
+  <header><a class="brand" href="/"><img src="/images/sheep.png" alt="" width="34" height="34"><span>sysid</span></a>
+<nav aria-label="Main">
 <a href="/blog">Blog</a>
 
 <a href="/agentic">Agentic</a>
@@ -273,12 +100,10 @@
   <main>
 
 <h1>Linear Optimization in time-critical Control Loop</h1>
-<p>
-  <i>
-    <time datetime='2023-05-13' pubdate>
-      13 May, 2023
-    </time>
-  </i>
+<p class="meta">
+  <time datetime='2023-05-13'>13 May 2023</time>
+  <span>4 min read</span>
+  <span><a href="/blog/python/">python</a> · <a href="/blog/optimization/">optimization</a> · <a href="/blog/pyomo/">pyomo</a> · <a href="/blog/rust/">rust</a></span>
 </p>
 
 <content>
@@ -357,8 +182,8 @@ into Python code. The model solves in a split second.</p>
 <li>Number of constraints : 14</li>
 <li>Number of variables : 8</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>{<span style="color:#d20;background-color:#fff0f0">&#39;Y&#39;</span>: {<span style="color:#d20;background-color:#fff0f0">&#39;A&#39;</span>: <span style="color:#00d;font-weight:bold">50.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;B&#39;</span>: <span style="color:#00d;font-weight:bold">50.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;C&#39;</span>: <span style="color:#00d;font-weight:bold">400.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;D&#39;</span>: <span style="color:#00d;font-weight:bold">400.0</span>},
-</span></span><span style="display:flex;"><span> <span style="color:#d20;background-color:#fff0f0">&#39;t&#39;</span>: {<span style="color:#d20;background-color:#fff0f0">&#39;A&#39;</span>: <span style="color:#00d;font-weight:bold">14.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;B&#39;</span>: <span style="color:#00d;font-weight:bold">55.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;C&#39;</span>: <span style="color:#00d;font-weight:bold">49.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;D&#39;</span>: <span style="color:#00d;font-weight:bold">90.0</span>}}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="mf">50.0</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="mf">50.0</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mf">400.0</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="mf">400.0</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="mf">14.0</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="mf">55.0</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mf">49.0</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="mf">90.0</span><span class="p">}}</span>
 </span></span></code></pre></div><figure class="center"><img src="/linear-optimization-in-time-critical-control-loop/pyomo_outside.png" width="100%">
 </figure>
 
@@ -368,8 +193,8 @@ into Python code. The model solves in a split second.</p>
 <li>Number of constraints : 14</li>
 <li>Number of variables : 8</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>{<span style="color:#d20;background-color:#fff0f0">&#39;Y&#39;</span>: {<span style="color:#d20;background-color:#fff0f0">&#39;A&#39;</span>: <span style="color:#00d;font-weight:bold">70.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;B&#39;</span>: <span style="color:#00d;font-weight:bold">70.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;C&#39;</span>: <span style="color:#00d;font-weight:bold">350.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;D&#39;</span>: <span style="color:#00d;font-weight:bold">350.0</span>},
-</span></span><span style="display:flex;"><span> <span style="color:#d20;background-color:#fff0f0">&#39;t&#39;</span>: {<span style="color:#d20;background-color:#fff0f0">&#39;A&#39;</span>: <span style="color:#00d;font-weight:bold">10.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;B&#39;</span>: <span style="color:#00d;font-weight:bold">72.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;C&#39;</span>: <span style="color:#00d;font-weight:bold">38.0</span>, <span style="color:#d20;background-color:#fff0f0">&#39;D&#39;</span>: <span style="color:#00d;font-weight:bold">100.0</span>}}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="mf">70.0</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="mf">70.0</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mf">350.0</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="mf">350.0</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="mf">72.0</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mf">38.0</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">}}</span>
 </span></span></code></pre></div><figure class="center"><img src="/linear-optimization-in-time-critical-control-loop/pyomo_inside.png" width="100%">
 </figure>
 
@@ -387,35 +212,35 @@ real-time control loop this might be inacceptable.</p>
 avoid any intermediate translation steps.</p>
 <h2 id="rust-implementation">Rust Implementation</h2>
 <p>Translating the model into Rust is straight forward for such a simple problem:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#888">// Objective
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">let</span><span style="color:#bbb"> </span>solution<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>vars.maximise(t_C<span style="color:#bbb"> </span>-<span style="color:#bbb"> </span>t_A)<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.using(good_lp::default_solver)<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(Ymin<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span><span style="color:#036;font-weight:bold">E_A</span><span style="color:#bbb"> </span>))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(Ymin<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span><span style="color:#036;font-weight:bold">E_B</span><span style="color:#bbb"> </span>))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(Ymin<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span><span style="color:#036;font-weight:bold">E_C</span><span style="color:#bbb"> </span>))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(Ymin<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span><span style="color:#036;font-weight:bold">E_D</span><span style="color:#bbb"> </span>))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(<span style="color:#036;font-weight:bold">E_A</span><span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>Ymax))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(<span style="color:#036;font-weight:bold">E_B</span><span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>Ymax))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(<span style="color:#036;font-weight:bold">E_C</span><span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>Ymax))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(<span style="color:#036;font-weight:bold">E_D</span><span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>Ymax))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(S.Y<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span><span style="color:#036;font-weight:bold">E_A</span><span style="color:#bbb"> </span>))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(S.Y<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span><span style="color:#036;font-weight:bold">E_B</span><span style="color:#bbb"> </span>))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(S.Y<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span><span style="color:#036;font-weight:bold">E_C</span><span style="color:#bbb"> </span>))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(S.Y<span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span><span style="color:#036;font-weight:bold">E_D</span><span style="color:#bbb"> </span>))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(<span style="color:#036;font-weight:bold">E_A</span><span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>E.Y))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(<span style="color:#036;font-weight:bold">E_B</span><span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>E.Y))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(<span style="color:#036;font-weight:bold">E_C</span><span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>E.Y))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(<span style="color:#036;font-weight:bold">E_D</span><span style="color:#bbb"> </span>&lt;=<span style="color:#bbb"> </span>E.Y))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(<span style="color:#036;font-weight:bold">E_A</span><span style="color:#bbb"> </span>==<span style="color:#bbb"> </span><span style="color:#036;font-weight:bold">E_B</span>))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(<span style="color:#036;font-weight:bold">E_C</span><span style="color:#bbb"> </span>==<span style="color:#bbb"> </span><span style="color:#036;font-weight:bold">E_D</span>))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(<span style="color:#036;font-weight:bold">E_A</span><span style="color:#bbb"> </span>==<span style="color:#bbb"> </span>P<span style="color:#bbb"> </span>*<span style="color:#bbb"> </span>t_A<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>Ce))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(<span style="color:#036;font-weight:bold">E_C</span><span style="color:#bbb"> </span>==<span style="color:#bbb"> </span>P<span style="color:#bbb"> </span>*<span style="color:#bbb"> </span>t_C<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>Ce))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(<span style="color:#036;font-weight:bold">E_B</span><span style="color:#bbb"> </span>==<span style="color:#bbb"> </span>P<span style="color:#bbb"> </span>*<span style="color:#bbb"> </span>t_B<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>Cl))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.with(<span style="color:#06b;font-weight:bold">constraint!</span>(<span style="color:#036;font-weight:bold">E_D</span><span style="color:#bbb"> </span>==<span style="color:#bbb"> </span>P<span style="color:#bbb"> </span>*<span style="color:#bbb"> </span>t_D<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>Cl))<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.solve()?;<span style="color:#bbb">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// Objective
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">solution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vars</span><span class="p">.</span><span class="n">maximise</span><span class="p">(</span><span class="n">t_C</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t_A</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">using</span><span class="p">(</span><span class="n">good_lp</span>::<span class="n">default_solver</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="n">Ymin</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="no">E_A</span><span class="w"> </span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="n">Ymin</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="no">E_B</span><span class="w"> </span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="n">Ymin</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="no">E_C</span><span class="w"> </span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="n">Ymin</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="no">E_D</span><span class="w"> </span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="no">E_A</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">Ymax</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="no">E_B</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">Ymax</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="no">E_C</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">Ymax</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="no">E_D</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">Ymax</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="no">E_A</span><span class="w"> </span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="no">E_B</span><span class="w"> </span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="no">E_C</span><span class="w"> </span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="no">E_D</span><span class="w"> </span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="no">E_A</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">E</span><span class="p">.</span><span class="n">Y</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="no">E_B</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">E</span><span class="p">.</span><span class="n">Y</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="no">E_C</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">E</span><span class="p">.</span><span class="n">Y</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="no">E_D</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">E</span><span class="p">.</span><span class="n">Y</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="no">E_A</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="no">E_B</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="no">E_C</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="no">E_D</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="no">E_A</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t_A</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Ce</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="no">E_C</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t_C</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Ce</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="no">E_B</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t_B</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Cl</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="fm">constraint!</span><span class="p">(</span><span class="no">E_D</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t_D</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Cl</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">solve</span><span class="p">()</span><span class="o">?</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></div><h2 id="comparison">Comparison</h2>
 <p>The &ldquo;rustified&rdquo; model is more than 50 times faster then the Pyomo version! This is impressive, because the
 actual solver code is in both cases highly optimized CBC C++ code.</p>
@@ -437,20 +262,11 @@ raw performance of Rust and direct library binding results in a very competitive
 optimization toolchain for LP and MIP problems.</p>
 
 </content>
-<p>
-  
-  <a href="/blog/python/">#Python</a>
-  
-  <a href="/blog/optimization/">#Optimization</a>
-  
-  <a href="/blog/pyomo/">#Pyomo</a>
-  
-  <a href="/blog/rust/">#Rust</a>
-  
-</p>
 
   </main>
-  <footer>
+  <footer><img src="/images/sheep.png" alt="" width="20" height="20">
+<span>Copyright © 2022, sysid.</span>
+
 </footer>
 
     

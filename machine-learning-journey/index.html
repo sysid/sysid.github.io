@@ -83,179 +83,10 @@ Recipe:" />
   <meta itemprop="keywords" content="Python,Learning,Ai,Machine Learning">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
-  <style>
-  body {
-    font-family: Verdana, sans-serif;
-    margin: auto;
-    padding: 20px;
-    max-width: 720px;
-    text-align: left;
-    background-color: #fff;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    line-height: 1.5;
-    color: #444;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  strong,
-  b {
-    color: #222;
-  }
-
-  a {
-    color: #3273dc;
-     
-  }
-
-  .title {
-    text-decoration: none;
-    border: 0;
-  }
-
-  .title span {
-    font-weight: 400;
-  }
-
-  nav a {
-    margin-right: 10px;
-  }
-
-  textarea {
-    width: 100%;
-    font-size: 16px;
-  }
-
-  input {
-    font-size: 16px;
-  }
-
-  content {
-    line-height: 1.6;
-  }
-
-  table {
-    width: 100%;
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  code {
-    padding: 2px 5px;
-    background-color: #f2f2f2;
-  }
-
-  pre code {
-    color: #222;
-    display: block;
-    padding: 20px;
-    white-space: pre-wrap;
-    font-size: 14px;
-    overflow-x: auto;
-  }
-
-  div.highlight pre {
-    background-color: initial;
-    color: initial;
-  }
-
-  div.highlight code {
-    background-color: unset;
-    color: unset;
-  }
-
-  blockquote {
-    border-left: 1px solid #999;
-    color: #222;
-    padding-left: 20px;
-    font-style: italic;
-  }
-
-  footer {
-    padding: 25px;
-    text-align: center;
-  }
-
-  .helptext {
-    color: #777;
-    font-size: small;
-  }
-
-  .errorlist {
-    color: #eba613;
-    font-size: small;
-  }
-
-   
-  ul.blog-posts {
-    list-style-type: none;
-    padding: unset;
-  }
-
-  ul.blog-posts li {
-    display: flex;
-  }
-
-  ul.blog-posts li span {
-    flex: 0 0 130px;
-  }
-
-  ul.blog-posts li a:visited {
-    color: #8b6fcb;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: #333;
-      color: #ddd;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    strong,
-    b {
-      color: #eee;
-    }
-
-    a {
-      color: #8cc2dd;
-    }
-
-    code {
-      background-color: #777;
-    }
-
-    pre code {
-      color: #ddd;
-    }
-
-    blockquote {
-      color: #ccc;
-    }
-
-    textarea,
-    input {
-      background-color: #252525;
-      color: #ddd;
-    }
-
-    .helptext {
-      color: #aaa;
-    }
-  }
-
-</style>
+  <link rel="preload" href="/fonts/source-serif-4-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/sysid.min.166bd22928cd5a24883a6797aac8bbe13591acdc58df2e99c00b3ba9fe56d816.css" integrity="sha256-FmvSKSjNWiSIOmeXqsi74TWRrNxY3y6ZwAs7qf5W2BY=">
+<link rel="stylesheet" href="/css/chroma-light.min.458f0b209e7b32727c308bd91b27f7aefb4ae4b76b3f2032c2f83b3fd43f7352.css" integrity="sha256-RY8LIJ57MnJ8MIvZGyf3rvtK5LdrPyAywvg7P9Q/c1I=" media="not all and (prefers-color-scheme: dark)">
+<link rel="stylesheet" href="/css/chroma-dark.min.d8ad658c02e1ff4f154ed92513da0a2763959be0a25adfd74e26f37b64eee8fd.css" integrity="sha256-2K1ljALh/08VTtklE9oKJ2OVm&#43;CiWt/XTibze2Tu6P0=" media="(prefers-color-scheme: dark)">
 
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
@@ -275,11 +106,8 @@ Recipe:" />
 </head>
 
 <body>
-  <header><a href="/" class="title">
-  <h2>sysid blog</h2>
-</a>
-<nav><a href="/">Home</a>
-
+  <header><a class="brand" href="/"><img src="/images/sheep.png" alt="" width="34" height="34"><span>sysid</span></a>
+<nav aria-label="Main">
 <a href="/blog">Blog</a>
 
 <a href="/agentic">Agentic</a>
@@ -293,12 +121,10 @@ Recipe:" />
   <main>
 
 <h1>Machine Learning Journey</h1>
-<p>
-  <i>
-    <time datetime='2017-01-23' pubdate>
-      23 Jan, 2017
-    </time>
-  </i>
+<p class="meta">
+  <time datetime='2017-01-23'>23 January 2017</time>
+  <span>22 min read</span>
+  <span><a href="/blog/python/">python</a> · <a href="/blog/learning/">learning</a> · <a href="/blog/ai/">ai</a> · <a href="/blog/machine-learning/">machine learning</a></span>
 </p>
 
 <content>
@@ -577,76 +403,76 @@ model learns the 32 floats to be semantically significant
 embeddings can be passed, not entire models (pretrained word embeddings)
 word2vec (Google) vs. glove</p>
 <h3 id="model-examples">Model Examples</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#888">### Keras 2.0 Merge</span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Custom Merge: https://stackoverflow.com/questions/43160181/keras-merge-layer-warning</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">euclid_dist</span>(v):
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> (v[<span style="color:#00d;font-weight:bold">0</span>] - v[<span style="color:#00d;font-weight:bold">1</span>])**<span style="color:#00d;font-weight:bold">2</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">out_shape</span>(shapes):
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> shapes[<span style="color:#00d;font-weight:bold">0</span>]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>merged_vector = Lambda(euclid_dist, output_shape=out_shape)([l1, l2])
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># https://github.com/fchollet/keras/issues/2299</span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># http://web.cse.ohio-state.edu/~dwang/papers/Wang.tia08.pdf</span>
-</span></span><span style="display:flex;"><span>mix = Input(batch_shape=(sequences, timesteps, features))
-</span></span><span style="display:flex;"><span>lstm = LSTM(features, return_sequences=<span style="color:#080;font-weight:bold">True</span>)(LSTM(features, return_sequences=<span style="color:#080;font-weight:bold">True</span>)(mix))
-</span></span><span style="display:flex;"><span>tdd1 = TimeDistributed(Dense(features, activation=<span style="color:#d20;background-color:#fff0f0">&#39;sigmoid&#39;</span>))(lstm)
-</span></span><span style="display:flex;"><span>tdd2 = TimeDistributed(Dense(features, activation=<span style="color:#d20;background-color:#fff0f0">&#39;sigmoid&#39;</span>))(lstm)
-</span></span><span style="display:flex;"><span>voice = Lambda(function=<span style="color:#080;font-weight:bold">lambda</span> x: mask(x[<span style="color:#00d;font-weight:bold">0</span>], x[<span style="color:#00d;font-weight:bold">1</span>], x[<span style="color:#00d;font-weight:bold">2</span>]))(merge([tdd1, tdd2, mix], mode=<span style="color:#d20;background-color:#fff0f0">&#39;concat&#39;</span>))
-</span></span><span style="display:flex;"><span>background = Lambda(function=<span style="color:#080;font-weight:bold">lambda</span> x: mask(x[<span style="color:#00d;font-weight:bold">0</span>], x[<span style="color:#00d;font-weight:bold">1</span>], x[<span style="color:#00d;font-weight:bold">2</span>]))(merge([tdd2, tdd1, mix], mode=<span style="color:#d20;background-color:#fff0f0">&#39;concat&#39;</span>))
-</span></span><span style="display:flex;"><span>model = Model(<span style="color:#038">input</span>=[mix], output=[voice, background])
-</span></span><span style="display:flex;"><span>model.compile(loss=<span style="color:#d20;background-color:#fff0f0">&#39;mse&#39;</span>, optimizer=<span style="color:#d20;background-color:#fff0f0">&#39;rmsprop&#39;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">### Bidirectional RNN</span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># https://github.com/fchollet/keras/issues/2838</span>
-</span></span><span style="display:flex;"><span>xin = Input(batch_shape=(batch_size, seq_size), dtype=<span style="color:#d20;background-color:#fff0f0">&#39;int32&#39;</span>)
-</span></span><span style="display:flex;"><span>xemb = Embedding(embedding_size, mask_zero=<span style="color:#080;font-weight:bold">True</span>)(xin)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>rnn_fwd1 = LSTM(rnn_size, return_sequence=<span style="color:#080;font-weight:bold">True</span>)(xemb)
-</span></span><span style="display:flex;"><span>rnn_bwd1 = LSTM(rnn_size, return_sequence=<span style="color:#080;font-weight:bold">True</span>, go_backwards=<span style="color:#080;font-weight:bold">True</span>)(xemb)
-</span></span><span style="display:flex;"><span>rnn_bidir1 = merge([rnn_fwd1, rnn_bwd1], mode=<span style="color:#d20;background-color:#fff0f0">&#39;concat&#39;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>predictions = TimeDistributed(Dense(output_class_size, activation=<span style="color:#d20;background-color:#fff0f0">&#39;softmax&#39;</span>))(rnn_bidir1)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>model = Model(<span style="color:#038">input</span>=xin, output=predictions)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">### Multi Label Classification</span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Build a classifier optimized for maximizing f1_score (uses class_weights)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>clf = Sequential()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>clf.add(Dropout(<span style="color:#00d;font-weight:bold">0.3</span>))
-</span></span><span style="display:flex;"><span>clf.add(Dense(xt.shape[<span style="color:#00d;font-weight:bold">1</span>], <span style="color:#00d;font-weight:bold">1600</span>, activation=<span style="color:#d20;background-color:#fff0f0">&#39;relu&#39;</span>))
-</span></span><span style="display:flex;"><span>clf.add(Dropout(<span style="color:#00d;font-weight:bold">0.6</span>))
-</span></span><span style="display:flex;"><span>clf.add(Dense(<span style="color:#00d;font-weight:bold">1600</span>, <span style="color:#00d;font-weight:bold">1200</span>, activation=<span style="color:#d20;background-color:#fff0f0">&#39;relu&#39;</span>))
-</span></span><span style="display:flex;"><span>clf.add(Dropout(<span style="color:#00d;font-weight:bold">0.6</span>))
-</span></span><span style="display:flex;"><span>clf.add(Dense(<span style="color:#00d;font-weight:bold">1200</span>, <span style="color:#00d;font-weight:bold">800</span>, activation=<span style="color:#d20;background-color:#fff0f0">&#39;relu&#39;</span>))
-</span></span><span style="display:flex;"><span>clf.add(Dropout(<span style="color:#00d;font-weight:bold">0.6</span>))
-</span></span><span style="display:flex;"><span>clf.add(Dense(<span style="color:#00d;font-weight:bold">800</span>, yt.shape[<span style="color:#00d;font-weight:bold">1</span>], activation=<span style="color:#d20;background-color:#fff0f0">&#39;sigmoid&#39;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>clf.compile(optimizer=Adam(), loss=<span style="color:#d20;background-color:#fff0f0">&#39;binary_crossentropy&#39;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>clf.fit(xt, yt, batch_size=<span style="color:#00d;font-weight:bold">64</span>, nb_epoch=<span style="color:#00d;font-weight:bold">300</span>, validation_data=(xs, ys), class_weight=W, verbose=<span style="color:#00d;font-weight:bold">0</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>preds = clf.predict(xs)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>preds[preds&gt;=<span style="color:#00d;font-weight:bold">0.5</span>] = <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>preds[preds&lt;<span style="color:#00d;font-weight:bold">0.5</span>] = <span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#038">print</span> f1_score(ys, preds, average=<span style="color:#d20;background-color:#fff0f0">&#39;macro&#39;</span>)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">### Keras 2.0 Merge</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Custom Merge: https://stackoverflow.com/questions/43160181/keras-merge-layer-warning</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">euclid_dist</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">out_shape</span><span class="p">(</span><span class="n">shapes</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">shapes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">merged_vector</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">(</span><span class="n">euclid_dist</span><span class="p">,</span> <span class="n">output_shape</span><span class="o">=</span><span class="n">out_shape</span><span class="p">)([</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># https://github.com/fchollet/keras/issues/2299</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># http://web.cse.ohio-state.edu/~dwang/papers/Wang.tia08.pdf</span>
+</span></span><span class="line"><span class="cl"><span class="n">mix</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">batch_shape</span><span class="o">=</span><span class="p">(</span><span class="n">sequences</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">,</span> <span class="n">features</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">lstm</span> <span class="o">=</span> <span class="n">LSTM</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">LSTM</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">mix</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">tdd1</span> <span class="o">=</span> <span class="n">TimeDistributed</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))(</span><span class="n">lstm</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">tdd2</span> <span class="o">=</span> <span class="n">TimeDistributed</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))(</span><span class="n">lstm</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">voice</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">mask</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]))(</span><span class="n">merge</span><span class="p">([</span><span class="n">tdd1</span><span class="p">,</span> <span class="n">tdd2</span><span class="p">,</span> <span class="n">mix</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;concat&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">background</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">mask</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]))(</span><span class="n">merge</span><span class="p">([</span><span class="n">tdd2</span><span class="p">,</span> <span class="n">tdd1</span><span class="p">,</span> <span class="n">mix</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;concat&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="p">[</span><span class="n">mix</span><span class="p">],</span> <span class="n">output</span><span class="o">=</span><span class="p">[</span><span class="n">voice</span><span class="p">,</span> <span class="n">background</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mse&#39;</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">### Bidirectional RNN</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># https://github.com/fchollet/keras/issues/2838</span>
+</span></span><span class="line"><span class="cl"><span class="n">xin</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">batch_shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">seq_size</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">xemb</span> <span class="o">=</span> <span class="n">Embedding</span><span class="p">(</span><span class="n">embedding_size</span><span class="p">,</span> <span class="n">mask_zero</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">xin</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rnn_fwd1</span> <span class="o">=</span> <span class="n">LSTM</span><span class="p">(</span><span class="n">rnn_size</span><span class="p">,</span> <span class="n">return_sequence</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">xemb</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rnn_bwd1</span> <span class="o">=</span> <span class="n">LSTM</span><span class="p">(</span><span class="n">rnn_size</span><span class="p">,</span> <span class="n">return_sequence</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">go_backwards</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">xemb</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rnn_bidir1</span> <span class="o">=</span> <span class="n">merge</span><span class="p">([</span><span class="n">rnn_fwd1</span><span class="p">,</span> <span class="n">rnn_bwd1</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;concat&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">predictions</span> <span class="o">=</span> <span class="n">TimeDistributed</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">output_class_size</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">))(</span><span class="n">rnn_bidir1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="n">xin</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">predictions</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">### Multi Label Classification</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Build a classifier optimized for maximizing f1_score (uses class_weights)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">clf</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">clf</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.3</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">clf</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">xt</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1600</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">clf</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.6</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">clf</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1600</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">clf</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.6</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">clf</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">clf</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.6</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">clf</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="n">yt</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">clf</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">Adam</span><span class="p">(),</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">xt</span><span class="p">,</span> <span class="n">yt</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">),</span> <span class="n">class_weight</span><span class="o">=</span><span class="n">W</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">preds</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">preds</span><span class="p">[</span><span class="n">preds</span><span class="o">&gt;=</span><span class="mf">0.5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">preds</span><span class="p">[</span><span class="n">preds</span><span class="o">&lt;</span><span class="mf">0.5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">ys</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">)</span>
 </span></span></code></pre></div><h3 id="principal-component-analysis-unsupervised">Principal Component Analysis (unsupervised)</h3>
 <ul>
 <li>selects the successive components that explain the maximum variance in the signal.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    pca = decomposition.PCA()
-</span></span><span style="display:flex;"><span>    pca.fit(X)
-</span></span><span style="display:flex;"><span>    <span style="color:#038">print</span>(pca.explained_variance_)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#888"># As we can see, only the 2 first components are useful</span>
-</span></span><span style="display:flex;"><span>    pca.n_components = <span style="color:#00d;font-weight:bold">2</span>
-</span></span><span style="display:flex;"><span>    X_reduced = pca.fit_transform(X)
-</span></span><span style="display:flex;"><span>    X_reduced.shape
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="n">pca</span> <span class="o">=</span> <span class="n">decomposition</span><span class="o">.</span><span class="n">PCA</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># As we can see, only the 2 first components are useful</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pca</span><span class="o">.</span><span class="n">n_components</span> <span class="o">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">X_reduced</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">X_reduced</span><span class="o">.</span><span class="n">shape</span>
 </span></span></code></pre></div><ul>
 <li>In layman terms PCA helps to compress data and ICA helps to separate data.</li>
 <li>PCA minimizes the covariance of the data; on the other hand ICA minimizes higher-order statistics such as fourth-order cummulant (or kurtosis), thus minimizing the mutual information of the output.</li>
@@ -664,20 +490,11 @@ word2vec (Google) vs. glove</p>
 <p>many more, which I do not remember&hellip;</p>
 
 </content>
-<p>
-  
-  <a href="/blog/python/">#Python</a>
-  
-  <a href="/blog/learning/">#Learning</a>
-  
-  <a href="/blog/ai/">#Ai</a>
-  
-  <a href="/blog/machine-learning/">#Machine Learning</a>
-  
-</p>
 
   </main>
-  <footer>
+  <footer><img src="/images/sheep.png" alt="" width="20" height="20">
+<span>Copyright © 2022, sysid.</span>
+
 </footer>
 
     

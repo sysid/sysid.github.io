@@ -46,179 +46,10 @@
   <meta itemprop="keywords" content="Rust,Work,Development">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
-  <style>
-  body {
-    font-family: Verdana, sans-serif;
-    margin: auto;
-    padding: 20px;
-    max-width: 720px;
-    text-align: left;
-    background-color: #fff;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    line-height: 1.5;
-    color: #444;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  strong,
-  b {
-    color: #222;
-  }
-
-  a {
-    color: #3273dc;
-     
-  }
-
-  .title {
-    text-decoration: none;
-    border: 0;
-  }
-
-  .title span {
-    font-weight: 400;
-  }
-
-  nav a {
-    margin-right: 10px;
-  }
-
-  textarea {
-    width: 100%;
-    font-size: 16px;
-  }
-
-  input {
-    font-size: 16px;
-  }
-
-  content {
-    line-height: 1.6;
-  }
-
-  table {
-    width: 100%;
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  code {
-    padding: 2px 5px;
-    background-color: #f2f2f2;
-  }
-
-  pre code {
-    color: #222;
-    display: block;
-    padding: 20px;
-    white-space: pre-wrap;
-    font-size: 14px;
-    overflow-x: auto;
-  }
-
-  div.highlight pre {
-    background-color: initial;
-    color: initial;
-  }
-
-  div.highlight code {
-    background-color: unset;
-    color: unset;
-  }
-
-  blockquote {
-    border-left: 1px solid #999;
-    color: #222;
-    padding-left: 20px;
-    font-style: italic;
-  }
-
-  footer {
-    padding: 25px;
-    text-align: center;
-  }
-
-  .helptext {
-    color: #777;
-    font-size: small;
-  }
-
-  .errorlist {
-    color: #eba613;
-    font-size: small;
-  }
-
-   
-  ul.blog-posts {
-    list-style-type: none;
-    padding: unset;
-  }
-
-  ul.blog-posts li {
-    display: flex;
-  }
-
-  ul.blog-posts li span {
-    flex: 0 0 130px;
-  }
-
-  ul.blog-posts li a:visited {
-    color: #8b6fcb;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: #333;
-      color: #ddd;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    strong,
-    b {
-      color: #eee;
-    }
-
-    a {
-      color: #8cc2dd;
-    }
-
-    code {
-      background-color: #777;
-    }
-
-    pre code {
-      color: #ddd;
-    }
-
-    blockquote {
-      color: #ccc;
-    }
-
-    textarea,
-    input {
-      background-color: #252525;
-      color: #ddd;
-    }
-
-    .helptext {
-      color: #aaa;
-    }
-  }
-
-</style>
+  <link rel="preload" href="/fonts/source-serif-4-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/sysid.min.166bd22928cd5a24883a6797aac8bbe13591acdc58df2e99c00b3ba9fe56d816.css" integrity="sha256-FmvSKSjNWiSIOmeXqsi74TWRrNxY3y6ZwAs7qf5W2BY=">
+<link rel="stylesheet" href="/css/chroma-light.min.458f0b209e7b32727c308bd91b27f7aefb4ae4b76b3f2032c2f83b3fd43f7352.css" integrity="sha256-RY8LIJ57MnJ8MIvZGyf3rvtK5LdrPyAywvg7P9Q/c1I=" media="not all and (prefers-color-scheme: dark)">
+<link rel="stylesheet" href="/css/chroma-dark.min.d8ad658c02e1ff4f154ed92513da0a2763959be0a25adfd74e26f37b64eee8fd.css" integrity="sha256-2K1ljALh/08VTtklE9oKJ2OVm&#43;CiWt/XTibze2Tu6P0=" media="(prefers-color-scheme: dark)">
 
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
@@ -238,11 +69,8 @@
 </head>
 
 <body>
-  <header><a href="/" class="title">
-  <h2>sysid blog</h2>
-</a>
-<nav><a href="/">Home</a>
-
+  <header><a class="brand" href="/"><img src="/images/sheep.png" alt="" width="34" height="34"><span>sysid</span></a>
+<nav aria-label="Main">
 <a href="/blog">Blog</a>
 
 <a href="/agentic">Agentic</a>
@@ -256,12 +84,10 @@
   <main>
 
 <h1>Elegant Developer Environment Management</h1>
-<p>
-  <i>
-    <time datetime='2026-02-02' pubdate>
-      02 Feb, 2026
-    </time>
-  </i>
+<p class="meta">
+  <time datetime='2026-02-02'>2 February 2026</time>
+  <span>6 min read</span>
+  <span><a href="/blog/rust/">rust</a> · <a href="/blog/work/">work</a> · <a href="/blog/development/">development</a></span>
 </p>
 
 <content>
@@ -300,15 +126,15 @@ sync the moment someone forgets to update one copy.</p>
 than a list. It introduces the concept of parent-child relationships between environment files.</p>
 <p><strong>Point in Case:</strong>
 Instead of duplicating twenty variables, your <code>dev.env</code> simply starts with a link:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#888"># rsenv: ./base.env</span>
-</span></span><span style="display:flex;"><span><span style="color:#369">DATABASE_URL</span>=localhost:5432
-</span></span><span style="display:flex;"><span><span style="color:#888"># (Only overrides or additions follow)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># rsenv: ./base.env</span>
+</span></span><span class="line"><span class="cl"><span class="nv">DATABASE_URL</span><span class="o">=</span>localhost:5432
+</span></span><span class="line"><span class="cl"><span class="c1"># (Only overrides or additions follow)</span>
 </span></span></code></pre></div><p><strong>The Diagram: Inheritance in Action</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>      [ global.env ]          &lt;-- Shared across the whole company
-</span></span><span style="display:flex;"><span>            |
-</span></span><span style="display:flex;"><span>      [ project.env ]         &lt;-- Shared across the team
-</span></span><span style="display:flex;"><span>       /          \
-</span></span><span style="display:flex;"><span> [ dev.env ]   [ prod.env ]   &lt;-- Stage-specific overrides
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">      [ global.env ]          &lt;-- Shared across the whole company
+</span></span><span class="line"><span class="cl">            |
+</span></span><span class="line"><span class="cl">      [ project.env ]         &lt;-- Shared across the team
+</span></span><span class="line"><span class="cl">       /          \
+</span></span><span class="line"><span class="cl"> [ dev.env ]   [ prod.env ]   &lt;-- Stage-specific overrides
 </span></span></code></pre></div><p>When <a href="https://github.com/sysid/rs-env/wiki">rsenv</a> evaluates an environment, it walks this tree and produces a merged result. The outcome
 is a single, explicit set of variables that tools can consume.</p>
 <p>The practical benefits are subtle but significant:</p>
@@ -345,9 +171,9 @@ mock server or adding a debug class.</p>
 swapping to make such overrides explicit and reversible.</p>
 <p>Swapping is the temporary counterpart to guarding. You maintain a development version of a file in
 the vault and swap it into your project when you start work:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rsenv swap in config/application.yml    <span style="color:#888"># start of day</span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># ... develop with local config ...</span>
-</span></span><span style="display:flex;"><span>rsenv swap out config/application.yml   <span style="color:#888"># before committing</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rsenv swap in config/application.yml    <span class="c1"># start of day</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ... develop with local config ...</span>
+</span></span><span class="line"><span class="cl">rsenv swap out config/application.yml   <span class="c1"># before committing</span>
 </span></span></code></pre></div><p>The original file is backed up in the vault during the swap. <a href="https://github.com/sysid/rs-env/wiki">rsenv</a> tracks swap state per
 hostname, so if you and a colleague share a filesystem (e.g., NFS home directories), your swaps
 don&rsquo;t collide. An <code>RSENV_SWAPPED</code> environment variable marker lets CI pipelines detect and reject
@@ -386,18 +212,11 @@ and <code>init vault</code> by <code>init reset</code>.</p>
 <p>It is a tool for the professional who values a clean workbench to reduce cognitive load.</p>
 
 </content>
-<p>
-  
-  <a href="/blog/rust/">#Rust</a>
-  
-  <a href="/blog/work/">#Work</a>
-  
-  <a href="/blog/development/">#Development</a>
-  
-</p>
 
   </main>
-  <footer>
+  <footer><img src="/images/sheep.png" alt="" width="20" height="20">
+<span>Copyright © 2022, sysid.</span>
+
 </footer>
 
     

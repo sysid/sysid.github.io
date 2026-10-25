@@ -48,179 +48,10 @@
   <meta itemprop="keywords" content="Python,Optimization,Work,Pyomo,Scheduling">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
-  <style>
-  body {
-    font-family: Verdana, sans-serif;
-    margin: auto;
-    padding: 20px;
-    max-width: 720px;
-    text-align: left;
-    background-color: #fff;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    line-height: 1.5;
-    color: #444;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  strong,
-  b {
-    color: #222;
-  }
-
-  a {
-    color: #3273dc;
-     
-  }
-
-  .title {
-    text-decoration: none;
-    border: 0;
-  }
-
-  .title span {
-    font-weight: 400;
-  }
-
-  nav a {
-    margin-right: 10px;
-  }
-
-  textarea {
-    width: 100%;
-    font-size: 16px;
-  }
-
-  input {
-    font-size: 16px;
-  }
-
-  content {
-    line-height: 1.6;
-  }
-
-  table {
-    width: 100%;
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  code {
-    padding: 2px 5px;
-    background-color: #f2f2f2;
-  }
-
-  pre code {
-    color: #222;
-    display: block;
-    padding: 20px;
-    white-space: pre-wrap;
-    font-size: 14px;
-    overflow-x: auto;
-  }
-
-  div.highlight pre {
-    background-color: initial;
-    color: initial;
-  }
-
-  div.highlight code {
-    background-color: unset;
-    color: unset;
-  }
-
-  blockquote {
-    border-left: 1px solid #999;
-    color: #222;
-    padding-left: 20px;
-    font-style: italic;
-  }
-
-  footer {
-    padding: 25px;
-    text-align: center;
-  }
-
-  .helptext {
-    color: #777;
-    font-size: small;
-  }
-
-  .errorlist {
-    color: #eba613;
-    font-size: small;
-  }
-
-   
-  ul.blog-posts {
-    list-style-type: none;
-    padding: unset;
-  }
-
-  ul.blog-posts li {
-    display: flex;
-  }
-
-  ul.blog-posts li span {
-    flex: 0 0 130px;
-  }
-
-  ul.blog-posts li a:visited {
-    color: #8b6fcb;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: #333;
-      color: #ddd;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    strong,
-    b {
-      color: #eee;
-    }
-
-    a {
-      color: #8cc2dd;
-    }
-
-    code {
-      background-color: #777;
-    }
-
-    pre code {
-      color: #ddd;
-    }
-
-    blockquote {
-      color: #ccc;
-    }
-
-    textarea,
-    input {
-      background-color: #252525;
-      color: #ddd;
-    }
-
-    .helptext {
-      color: #aaa;
-    }
-  }
-
-</style>
+  <link rel="preload" href="/fonts/source-serif-4-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/sysid.min.166bd22928cd5a24883a6797aac8bbe13591acdc58df2e99c00b3ba9fe56d816.css" integrity="sha256-FmvSKSjNWiSIOmeXqsi74TWRrNxY3y6ZwAs7qf5W2BY=">
+<link rel="stylesheet" href="/css/chroma-light.min.458f0b209e7b32727c308bd91b27f7aefb4ae4b76b3f2032c2f83b3fd43f7352.css" integrity="sha256-RY8LIJ57MnJ8MIvZGyf3rvtK5LdrPyAywvg7P9Q/c1I=" media="not all and (prefers-color-scheme: dark)">
+<link rel="stylesheet" href="/css/chroma-dark.min.d8ad658c02e1ff4f154ed92513da0a2763959be0a25adfd74e26f37b64eee8fd.css" integrity="sha256-2K1ljALh/08VTtklE9oKJ2OVm&#43;CiWt/XTibze2Tu6P0=" media="(prefers-color-scheme: dark)">
 
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
       <script>
@@ -236,7 +67,6 @@
           gtag('config', 'G-8VH574W51S');
         }
       </script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0-alpha.1/es5/tex-mml-chtml.js"></script>
 
 
@@ -256,11 +86,8 @@
 </head>
 
 <body>
-  <header><a href="/" class="title">
-  <h2>sysid blog</h2>
-</a>
-<nav><a href="/">Home</a>
-
+  <header><a class="brand" href="/"><img src="/images/sheep.png" alt="" width="34" height="34"><span>sysid</span></a>
+<nav aria-label="Main">
 <a href="/blog">Blog</a>
 
 <a href="/agentic">Agentic</a>
@@ -274,12 +101,10 @@
   <main>
 
 <h1>Job Shop Scheduling Problem</h1>
-<p>
-  <i>
-    <time datetime='2020-08-02' pubdate>
-      02 Aug, 2020
-    </time>
-  </i>
+<p class="meta">
+  <time datetime='2020-08-02'>2 August 2020</time>
+  <span>6 min read</span>
+  <span><a href="/blog/python/">python</a> · <a href="/blog/optimization/">optimization</a> · <a href="/blog/work/">work</a> · <a href="/blog/pyomo/">pyomo</a> · <a href="/blog/scheduling/">scheduling</a></span>
 </p>
 
 <content>
@@ -412,34 +237,34 @@ makespan \ge 0\\
 $$</p>
 <h1 id="implementation">Implementation</h1>
 <p>Using <a href="http://www.pyomo.org/">Pyomo</a> as modelling framework results in the following Python code for the constraints:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">start_order_c</span>(model, j, s):
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> s == <span style="color:#00d;font-weight:bold">1</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> Constraint.Skip
-</span></span><span style="display:flex;"><span>    o = model.machine_steps[j, s]
-</span></span><span style="display:flex;"><span>    o_1 = model.machine_steps[j, s - <span style="color:#00d;font-weight:bold">1</span>]
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> model.start[o, j] &gt;= model.start[o_1, j] + model.proctime[o_1, j]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>model.start_order_c = Constraint(model.J, model.R, rule=start_order_c)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">start_either_c</span>(model, m, j, k):
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> j == k:
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> Constraint.Skip
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> model.start[m, j] &gt;= model.start[m, k] + model.proctime[m, k] - M * model.y[m, j, k]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>model.start_either_c = Constraint(model.M, model.J, model.J, rule=start_either_c)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">start_or_c</span>(model, m, j, k):
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> j == k:
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> Constraint.Skip
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> model.start[m, k] &gt;= model.start[m, j] + model.proctime[m, j] - M * (<span style="color:#00d;font-weight:bold">1</span> - model.y[m, j, k])
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>model.start_or_c = Constraint(model.M, model.J, model.J, rule=start_or_c)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">makespan_c</span>(model, j):
-</span></span><span style="display:flex;"><span>    o = model.machine_steps[j, M_0]
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> model.makespan &gt;= model.start[o, j] + model.proctime[o, j]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>model.makespan_c = Constraint(model.J, rule=makespan_c)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">start_order_c</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Constraint</span><span class="o">.</span><span class="n">Skip</span>
+</span></span><span class="line"><span class="cl">    <span class="n">o</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">machine_steps</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">s</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">o_1</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">machine_steps</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">s</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">start</span><span class="p">[</span><span class="n">o</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">model</span><span class="o">.</span><span class="n">start</span><span class="p">[</span><span class="n">o_1</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">proctime</span><span class="p">[</span><span class="n">o_1</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">start_order_c</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">J</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">R</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="n">start_order_c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">start_either_c</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="n">k</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Constraint</span><span class="o">.</span><span class="n">Skip</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">start</span><span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">model</span><span class="o">.</span><span class="n">start</span><span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">proctime</span><span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="n">M</span> <span class="o">*</span> <span class="n">model</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">start_either_c</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">M</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">J</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">J</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="n">start_either_c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">start_or_c</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="n">k</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Constraint</span><span class="o">.</span><span class="n">Skip</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">start</span><span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">model</span><span class="o">.</span><span class="n">start</span><span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">proctime</span><span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">M</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">model</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">start_or_c</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">M</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">J</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">J</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="n">start_or_c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">makespan_c</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">o</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">machine_steps</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">M_0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">makespan</span> <span class="o">&gt;=</span> <span class="n">model</span><span class="o">.</span><span class="n">start</span><span class="p">[</span><span class="n">o</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">proctime</span><span class="p">[</span><span class="n">o</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">makespan_c</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">J</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="n">makespan_c</span><span class="p">)</span>
 </span></span></code></pre></div><h1 id="results">Results</h1>
 <p>The model solves very quickly with 4 machines and 10 jobs.</p>
 <p>Number of constraints : 760<br>
@@ -474,22 +299,11 @@ non-overlap constraint and only compare jobs with \(j &lt; k\) instead of \(i \n
 </div>
 
 </content>
-<p>
-  
-  <a href="/blog/python/">#Python</a>
-  
-  <a href="/blog/optimization/">#Optimization</a>
-  
-  <a href="/blog/work/">#Work</a>
-  
-  <a href="/blog/pyomo/">#Pyomo</a>
-  
-  <a href="/blog/scheduling/">#Scheduling</a>
-  
-</p>
 
   </main>
-  <footer>
+  <footer><img src="/images/sheep.png" alt="" width="20" height="20">
+<span>Copyright © 2022, sysid.</span>
+
 </footer>
 
     
