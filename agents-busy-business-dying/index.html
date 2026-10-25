@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/images/favicon.png" />
+<title>Agents Busy - Business Dying | sysid blog</title>
+<meta name="title" content="Agents Busy - Business Dying" />
+<meta name="description" content="A rant about organizations that loose focus on shipping to become AI-native, and the managers who let that happen." />
+<meta name="keywords" content="ai,development,agents," />
+
+
+<meta property="og:url" content="/agents-busy-business-dying/">
+  <meta property="og:site_name" content="sysid blog">
+  <meta property="og:title" content="Agents Busy - Business Dying">
+  <meta property="og:description" content="A rant about organizations that loose focus on shipping to become AI-native, and the managers who let that happen.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2026-10-24T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-10-24T00:00:00+00:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Development">
+    <meta property="article:tag" content="Agents">
+    <meta property="og:image" content="/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/images/share.png">
+  <meta name="twitter:title" content="Agents Busy - Business Dying">
+  <meta name="twitter:description" content="A rant about organizations that loose focus on shipping to become AI-native, and the managers who let that happen.">
+
+
+
+
+  <meta itemprop="name" content="Agents Busy - Business Dying">
+  <meta itemprop="description" content="A rant about organizations that loose focus on shipping to become AI-native, and the managers who let that happen.">
+  <meta itemprop="datePublished" content="2026-10-24T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-10-24T00:00:00+00:00">
+  <meta itemprop="wordCount" content="310">
+  <meta itemprop="image" content="/images/share.png">
+  <meta itemprop="keywords" content="Ai,Development,Agents">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8VH574W51S');
+        }
+      </script>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+<a href="/blog">Blog</a>
+
+<a href="/agentic">Agentic</a>
+
+<a href="/tools">Tools</a>
+
+<a href="/about">About</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Agents Busy - Business Dying</h1>
+<p>
+  <i>
+    <time datetime='2026-10-24' pubdate>
+      24 Oct, 2026
+    </time>
+  </i>
+</p>
+
+<content>
+  <blockquote>
+<p>This is a rant, don&rsquo;t read it.</p>
+</blockquote>
+<p>Hype and FOMO are eating our organisations alive. Every feature team needs to become <strong>AI-native</strong>
+to have the right to exist.</p>
+<p>What the hell does that mean?</p>
+<p>Definitions I have seen focus mostly on orchestrations of swarms of autonomous agents and magic workflows.
+None has been about product delivery.</p>
+<p>Meanwhile management is still dazzled by one- or two-person teams showing greenfield AI
+PoCs or peripheral tooling automation. What actual product has been shipped? Which enterprise
+application got better? How many customers have been won?</p>
+<p>In all seriousness, we allow, even encourage, teams to tell their Product Owners:
+<em>&ldquo;Sorry, we can&rsquo;t deliver features right now. We&rsquo;re busy figuring out how to become AI-native.&rdquo;</em></p>
+<p>Are you kidding me?</p>
+<p>There was a time when improving your tools, skills, and productivity was simply part of being a
+professional engineer. You didn&rsquo;t ask permission. You didn&rsquo;t stop delivering. You didn&rsquo;t make your
+personal learning curve the company&rsquo;s problem.</p>
+<p><strong>You figured it out and got better at your damn job.</strong></p>
+<p>Now we&rsquo;re celebrating technology playgrounds and forgetting our actual customer commitments.
+Developers build pet projects, management applauds flashy demos, and everyone congratulates
+themselves on the great AI transformation.</p>
+<p><strong>Zero features. Zero customer value. But congratulations, AI-native!</strong></p>
+<p>We are in brutal global competition, and nobody gives a damn about our agent orchestration, our
+million-token workflows, or the twenty AI agents that magically turn a Jira ticket into a pull
+request nobody understands. Customers care about products that solve problems. Performance.
+Reliability.</p>
+<p>Give talented, motivated teams clear outcomes. Let them choose their tools, experiment and automate
+as much as they like. Then hold them accountable for the customer value they deliver.</p>
+<p>AI can be a competitive advantage. It is still a means to an end. Stop rewarding experiments as if
+they were outcomes.</p>
+<p>And for God&rsquo;s sake, <strong>GET BACK TO SHIPPING!</strong></p>
+
+</content>
+<p>
+  
+  <a href="/blog/ai/">#Ai</a>
+  
+  <a href="/blog/development/">#Development</a>
+  
+  <a href="/blog/agents/">#Agents</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

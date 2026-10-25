@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Fri, 28 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agents Busy - Business Dying</title>
+      <link>/agents-busy-business-dying/</link>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>/agents-busy-business-dying/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This is a rant, don&amp;rsquo;t read it.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Hype and FOMO are eating our organisations alive. Every feature team needs to become &lt;strong&gt;AI-native&lt;/strong&gt;&#xA;to have the right to exist.&lt;/p&gt;&#xA;&lt;p&gt;What the hell does that mean?&lt;/p&gt;&#xA;&lt;p&gt;Definitions I have seen focus mostly on orchestrations of swarms of autonomous agents and magic workflows.&#xA;None has been about product delivery.&lt;/p&gt;&#xA;&lt;p&gt;Meanwhile management is still dazzled by one- or two-person teams showing greenfield AI&#xA;PoCs or peripheral tooling automation. What actual product has been shipped? Which enterprise&#xA;application got better? How many customers have been won?&lt;/p&gt;</description>
+    </item>
     <item>
       <title>The Decisions Nobody Made</title>
       <link>/the-decisions-nobody-made/</link>
