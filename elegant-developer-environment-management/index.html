@@ -41,7 +41,7 @@
   <meta itemprop="description" content="Streamlining Developer Productivity with rsenv">
   <meta itemprop="datePublished" content="2026-02-02T00:00:00+00:00">
   <meta itemprop="dateModified" content="2026-02-02T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1073">
+  <meta itemprop="wordCount" content="1069">
   <meta itemprop="image" content="/images/share.png">
   <meta itemprop="keywords" content="Rust,Work,Development">
 <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -283,8 +283,8 @@ the variables are identical, but they are duplicated across three files. Changin
 port requires a search-and-replace mission.</li>
 <li><strong>Security Friction:</strong> Sensitive keys live in the project root. We rely on <code>.gitignore</code> as our
 only shield, but &ldquo;git-leak&rdquo; remains a top-tier security vulnerability.</li>
-<li><strong>The &ldquo;Dirty&rdquo; Repo:</strong> We always need specific local tweaks — a custom log level or a mocked API
-endpoint — that shouldn&rsquo;t be shared with the team. You end up with &ldquo;unstaged changes&rdquo; that you
+<li><strong>The &ldquo;Dirty&rdquo; Repo:</strong> We always need specific local tweaks (a custom log level or a mocked API
+endpoint) that shouldn&rsquo;t be shared with the team. You end up with &ldquo;unstaged changes&rdquo; that you
 have to carefully dodge during every commit.</li>
 </ol>
 <p>These problems are often addressed independently, with ad-hoc scripts or conventions. In practice,
@@ -292,7 +292,7 @@ they overlap. Environment variables reference secret files. Local overrides inte
 <a href="https://github.com/sysid/rs-env/wiki">rsenv</a> treats them as one problem with one structural solution.</p>
 <h3 id="pillar-1-hierarchical-environments-inheritance-over-duplication-dry">Pillar 1: Hierarchical Environments (Inheritance over Duplication, DRY)</h3>
 <p>The Twelve-Factor App methodology told us to configure applications through environment variables.
-Good advice — separating config from code is essential for scalability and security. What
+Good advice: separating config from code is essential for scalability and security. What
 nobody mentioned was the operational challenge: dozens of variables per project, multiplied across
 local, test, staging, and production environments, scattered across .env files that drift out of
 sync the moment someone forgets to update one copy.</p>
@@ -323,7 +323,7 @@ configuration&rsquo;s lineage, ensuring they know exactly where a value is comin
 <hr>
 <h3 id="pillar-2-the-vault-and-the-guard">Pillar 2: The Vault and the &ldquo;Guard&rdquo;</h3>
 <p>Security is often sacrificed for convenience. We keep secrets in plain text because &ldquo;it’s just my
-local machine.&rdquo; <code>rsenv</code> introduces the <strong>Vault</strong> — a directory outside of your git repository where
+local machine.&rdquo; <code>rsenv</code> introduces the <strong>Vault</strong>, a directory outside of your git repository where
 sensitive files actually can live.</p>
 <p>When you use <code>rsenv guard add .env</code>, the tool moves the file to your secure vault and replaces the
 original with a <strong>symlink</strong>.</p>
@@ -339,7 +339,7 @@ your secrets portable but safe.</li>
 </ul>
 <hr>
 <h3 id="pillar-3-context-switching-via-file-swapping">Pillar 3: Context Switching via &ldquo;File Swapping&rdquo;</h3>
-<p>Developers often need to &ldquo;patch&rdquo; a project temporarily—changing a config file to point to a local
+<p>Developers often need to &ldquo;patch&rdquo; a project temporarily, changing a config file to point to a local
 mock server or adding a debug class.</p>
 <p>Without structure, these changes either linger or are avoided entirely. <a href="https://github.com/sysid/rs-env/wiki">rsenv</a> introduces file
 swapping to make such overrides explicit and reversible.</p>
@@ -351,7 +351,7 @@ the vault and swap it into your project when you start work:</p>
 </span></span></code></pre></div><p>The original file is backed up in the vault during the swap. <a href="https://github.com/sysid/rs-env/wiki">rsenv</a> tracks swap state per
 hostname, so if you and a colleague share a filesystem (e.g., NFS home directories), your swaps
 don&rsquo;t collide. An <code>RSENV_SWAPPED</code> environment variable marker lets CI pipelines detect and reject
-builds with swapped-in files — a straightforward safety check.</p>
+builds with swapped-in files, a straightforward safety check.</p>
 <p>This keeps your <code>git status</code> clean and prevents &ldquo;temporary&rdquo; debug code from accidentally reaching
 production.</p>
 <p>Swapping is particularly useful for:</p>

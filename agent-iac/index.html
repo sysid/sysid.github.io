@@ -41,7 +41,7 @@
   <meta itemprop="description" content="Treat Agents Like Infrastructure">
   <meta itemprop="datePublished" content="2026-07-07T00:00:00+00:00">
   <meta itemprop="dateModified" content="2026-07-07T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1656">
+  <meta itemprop="wordCount" content="1633">
   <meta itemprop="image" content="/images/share.png">
   <meta itemprop="keywords" content="Ai,Development,Agents">
 <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -272,9 +272,9 @@
 <li>GitHub Copilot CLI because your employer sanctions it</li>
 <li>maybe a third harness for its ergonomics (e.g. Pi).</li>
 </ul>
-<p>Each of them wants its own instruction file, its own skills directory, its own MCP server config, its own permission model — in its own format, in its own location, evolving on its own schedule.</p>
+<p>Each of them wants its own instruction file, its own skills directory, its own MCP server config, its own permission model, in its own format, in its own location, evolving on its own schedule.</p>
 <p>How to manage this heterogeneity without getting mad?</p>
-<p>Treat agent configuration like infrastructure — canonical
+<p>Treat agent configuration like infrastructure: canonical
 sources in git, deterministic compilation into whatever each individual harness expects, and drift detection
 on a schedule.</p>
 <p>After five months I can say: It works for me and helps my sanity.</p>
@@ -298,7 +298,7 @@ on a schedule.</p>
 <li>Never hand-edit the right-hand side.</li>
 <li>Only edit intent on the left, then run <code>apply</code>, and verify with <code>diff</code>.</li>
 </ul>
-<p>If that sounds similar to Terraform, that is the point — the same reasons we
+<p>If that sounds similar to Terraform, that is the point. The same reasons we
 stopped hand-editing servers apply to hand-editing agent configs: silent drift, unreviewable state,
 and no way to answer &ldquo;why is this different on my other machine?&rdquo;</p>
 <h2 id="the-dimensions">The Dimensions</h2>
@@ -334,7 +334,7 @@ and no way to answer &ldquo;why is this different on my other machine?&rdquo;</p
       </tr>
       <tr>
           <td>Skill content</td>
-          <td><code>twskls</code> (private — 30+ personal skills, evals, review rules)</td>
+          <td><code>twskls</code> (private: 30+ personal skills, evals, review rules)</td>
           <td>personal repo</td>
       </tr>
       <tr>
@@ -363,11 +363,11 @@ templates are declared once; profiles bundle them; each agent names at least one
 </span></span><span style="display:flex;"><span>[profiles.tw-copilot]
 </span></span><span style="display:flex;"><span>extends = [<span style="color:#d20;background-color:#fff0f0">&#34;core&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;pr_review&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;web_research&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;java&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;rust&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;work&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;ideation&#34;</span>]
 </span></span></code></pre></div><p>Note what this buys: Copilot CLI has employer skills and the Atlassian MCP server; Claude
-Code does not. That difference is not an accident of which directory I happened to edit — it is one
+Code does not. That difference is not an accident of which directory I happened to edit. It is one
 word (<code>&quot;work&quot;</code>) in a reviewed, versioned file.</p>
 <p><code>twagent apply -G</code> materializes it; <code>twagent diff</code> tells when reality disagrees.</p>
 <p>A similar mechanism kills instruction-file duplication: <code>CLAUDE.md</code>, <code>copilot-instructions.md</code>, and
-Pi&rsquo;s <code>AGENTS.md</code> on my machine are three renders of <strong>one Jinja2 template</strong> — including harness specific quirks.</p>
+Pi&rsquo;s <code>AGENTS.md</code> on my machine are three renders of <strong>one Jinja2 template</strong>, including harness specific quirks.</p>
 <h3 id="security-two-layers">Security: Two layers</h3>
 <p>This is the dimension most personal setups skip entirely, but it deserves rigor. The design is <strong>defense in depth</strong>:</p>
 <ul>
@@ -375,14 +375,14 @@ Pi&rsquo;s <code>AGENTS.md</code> on my machine are three renders of <strong>one
 <a href="https://github.com/anthropic-experimental/sandbox-runtime">sandbox-runtime</a> enforces filesystem
 and network restrictions at the OS level. Bash commands run by the agent <strong>physically</strong> cannot read
 <code>~/.ssh</code> or call unapproved hosts.</li>
-<li><strong>Layer 2 (application):</strong> each harness&rsquo;s own permission model — deny rules for
+<li><strong>Layer 2 (application):</strong> each harness&rsquo;s own permission model: deny rules for
 <code>Read</code>/<code>Write</code>/<code>Edit</code> on credential paths, <code>WebFetch</code> domain allowlists, bash deny/ask lists.</li>
 </ul>
 <p>Why two layers?</p>
-<p>In Claude Code&rsquo;s native sandbox mode — the kernel wraps <strong>each Bash command</strong>, but not the agent
+<p>In Claude Code&rsquo;s native sandbox mode, the kernel wraps <strong>each Bash command</strong>, but not the agent
 process, so built-in tools (Read/Write/Edit) bypass Layer 1 and Layer 2 is then the only wall
 between doom and me.</p>
-<p>One can invert this by launching the whole agent inside the sandbox — which extends kernel
+<p>One can invert this by launching the whole agent inside the sandbox, which extends kernel
 enforcement to built-in tools and to any stdio MCP servers the agent spawns.</p>
 <p>But it costs: the outer policy must be broader, e.g. the agent writes its own state, reaches its
 API, spawns MCP servers.</p>
@@ -390,31 +390,31 @@ API, spawns MCP servers.</p>
 inner layer must weaken to survive (Claude Code ships an <code>enableWeakerNestedSandbox</code> setting for
 exactly this case).</p>
 <p>However, Layer 2 alone is not enough.</p>
-<p>Agent permission rules are best-effort — twsrt&rsquo;s threat model cites concrete Claude
+<p>Agent permission rules are best-effort: twsrt&rsquo;s threat model cites concrete Claude
 Code issues (#6631, #24846) where built-in-tool deny rules leaked. The layers are complementary,
 not redundant; <code>twsrt</code> compiles one canonical rule set into both, so they cannot drift apart.</p>
 <p>Does it work in practice?</p>
 <p>Twice during an <a href="https://www.anthropic.com/claude/fable">Fable</a> audit, my rules stopped the tooling: once
-writing a <code>.github/workflows/</code> file (CI files are code-execution-on-push — agents don&rsquo;t get to
+writing a <code>.github/workflows/</code> file (CI files are code-execution-on-push; agents don&rsquo;t get to
 write them), once reading the canonical security rules. Both denials were correct. Fable was
 blocked.</p>
 <p>A secure policy feels like occasional, explainable friction. But this is a good thing!</p>
 <h3 id="memory-keep-it-out-of-the-vendor">Memory: Keep it out of the vendor</h3>
 <p>Cross-session memory is the stickiest lock-in surface an agent vendor has. My memory lives in
-<a href="https://github.com/sysid/bkmr">bkmr</a> — SQLite full-text search plus local embeddings, exposed to
+<a href="https://github.com/sysid/bkmr">bkmr</a>: SQLite full-text search plus local embeddings, exposed to
 every harness through a skill and a passive logging hook. Switching harnesses costs me nothing
 memory-wise; the database is a file in a git repo.</p>
 <p>The memory is being used by agents and myself. I have been using it for knowledge management long
 before agents came along. Now I reap the benefit of this approach twice.</p>
 <h3 id="skills-the-rare-standard">Skills: the (rare) standard</h3>
-<p>Skills are markdown (<code>SKILL.md</code>) plus self-contained scripts — in my case often PEP 723 <code>uv run --script</code>
+<p>Skills are markdown (<code>SKILL.md</code>) plus self-contained scripts, in my case often PEP 723 <code>uv run --script</code>
 artifacts that carry their own dependency declarations, so a skill directory is copy-portable to
 any harness that can run <code>uv</code>.</p>
 <p>The <a href="https://agentskills.io">Agent Skills format</a> is a rare standard in the agentic realm,
 consumed by multiple harnesses; the entire skill investment survives a vendor change.</p>
 <p>Shared code
 between skills is vendored byte-identical with a <code>make check-shared</code> gate that fails the build on
-drift — self-containment is the portability strategy, and the gate is what makes vendoring safe.</p>
+drift. Self-containment is the portability strategy, and the gate is what makes vendoring safe.</p>
 <p>This gives me shared libraries <strong>and</strong> self-contained, copy-able skills.</p>
 <h2 id="is-it-over-engineered">Is it over-engineered?</h2>
 <p>To judge whether any of this is over-engineering, look at what exists.
@@ -427,7 +427,7 @@ However, MCP is the clearest illustration of the remaining gap: the <em>protocol
 but every harness still declares its servers in a differently-shaped config file in a different
 location.</li>
 <li><strong>Vendor-native distribution.</strong> Claude Code&rsquo;s plugin marketplaces distribute skills, commands,
-and MCP wiring cleanly — <em>within its harness</em>. The better a vendor&rsquo;s native mechanism, the
+and MCP wiring cleanly, <em>within its harness</em>. The better a vendor&rsquo;s native mechanism, the
 deeper the lock-in when your employer puts you in a second harness.</li>
 <li><strong>Content libraries.</strong> Collections like <a href="https://github.com/obra/superpowers">obra/superpowers</a>
 and <a href="https://github.com/anthropics/skills">anthropics/skills</a> solve <strong>what</strong> your agents should
@@ -454,7 +454,7 @@ Already implements the format standards <em>and</em> the deployment layer none o
 <h3 id="maintainability-future-proofness">Maintainability, Future-proofness</h3>
 <p>No lock-in: no vendor SDK in tooling, open formats at every boundary.
 Stack survives a vendor switch.
-However, any compiler chasing unstable targets inherits a maintenance treadmill — the same trade Terraform providers accept against cloud APIs.</p>
+However, any compiler chasing unstable targets inherits a maintenance treadmill: the same trade Terraform providers accept against cloud APIs.</p>
 <h2 id="drawbacks">Drawbacks</h2>
 <p>No free lunch!</p>
 <ol>
@@ -469,25 +469,25 @@ and demands understanding before overriding.</li>
 </ol>
 <h2 id="what-i-have-learned">What I have learned</h2>
 <ol>
-<li><strong>One canonical source per dimension</strong> — capabilities, security, skills, memory each get exactly
+<li><strong>One canonical source per dimension</strong>: capabilities, security, skills, memory each get exactly
 one home in git.</li>
 <li><strong>Compile, never copy.</strong> Hand-edited materialized config is drift waiting to happen.</li>
-<li><strong>Make <code>diff</code> a first-class verb</strong> with meaningful exit codes — then <em>put it on a clock</em>.
+<li><strong>Make <code>diff</code> a first-class verb</strong> with meaningful exit codes, then <em>put it on a clock</em>.
 Detection capability without scheduled execution found nothing for months.</li>
 <li><strong>Own subtrees, not entire files.</strong> Harness wstate or configuration files that &ldquo;merely also hold&rdquo; my config must
 survive my changes.</li>
-<li><strong>Bet on open formats</strong> — SKILL.md, MCP, markdown instructions — keep zero LLM-SDK imports
+<li><strong>Bet on open formats</strong> (SKILL.md, MCP, markdown instructions): keep zero LLM-SDK imports
 in your tooling. Model choice belongs to the harness, not the infrastructure.
 still delivered the two that mattered.</li>
 </ol>
 <h2 id="closing">Closing</h2>
 <p>This is one practitioner&rsquo;s setup, sample size one, and parts of it exist only because my work and
 personal environments force a multi-harness life.</p>
-<p>But the underlying idea is battle tested — it is discipline we trust from Terraform and GitOps.</p>
+<p>But the underlying idea is battle tested. It is discipline we trust from Terraform and GitOps.</p>
 <p><em>If a system&rsquo;s correctness matters, its configuration belongs in version control, its
 deployment belongs to a machine, and its drift belongs to a scheduled check.</em></p>
 <p>Agents are becoming the primary interface to our craft. They deserve the same discipline we learned to give other infrastructure.</p>
-<p>The public pieces — <a href="https://github.com/sysid/twsrt">twsrt</a>, <a href="https://github.com/sysid/twagent">twagent</a>, <a href="https://github.com/sysid/bkmr">bkmr</a> — are there if you want to study or reuse the mechanics.</p>
+<p>The public pieces (<a href="https://github.com/sysid/twsrt">twsrt</a>, <a href="https://github.com/sysid/twagent">twagent</a>, <a href="https://github.com/sysid/bkmr">bkmr</a>) are there if you want to study or reuse the mechanics.</p>
 
 </content>
 <p>

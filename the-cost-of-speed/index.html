@@ -8,14 +8,14 @@
 <link rel="shortcut icon" href="/images/favicon.png" />
 <title>The Cost of Speed | sysid blog</title>
 <meta name="title" content="The Cost of Speed" />
-<meta name="description" content="Why engineering practices now being dismissed as friction exist — and the risk to ignore them." />
+<meta name="description" content="Why engineering practices now being dismissed as friction exist, and the risk to ignore them." />
 <meta name="keywords" content="ai,development,agents," />
 
 
 <meta property="og:url" content="/the-cost-of-speed/">
   <meta property="og:site_name" content="sysid blog">
   <meta property="og:title" content="The Cost of Speed">
-  <meta property="og:description" content="Why engineering practices now being dismissed as friction exist — and the risk to ignore them.">
+  <meta property="og:description" content="Why engineering practices now being dismissed as friction exist, and the risk to ignore them.">
   <meta property="og:locale" content="en_US">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -32,16 +32,16 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="/images/share.png">
   <meta name="twitter:title" content="The Cost of Speed">
-  <meta name="twitter:description" content="Why engineering practices now being dismissed as friction exist — and the risk to ignore them.">
+  <meta name="twitter:description" content="Why engineering practices now being dismissed as friction exist, and the risk to ignore them.">
 
 
 
 
   <meta itemprop="name" content="The Cost of Speed">
-  <meta itemprop="description" content="Why engineering practices now being dismissed as friction exist — and the risk to ignore them.">
+  <meta itemprop="description" content="Why engineering practices now being dismissed as friction exist, and the risk to ignore them.">
   <meta itemprop="datePublished" content="2026-03-28T00:00:00+00:00">
   <meta itemprop="dateModified" content="2026-03-28T00:00:00+00:00">
-  <meta itemprop="wordCount" content="2230">
+  <meta itemprop="wordCount" content="2211">
   <meta itemprop="image" content="/images/share.png">
   <meta itemprop="keywords" content="Ai,Development,Agents">
 <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -266,9 +266,9 @@
 
 <content>
   <blockquote>
-<p>The Practices We&rsquo;re Throwing Away — They Matter</p>
+<p>The Practices We&rsquo;re Throwing Away: They Matter</p>
 </blockquote>
-<p>Agentic coding has made writing software close to free. Claude Code, Codex, Gemini CLI — these tools
+<p>Agentic coding has made writing software close to free. Claude Code, Codex, Gemini CLI: these tools
 generate prototypes, migrations, refactors, and tests at a pace that would have seemed absurd two
 years ago. Acceleration is real.</p>
 <p>But a strange asymmetry has developed in the public conversation.</p>
@@ -291,8 +291,8 @@ understand the code is you.</p>
 <p>In a team, every agent-generated change must be comprehensible to the
 people who will review it, debug it at 3 AM, extend it six months later, and explain it when it
 breaks.</p>
-<p>These days, proven engineering practices — shared understanding, disciplined review, architectural
-assessments — are increasingly dismissed as friction and overhead. The argument is that
+<p>These days, proven engineering practices (shared understanding, disciplined review, architectural
+assessments) are increasingly dismissed as friction and overhead. The argument is that
 agents make these practices obsolete: why review code carefully when the agent can review it?
 Why invest in shared understanding when the agent can explain the code on demand?</p>
 <p>These are valid questions which I am going to reflect in the following.</p>
@@ -321,7 +321,7 @@ misses existing code, duplicates functionality, and introduces inconsistencies.<
 three reasons:</p>
 <p>First, research on context degradation shows that models achieve 85 to 95 percent
 accuracy on information at the start and end of their context, but drop to 76 to 82 percent on
-information in the middle — the &ldquo;lost in the middle&rdquo; effect [5]. Cramming more code into the window
+information in the middle: the &ldquo;lost in the middle&rdquo; effect [5]. Cramming more code into the window
 makes the retrieval problem worse, not better.</p>
 <p>Second, effective capacity is not advertised
 capacity: a model claiming 200,000 tokens typically becomes unreliable around 130,000, with sudden
@@ -330,7 +330,7 @@ performance drops rather than gradual degradation.</p>
 problem, not a storage problem. Even with a million-token window, the agent must identify which of
 thousands of files, functions, and conventions are relevant to the current change. Adding more hay
 does not help find the needle. 65 percent of enterprise AI failures in 2025 were attributed to
-context drift or memory loss during multi-step reasoning — not to running out of context [6].</p>
+context drift or memory loss during multi-step reasoning, not to running out of context [6].</p>
 <p>The result: agents&rsquo; decisions are always some kind of local. This leads to code duplication, abstractions for
 abstractions&rsquo; sake, and inconsistencies that compound silently.</p>
 <p>It does not mean every generated abstraction is wrong. It means the system often cannot distinguish a
@@ -343,13 +343,13 @@ machine speed.</p>
 identifies AI-assisted code generation as &ldquo;a new form of cargo cult programming — inclusion of code
 that originates from external sources without consideration or adequate understanding of relevance
 or side-effects&rdquo; [7]. Sonar&rsquo;s analysis of AI-accelerated codebases shows consistently higher
-cyclomatic complexity — code that is structurally harder to understand and maintain [8].</p>
+cyclomatic complexity: code that is structurally harder to understand and maintain [8].</p>
 <p>An agent over-engineers because the training
 data is full of over-engineering, and it has no &ldquo;taste&rdquo; to distinguish signal from noise.</p>
 <h3 id="the-context-observability-gap">The Context Observability Gap</h3>
 <p>When agents make decisions, those decisions are invisible. No one challenges the intermediate
 reasoning. The context that led to an architectural choice vanishes after the generation is
-complete. In production systems, this means the &ldquo;why&rdquo; behind decisions is lost — not as
+complete. In production systems, this means the &ldquo;why&rdquo; behind decisions is lost, not as
 a side effect, but as a structural property of how agents work [9].</p>
 <h3 id="complexity-trap">Complexity Trap</h3>
 <p>Improvement in code
@@ -360,7 +360,7 @@ more incidents, more on call&hellip; all the improvements in the tooling will be
 ever-growing complexity&rdquo; [11].</p>
 <h2 id="what-speed-destroys">What Speed Destroys</h2>
 <p>The most insidious cost of acceleration is not bad code. It is lost understanding.</p>
-<p>Cognitive debt is not technical debt. Technical debt lives in the code — messy implementations,
+<p>Cognitive debt is not technical debt. Technical debt lives in the code: messy implementations,
 poor abstractions, shortcuts that will need fixing later. Cognitive debt lives in developers'
 minds: the erosion of the shared mental model of what the software does, how it works, and why
 specific decisions were made.</p>
@@ -372,16 +372,16 @@ was paralysed by week seven or eight [12]. They could no longer make even simple
 breaking something unexpected. They initially blamed technical debt, but the real problem was that
 nobody on the team could explain why design decisions had been made. The shared theory of the
 system had fragmented.</p>
-<p>Peter Naur observed in 1985 that a program is not its source code — it is a theory in the minds of
+<p>Peter Naur observed in 1985 that a program is not its source code. It is a theory in the minds of
 its developers, capturing what the program does, how intentions are implemented, and how it can be
 changed [13].</p>
 <p>This shared metaphor lets developers working in parallel make
 accurate guesses about each other&rsquo;s work. When ten programmers work simultaneously, each making
-design decisions, the theory binding their work becomes less coherent with every addition — unless
+design decisions, the theory binding their work becomes less coherent with every addition, unless
 they share a common mental model.</p>
 <p>&ldquo;Clean code&rdquo; is really about how easily the reader can build a coherent theory of the system. This
 is what accelerated AI coding destroys: the shared theory.</p>
-<h2 id="the-practices-under-threat--and-why-they-existed">The Practices Under Threat — and Why They Existed</h2>
+<h2 id="the-practices-under-threat-and-why-they-existed">The Practices Under Threat and Why They Existed</h2>
 <p><strong>Code review</strong> is the primary
 mechanism by which teams build a shared mental model. When one human reviews another&rsquo;s code,
 knowledge transfers. The reviewer absorbs context. The author clarifies intent. Both update their
@@ -393,7 +393,7 @@ Agents tend to overfit to short-term utility rather than long-term architecture 
 This can be mitigated by an experienced developer controlling the agent, but it requires skill,
 consideration and thinking time.</p>
 <p>Human understanding also helps fixing the recall problem. If you know the codebase
-— its conventions, its invariants, its sharp edges — you can guide the agent past its locality
+(its conventions, its invariants, its sharp edges), you can guide the agent past its locality
 limits. You can, because
 you carry the theory.</p>
 <p>Without that understanding, you are flying blind - at ten times the speed.</p>
@@ -402,11 +402,11 @@ a reason we have cooling-off periods for some important decisions in one&rsquo;s
 people need time to think about what they&rsquo;re doing, and that doing something right once doesn&rsquo;t
 mean much, because you need to be able to do it over a long period of time&rdquo; [14].</p>
 <p><strong>Specifications</strong> are necessary but not sufficient. A common response to all of the above is: &ldquo;the
-solution is better specifications — write a sufficiently detailed spec and the agent will produce
+solution is better specifications: write a sufficiently detailed spec and the agent will produce
 correct code.&rdquo;</p>
 <p>Gabriel Gonzalez tested this claim rigorously [15]. His finding: even extremely
-detailed, well-known specifications — like the YAML spec, which is exhaustive and widely
-implemented — still produce unreliable implementations when given to agents.
+detailed, well-known specifications (like the YAML spec, which is exhaustive and widely
+implemented) still produce unreliable implementations when given to agents.
 Specifications matter. They are indispensable. But they are
 lossy representations of intent, unwritten invariants, and operational realities.</p>
 <p>To be fair, certain engineering discipline in our trade really are compensating for human
@@ -417,7 +417,7 @@ refactoring, and targeted test suites [16]. As with any tool it matters, who is 
 <h2 id="what-the-best-teams-actually-do">What the Best Teams Actually Do</h2>
 <p>In fact, the signal from leading AI organizations is revealing.</p>
 <p>Anthropic hires the <a href="https://bun.com/">Bun</a> creator, Jarred Sumner. OpenAI acquires
-<a href="https://astral.sh/">Astral</a> — the team behind uv, ruff, and ty.</p>
+<a href="https://astral.sh/">Astral</a>, the team behind uv, ruff, and ty.</p>
 <p>These are the organisations with the most advanced agentic capabilities on earth, and they
 are hiring the best human domain experts they can find. They have the best agents. They still want
 the best humans. That tells you something about how much they trust agents alone.</p>
@@ -428,7 +428,7 @@ weekly updates. It is not senior if the output is brittle, unobservable, and exp
 generated code trustworthy: deterministic test suites, clear module boundaries, co-located
 documentation, fast feedback loops. Their job is to design environments where iteration converges
 toward correctness instead plausible nonsense. They treat specifications as
-first-class artifacts — while understanding that specs are inherently incomplete and human judgment
+first-class artifacts, while understanding that specs are inherently incomplete and human judgment
 must bridge the gap.</p>
 <h2 id="the-bet">The Bet</h2>
 <p>Best Practices increasingly being frowned upon as friction were never about preserving the dignity of

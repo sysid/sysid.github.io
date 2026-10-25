@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/images/favicon.png" />
+<title>The Decisions Nobody Made | sysid blog</title>
+<meta name="title" content="The Decisions Nobody Made" />
+<meta name="description" content="Coding agents have changed who writes software. They have not changed who is responsible when the software is wrong." />
+<meta name="keywords" content="ai,development,agents," />
+
+
+<meta property="og:url" content="/the-decisions-nobody-made/">
+  <meta property="og:site_name" content="sysid blog">
+  <meta property="og:title" content="The Decisions Nobody Made">
+  <meta property="og:description" content="Coding agents have changed who writes software. They have not changed who is responsible when the software is wrong.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2026-08-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-08-28T00:00:00+00:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Development">
+    <meta property="article:tag" content="Agents">
+    <meta property="og:image" content="/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/images/share.png">
+  <meta name="twitter:title" content="The Decisions Nobody Made">
+  <meta name="twitter:description" content="Coding agents have changed who writes software. They have not changed who is responsible when the software is wrong.">
+
+
+
+
+  <meta itemprop="name" content="The Decisions Nobody Made">
+  <meta itemprop="description" content="Coding agents have changed who writes software. They have not changed who is responsible when the software is wrong.">
+  <meta itemprop="datePublished" content="2026-08-28T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-08-28T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1946">
+  <meta itemprop="image" content="/images/share.png">
+  <meta itemprop="keywords" content="Ai,Development,Agents">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VH574W51S"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8VH574W51S');
+        }
+      </script>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>sysid blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+<a href="/blog">Blog</a>
+
+<a href="/agentic">Agentic</a>
+
+<a href="/tools">Tools</a>
+
+<a href="/about">About</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>The Decisions Nobody Made</h1>
+<p>
+  <i>
+    <time datetime='2026-08-28' pubdate>
+      28 Aug, 2026
+    </time>
+  </i>
+</p>
+
+<content>
+  <blockquote>
+<p>Code Is Cheap. Being Wrong Isn’t.</p>
+</blockquote>
+<p>Three sentences I hear more and more often:</p>
+<p>“The tests passed.”</p>
+<p>“Copilot suggested it.”</p>
+<p>“The agent handled the implementation.”</p>
+<p>Each sounds reasonable. Together they point to a problem.</p>
+<p>Coding agents are good at producing software. They implement features, run migrations, explore
+unfamiliar APIs, fix compiler errors and grind through the repetitive work that used to eat entire
+afternoons. We should use them for exactly that.</p>
+<p>The trouble starts when delegating <strong>implementation</strong> turns into delegating <strong>judgment</strong>.</p>
+<h2 id="responsibility-did-not-move">Responsibility did not move</h2>
+<p>An agent proposes a concurrency strategy. It works in staging and collapses under production load.
+Who decided to use it?</p>
+<p>“The agent chose it” is not an answer available to a professional engineer.</p>
+<p>The agent has no customer relationship to damage, no reputation, no pager, no employment contract
+and no career. It will not explain the outage to the CEO.</p>
+<p>This is not about model intelligence, so better models will not fix it.
+<strong>Responsibility needs someone who can make or refuse a decision and live with the consequences.</strong></p>
+<p>An agent can recommend PostgreSQL over DynamoDB, write a solid comparison of both, and generate the
+Terraform before you finish reading it. But somebody still has to say: <em>for this system, with these
+consistency requirements, this operating model, these engineers and this expected lifetime, we
+choose PostgreSQL.</em> That person owns what the choice rules out as much as what it enables.</p>
+<p>So the distinction is between <em>bearing</em> responsibility and <em>exercising</em> it.</p>
+<p>Engineers still bear responsibility for their systems.
+But it has become very easy to stop exercising it: accept the generated design, see green
+tests, merge, move on.</p>
+<p>Responsibility you bear but no longer exercise is not delegation. It is exposure.</p>
+<h2 id="first-say-what-kind-of-software-you-are-talking-about">First, say what kind of software you are talking about</h2>
+<p>Much of the debate about AI-assisted development goes nowhere because people talk about different
+kinds of software.</p>
+<p>Someone vibe-coding a side project for twelve users and a team maintaining a ten-year-old,
+business-critical platform share no constraints.</p>
+<p>For a prototype, letting the agent build the whole thing can be perfectly rational. If the
+architecture turns out terrible, delete the repository.</p>
+<p>That changes once the software handles revenue, customer data, or processes that have to keep
+running for another decade. What matters is not whether the code was vibe-coded or written by
+professionals. <strong>What matters is blast radius, reversibility, lifetime, and who pays when it fails.</strong></p>
+<p>A customer-facing product deserves diligence. A financial, regulated or safety-critical system
+deserves enough care that <em>“the agent seemed confident”</em> never shows up in an incident report.</p>
+<table>
+  <thead>
+      <tr>
+          <th>If being wrong costs…</th>
+          <th>What you own</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>your own afternoon</td>
+          <td>almost nothing, let it run</td>
+      </tr>
+      <tr>
+          <td>your team a week</td>
+          <td>a README that states the shape, and tests you actually trust</td>
+      </tr>
+      <tr>
+          <td>customer money or trust</td>
+          <td>the data model, the invariants and the relevant tests, decided by you and written down</td>
+      </tr>
+      <tr>
+          <td>somebody&rsquo;s safety</td>
+          <td>all of the above, plus independent verification</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="agents-are-good-at-local-work">Agents are good at local work</h2>
+<p>Software gives agents an unusually rich feedback loop, and they have been trained on most of the
+public code ever written.</p>
+<p>The compiler flags wrong syntax. Tests flag behaviour that breaks known expectations. Linters
+complain, benchmarks produce numbers, CI turns green or red.</p>
+<p>That makes a lot of engineering work delegable. Once I have decided the API contract, data model,
+invariants and acceptance criteria, I am happy to let an agent write the implementation: the
+boilerplate, the API migration, the library research, the straightforward bug fix, even the review
+of another agent&rsquo;s work.</p>
+<p><strong>Insisting on doing that work by hand is not craftsmanship. It is wasted time.</strong></p>
+<p>The question is where the feedback loop stops being good enough.</p>
+<h2 id="what-no-test-will-tell">What no test will tell</h2>
+<p>Take a data model. No test tells you that the chosen representation will make every future feature
+painful.</p>
+<p>The compiler cannot tell you that a boundary belongs in another subsystem. A unit test cannot tell
+you that a queue should not exist. Your integration suite cannot decide whether the system should
+use threads, async I/O, processes, event-driven messaging or, occasionally, the revolutionary
+approach of doing one thing after another.</p>
+<p>These decisions shape what the product can become, and none of them turns a test red. So the agent
+optimizes what it can see and finds a good local solution, because that is where the signal is.</p>
+<p>Professional engineering often means rejecting a locally attractive solution because of something
+outside that local view: a global invariant, an operational constraint, an organisational boundary,
+an obscure customer requirement, or a decision made six years ago for a reason nobody bothered to
+put in the README.</p>
+<p>Humans cannot keep an entire enterprise system in their heads either. The difference is that a
+responsible engineer knows there are things they do not know, and is accountable for finding out
+which of them matter before committing to a decision.</p>
+<h2 id="defensive-checks-instead-of-design">Defensive Checks instead of Design</h2>
+<p>A tempting failure mode is replacing design with verification.</p>
+<p>Agents are excellent at producing tests and assertions. That is useful, but more assertions do not
+make better software. The usual reflex is to check for an impossible state. The better move is to
+make it unrepresentable.</p>
+<p>If a domain object has seventeen possible combinations and only four are valid, you can add thirteen
+runtime checks. Or you can design a type that only represents the four valid ones.</p>
+<p>Generated code tends to be very defensive. Every function validates its input, every exception is
+caught, every failure has a fallback. And the system as a whole gets harder to reason about.
+Karpathy described models as “mortally terrified of exceptions”. That is a real problem: defensive
+code is becoming a substitute for strong invariants.</p>
+<p>The responsible engineer asks a different question: which states should this system be able to
+represent at all? That is an architectural question, not a test-generation one.</p>
+<p>The same goes for testing in general. The human job is less and less <em>writing</em> tests and more
+deciding which tests count as evidence.</p>
+<h2 id="the-bun-problem">The Bun problem</h2>
+<p>Public agentic success stories are easy to misread.</p>
+<p>A mechanical transformation suits agents very well when the target architecture is known and a
+strong test suite gives fast external feedback. Bun&rsquo;s Zig-to-Rust port had both: a test suite
+written in a language independent of the implementation, and an explicit decision to make the Rust
+a transliteration of the Zig, so nothing had to be redesigned.</p>
+<p><strong>Every hard design decision in that project had already been made by humans.</strong></p>
+<p>That does not show that agents can design systems. It shows that they are very effective once the
+hard decisions are made.</p>
+<p>And it does not mean a twenty-year-old enterprise application can be treated the same way. Legacy
+systems are full of implicit knowledge. Some of it lives in tests, some in documentation. Much more
+lives in production configuration, historical data, operations procedures, and sentences starting
+with “Yes, that looks strange, but in 2019 …”</p>
+<p>The real specification is often just the behaviour customers have learned to depend on.</p>
+<p>That is why <em>“rewrite it with agents”</em> is much less convincing for mature systems than it sounds.
+Generating equivalent code is the easy part. Deciding what “equivalent” means is the hard one.</p>
+<h2 id="what-to-hand-over-and-what-to-keep">What to hand over, and what to keep</h2>
+<p>None of this is an argument for keeping agents on a short leash. Let them loose wherever failure is
+cheap. Humans spending their days on boilerplate, simple refactoring and mechanical implementation
+waste brainpower and speed.</p>
+<p>The skill is knowing where to let the agent run and where to stay in control. My rules of thumb:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Type of work</th>
+          <th>Is there a target the agent can hit?</th>
+          <th>Who</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Implement against an agreed contract</td>
+          <td>Yes, written down</td>
+          <td>Agent</td>
+      </tr>
+      <tr>
+          <td>Port or migrate against a full test suite</td>
+          <td>Yes, total</td>
+          <td>Agent</td>
+      </tr>
+      <tr>
+          <td>Fix a reproducible defect</td>
+          <td>Yes, the reproduction</td>
+          <td>Agent</td>
+      </tr>
+      <tr>
+          <td>Hunt vulnerabilities in existing code</td>
+          <td>Yes, verifiable search</td>
+          <td>Agent</td>
+      </tr>
+      <tr>
+          <td>Write tests for behaviour you have defined</td>
+          <td>Yes</td>
+          <td>Agent</td>
+      </tr>
+      <tr>
+          <td>Boilerplate, glue, mechanical refactoring</td>
+          <td>Yes, the conventions</td>
+          <td>Agent</td>
+      </tr>
+      <tr>
+          <td>Decide <em>which</em> tests would prove it works</td>
+          <td>No, this is choosing</td>
+          <td>Me</td>
+      </tr>
+      <tr>
+          <td>Choose the data model and its invariants</td>
+          <td>No</td>
+          <td>Me</td>
+      </tr>
+      <tr>
+          <td>Choose the API, and what it forecloses</td>
+          <td>No</td>
+          <td>Me</td>
+      </tr>
+      <tr>
+          <td>Decide what &ldquo;fast enough&rdquo; and &ldquo;reliable enough&rdquo; mean</td>
+          <td>No, it is a risk you accept</td>
+          <td>Me</td>
+      </tr>
+      <tr>
+          <td>Decide the feature should exist at all</td>
+          <td>No</td>
+          <td>Me</td>
+      </tr>
+  </tbody>
+</table>
+<p>Everything in the <em>Me</em> rows is either choosing a target or noticing that the target was wrong.</p>
+<p>Let the agent generate the adapter, but own the domain model. Let it migrate three hundred API
+calls, but own the transaction boundary. Let it propose five scaling strategies, but decide whether
+the system needs to scale that way at all. Let it write fifty tests, but decide whether they prove
+anything.</p>
+<p>The line between agent work and human work keeps moving towards the agent, and more will cross it.
+Choosing and noticing should not, because both need a stake, and <strong>a stake is not a capability</strong>.</p>
+<p>The less reversible a decision, the more explicitly a human should own it, with a real name
+attached.</p>
+<h2 id="the-developer-job-is-moving-up">The developer job is moving up</h2>
+<p>This has an uncomfortable consequence for individual contributors.</p>
+<p>For a long time, a large part of the job was translating requirements into code. The product owner
+explained what was needed, the developer built it. Agents make that translation cheap. Once a
+product owner can describe a well-defined feature, an agent can implement much of it directly.</p>
+<p><em>“I take tickets and turn them into code”</em> is no longer enough.</p>
+<p>Typing faster than the agent is not the answer. Owning the feature is. That means understanding
+four things:</p>
+<ol>
+<li><strong>Business process and customer value.</strong> Why should this exist? Which customer problem does it
+solve?</li>
+<li><strong>Architecture.</strong> Where should the change live? Which boundaries must stay intact? Does the
+problem really need concurrency, messaging or another distributed component?</li>
+<li><strong>Operations.</strong> How does the feature behave in production? What must be observable?</li>
+<li><strong>Verification.</strong> What evidence should convince us the requirement is met? Which tests matter?</li>
+</ol>
+<p>Agents can help with all four: research customer workflows, compare architectures, draft SLOs,
+generate threat models, write test suites. But help does not transfer the decision.</p>
+<p>You have to be able to explain your choice without saying <em>“that is what the model suggested.”</em>
+Once that sentence becomes your justification, you are no longer an engineer, just an expendable
+parrot.</p>
+<h2 id="fewer-people-each-owning-more">Fewer people, each owning more</h2>
+<p>There is an optimistic version of this, too.</p>
+<p>If implementation gets much cheaper, teams can get smaller while each person owns more. A product
+owner, a senior engineer and a junior engineer with strong agents may deliver what used to take a
+much larger team.</p>
+<p>But the smaller team cannot be a compressed copy of the old one. Its members need to understand a
+feature end to end: customer need, architecture, implementation, operation.</p>
+<p>That is demanding. It is also closer to what software engineering should have been all along.</p>
+<h2 id="what-remains-ours">What remains ours</h2>
+<p>Agents made code cheap. They did not make being wrong cheap. They did not change who gets called
+when production fails, who explains the decision to a customer or the CEO, or who decides a feature
+should <strong>not</strong> be built.</p>
+<p>We used to think of the diff as our main artifact: the code we wrote and reviewed. More and more,
+what we own is the <strong>constraint set</strong> around it: business intent, architecture, invariants,
+operational requirements, and the evidence by which correctness is judged.</p>
+<p>Inside those constraints, let the agent do as much as it can. That is not surrendering engineering
+to AI. It is putting automation where it belongs.</p>
+<p>Delegate hard. Decide deliberately.</p>
+<p>And when a decision matters, make sure someone in the room is ready to say:</p>
+<p>“I chose this, and I can explain why.”</p>
+
+</content>
+<p>
+  
+  <a href="/blog/ai/">#Ai</a>
+  
+  <a href="/blog/development/">#Development</a>
+  
+  <a href="/blog/agents/">#Agents</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

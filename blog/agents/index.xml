@@ -7,28 +7,35 @@
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2022, sysid.</copyright>
-    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 28 Aug 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="/blog/agents/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Decisions Nobody Made</title>
+      <link>/the-decisions-nobody-made/</link>
+      <pubDate>Fri, 28 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>/the-decisions-nobody-made/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Code Is Cheap. Being Wrong Isn’t.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Three sentences I hear more and more often:&lt;/p&gt;&#xA;&lt;p&gt;“The tests passed.”&lt;/p&gt;&#xA;&lt;p&gt;“Copilot suggested it.”&lt;/p&gt;&#xA;&lt;p&gt;“The agent handled the implementation.”&lt;/p&gt;&#xA;&lt;p&gt;Each sounds reasonable. Together they point to a problem.&lt;/p&gt;&#xA;&lt;p&gt;Coding agents are good at producing software. They implement features, run migrations, explore&#xA;unfamiliar APIs, fix compiler errors and grind through the repetitive work that used to eat entire&#xA;afternoons. We should use them for exactly that.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Agent IAC</title>
       <link>/agent-iac/</link>
       <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
       <guid>/agent-iac/</guid>
-      <description>&lt;h1 id=&#34;treat-agents-like-infrastructure&#34;&gt;Treat Agents Like Infrastructure&lt;/h1&gt;&#xA;&lt;p&gt;As developer in 2026, you are probably not using &lt;em&gt;one&lt;/em&gt; AI coding agent:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Claude Code for personal projects&lt;/li&gt;&#xA;&lt;li&gt;GitHub Copilot CLI because your employer sanctions it&lt;/li&gt;&#xA;&lt;li&gt;maybe a third harness for its ergonomics (e.g. Pi).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Each of them wants its own instruction file, its own skills directory, its own MCP server config, its own permission model — in its own format, in its own location, evolving on its own schedule.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;treat-agents-like-infrastructure&#34;&gt;Treat Agents Like Infrastructure&lt;/h1&gt;&#xA;&lt;p&gt;As developer in 2026, you are probably not using &lt;em&gt;one&lt;/em&gt; AI coding agent:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Claude Code for personal projects&lt;/li&gt;&#xA;&lt;li&gt;GitHub Copilot CLI because your employer sanctions it&lt;/li&gt;&#xA;&lt;li&gt;maybe a third harness for its ergonomics (e.g. Pi).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Each of them wants its own instruction file, its own skills directory, its own MCP server config, its own permission model, in its own format, in its own location, evolving on its own schedule.&lt;/p&gt;</description>
     </item>
     <item>
       <title>AI native developer</title>
       <link>/ai-native-developer/</link>
       <pubDate>Sun, 19 Apr 2026 00:00:00 +0000</pubDate>
       <guid>/ai-native-developer/</guid>
-      <description>&lt;h1 id=&#34;a-different-role-not-a-faster-one&#34;&gt;A Different Role, Not a Faster One&lt;/h1&gt;&#xA;&lt;p&gt;A staff engineer’s day used to be easy to describe.&lt;/p&gt;&#xA;&lt;p&gt;In the morning, you would work through a hard&#xA;implementation detail. After lunch, you would review design choices with the team. In the&#xA;afternoon, you would merge code, answer questions, and move on to the next change.&lt;/p&gt;&#xA;&lt;p&gt;The visible work and the valuable work were usually strongly correlated.&lt;/p&gt;&#xA;&lt;p&gt;While it looks similar today on the calendar, it is different in substance.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;a-different-role-not-a-faster-one&#34;&gt;A Different Role, Not a Faster One&lt;/h1&gt;&#xA;&lt;p&gt;A staff engineer&amp;rsquo;s day used to be easy to describe.&lt;/p&gt;&#xA;&lt;p&gt;In the morning, you would work through a hard&#xA;implementation detail. After lunch, you would review design choices with the team. In the&#xA;afternoon, you would merge code, answer questions, and move on to the next change.&lt;/p&gt;&#xA;&lt;p&gt;The visible work and the valuable work were usually strongly correlated.&lt;/p&gt;&#xA;&lt;p&gt;Today the calendar looks similar, but the substance has changed.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Cost of Speed</title>
       <link>/the-cost-of-speed/</link>
       <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
       <guid>/the-cost-of-speed/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;The Practices We&amp;rsquo;re Throwing Away — They Matter&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Agentic coding has made writing software close to free. Claude Code, Codex, Gemini CLI — these tools&#xA;generate prototypes, migrations, refactors, and tests at a pace that would have seemed absurd two&#xA;years ago. Acceleration is real.&lt;/p&gt;&#xA;&lt;p&gt;But a strange asymmetry has developed in the public conversation.&lt;/p&gt;&#xA;&lt;p&gt;For a certain class of builder, it changed everything: the solo developer, the&#xA;founder racing to validate an idea, the engineer building a personal tool over a weekend. In those&#xA;environments, the cost of failure is bounded. A bug means annoyance, not a regulatory&#xA;incident. A bad abstraction means refactoring next week, not a 3 AM escalation across three&#xA;continents.&lt;/p&gt;</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;The Practices We&amp;rsquo;re Throwing Away: They Matter&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Agentic coding has made writing software close to free. Claude Code, Codex, Gemini CLI: these tools&#xA;generate prototypes, migrations, refactors, and tests at a pace that would have seemed absurd two&#xA;years ago. Acceleration is real.&lt;/p&gt;&#xA;&lt;p&gt;But a strange asymmetry has developed in the public conversation.&lt;/p&gt;&#xA;&lt;p&gt;For a certain class of builder, it changed everything: the solo developer, the&#xA;founder racing to validate an idea, the engineer building a personal tool over a weekend. In those&#xA;environments, the cost of failure is bounded. A bug means annoyance, not a regulatory&#xA;incident. A bad abstraction means refactoring next week, not a 3 AM escalation across three&#xA;continents.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cheap Code, Expensive Confusion</title>

